@@ -5,7 +5,7 @@
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
-   manager="paulettem"
+   manager="jhubbard"
    editor="cgronlun"
 />
 
@@ -190,4 +190,4 @@ Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등
 - [HDInsight Premium에 RStudio 서버 추가](hdinsight-hadoop-r-server-install-r-studio.md)
 - [HDInsight의 R 서버에 대한 계산 컨텍스트 옵션](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

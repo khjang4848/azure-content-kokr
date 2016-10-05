@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="워크플로 디자이너와 고급 인코딩 워크플로 만들기" 
+	pageTitle="워크플로 디자이너와 고급 인코딩 워크플로 만들기 | Microsoft Azure" 
 	description="워크플로 디자이너와 고급 인코딩 워크플로를 만드는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,johndeu,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;johndeu;anilmur"/>
 
 
 #워크플로 디자이너와 고급 인코딩 워크플로 만들기
@@ -74,8 +74,9 @@
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
 
 
+## 다음 단계
 
-##미디어 서비스 학습 경로
+미디어 서비스 학습 경로를 검토합니다.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -90,4 +91,4 @@
 
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

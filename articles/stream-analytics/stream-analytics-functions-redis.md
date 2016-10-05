@@ -4,7 +4,7 @@
 	keywords="데이터 스트림, Redis Cache, 서비스 버스 큐"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
 	/>
 
@@ -196,12 +196,13 @@ Azure Functions 및 스트림 분석으로 수행할 수 있는 새로운 작업
 
 Microsoft Azure를 처음 사용하는 경우 [무료 Azure 평가판 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록하여 사용해볼 수 있습니다. 스트림 분석을 처음 사용하는 경우 [첫 번째 스트림 분석 작업을 만들어](stream-analytics-create-a-job.md) 볼 수 있습니다.
 
-도움말이 필요하거나 질문이 있는 경우 [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) 또는 [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) 포럼에 게시하세요.
+도움말이 필요하거나 질문이 있는 경우 [MSDN](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics) 또는 [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) 포럼에 게시하세요.
 
 다음 리소스를 참조할 수도 있습니다.
 
 - [Azure Functions 개발자 참조](../azure-functions/functions-reference.md)
 - [Azure Functions C# 개발자 참조](../azure-functions/functions-reference-csharp.md)
+- [Azure Functions F# 개발자 참조](../azure-functions/functions-reference-fsharp.md)
 - [Azure Functions NodeJS 개발자 참조](../azure-functions/functions-reference.md)
 - [Azure Functions 트리거 및 바인딩](../azure-functions/functions-triggers-bindings.md)
 - [Azure Redis Cache를 모니터링하는 방법](../redis-cache/cache-how-to-monitor.md)
@@ -214,4 +215,4 @@ Microsoft Azure를 처음 사용하는 경우 [무료 Azure 평가판 계정](ht
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

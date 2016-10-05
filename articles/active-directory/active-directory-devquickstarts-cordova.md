@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="vittorib"/>
 
 # Azure AD를 Apache Cordova 앱에 통합
@@ -27,7 +27,7 @@ Apache Cordova를 사용하여 모든 기능이 갖춰진 네이티브 응용 �
 이 자습서에서는 ADAL(Active Directory 인증 라이브러리)에 대한 Apache Cordova 플러그 인을 사용하여 다음 기능으로 간단한 앱을 개선해봅니다.
 
 -	단 몇 줄의 코드로, AD 사용자를 인증하고 Azure AD Graph API를 호출하기 위한 토큰을 가져옵니다.
--	해당 토큰을 사용하여 해당 디렉터리를 쿼리하고 결과를 표시하는 Graph API를 호출합니다.  
+-	해당 토큰을 사용하여 해당 디렉터리를 쿼리하고 결과를 표시하는 Graph API를 호출합니다.
 -	사용자에 대한 인증 프롬프트를 최소화하기 위해 ADAL 토큰 캐시를 활용합니다.
 
 이 작업을 수행하려면 다음 작업이 필요합니다.
@@ -42,7 +42,7 @@ Apache Cordova를 사용하여 모든 기능이 갖춰진 네이티브 응용 �
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 앱 개발 권한이 있는 계정이 있는 Azure AD 테넌트
-- Apache Cordova를 사용하도록 구성된 개발 환경  
+- Apache Cordova를 사용하도록 구성된 개발 환경
 
 위의 두 항목을 모두 설정한 경우 1단계를 바로 진행하세요.
 
@@ -156,7 +156,7 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -180,7 +180,7 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -269,4 +269,4 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

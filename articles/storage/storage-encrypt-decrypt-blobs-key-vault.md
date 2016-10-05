@@ -1,20 +1,20 @@
 <properties
-   pageTitle="자습서: Azure 키 자격 증명 모음을 사용하여 Microsoft Azure 저장소에서 Blob 암호화 및 해독 | Microsoft Azure"
-   description="이 자습서에서는 Azure 키 자격 증명 모음과 함께 Microsoft Azure 저장소에 대 한 클라이언트 쪽 암호화를 사용하여 Blob를 암호화 및 암호 해독하는 방법을 단계별로 안내합니다."
-   services="storage"
-   documentationCenter=""
-   authors="adhurwit"
-   manager=""
-   editor="tysonn"/>
+	pageTitle="자습서: Azure 키 자격 증명 모음을 사용하여 Microsoft Azure 저장소에서 Blob 암호화 및 해독 | Microsoft Azure"
+	description="이 자습서에서는 Azure 키 자격 증명 모음과 함께 Microsoft Azure 저장소에 대 한 클라이언트 쪽 암호화를 사용하여 Blob를 암호화 및 암호 해독하는 방법을 단계별로 안내합니다."
+	services="storage"
+	documentationCenter=""
+	authors="adhurwit"
+	manager=""
+	editor="tysonn"/>
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="03/31/2016"
-   ms.author="lakasa"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="09/20/2016"
+	ms.author="lakasa;robinsh"/>
 
 # 자습서: Microsoft Azure 저장소에서 Azure 키 자격 증명 모음을 사용하여 Blob 암호화 및 해독
 
@@ -235,4 +235,4 @@ Microsoft Azure 저장소에 관한 최신 정보를 보려면 [Microsoft Azure 
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0921_2016-->

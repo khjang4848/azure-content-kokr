@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="tamram;aungoo-msft"/>
+	ms.date="09/20/2016"
+	ms.author="tamram;aungoo"/>
 
 
 # 증분 스냅숏을 사용하여 Azure 가상 컴퓨터 디스크 백업
 
-## 개요 
+## 개요
 
 Azure 저장소는 Blob의 스냅숏을 만드는 기능을 제공합니다. 스냅숏은 해당 시점에 Blob 상태를 캡처합니다. 이 문서에서는 스냅숏을 사용하여 가상 컴퓨터 디스크의 백업을 유지 관리할 수 있는 방법의 시나리오에 대해 설명합니다. Azure 백업 및 복구 서비스를 사용하지 않도록 선택하고 가상 컴퓨터 디스크에 대한 사용자 지정 백업 전략을 만들 때 이 방법론을 사용할 수 있습니다.
 
@@ -128,4 +128,4 @@ Blob의 스냅숏을 만들고 아래와 같은 링크를 사용하여 VM 백업
 - [Blob의 스냅숏 만들기](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [VM 백업 인프라 계획](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

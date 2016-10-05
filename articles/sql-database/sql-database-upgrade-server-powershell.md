@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 # PowerShell을 사용하여 Azure SQL 데이터베이스 V12로 업그레이드
@@ -53,9 +53,7 @@ V12로 업그레이드 한 직후에는 서비스가 새 서버의 워크로드�
 
 ## 필수 조건
 
-PowerShell을 사용하여 서버를 V12로 업그레이드하려면 Azure PowerShell이 설치 및 실행되고 있어야 하며, 버전에 따라 Azure 리소스 관리자 PowerShell Cmdlet에 액세스하기 위해 리소스 관리자 모드로 전환해야 할 수도 있습니다.
-
-PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+PowerShell을 사용하여 서버를 V12로 업그레이드하려면 최신 Azure PowerShell을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 
 ## 자격 증명 구성 및 구독 선택
@@ -70,7 +68,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 현재 구독을 설정 하 여 구독 정보로 다음 cmdlet을 실행 합니다.
 
-	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+	Set-AzureRmContext -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 다음 명령은 위에서 방금 선택한 구독을 실행합니다.
 
@@ -109,7 +107,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
     # Selecting the right subscription
     #
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Set-AzureRmContext -SubscriptionName $SubscriptionName
 
     # Getting the upgrade recommendations
     #
@@ -163,7 +161,7 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 개별 데이터베이스를 모니터링하는 것 외에, [포털을 사용](sql-database-elastic-pool-manage-portal.md)하거나 [PowerShell](sql-database-elastic-pool-manage-powershell.md)을 사용하여 탄력적 데이터베이스 풀을 모니터링할 수도 있습니다.
 
 
-**리소스 소비 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 소비 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
+**리소스 소비 데이터:** 기본, 표준 및 프리미엄 데이터베이스의 경우 사용자 데이터베이스에서 [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV를 통해 리소스 소비 데이터를 사용할 수 있습니다. 이 DMV는 지난 1시간 동안의 작업에 대해 15초 간격으로 거의 실시간 리소스 사용량 정보를 제공합니다. 특정 간격의 DTU 사용률은 CPU, IO 및 로그 차원의 최대 사용률로 계산됩니다. 다음은 지난 1시간 동안의 평균 DTU 사용률을 계산하는 쿼리입니다.
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -201,4 +199,4 @@ ElasticPoolCollection 및 DatabaseCollection 매개 변수는 선택적임:
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

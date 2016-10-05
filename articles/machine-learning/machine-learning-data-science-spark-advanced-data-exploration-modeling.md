@@ -3,7 +3,7 @@
 	description="HDInsight Spark를 사용하여 데이터 탐색 및 학습 이진 분류를 수행하며 교차 유효성 검사 및 하이퍼 매개 변수 최적화를 사용하는 회귀 모델링을 수행합니다."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # 고급 Spark로 데이터 탐색 및 모델링 
 
@@ -1464,7 +1464,7 @@ R-sqr = 0.740751197012
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**소비 Notebook에 사용할 모델 파일에 대한 경로를 출력합니다.** 소비 및 독립적인 데이터 집합의 점수 매기기를 위해 이러한 파일 이름을 "Consumption notebook(소비 Notebook)"에 복사하여 붙여넣어야 합니다.
+**소비 Notebook에 사용할 모델 파일에 대한 경로를 출력합니다. ** 소비 및 독립적인 데이터 집합의 점수 매기기를 위해 이러한 파일 이름을 "Consumption notebook(소비 Notebook)"에 복사하여 붙여넣어야 합니다.
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1496,4 +1496,4 @@ Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점�
 
 **모델 사용:** 이 토픽에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark에서 만든 기계 학습 모델 점수 매기기 및 평가](machine-learning-data-science-spark-model-consumption.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

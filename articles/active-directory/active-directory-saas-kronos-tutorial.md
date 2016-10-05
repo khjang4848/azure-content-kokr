@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -132,7 +132,7 @@ Kronos 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다
 
     a. **메타데이터 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 5.  응용 프로그램에 구성된 SSO를 사용하려면 Kronos 계정 관리자에게 문의하고 SSO를 구성하기 위해 적절한 채널을 사용하도록 도움을 줄 수 있습니다. 전자 메일을 보내고 다운로드한 메타데이터 파일을 연결해야 합니다.
@@ -176,7 +176,7 @@ Kronos 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -190,7 +190,7 @@ Kronos 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -271,4 +271,4 @@ Kronos 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다
 [204]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kronos-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

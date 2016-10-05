@@ -194,7 +194,7 @@ MSBuild를 사용한 명령줄 배포에 대한 자세한 내용은 다음 리�
 * [SQL 데이터베이스를 사용하는 웹앱을 프로비전](app-service-web-arm-with-sql-database-provision.md)
 * [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-deploy-complex-application-predictably.md)
 * [Azure에서 실제 클라우드 앱 빌드 - 자동화](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)(영문). 전자책에 나온 샘플 응용 프로그램이 Windows PowerShell 스크립트를 사용하여 Azure 테스트 환경을 만들고 이 환경에 배포하는 방법을 설명하는 전자책 장입니다. 추가 Azure PowerShell 설명서 링크를 보려면 [리소스](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources)(영문) 섹션을 참조하십시오.
-* [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시합니다.](http://msdn.microsoft.com/library/dn642480.aspx) Visual Studio에서 생성된 Windows PowerShell 배포 스크립트를 사용하는 방법.
+* [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시합니다.](../vs-azure-tools-publishing-using-powershell-scripts.md) Visual Studio에서 생성된 Windows PowerShell 배포 스크립트를 사용하는 방법.
 
 ###<a name="api"></a>.NET 관리 API를 사용하여 배포 자동화
 
@@ -234,4 +234,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 앱 서비스 배포에 
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Azure Resource Manager 템플릿을 사용하여 Windows VMSS 및 원하는 상태 구성
@@ -23,7 +23,7 @@
 
 ## Windows VM의 템플릿 예제
 
-아래 코드 조각은 템플릿의 Resource 섹션에 대한 코드입니다.
+다음 코드 조각은 템플릿의 Resource 섹션에 대한 코드입니다.
 
 ```json
 			"name": "Microsoft.Powershell.DSC",
@@ -90,7 +90,7 @@ VMSS 노드에는 "VirtualMachineProfile", "extensionProfile" 특성을 포함�
 
 ## 자세한 설정 정보
 
-Azure Resource Manager 템플릿에 있는 Azure DSC 확장의 설정 부분에 대한 스키마입니다.
+다음 스키마는 Azure Resource Manager 템플릿에 있는 Azure DSC 확장의 설정 부분에 대한 것입니다.
 
 ```json
 
@@ -169,7 +169,7 @@ Azure Resource Manager 템플릿에 있는 Azure DSC 확장의 설정 부분에 
 
 다음 예제는 [DSC 확장 처리기 개요 페이지](virtual-machines-windows-extensions-dsc-overview.md)의 "시작" 섹션에서 파생됩니다. 이 예제에서는 cmdlet 대신 Resource Manager 템플릿을 사용하여 확장을 배포합니다. "IisInstall.ps1" 구성을 저장하고 .ZIP 파일에 배치한 다음 파일을 액세스 가능한 URL에 업로드합니다. 이 예제에서는 Azure Blob Storage를 사용하지만 임의의 위치에서 .ZIP 파일을 다운로드할 수 있습니다.
 
-Resource Manager 템플릿에서 다음은 VM에 올바른 파일을 다운로드하고 적절한 PowerShell 함수를 실행하도록 지시합니다.
+Azure Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다운로드하고 적절한 PowerShell 함수를 실행하도록 지시합니다.
 
 ```json
 "settings": {
@@ -285,4 +285,14 @@ Resource Manager 템플릿에서 다음은 VM에 올바른 파일을 다운로�
 - 누락된 속성을 제공합니다.
 - 누락된 속성을 요구하는 속성을 제거합니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+## 다음 단계
+[DSC 및 VMSS에 대한 자세한 정보](virtual-machines-scale-sets-dsc.md)
+
+[DSC의 보안 자격 증명 관리](virtual-machines-windows-extensions-dsc-credentials.md)에서 자세한 내용을 참조하세요.
+
+Azure DSC 확장 처리기에 대한 자세한 내용은 [Azure 필요한 상태 구성 확장 처리기 소개](virtual-machines-windows-extensions-dsc-overview.md)를 참조하세요.
+
+PowerShell DSC에 대한 자세한 내용은 [PowerShell 설명서 센터를 방문하세요](https://msdn.microsoft.com/powershell/dsc/overview).
+
+<!---HONumber=AcomDC_0921_2016-->

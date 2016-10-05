@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="09/16/2016"
    ms.author="dhanyahk"/>
 
 
@@ -29,4 +29,4 @@
  - [Azure Active Directory Reporting '알 수 없는 작업자' 이벤트](active-directory-reporting-unknown-actor.md)
  - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -27,13 +27,13 @@
 **Let 및 set** [let](#let-clause) | [set](#set-clause)
 
 
-**쿼리 및 연산자** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**쿼리 및 연산자** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **집계** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **스칼라** [부울 리터럴](#boolean-literals) | [부울 연산자](#boolean-operators) | [캐스트](#casts) | [스칼라 비교](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
-**숫자** [산술 연산자](#arithmetic-operators) | [숫자 리터럴](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+**숫자** [산술 연산자](#arithmetic-operators) | [숫자 리터럴](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **날짜 및 시간** [날짜 및 시간 식](#date-and-time-expressions) | [날짜 및 시간 리터럴](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -445,7 +445,7 @@ traces
 
 **구문**
 
-    Table1 | join [kind=Kind] \(Table2) on CommonColumn [, ...]
+    Table1 | join [kind=Kind] (Table2) on CommonColumn [, ...]
 
 **인수**
 
@@ -1053,7 +1053,7 @@ exceptions
 
 ### where 연산자
 
-     T | where fruit=="apple"
+     requests | where resultCode==200
 
 조건자를 만족하는 행의 부분집합으로 테이블을 필터링합니다.
 
@@ -1086,7 +1086,7 @@ exceptions
 **예제**
 
 ```AIQL
-Traces
+traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
     and ActivityId == SubActivityIt 
@@ -1096,6 +1096,26 @@ Traces
 
 참고로 마지막 두 열은 인덱스를 이용할 수 없고 스캔을 강제로 실행하므로 해당 두 열 사이에 비교를 넣습니다.
 
+
+### where-in 연산자
+
+    requests | where resultCode !in (200, 201)
+
+    requests | where resultCode in (403, 404)
+
+**구문**
+
+    T | where col in (expr1, expr2, ...)
+    T | where col !in (expr1, expr2, ...)
+
+**인수**
+
+* `col`: 테이블의 열입니다.
+* `expr1`...: 스칼라 식의 목록입니다.
+
+`col`이(가) 식 `expr1...` 중 하나와 동일한 행만을 포함하도록 `in`을(를) 사용합니다.
+
+`col`이(가) 식 `expr1...` 중 어느 것과도 동일하지 않은 행만을 포함하도록 `!in`을(를) 사용합니다.
 
 
 ## 집계
@@ -1510,8 +1530,8 @@ Analytics에서 다음과 같은 이벤트 그룹이 표시됩니다.
 `>=`|크거나 같음
 `<>`|같지 않음
 `!=`|같지 않음 
-`in`| 오른쪽 피연산자는 (동적) 배열이며 왼쪽된 피연산자는 해당 배열 요소 중 하나와 같습니다.
-`!in`| 오른쪽 피연산자는 (동적) 배열이며 왼쪽된 피연산자는 해당 배열 요소 중 하나와 같지 않습니다.
+`in`| 오른쪽 피연산자는 (동적) 배열이며 왼쪽 피연산자는 해당 배열 요소 중 하나와 같습니다.
+`!in`| 오른쪽 피연산자는 (동적) 배열이며 왼쪽 피연산자는 해당 배열 요소 중 하나와 같지 않습니다.
 
 
 
@@ -1670,7 +1690,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ## 숫자
 
-[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### 숫자 리터럴
 
@@ -1757,10 +1777,25 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     exp10(v) // 10 raised to the power v
 
 
-
 ### floor
 
 [`bin()`](#bin)에 대한 별칭입니다.
+
+### 감마
+
+[감마 함수](https://en.wikipedia.org/wiki/Gamma_function)
+
+**구문**
+
+    gamma(x)
+
+**인수**
+
+* *x:* 실수
+
+양의 정수의 경우, `gamma(x) == (x-1)!` 예를 들어 `gamma(5) == 4 * 3 * 2 * 1`입니다.
+
+[loggamma](#loggamma)를 참조하세요.
 
 
 ### 로그
@@ -1771,6 +1806,20 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 
 `v`은(는) 0보다 큰 실수여야 합니다. 그렇지 않으면 null이 반환됩니다.
+
+### loggamma
+
+
+[감마 함수](#gamma)의 절대 값의 자연 로그입니다.
+
+**구문**
+
+    loggamma(x)
+
+**인수**
+
+* *x:* 실수
+
 
 ### rand
 
@@ -2397,7 +2446,7 @@ substring("ABCD", 0, 2)       // AB
 
 ## 배열, 개체 및 동적
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
 
 
 다음은 Application Insights 예외에 대한 쿼리의 결과입니다. `details`의 값은 배열입니다.
@@ -2468,7 +2517,7 @@ substring("ABCD", 0, 2)       // AB
       "rawStack":"string"
     }}
 
-참고로 `indexer`는 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
+참고로 `indexer`은(는) 숫자 인덱스를 사용해야 하는 위치를 표시하기 위해 사용됩니다. 이 스키마의 경우 일부 유효한 경로는 다음과 같을 수 있습니다(이 예제 인덱스가 범위 안에 든다고 가정).
 
     details[0].parsedStack[2].level
     details[0].message
@@ -2699,6 +2748,24 @@ path 식의 배열입니다.
 
 참고로 “[0]”은 배열이 존재하지만 특정 경로에 사용되는 인덱스를 지정하지 않았음을 나타냅니다.
 
+### zip
+
+    zip(list1, list2, ...)
+
+목록 집합을 하나의 튜플 목록으로 결합합니다.
+
+* `list1...`: 값의 목록
+
+**예**
+
+    zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
+    => [ [1,2], [3,4], [5,6] ]
+
+    
+    zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
+    => [ [1,2], [3,4], [5,null] ]
+
+
 ### 이름
 
 이름은 최대 1024자까지 가능합니다. 이름은 대/소문자를 구분하며 문자, 숫자 및 밑줄(`_`)을 포함할 수 있습니다.
@@ -2724,4 +2791,4 @@ path 식의 배열입니다.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

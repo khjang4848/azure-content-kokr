@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="09/16/2016"
    ms.author="dhanyahk"/>
 
 # Azure Active Directory 보고서 미리 보기
@@ -54,4 +54,4 @@ RMS 사용 응용 프로그램 사용 현황 | 공개 미리 보기
 **비공개 미리 보기 보고서** |
 모든 사용자 로그인 작업 | 비공개 미리 보기
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0921_2016-->

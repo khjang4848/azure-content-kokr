@@ -71,4 +71,4 @@
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

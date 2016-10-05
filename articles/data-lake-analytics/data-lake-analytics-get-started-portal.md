@@ -154,4 +154,4 @@ Azure 포털은 검색 로그 파일을 포함하는 기본 데이터 레이크 
 - 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
 - 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!-----HONumber=AcomDC_0921_2016-->

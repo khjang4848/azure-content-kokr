@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
+	keywords="Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
 
 <tags
 	ms.service="functions"
@@ -20,7 +20,7 @@
 
 # Azure Functions 트리거 및 바인딩 개발자 참조
 
-다음 문서에서는 Azure Functions에서 트리거 및 바인딩을 구성하고 코딩하는 방법을 설명합니다. 이 문서에서는 사용자가 [Azure Functions 개발자 참조](functions-reference.md) 및 [C#](functions-reference-csharp.md) 또는 [Node.js](functions-reference-node.md) 개발자 참조 문서를 읽었다고 가정합니다.
+다음 문서에서는 Azure Functions에서 트리거 및 바인딩을 구성하고 코딩하는 방법을 설명합니다. 이 문서에서는 사용자가 [Azure Functions 개발자 참조](functions-reference.md) 및 [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) 또는 [Node.js](functions-reference-node.md) 개발자 참조 문서를 읽었다고 가정합니다.
 
 ## 트리거 및 바인딩 문서
 
@@ -35,4 +35,4 @@
 * [기능 테스트](functions-test-a-function.md)
 * [기능 크기 조정](functions-scale.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -39,7 +39,8 @@ Azure 기계 학습 스튜디오를 사용하여 기계 학습 모델을 만들 
 
 > [AZURE.TIP] 해결하려는 특정 문제에 가장 적합한 기계 학습 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md)을 참조하세요.
 
-##모델 학습
+## 모델 학습
+
 먼저 향상된 의사 결정 트리 모델을 설정해 보겠습니다.
 
 1.	모듈 팔레트에서 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈을 찾고 캔버스로 끌어서 놓습니다.
@@ -82,7 +83,8 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 ![두 번째 모델 학습][2]
 
-##모델 점수 매기기 및 평가
+## 모델 점수 매기기 및 평가
+
 [데이터 분할][split] 모듈을 통해 구분된 테스트 데이터를 사용하여 학습된 모듈의 점수를 매깁니다. 그리고 나서 두 모델의 결과를 비교하여 더 나은 결과를 생성한 모듈을 확인할 수 있습니다.
 
 1.	[모델 점수 매기기][score-model] 모듈을 찾아 캔버스로 끌어서 놓습니다.
@@ -143,4 +145,4 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

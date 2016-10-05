@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="08/15/2016"
+    ms.date="09/19/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp의 예정된 기능
@@ -20,18 +20,18 @@
 > [AZURE.IMPORTANT]
 Azure RemoteApp은 중단되었습니다. 자세한 내용은 [알림](https://go.microsoft.com/fwlink/?linkid=821148)을 읽어보세요.
 
-Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 항상 노력하고 있습니다. 기능이 제공될 대략적인 일정은 다음과 같습니다.
+**Azure RemoteApp의 사용 중지 발표로 인해 모든 미리 보기 및 로드맵 항목은 취소 및 종료되었습니다.**
 
-|기능|2016년 4-6월|2016년 7월-9월|
+|기능|가동 상태|
 |-----------|-------|-------|
-|[Azure 클래식 포털](http://manage.windowsazure.com)과 [Azure 포털](https://portal.azure.com) 둘 다에서 Azure Remote App 사용 가능 - 비공개 미리 보기| | |
-|특정 사용자에게 개별 응용 프로그램을 게시하는 기능 - 비공개 미리 보기([피드백](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))| | |
-|Windows 클라이언트 재배포 가능 MSI 패키지([피드백](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - 비공개 미리 보기| | |
-|ARM(Azure 리소스 관리자) 지원|||
-|Azure v2 리소스 지원| ||
-|CSP(클라우드 솔루션 공급자)|||
-|인도 지역의 서비스 제공|||
-|영국 지역의 서비스 제공|||
+|[Azure 클래식 포털](http://manage.windowsazure.com)과 [Azure 포털](https://portal.azure.com) 둘 다에서 Azure Remote App 사용 가능 - 비공개 미리 보기|**Canceled**|
+|특정 사용자에게 개별 응용 프로그램을 게시하는 기능 - 비공개 미리 보기([피드백](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec/))|**Canceled**|
+|Windows 클라이언트 재배포 가능 MSI 패키지([피드백](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/)) - 비공개 미리 보기|**Canceled**|
+|ARM(Azure 리소스 관리자) 지원|**Canceled**|
+|Azure v2 리소스 지원|**Canceled**|
+|CSP(클라우드 솔루션 공급자)|**Canceled**|
+|인도 지역의 서비스 제공|**Canceled**|
+|영국 지역의 서비스 제공|**Canceled**|
 
 
 올해 초 추가된 다른 개선 사항:
@@ -50,4 +50,4 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 - 오스트레일리아 데이터 센터의 가용성
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

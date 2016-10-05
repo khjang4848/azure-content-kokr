@@ -103,4 +103,4 @@ SQL 데이터 웨어하우스에 어떤 문제가 있는 경우 엔지니어링 
 [스택 오버플로]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 데이터 웨어하우스 MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!-----HONumber=AcomDC_0907_2016-->

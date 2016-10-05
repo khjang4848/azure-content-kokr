@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -75,7 +75,7 @@ redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCur
 ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
 ```
 
-- Azure 관리 포털에서 응용 프로그램의 **구성** 탭으로 다시 가서 **RedirectUri**의 값을 이 값으로 바꿉니다.  
+- Azure 관리 포털에서 응용 프로그램의 **구성** 탭으로 다시 가서 **RedirectUri**의 값을 이 값으로 바꿉니다.
 
 ## *3. ADAL을 사용하여 AAD에서 토큰을 가져오기*
 ADAL에서 확인되는 기본 원칙은 액세스 토큰이 필요할 때마다 앱이 `authContext.AcquireToken(…)`을 호출하고 나머지 작업은 ADAL이 수행한다는 것입니다.
@@ -150,4 +150,4 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
 	description="최신 버전의 Azure Authenticator로 업그레이드하는 방법에 알아봅니다."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
+	authors="kgremban"
 	manager="femila"
 	editor="curtland"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Microsoft Authenticator
 
@@ -137,4 +137,4 @@ Microsoft Authenticator 앱에서 계정을 제거하려면 계정을 선택하�
 
 ![삭제 단추](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

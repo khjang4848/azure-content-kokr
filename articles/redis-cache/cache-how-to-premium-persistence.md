@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 데이터 지속성을 구성하는 방법
 
 Azure Redis Cache에는 새 프리미엄 계층을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다.
 
-Azure Redis Cache 프리미엄 계층에는 클러스터링, 지속성 및 가상 네트워크 지원이 포함됩니다. 이 문서에서는 프리미엄 Azure Redis Cache에서 지속성을 구성하는 방법을 설명합니다.
+Azure Redis Cache 프리미엄 계층에는 클러스터링, 지속성 및 가상 네트워크 지원 등의 기능이 포함됩니다. 이 문서에서는 프리미엄 Azure Redis Cache에서 지속성을 구성하는 방법을 설명합니다.
 
-프리미엄 캐시 기능에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)과 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Redis Cache 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
 
 ## 데이터 지속성이란?
 Redis 지속성을 사용하면 Redis에 저장된 데이터를 유지할 수 있습니다. 또한 스냅숏을 만들고, 하드웨어 오류 시 로드할 수 있게 데이터를 백업할 수 있습니다. 기본 또는 표준 계층보다 훨씬 큰 이러한 혜택은 모든 데이터가 메모리에 저장되기 때문에 가능하며 캐시 노드 다운 시 데이터 손실 가능성이 있습니다.
@@ -98,14 +98,13 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 ### 다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 됩니까?
 
 -	더 큰 크기로 조정했다면 영향은 없습니다.
--	더 작은 크기를 조정했고 새 크기에 대한 [데이타베이스 제한](cache-configure.md#databases)보다 사용자 지정 [데이터베이스](cache-configure.md#databases) 설정이 더 크다면, 그러한 데이타베이스에 저장된 데이터는 복원되지 않습니다. 자세한 내용은 [설정 사용자 지정 데이터베이스 설정이 크기 조정 하는 동안에 영향을 받나요?](#is-my-custom-databases-setting-affected-during-scaling)를 참조하세요.
--	더 작은 크기로 조정 했고 마지막 백업의 모든 데이터를 저장하기에 충분한 공간이 더 작은 크기에 없는 경우, 일반적으로 [allkeys lru](http://redis.io/topics/lru-cache) 제거 정책을 사용하여 복원 과정에서 키가 제거됩니다.
+-	더 작은 크기를 조정했고 새 크기에 대한 [데이터베이스 제한](cache-configure.md#databases)보다 사용자 지정 [데이터베이스](cache-configure.md#databases) 설정이 더 크다면, 그러한 데이터베이스에 저장된 데이터는 복원되지 않습니다. 자세한 내용은 [사용자 지정 데이터베이스 설정이 크기 조정 동안 영향을 받나요?](#is-my-custom-databases-setting-affected-during-scaling)를 참조하세요.
+-	더 작은 크기로 조정 했고 마지막 백업의 모든 데이터를 저장하기에 충분한 공간이 더 작은 크기에 없는 경우, 일반적으로 [allkeys-lru](http://redis.io/topics/lru-cache) 제거 정책을 사용하여 복원 프로세스 중에 키가 제거됩니다.
 
 ## 다음 단계
 더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
 
--	[프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
--	[프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)
+-	[Azure Redis Cache 프리미엄 계층 소개](cache-premium-tier-intro.md)
   
 <!-- IMAGES -->
 
@@ -119,4 +118,4 @@ Redis 지속성을 사용하려면 **사용**을 클릭하여 RDB(Redis 데이�
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

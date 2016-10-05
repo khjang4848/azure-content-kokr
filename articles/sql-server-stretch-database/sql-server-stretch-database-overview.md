@@ -80,4 +80,4 @@ SQL Server 2016 업그레이드 관리자의 기능인 스트레치 데이터베
 [StretchOverviewImage2]: ./media/sql-server-stretch-database-overview/StretchDBOverview1.png
 [StretchOverviewImage3]: ./media/sql-server-stretch-database-overview/StretchDBOverview2.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!-----HONumber=AcomDC_0629_2016-->

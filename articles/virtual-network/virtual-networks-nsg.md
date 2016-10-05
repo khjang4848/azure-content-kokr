@@ -282,4 +282,4 @@ NSG가 서브넷에 적용될 수 있기 때문에, 서브넷에 따라서 리�
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!-----HONumber=AcomDC_0907_2016-->

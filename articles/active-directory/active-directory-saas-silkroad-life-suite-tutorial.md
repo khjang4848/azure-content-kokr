@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -138,7 +138,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
    
     d. **Reply URL** 텍스트 상자에 값을 붙여 넣습니다.
  
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
  
 4. **SilkRoad Life Suite의 Single Sign-On을 구성** 페이지에서 다음 단계를 수행합니다.
 
@@ -146,7 +146,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. 인증서 다운로드를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 
@@ -233,7 +233,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -267,7 +267,7 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 **SilkRoad Life Suite에서 Britta Simon라는 사용자를 만들려면 다음 단계를 수행합니다.**
 
-1. SilkRoad Life Suite 지원팀에 요청하여 Azure AD에서 Britta Simon이라는 **emailaddress**가 동일한 값인 **SSO ID** 특성을 가진 사용자를 만듭니다.
+1. SilkRoad Life Suite 지원 팀에 요청하여 Azure AD에서 Britta Simon이라는 **emailaddress**가 동일한 값인 **SSO ID** 특성을 가진 사용자를 만듭니다.
 
 
 
@@ -346,4 +346,4 @@ SilkRoad Life Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 [204]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-silkroad-life-suite-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

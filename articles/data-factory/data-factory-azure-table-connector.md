@@ -418,7 +418,7 @@ writeBatchTimeout | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azur
 		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
 	} 
 
-EmpID는 파티션 키로 지정됩니다.
+DivisionID는 파티션 키로 지정됩니다.
 
 	"sink": {
 		"type": "AzureTableSink",
@@ -432,7 +432,7 @@ EmpID는 파티션 키로 지정됩니다.
 
 ### Azure 테이블에 대한 형식 매핑
 
-[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 대로 복사 작업은 다음 2단계 접근 방식을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -531,4 +531,4 @@ lastlogindate | Edm.DateTime
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

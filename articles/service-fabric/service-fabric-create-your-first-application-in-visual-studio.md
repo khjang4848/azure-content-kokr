@@ -13,10 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2016"
+   ms.date="09/28/2016"
    ms.author="ryanwi"/>
 
-# Visual Studio에서 Azure 서비스 패브릭 응용 프로그램 처음 만들기
+
+# 첫 번째 Azure Service Fabric 응용 프로그램 만들기
+
+> [AZURE.SELECTOR]
+- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 서비스 패브릭 SDK는 서비스 패브릭 응용 프로그램을 만들고, 배포하고, 디버그하는 도구를 제공하는 Visual Studio용 추가 기능을 포함합니다. 이 항목에서는 Visual Studio에서 응용 프로그램을 처음 만드는 과정을 안내합니다.
 
@@ -148,4 +153,4 @@
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

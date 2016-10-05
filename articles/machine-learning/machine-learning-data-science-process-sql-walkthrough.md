@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="fashah;bradsev"/>
 
 
@@ -76,7 +76,7 @@ Azure 데이터 과학 환경을 설정하려면
 
 1. [저장소 계정 만들기](../storage/storage-create-storage-account.md)
 
-2. [Azure ML 작업 영역 만들기](machine-learning-create-workspace.md)
+2. [Azure 기계 학습 작업 영역 만들기](machine-learning-create-workspace.md)
 
 3. [SQL Server 및 IPython Notebook 서버 역할을 할 데이터 과학 가상 컴퓨터 프로비전](machine-learning-data-science-setup-sql-server-virtual-machine.md)
 
@@ -358,8 +358,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-예제 테이블을 읽는 시간은 6.492000초  
-검색된 행과 열의 수= (84952, 21)
+예제 테이블을 읽는 시간은 6.492000초 검색된 행과 열의 수= (84952, 21)
 
 #### 기술 통계
 
@@ -620,7 +619,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 일반적인 학습 실험은 다음으로 구성됩니다.
 
 1. **+새** 실험 만들기
-2. Azure 기계 학습으로 데이터를 가져옵니다.
+2. Azure 기계 학습으로 데이터를 이동합니다.
 3. 필요에 따라 데이터를 전처리, 변환 및 조작합니다.
 4. 필요에 따라 기능을 생성합니다.
 5. 데이터를 학습/유효성 검사/테스트 데이터 집합으로 분할하거나, 각각에 대한 별도의 데이터 집합을 만듭니다.
@@ -632,9 +631,9 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 이 연습에서는 이미 SQL Server에서 데이터를 탐색 및 엔지니어링하고 Azure 기계 학습에서 수집할 샘플 크기를 결정했습니다. 결정한 예측 모델 중 하나 이상을 빌드하려면 다음을 수행합니다.
 
-1. **데이터 입력 및 출력** 섹션에서 제공되는 [데이터 가져오기][import-data] 모듈을 사용하여 Azure ML로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 참조 페이지를 참조하세요.
+1. **데이터 입력 및 출력** 섹션에서 제공되는 [데이터 가져오기][import-data] 모듈을 사용하여 Azure 기계 학습으로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 참조 페이지를 참조하세요.
 
-	![Azure ML 데이터 가져오기][17]
+	![Azure 기계 학습 데이터 가져오기][17]
 
 2. **속성** 패널에서 **Azure SQL 데이터베이스**를 **데이터 원본**으로 선택합니다.
 
@@ -679,7 +678,7 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 
 샘플 점수 매기기 실험은 아래 그림에 나와 있습니다. 배포할 준비가 되면 아래쪽 작업 모음에서 **웹 서비스 게시** 단추를 클릭합니다.
 
-![Azure ML 게시][11]
+![Azure 기계 학습 게시][11]
 
 이 연습 자습서에서는 Azure 데이터 과학 환경을 만들고, 대용량 공용 데이터 집합으로 데이터 취득에서 모델 학습 및 Azure 기계 학습 웹 서비스 배포에 이르는 모든 과정을 수행했습니다.
 
@@ -719,4 +718,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

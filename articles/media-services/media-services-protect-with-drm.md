@@ -3,7 +3,7 @@
 	description="Microsoft Azure 미디어 서비스를 사용하면 Microsoft PlayReady DRM으로 보호되는 MPEG-DASH, 부드러운 스트리밍 및 Http-Live-Streaming(HLS) 스트림을 배달할 수 있습니다. 또한 Widevine DRM으로 암호화된 DASH를 배달할 수 있습니다. 이 항목에서는 PlayReady 및 Widevine DRM으로 동적으로 암호화하는 방법을 보여 줍니다."
 	services="media-services"
 	documentationCenter=""
-	authors="Mingfeiy"
+	authors="juliako"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/19/2016"
-	ms.author="juliako;mingfeiy"/>
+	ms.date="09/27/2016"
+	ms.author="juliako"/>
 
 
 #PlayReady 및/또는 Widevine 동적 일반 암호화 사용
@@ -329,7 +329,7 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -544,6 +544,8 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 		
 		                };
 		
+					// In this case we only specify Dash streaming protocol in the delivery policy,
+					// All other protocols will be blocked from streaming.
 		            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
 		                    "AssetDeliveryPolicy",
 		                AssetDeliveryPolicyType.DynamicCommonEncryption,
@@ -628,4 +630,4 @@ Azure 미디어 서비스를 사용하여 Widevine를 암호화할 때 제한 �
 
 [Azure 미디어 서비스에서 Google Widevine 라이선스 전달 서비스 발표](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

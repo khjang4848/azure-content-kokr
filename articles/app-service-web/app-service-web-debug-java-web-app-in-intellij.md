@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="09/20/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # IntelliJ의 Azure에서 Java 웹앱 디버깅
@@ -29,7 +29,7 @@
 * JDK(Java 개발자 키트), v 1.8 이상.
 * IntelliJ IDEA Ultimate Edition. <https://www.jetbrains.com/idea/download/index.html>에서 다운로드할 수 있습니다.
 * Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat 또는 Jetty)
-* Azure 구독(<https://azure.microsoft.com/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
+* Azure 구독(<https://azure.microsoft.com/ko-KR/free/> 또는 <http://azure.microsoft.com/pricing/purchase-options/>에서 구입할 수 있음)
 * IntelliJ용 Azure 도구 키트. 자세한 내용은 [IntelliJ용 Azure 도구 키트 설치]를 참조하세요.
 * Azure 앱 서비스에서 만들고 배포된 동적 웹 프로젝트는 [IntelliJ에서 Azure용 Hello World 웹앱 만들기] 등을 참조하세요.
 
@@ -103,4 +103,4 @@ Azure 웹앱 만들기에 대한 자세한 내용은 [웹앱 개요]를 참조�
 [05]: ./media/app-service-web-debug-java-web-app-in-intellij/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-intellij/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

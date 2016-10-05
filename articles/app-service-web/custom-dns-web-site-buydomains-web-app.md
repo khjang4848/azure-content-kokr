@@ -58,15 +58,14 @@
 
 	a) 매년 도메인 "자동 갱신"
 	
-	b) 무료로 구입 가격에 포함된 "개인정보 보호" 옵트인
+	b) 무료로 구입 가격에 포함된 "개인정보 보호" 옵트인(레지스트리가 개인 정보를 지원하지 않는 TLD 제외. 예: .co.in, .co.uk 등)
 	
 	c) 현재 웹 앱에 WWW 및 루트 도메인의 "기본 호스트 이름 할당"
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
     > [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
-    >
-    >You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
+    You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
 	
 7. **도메인 구입** 블레이드에서 **선택**을 클릭하면 **구매 확인** 블레이드에 구매 정보가 표시됩니다. 약관에 동의하고 **구입**을 클릭하면 주문이 제출되며, **알림**에서 구매 과정을 모니터링할 수 있습니다. 도메인 구매를 완료하는 데는 몇 분 정도 걸릴 수 있습니다.
 
@@ -103,4 +102,4 @@
 - 일부 지점에서 사용자 지정 도메인을 삭제했을 수 있습니다. 앱의 주 블레이드에서 **설정** > **감사 로그**를 클릭하여 감사 로그를 확인합니다.
 - 표시된 **사용자 지정 도메인 및 SSL** 블레이드가 다른 Azure 구독에서 생성된 앱에 속해 있을 수 있습니다. 다른 구독의 다른 앱으로 전환하고 해당 **사용자 지정 도메인 및 SSL** 블레이드를 확인합니다. 포털 내에서는 해당 앱과 다른 Azure 구독에서 만든 사용자 지정 도메인을 보거나 관리할 수 없습니다. 그러나 도메인의 **도메인 관리** 블레이드에서 **고급 관리**를 클릭하면 해당 도메인 공급자의 웹 사이트로 리디렉션되며, 여기에서 다른 Azure 구독에서 만든 앱에 대해 [외부 사용자 지정 도메인과 같은 사용자 지정 도메인을 수동으로 구성](web-sites-custom-domain-name.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

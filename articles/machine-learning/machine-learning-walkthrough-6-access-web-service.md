@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -44,4 +44,4 @@
 
 또한 R, C# 및 Python 프로그래밍 언어에서 제공하는 시작 코드를 사용하여 웹 서비스에 액세스하는 사용자 지정 응용 프로그램을 개발할 수도 있습니다. 자세한 내용은 [Azure 기계 학습 실험에서 게시된 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

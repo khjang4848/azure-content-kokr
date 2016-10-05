@@ -1,9 +1,9 @@
 <properties 
-	pageTitle=".NET SDK를 사용하여 자산 배포 정책 구성" 
+	pageTitle=".NET SDK를 사용하여 자산 배포 정책 구성 | Microsoft Azure" 
 	description="이 항목에서는 Azure Media Services.NET SDK를 사용하여 여러 자산 배달 정책을 구성하는 방법을 설명합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,Mingfeiy" 
+	authors="Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/31/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako;mingfeiy"/>
 
 #.NET SDK를 사용하여 자산 배포 정책 구성
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -25,7 +25,7 @@
 
 이 항목에서는 자산 배달 정책을 만들고 구성하는 이유와 방법을 설명합니다.
 
->[AZURE.NOTE]동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 배율 단위(스트리밍 단위)가 있어야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-manage-origins.md#scale_streaming_endpoints)을 참조하세요.
+>[AZURE.NOTE]동적 패키징 및 동적 암호화를 사용할 수 있으려면 하나 이상의 배율 단위(스트리밍 단위)가 있어야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
 >
 >또한 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다.
 
@@ -39,19 +39,19 @@
 
 부드러운 스트리밍:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 HLS:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 HDS
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
 자산을 게시하고 스트리밍 URL을 작성하는 방법은 [스트리밍 URL 작성](media-services-deliver-streaming-content.md)을 참조하세요.
 
@@ -63,23 +63,17 @@ HDS
 - 기존 스트리밍 로케이터를 사용하는 자산이 있는 경우 해당 자산에 새 정책을 연결할 수 없습니다. 자산에서 기존 정책의 연결을 해제하거나 자산과 연결된 배달 정책을 업데이트할 수 있습니다. 먼저 스트리밍 로케이터를 제거하고, 정책을 조정한 다음, 스트리밍 로케이터를 다시 만들어야 합니다. 스트리밍 로케이터를 다시 만들 때 동일한 locatorId를 사용할 수 있지만 원본 또는 다운스트림 CDN이 콘텐츠를 캐시할 수 있으므로 클라이언트에 문제가 발생하지 않는지 확인해야 합니다.
 
 
-##자산 배달 정책 지우기 
+##자산 배달 정책 지우기
 
 다음 **ConfigureClearAssetDeliveryPolicy** 메서드는 동적 암호화를 적용하지 않고 MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜에 있는 스트림에 배포하도록 지정합니다. 이 정책을 저장소에서 암호화된 자산에 적용할 수 있습니다.
-  
+
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
 
-    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
-    {
-        IAssetDeliveryPolicy policy =
-            _context.AssetDeliveryPolicies.Create("Clear Policy",
-            AssetDeliveryPolicyType.NoDynamicEncryption, 
-            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+static public void ConfigureClearAssetDeliveryPolicy(IAsset asset) { IAssetDeliveryPolicy policy = \_context.AssetDeliveryPolicies.Create("Clear Policy", AssetDeliveryPolicyType.NoDynamicEncryption, AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
 
-        asset.DeliveryPolicies.Add(policy);
-    }
+asset.DeliveryPolicies.Add(policy); }
 
-##DynamicCommonEncryption 자산 배달 정책 
+##DynamicCommonEncryption 자산 배달 정책
 
 
 다음 **CreateAssetDeliveryPolicy** 메서드는 부드러운 스트리밍 프로토콜(다른 프로토콜은 스트리밍에서 차단됨)에 동적 일반 암호화(**DynamicCommonEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다. 이 메서드는 두 개의 매개 변수, 즉 **Asset**(배포 정책을 적용하려는 자산) 및 **IContentKey**(**CommonEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#common_contentkey) 참조)를 사용합니다.
@@ -87,15 +81,9 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
 
 
-    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-    {
-        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key) { Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
-        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-            new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-        {
-            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-        };
+Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration = new Dictionary<AssetDeliveryPolicyConfigurationKey, string> { {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()}, };
 
         var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
                 "AssetDeliveryPolicy",
@@ -361,4 +349,4 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

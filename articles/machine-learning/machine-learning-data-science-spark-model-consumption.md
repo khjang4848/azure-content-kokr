@@ -3,7 +3,7 @@
 	description="Azure Blob 저장소(WASB)에 저장된 학습 모델의 점수를 매기는 방법."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Spark에서 만든 기계 학습 모델 점수 매기기 
 
@@ -385,7 +385,7 @@ Jupyter Notebook의 커널 및 제공되는 %%(예: %%local)로 호출할 수 �
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING **SCALED VARIABLES **
+	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -610,4 +610,4 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark를 사용한 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

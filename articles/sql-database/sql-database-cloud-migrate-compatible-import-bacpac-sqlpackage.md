@@ -24,7 +24,8 @@
 - [Azure 포털](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-이 문서에서는 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령줄 유틸리티를 사용하여 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에서 SQL Database로 데이터를 가져오는 방법을 설명합니다. 이 유틸리티는 Visual Studio 및 SQL Server에 기본적으로 제공됩니다. 최신 버전의 SQL Server Data Tools를 [다운로드](https://msdn.microsoft.com/library/mt204009.aspx)하여 이 유틸리티를 가져올 수도 있습니다.
+이 문서에서는 [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) 명령줄 유틸리티를 사용하여 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에서 SQL Database로 데이터를 가져오는 방법을 설명합니다. 이 유틸리티는 최신 버전의 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 및 [Visual Studio용 SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)가 함께 제공되며, Microsoft 다운로드 센터에서 직접 최신 버전의 [SqlPackage](https://www.microsoft.com/ko-KR/download/details.aspx?id=53876)를 다운로드할 수 있습니다.
+
 
 > [AZURE.NOTE] 아래 단계에서는 사용자가 이미 SQL Database 서버를 프로비전했고, 연결 정보를 알고 있으며, 원본 데이터베이스가 호환됨을 확인했다고 가정합니다.
 
@@ -60,4 +61,4 @@
 - [Transact-SQL의 부분적으로 지원되거나 지원되지 않는 기능](sql-database-transact-sql-information.md)
 - [SQL Server Migration Assistant를 사용하여 SQL Server 이외의 데이터베이스 마이그레이션](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

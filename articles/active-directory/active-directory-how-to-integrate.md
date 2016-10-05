@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory와의 통합
@@ -90,4 +90,4 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 [Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

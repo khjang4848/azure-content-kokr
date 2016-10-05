@@ -36,8 +36,6 @@ Resource Manager 배포 모델에서 가상 네트워크 게이트웨이 리소�
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-###  <a name="skugw"></a>SKU 및 게이트웨이 유형에서 예상된 총 처리량
-
 다음 테이블에서는 게이트웨이 형식과 예상 총 처리량을 보여 줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
@@ -95,7 +93,7 @@ Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델�
 
 #### VNet 피어링
 
-가상 네트워크가 특정 요구 사항을 충족하면 VNet 피어링을 사용하여 연결을 만들 수 있습니다. VNet 피어링은 가상 네트워크 게이트웨이를 사용하지 않습니다. [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)은 현재 미리 보기로 제공됩니다.
+가상 네트워크가 특정 요구 사항을 충족하면 VNet 피어링을 사용하여 연결을 만들 수 있습니다. VNet 피어링은 가상 네트워크 게이트웨이를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
 
 ### VNet 간 배포 모델 및 메서드
@@ -150,4 +148,4 @@ VPN Gateway 구성을 계획합니다. [VPN Gateway 계획 및 디자인](vpn-ga
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법
@@ -30,7 +30,7 @@ Azure CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하�
 
 -	Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 -	[Azure CLI를 설치합니다](../xplat-cli-install.md).
--	Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결하고 `azure login` 명령을 사용하여 Azure CLI에서 로그인합니다. 차이점을 이해하고 선택하려면 [Azure 명령줄 인터페이스(Azure CLI)에서 Azure 구독 연결](../xplat-cli-connect.md)을 참조하십시오.
+-	Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결하고 `azure login` 명령을 사용하여 Azure CLI에서 로그인합니다. 차이점을 이해하고 선택하려면 [Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독 연결](../xplat-cli-connect.md)을 참조하세요.
 -	다음 명령 중 하나를 실행하기 전에 `azure config mode arm` 명령을 실행하여 Azure CLI를 리소스 관리자 모드로 전환합니다. 자세한 내용은 [Azure Resource Manager 모드 설정](../xplat-cli-azure-resource-manager.md#set-the-azure-resource-manager-mode)을 참조하세요.
 
 ## Redis Cache 속성
@@ -271,4 +271,4 @@ Redis Cache를 삭제하려면 다음 명령을 사용합니다.
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

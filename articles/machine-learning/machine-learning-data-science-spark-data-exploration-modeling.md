@@ -3,7 +3,7 @@
 	description="Spark MLlib 도구 키트의 데이터 탐색 및 모델링 기능을 보여줍니다."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Spark로 데이터 탐색 및 모델링
 
@@ -1105,4 +1105,4 @@ Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점�
 
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

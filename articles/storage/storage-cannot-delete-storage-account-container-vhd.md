@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="felixwu"
-	editor=""
+	editor="tysonn"
 	tags="storage"/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="genli"/>
+	ms.date="09/20/2016"
+	ms.author="minet;genli;robinsh"/>
 
 # Azure 저장소 계정, 컨테이너 또는 VHD 삭제 문제 해결
 
@@ -108,4 +108,4 @@ VM을 삭제한후 연결된 VHD의 blob를 삭제하려고 하면 다음 메시
 - [저장소 계정 삭제](storage-create-storage-account.md#delete-a-storage-account)
 - [Microsoft Azure(PowerShell)에서 Blob 저장소의 임대 잠금을 해제하는 방법](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK 도달률 통합"
+	pageTitle="Azure Mobile Engagement iOS SDK 도달률 통합 | Microsoft Azure"
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,13 +13,22 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="09/14/2016"
+	ms.author="piyushjo" />
 
 #iOS에서 Engagement 도달률을 통합하는 방법
 
-> [AZURE.IMPORTANT] 이 가이드의 작업을 수행하기 전에 iOS에서 Engagement를 통합하는 방법 문서에서 설명하는 통합 절차를 수행해야 합니다.
+이 가이드의 작업을 수행하기 전에 [iOS에서 Engagement를 통합하는 방법](mobile-engagement-ios-integrate-engagement.md) 문서에서 설명하는 통합 절차를 수행해야 합니다.
 
+이 설명서에는 XCode 8이 필요합니다. XCode 7을 사용하는 경우 [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh)를 사용할 수도 있습니다. iOS 10 장치에서 실행하는 경우 이 이전 버전에는 알려진 버그가 있습니다. 시스템 알림은 작동하지 않습니다. 이 문제를 해결하려면 다음과 같이 앱 대리자에서 더 이상 사용되지 않는 API `application:didReceiveRemoteNotification:`을 구현해야 합니다.
+
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+	    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
+
+> [AZURE.IMPORTANT] 이 iOS API는 더 이상 사용되지 않으므로 예정된(부분적인) iOS 버전 업그레이드에서는 이 동작이 달라질 수 있습니다. 따라서 **이 해결 방법은 권장되지 않습니다**. 가능한 한 빨리 XCode 8로 전환해야 합니다.
 
 ### 앱이 자동 푸시 알림을 받을 수 있도록 설정
 
@@ -161,6 +170,67 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 	{
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
+
+### 사용자 고유의 UNUserNotificationCenterDelegate 구현이 있는 경우
+
+SDK에도 자체적으로 UNUserNotificationCenterDelegate 프로토콜이 구현되어 있습니다. 이 프로토콜은 iOS 10 이상에서 실행되는 장치의 Engagement 알림 수명 주기를 모니터링하기 위해 SDK에서 사용됩니다. SDK에서 대리자를 검색하는 경우 응용 프로그램당 UNUserNotificationCenter 대리자가 하나만 있기 때문에 자체 구현을 사용하지 않습니다. 즉, 자체 대리자에 Engagement 논리를 추가해야 합니다.
+
+이 작업은 다음 두 가지 방법으로 수행할 수 있습니다.
+
+SDK에 대리자 호출 전달
+
+	#import <UIKit/UIKit.h>
+	#import "EngagementAgent.h"
+	#import <UserNotifications/UserNotifications.h>
+
+
+	@interface MyAppDelegate : NSObject <UIApplicationDelegate, UNUserNotificationCenterDelegate>
+	@end
+
+	@implementation MyAppDelegate
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+	{
+	  // Your own logic.
+
+	  [[EngagementAgent shared] userNotificationCenterWillPresentNotification:notification withCompletionHandler:completionHandler]
+	}
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+	{
+	  // Your own logic.
+
+	  [[EngagementAgent shared] userNotificationCenterDidReceiveNotificationResponse:response withCompletionHandler:completionHandler]
+	}
+	@end
+
+또는 `AEUserNotificationHandler` 클래스에서 상속
+
+	#import "AEUserNotificationHandler.h"
+	#import "EngagementAgent.h"
+
+	@interface CustomUserNotificationHandler :AEUserNotificationHandler
+	@end
+
+	@implementation CustomUserNotificationHandler
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+	{
+	  // Your own logic.
+
+	  [super userNotificationCenter:center willPresentNotification:notification withCompletionHandler:completionHandler];
+	}
+
+	- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse: UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler
+	{
+	  // Your own logic.
+
+	  [super userNotificationCenter:center didReceiveNotificationResponse:response withCompletionHandler:completionHandler];
+	}
+
+	@end
+
+> [AZURE.NOTE] 해당 `userInfo` 사전을 에이전트 `isEngagementPushPayload:` 클래스 메서드에 전달하여 알림이 Engagement에서 온 것인지를 확인할 수 있습니다.
 
 ##캠페인을 사용자 지정하는 방법
 
@@ -416,4 +486,4 @@ Engagement에서는 Apple 푸시 알림 서비스를 사용하여 언제든지 �
 
 	@end
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

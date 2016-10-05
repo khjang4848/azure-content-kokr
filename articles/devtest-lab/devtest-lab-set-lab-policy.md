@@ -18,7 +18,7 @@
 
 # Azure DevTest Labs에서 랩 정책 정의
 
-> [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
+<div class="wa-video-container" data-control="video-container" data-slug="how-to-set-vm-policies-in-a-devtest-lab"> <a href="/en-us/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab/" data-control="video" data-expanding="false" class="wa-video-thumbnail" title="How to set VM policies in DevTest Labs" data-ch9="//channel9.msdn.com/Blogs/Windows-Azure/How-to-set-VM-policies-in-a-DevTest-Lab/player/" data-caption="" data-event="videopage-clicked-videothumbnail" data-event-property="how-to-set-vm-policies-in-a-devtest-lab"> <img src="https://sec.ch9.ms/ch9/d21b/f24707d6-bad4-4f4a-818b-ea6ec1a1d21b/dtlvmpolicies_960.jpg" alt="How to set VM policies in DevTest Labs" class="thumbnail"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>01-20-2016</span> <span>03 min, 47 sec</span> </span> </span> </a> </div>
 
 Azure DevTest Labs에서 비용을 관리하고 랩에서의 낭비를 최소화하는 데 도움이 될 핵심 정책을 지정할 수 있습니다. 이러한 랩 정책은 각 사용자 및 랩에 대해 만들어지는 VM의 최대 수와 다양한 자동 종료 및 자동 시작 옵션을 포함합니다.
 

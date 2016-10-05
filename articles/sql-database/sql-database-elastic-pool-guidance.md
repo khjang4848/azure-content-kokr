@@ -131,4 +131,4 @@ SQL 데이터베이스는 기존 SQL 데이터베이스 서버에서 데이터�
 - [SQL 데이터베이스 옵션 및 성능: 각 서비스 계층에서 사용할 수 있는 항목 이해](sql-database-service-tiers.md)
 - [탄력적 데이터베이스 풀에 적합한 데이터베이스를 식별하기 위한 PowerShell 스크립트](sql-database-elastic-pool-database-assessment-powershell.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

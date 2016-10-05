@@ -3,7 +3,7 @@
 	description="Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다."  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/01/2016"
-	ms.author="bradsev;"/>
+	ms.author="bradsev;deguhath"/>
 
 
 # Azure에서 Scala 및 Spark를 사용하는 데이터 과학
@@ -1164,4 +1164,4 @@ Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는
 
 [Spark에서 빌드한 기계 학습 모델 점수 매기기](machine-learning-data-science-spark-model-consumption.md)에서는 Scala 코드를 사용하여 Spark에서 빌드한 기계 학습 모델과 함께 Azure Blob 저장소에 저장된 새 데이터 집합을 자동으로 로드하고 점수를 매기는 방법을 설명합니다. 사용자는 제공된 지침을 따르고 자동 사용을 위해 Python 코드를 이 문서의 Scala 코드로 바꿀 수 있습니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

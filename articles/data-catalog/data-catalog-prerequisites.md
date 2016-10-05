@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="04/25/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그의 필수 구성 요소
@@ -21,7 +21,6 @@
 ## Azure 데이터 카탈로그를 시작하려면 어떻게 하나요?
 
 **Azure 데이터 카탈로그**를 설정하기 전에 몇 가지 주의 사항이 있습니다. 걱정하지 마세요. 오래 걸리지 않습니다!
-
 
 ## Azure 구독
 Azure Data Catalog를 설정하려면 Azure 구독의 소유자 또는 공동 소유자여야 합니다.
@@ -32,6 +31,8 @@ Azure 구독에서는 Azure 데이터 카탈로그와 같은 클라우드 서비
 Azure Data Catalog를 설정하려면 Azure Active Directory 사용자 계정을 사용하여 로그인해야 합니다.
 
 Azure Active Directory(Azure AD)는 클라우드 및 온-프레미스 모두에서비즈니스가 ID와 액세스를 쉽게 관리하는 방법을 제공합니다. 사용자는 클라우드 및 온-프레미스 웹 응용 프로그램에 SSO(Single Sign-on)를 위해 단일 회사 또는 학교 계정을 사용할 수 있습니다. Azure 데이터 카탈로그는 로그온 인증에 Azure AD를 사용합니다. 자세히 알아보려면 [Azure Active Directory란](../active-directory/active-directory-whatis.md)을 참조하세요.
+
+> [AZURE.NOTE] [Azure 포털](http://portal.azure.com/)에서 사용자는 개인 Microsoft 계정 또는 Azure Active Directory 작업 또는 학교 계정을 사용하여 로그인할 수 있습니다. Azure 포털을 사용하거나 [데이터 카탈로그 포털](http://www.azuredatacatalog.com)을 사용하여 Azure Data Catalog를 설정하려면 개인 계정이 아닌, Azure Active Directory 계정을 사용하여 로그인해야 합니다.
 
 ## Active Directory 정책 구성
 
@@ -45,4 +46,4 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
 
 자세한 내용은 [인증 정책 구성](https://technet.microsoft.com/library/dn486781.aspx)을 참조하세요.
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0921_2016-->

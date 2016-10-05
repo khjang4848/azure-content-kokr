@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/14/2016"
+   ms.date="09/19/2016"
    ms.author="lemai"/>
    
 # 서비스에 대해 데이터 손실을 호출하는 방법
@@ -232,4 +232,4 @@ Start API를 성공적으로 호출하면 반환된 진행 중인 개체의 Stat
 [cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
 [fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

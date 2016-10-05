@@ -3,8 +3,8 @@
     description="Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다."
     documentationCenter=".net"
     services="storage"
-    authors="tamram"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager="jahogg"
     editor="tysonn"/>
 <tags
     ms.service="storage"
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/24/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;tamram"/>
 
 # C++에서 Azure 저장소 리소스 나열
 
@@ -184,4 +184,4 @@ Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은
 -	[Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

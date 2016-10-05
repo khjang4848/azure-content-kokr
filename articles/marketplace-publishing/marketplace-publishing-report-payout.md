@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/03/2016"
+   ms.date="09/19/2016"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # Azure 마켓플레이스 지급 보고서 이해
@@ -116,4 +116,4 @@
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

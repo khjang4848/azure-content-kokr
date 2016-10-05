@@ -34,7 +34,7 @@
 
 Azure 서비스 버스 메시징의 더 많은 고급 기능 중 일부를 보여 주는 샘플이 있는 [GitHub 리포지토리](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples)를 확인합니다.
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

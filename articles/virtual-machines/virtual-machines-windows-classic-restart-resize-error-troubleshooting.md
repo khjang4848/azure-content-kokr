@@ -13,7 +13,7 @@
    ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/20/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -85,4 +85,4 @@ VM 크기를 줄이는 것이 가능하지 않으면, 다음 단계를 수행합
 
 Azure에서 새 Windows VM을 만들 때 문제가 발생하면 [Azure에서 새 Windows 가상 컴퓨터 생성 관련 배포 문제 해결](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

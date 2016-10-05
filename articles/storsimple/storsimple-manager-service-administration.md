@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/24/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리
@@ -114,4 +114,4 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 
 문제를 해결할 수 없고 서비스 요청을 만드는 데 필요한 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)를 참조합니다.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

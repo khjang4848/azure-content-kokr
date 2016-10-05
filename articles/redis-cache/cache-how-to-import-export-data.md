@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache에서 데이터 가져오기 및 내보내기
 
-가져오기/내보내기는 프리미엄 캐시에서 Azure 저장소 계정의 페이지 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 이를 통해, 다양한 Azure Redis Cache 인스턴스 간에 마이그레이션이 가능하고, 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
+가져오기/내보내기는 프리미엄 캐시에서 Azure 저장소 계정의 페이지 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 가져오기/내보내기를 통해 다양한 Azure Redis Cache 인스턴스 간에 마이그레이션이 가능하고, 데이터를 사용하기 전에 캐시에 채울 수 있습니다.
 
 이 문서는 Azure Redis Cache를 사용하여 데이터를 가져오고 내보내는 지침을 제공하고 일반적인 질문에 대한 답변을 제공합니다.
 
@@ -153,7 +153,11 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 
 가져오기/내보내기는 페이지 Blob으로 저장된 RDB 파일에 대해서만 작동합니다. 현재는 핫 및 쿨 계층의 Blob 저장소 계정을 비롯한 다른 BLOB 형식이 지원되지 않습니다.
 
-    
+
+## 다음 단계
+더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
+
+-	[Azure Redis Cache 프리미엄 계층 소개](cache-premium-tier-intro.md)
 
   
 <!-- IMAGES -->
@@ -170,4 +174,4 @@ Azure Redis Cache 지속성을 사용하면 Redis에 저장된 데이터를 Azur
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

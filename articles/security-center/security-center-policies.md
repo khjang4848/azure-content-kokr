@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Azure Security Center에서 보안 정책 설정
@@ -64,7 +64,7 @@
 
 9. **보안 정책** 블레이드에서 **켜기**를 클릭하고 이 구독에 사용할 보안 권장 사항을 활성화합니다. **방지 정책**을 클릭하면 다음 스크린샷과 같은 옵션이 표시됩니다.
 
-	![보안 정책 선택](./media/security-center-policies/security-center-policies-fig4-ga.png)
+	![보안 정책 선택](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 다음 테이블을 참조로 사용하여 각 옵션을 이해합니다.
 
@@ -75,10 +75,11 @@
 | Endpoint Protection | 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 파악하여 제거할 수 있도록 모든 Windows 가상 컴퓨터에 Endpoint Protection을 프로비전하도록 권장합니다.|
 | 디스크 암호화 | 모든 가상 컴퓨터에서 디스크 암호화를 사용하여 휴지 상태의 데이터 보호 기능을 향상시키는 것이 좋습니다.
 | 네트워크 보안 그룹 | 공용 끝점을 사용하여 VM에 대한 인바운드 및 아웃바운드 트래픽을 제어할 수 있도록 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 구성하는 것이 좋습니다. 별도로 지정하지 않는 한, 서브넷에 대해 구성된 네트워크 보안 그룹은 모든 가상 컴퓨터 네트워크 인터페이스에서 상속됩니다. 네트워크 보안 그룹이 구성되었는지 확인하는 것 외에도 이 정책은 인바운드 보안 규칙을 평가하여 들어오는 트래픽을 허용하는 규칙을 식별합니다. |
-| 웹 응용 프로그램 방화벽 | 다음 중 하나가 true인 경우 웹 응용 프로그램 방화벽을 가상 컴퓨터에 프로비전하는 것이 좋습니다.</br></br>[인스턴스 수준 공용 IP](../virtual-network/virtual-networks-instance-level-public-ip.md)(ILPIP)를 사용하고 연결된 네트워크 보안 그룹에 대한 인바운드 보안 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성했습니다.</br></br>부하 분산된 IP를 사용하고 연결된 부하 분산 및 인바운드 NAT(Network Address Translation) 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성했습니다. 자세한 내용은 [Load Balancer에 대한 Azure Resource Manager 지원](../load-balancer/load-balancer-arm.md)을 참조하세요. |
+| 웹 응용 프로그램 방화벽 | </br></br>ILPIP[(인스턴스 수준 공용 IP)](../virtual-network/virtual-networks-instance-level-public-ip.md)를 사용하고 연결된 네트워크 보안 그룹에 대한 인바운드 보안 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성한 경우 가상 컴퓨터에 웹 응용 프로그램 방화벽을 프로비전하도록 권장합니다.</br></br>부하 분산된 IP를 사용하고 연결된 부하 분산 및 인바운드 NAT(Network Address Translation) 규칙이 포트 80/443에 대한 액세스를 허용하도록 구성했습니다. 자세한 내용은 [Load Balancer에 대한 Azure Resource Manager 지원](../load-balancer/load-balancer-arm.md)을 참조하세요. |
 | 차세대 방화벽 | Azure에 기본 제공되는 네트워크 보안 그룹 외에도 네트워크 보호 기능을 확장합니다. Security Center는 차세대 방화벽을 권장하는 배포를 검색하고 가상 어플라이언스를 프로비전할 수 있도록 합니다. |
-| SQL 감사 | 규정 준수, 고급 감지 및 조사를 위해 Azure 데이터베이스에 대한 액세스 감사를 활성화할 것을 권장합니다. |
+| SQL 감사 및 위협 감지 | 조사를 위해 규정 준수 및 고급 위협 감지에 대해 Azure 데이터베이스에 대한 액세스 감사를 활성화하는 것이 좋습니다. |
 | SQL 투명한 데이터 암호화 | Azure SQL Database, 연결된 백업 및 트랜잭션 로그 파일에 대해 휴지 상태의 암호화를 활성하는 것이 좋습니다. 데이터 위반이 있더라도 데이터를 읽을 수 없습니다. |
+| 취약점 평가 | VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
 
 옵션을 모두 구성하면 권장 사항이 있는 **보안 정책** 블레이드에서 **확인**을 클릭하고 초기 설정이 있는 **보안 정책** 블레이드에서 **저장**을 클릭합니다.
 
@@ -106,4 +107,4 @@
 - [Azure Security Center FAQ](security-center-faq.md) 서비스 사용에 관한 질문과 대답을 찾습니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

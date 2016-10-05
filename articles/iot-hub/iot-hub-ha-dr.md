@@ -18,7 +18,7 @@
 
 # IoT Hub 고가용성 및 재해 복구
 
-Azure 서비스로 IoT Hub는 Azure 지역 수준에서 중복을 사용하여 솔루션의 추가 작업 없이도 HA(고가용성)를 제공합니다. 또한 Azure는 필요한 경우 DR(재해 복구) 기능 또는 지역 간 가용성을 사용하여 솔루션을 구축할 수 있는 다양한 기능을 제공합니다. 장치 또는 사용자에게 전역, 지역 간 고가용성을 제공하기 위해서는 이러한 DR 기능을 활용하는 솔루션을 설계 및 준비해야 합니다. [Azure 비즈니스 연속성 기술 지침][] 문서에서 비즈니스 연속성 및 DR에 대한 Azure의 기본 제공 기능을 설명합니다. [Azure 응용 프로그램에 대한 재해 복구 및 고가용성][] 문서는 Azure 응용 프로그램에서 HA 및 DR 달성하기 위한 전략에 대한 아키텍처 지침을 제공합니다.
+Azure 서비스로 IoT Hub는 Azure 지역 수준에서 중복을 사용하여 솔루션의 추가 작업 없이도 HA(고가용성)를 제공합니다. 또한 Azure는 필요한 경우 DR(재해 복구) 기능 또는 지역 간 가용성을 사용하여 솔루션을 구축할 수 있는 다양한 기능을 제공합니다. 장치 또는 사용자에게 전역, 지역 간 고가용성을 제공하기 위해서는 이러한 DR 기능을 활용하는 솔루션을 설계 및 준비해야 합니다. [Azure 비즈니스 연속성 기술 지침](../resiliency/resiliency-technical-guidance.md) 문서에서는 비즈니스 연속성 및 DR에 대한 Azure의 기본 제공 기능을 설명합니다. [Azure 응용 프로그램에 대한 재해 복구 및 고가용성][] 문서는 Azure 응용 프로그램에서 HA 및 DR 달성하기 위한 전략에 대한 아키텍처 지침을 제공합니다.
 
 ## Azure IoT Hub DR
 역내 HA 외에도 IoT Hub는 사용자 개입이 필요 없는 재해 복구용 장애 조치(Failover) 메커니즘을 구현합니다. IoT Hub DR는 자체적으로 시작되고 2-26시간의 복구 시간 목표(RTO)과 다음 복구 지점 목표(RPO)를 가집니다.
@@ -60,4 +60,4 @@ Azure IoT Hub에 대한 자세한 내용을 보려면 다음 링크를 따라가
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [IoT Hub Azure란?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

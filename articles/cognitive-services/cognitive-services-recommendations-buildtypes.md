@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="09/20/2016"
 	ms.author="luisca"/>
 
 #  빌드 형식 및 모델 품질 #
@@ -263,4 +263,4 @@ FBT 빌드에서는 콜드 항목을 지원하지 않는데, 정의에 따라 �
     "IsFaulted": false
     }
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

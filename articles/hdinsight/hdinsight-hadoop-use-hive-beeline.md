@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 #Beeline를 사용하여 HDInsight에서 Hadoop과 Hive 사용
@@ -59,7 +59,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 
         beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
 
-    Beeline 클라이언트를 시작하고 JDBC url에 연결합니다. 여기에서 HiveServer2가 클러스터의 두 헤드 노드에서 실행되기 때문에 `localhost`을 사용하고 헤드 노드 0에서 직접 Beeline를 실행합니다.
+    Beeline 클라이언트를 시작하고 JDBC url에 연결합니다. 여기에서 HiveServer2가 클러스터의 두 헤드 노드에서 실행되기 때문에 `localhost`을 사용하고 기본 헤드 노드에서 직접 Beeline를 실행합니다.
     
     명령이 완료되면 `jdbc:hive2://localhost:10001/>` 프롬프트가 표시됩니다.
 
@@ -235,4 +235,4 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

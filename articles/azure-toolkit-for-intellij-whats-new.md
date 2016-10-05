@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="07/07/2016" 
+	ms.date="09/20/2016" 
 	ms.author="robmcm;asirveda"/>
 
 # IntelliJ용 Azure 도구 키트의 새로운 기능
@@ -74,4 +74,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 
 [IntelliJ용 HDInsight 도구 플러그 인]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

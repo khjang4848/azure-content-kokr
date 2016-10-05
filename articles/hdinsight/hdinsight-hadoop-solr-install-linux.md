@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
@@ -166,13 +166,25 @@ Solr 대시보드는 웹 브라우저를 통해 Solr로 작업할 수 있는 웹
 
 SSH 터널을 설정하면 다음 단계를 수행하여 Solr 대시보드를 사용합니다.
 
-1. 헤드 노드에 호스트 이름을 결정합니다.
+1. 기본 헤드 노드의 호스트 이름을 결정합니다.
 
-    1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. 메시지가 표시되면 관리자 사용자 이름 및 암호를 사용하여 사이트에 인증합니다.
+    1. SSH를 사용하여 포트 22에 있는 클러스터에 연결합니다. 예를 들어 `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`에서 __USERNAME__은 SSH 사용자 이름이고 __CLUSTERNAME__은 클러스터의 이름입니다.
+
+        SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+        * [Linux, Unix 또는 Mac OS X 클라이언트에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+        * [Windows 클라이언트에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
     
-    2. 페이지 위쪽에 있는 메뉴에서 __호스트__를 선택합니다.
+    3. 다음 명령을 사용하여 정규화된 호스트 이름을 가져옵니다.
+
+            hostname -f
+
+        다음과 유사한 이름을 반환합니다.
+
+            hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-    3. __hn0__으로 시작하는 항목을 선택합니다. 페이지가 열릴 때 호스트 이름이 위쪽에 표시됩니다. 호스트 이름의 형식은 __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__입니다. 이는 Solr 대시보드에 연결할 때 사용해야 하는 호스트 이름입니다.
+        다음 단계에 사용해야 하는 호스트 이름입니다.
     
 1. 브라우저에서 __http://HOSTNAME:8983/solr/#/__에 연결하며 여기에서 __HOSTNAME\_\_은 이전 단계에서 결정한 이름입니다.
 
@@ -311,4 +323,4 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/11/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그 릴리스 정보
@@ -58,10 +58,6 @@ SSRS(SQL Server Reporting Services) 데이터 원본은 현재 기본 모드 서
 
 자세한 내용은 [의심스러운 웹 사이트의 링크 및 파일에 대한 보안 경고 사용 또는 사용 안 함](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)을 참조하세요.
 
-### 미리 보기에서 누락된 BLOB 및 UDT 열
-
-BLOB(Binary Large Object) 및 UDT(사용자 정의 데이터 형식) 열을 포함하는 테이블 및 뷰 등록 시, 그리고 데이터 자산에 대한 미리 보기를 포함하도록 선택할 때 이러한 열은 미리 보기에 포함되지 않습니다.
-
 ### 프록시 및 정책 구성과 데이터 원본 등록
 
 Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생할 수 있지만, 데이터 원본 등록 도구에 로그온을 시도할 때 로그온하지 않도록 하는 오류 메시지가 발생합니다.
@@ -88,4 +84,4 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
 
 RegistrationTool.exe.config 파일을 찾으려면 등록 도구를 시작하여 Windows 작업 관리자 유틸리티를 엽니다. 작업 관리자의 세부 정보 탭에서 RegistrationTool.exe를 마우스 오른쪽 단추로 클릭하고 팝업 메뉴에서 파일 위치 열기를 선택합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

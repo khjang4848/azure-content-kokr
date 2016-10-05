@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # v2.0 프로토콜 - OAuth 2.0 및 OpenID Connect
@@ -80,4 +80,4 @@ v2.0 끝점에서 사용되는 다양한 토큰 형식에 대한 자세한 내�
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -17,6 +17,12 @@
    ms.author="ryanwi"/>
 
 # 개발 환경 준비
+
+> [AZURE.SELECTOR]
+-[ Windows](service-fabric-get-started.md)
+- [Linux](service-fabric-get-started-linux.md)
+- [OSX](service-fabric-get-started-mac.md)
+
  개발 컴퓨터에서 [Azure 서비스 패브릭 응용 프로그램][1]을 빌드 및 실행하려면 런타임, SDK, 도구를 설치해야 합니다. 또한 SDK에 포함된 Windows PowerShell 스크립트의 실행을 사용하도록 설정해야 합니다.
 
 ## 필수 조건
@@ -60,6 +66,6 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 링크"
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 링크"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "핵심 SDK WebPI 링크"
-[powershell5-download]: https://www.microsoft.com/en-us/download/details.aspx?id=50395
+[powershell5-download]: https://www.microsoft.com/ko-KR/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

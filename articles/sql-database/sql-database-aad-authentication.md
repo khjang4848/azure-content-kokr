@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/16/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure Active Directory 인증을 사용하여 SQL 데이터베이스 또는 SQL 데이터 웨어하우스에 연결
@@ -248,8 +248,7 @@ Azure AD 관리자가 제대로 설정되었는지 확인하려면 Azure AD 관�
 
 1. Management Studio 또는 Data Tools를 시작하고, **서버에 연결**(또는 **데이터베이스 엔진 연결**) 대화 상자의 **인증** 상자에서 **Active Directory 통합 인증**을 선택합니다. 연결에 대한 기존 자격 증명이 있으므로 암호 입력이 필요하지 않습니다. ![AD 통합 인증 선택][11]
 
-2. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다. 
-![데이터베이스 이름 선택][13]
+2. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다. ![데이터베이스 이름 선택][13]
 
 
 #### Active Directory 암호 인증을 사용하여 연결
@@ -260,8 +259,7 @@ Azure와 페더레이션되지 않은 도메인으로부터 자격 증명을 사
 
 1. Management Studio 또는 Data Tools를 시작하고, **서버에 연결**(또는 **데이터베이스 엔진에 연결**) 대화 상자의 **인증** 상자에서 **Active Directory 암호 인증**을 선택합니다.
 2. **사용자 이름** 상자에 **username@domain.com** 형식으로 Azure Active Directory 사용자 이름을 입력합니다. Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
-3. **암호** 상자에 Azure Active Directory 계정이나 페더레이션된 도메인 계정의 사용자 암호를 입력합니다. 
-![AD 암호 인증 선택][12]
+3. **암호** 상자에 Azure Active Directory 계정이나 페더레이션된 도메인 계정의 사용자 암호를 입력합니다. ![AD 암호 인증 선택][12]
 
 4. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다. (이전 옵션의 그래픽을 참조하세요.)
 
@@ -314,7 +312,7 @@ Windows 통합 인증을 사용하려면 도메인의 Active Directory를 Azure 
 통합 인증 및 Azure AD ID를 사용하여 데이터베이스에 연결하려면 데이터베이스 연결 문자열의 인증 키워드가 Active Directory 통합으로 설정되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
 
 	string ConnectionString =
-	@"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated;";
+	@"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
@@ -324,7 +322,7 @@ Windows 통합 인증을 사용하려면 도메인의 Active Directory를 Azure 
 통합 인증 및 Azure AD ID를 사용하여 데이터베이스에 연결하려면 인증 키워드가 Active Directory 암호로 설정되어 있어야 합니다. 연결 문자열에는 사용자 ID/UID 및 암호/PWD 키워드와 값이 포함되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
 
 	string ConnectionString =
-	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
+	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; Initial Catalog=testdb;  UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
@@ -383,4 +381,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

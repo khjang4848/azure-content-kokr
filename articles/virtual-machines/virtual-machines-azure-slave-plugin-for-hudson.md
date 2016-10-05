@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 # Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
@@ -86,7 +86,7 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
 
 1. 구독 프로필에서 구독 ID 및 관리 인증서를 복사하여 해당 필드에 붙여넣습니다.
 
-    구독 ID 및 관리 인증서를 복사할 때 값을 묶고 있는 따옴표는 포함하지**마십시오**.
+    구독 ID 및 관리 인증서를 복사할 때 값을 묶고 있는 따옴표는 포함하지**마세요**.
 
 1. **Verify configuration**을 클릭합니다.
 
@@ -237,4 +237,4 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 [template config]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-setup-templateconfig1-withdata.png
 [OS family list]: ./media/virtual-machines-azure-slave-plugin-for-hudson/hudson-oslist.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

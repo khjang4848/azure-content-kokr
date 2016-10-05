@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/09/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # StorSimple 관리자 장치 대시보드 사용
@@ -100,4 +100,4 @@ StorSimple 장치에는 CHAP(Challenge Handshake 인증 프로토콜)를 구성�
 - [StorSimple Manager 서비스 대시보드](storsimple-service-dashboard.md)에 대해 자세히 알아봅니다.
 - [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0921_2016-->

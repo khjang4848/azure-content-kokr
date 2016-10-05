@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Azure 필요한 상태 구성 확장 처리기 소개 #
@@ -44,9 +44,9 @@ Azure VM 에이전트 및 연결된 확장은 Microsoft Azure 인프라 서비�
 
 Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 Azure PowerShell SDK 또는 Azure 포털을 통해 제공되는 최소한의 구성 문서 및 일련의 매개 변수를 포함하는 .zip 파일이 필요합니다.
 
-확장이 처음으로 호출되면 설치 프로세스를 실행합니다. 이 프로세스는 아래 정의된 대로 WMF(Windows Management Framework)의 버전을 설치합니다.
+확장이 처음으로 호출되면 설치 프로세스를 실행합니다. 이 프로세스는 다음 논리를 사용하여 WMF(Windows Management Framework)의 버전을 설치합니다.
 
-1. Azure VM OS가 Windows Server 2016이면 아무 작업도 수행되지 않습니다. WS 2016에는 이미 최신 버전의 PowerShell이 설치되어 있습니다.
+1. Azure VM OS가 Windows Server 2016이면 아무 작업도 수행되지 않습니다. Windows Server 2016에는 이미 최신 버전의 PowerShell이 설치되어 있습니다.
 2. `wmfVersion` 속성을 지정하면 VM의 OS와 호환되지 않는 경우가 아닌 경우 해당 버전의 WMF가 설치됩니다.
 3. `wmfVersion` 속성을 지정하면 WMF의 적용 가능한 최신 버전이 설치됩니다.
 
@@ -60,7 +60,7 @@ PowerShell cmdlet은 ARM 또는 ASM과 함께 사용되어 DSC 확장 배포를 
 
 이 cmdlet에서 만든 .zip 파일은 보관 폴더의 루트에서 .ps1 구성 스크립트를 포함합니다. 리소스에는 보관 폴더에 위치한 모듈 폴더가 있습니다.
 
-`Set-AzureVMDscExtension`은 VM 구성 개체에 PowerShell DSC 확장에서 필요한 설정을 삽입하며 이는 `Update-AzureVM`을 사용하여 Azure VM에 적용될 수 있습니다.
+`Set-AzureVMDscExtension`은 VM 구성 개체에 PowerShell DSC 확장에서 필요한 설정을 삽입하며 이는 `Update-AzureVM`를 사용하여 Azure VM에 적용될 수 있습니다.
 
 `Get-AzureVMDscExtension`은 특정 VM의 DSC 확장 상태를 검색합니다.
 
@@ -82,9 +82,9 @@ PowerShell cmdlet은 ARM 또는 ASM과 함께 사용되어 DSC 확장 배포를 
 ## Azure 포털 기능 ##
 클래식 VM으로 이동합니다. 설정 -> 일반에서 "확장"을 클릭합니다. 새 창을 만듭니다. "추가"를 클릭하고 PowerShell DSC를 선택합니다.
 
-포털에 입력해야 합니다. **구성 모듈 또는 스크립트**: 필수 필드입니다. .zip 파일 내의 모듈 폴더에서 루트 및 모든 종속 리소스 루트에 구성 스크립트를 포함하는 .ps1 파일 또는 .ps1 구성 스크립트를 포함하는 .zip 파일이 필요합니다. Azure PowerShell SDK에 포함된 `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` cmdlet으로 만들 수 있습니다. .zip 파일은 SAS 토큰에 의해 보호된 사용자 Blob 저장소에 업로드됩니다.
+포털에 입력해야 합니다. **구성 모듈 또는 스크립트**: 이 필드는 필수 필드입니다. .zip 파일 내의 모듈 폴더에서 루트 및 모든 종속 리소스 루트에 구성 스크립트를 포함하는 .ps1 파일 또는 .ps1 구성 스크립트를 포함하는 .zip 파일이 필요합니다. Azure PowerShell SDK에 포함된 `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` cmdlet으로 만들 수 있습니다. .zip 파일은 SAS 토큰에 의해 보호된 사용자 Blob 저장소에 업로드됩니다.
 
-**구성 데이터 PSD1 파일**: 선택적 필드입니다. 구성에 .psd1의 구성 데이터 파일이 필요한 경우 이 필드를 사용하여 선택하고 사용자 Blob 저장소에 업로드합니다. 이 저장소는 SAS 토큰으로 보호됩니다.
+**구성 데이터 PSD1 파일**: 이 필드는 선택적 필드입니다. 구성에 .psd1의 구성 데이터 파일이 필요한 경우 이 필드를 사용하여 선택하고 사용자 Blob 저장소에 업로드합니다. 이 저장소는 SAS 토큰으로 보호됩니다.
  
 **구성의 모듈 정규화된 이름**: .ps1 파일에는 여러 개의 구성 함수가 있을 수 있습니다. 예를 들어 ''에 이어서 구성 .ps1 스크립트의 이름 및 구성 함수의 이름을 입력합니다. 예를 들어 .ps1 스크립트 이름이 "configuration.ps1"이고 구성이 "IisInstall"이면 `configuration.ps1\IisInstall`을 입력합니다.
 
@@ -140,8 +140,10 @@ C:\\WindowsAzure\\Logs\\Plugins\\Microsoft.Powershell.DSC[Version Number]
 
 PowerShell DSC에 대한 자세한 내용은 [PowerShell 설명서 센터를 방문하세요](https://msdn.microsoft.com/powershell/dsc/overview).
 
+[DSC 확장에 대한 Azure Resource Manager 템플릿](virtual-machines-windows-extensions-dsc-template.md)을 검토합니다.
+
 PowerShell DSC로 관리할 수 있는 추가 기능을 찾으려면 추가 DSC 리소스는 [PowerShell 갤러리에서 찾아보세요](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 
 중요한 매개 변수를 구성에 전달하는 세부 정보는 [DSC 확장 처리기로 안전하게 자격 증명 관리](virtual-machines-windows-extensions-dsc-credentials.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

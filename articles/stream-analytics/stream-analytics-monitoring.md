@@ -5,7 +5,7 @@
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/19/2016" 
 	ms.author="jeffstok"/>
 
 # 스트림 분석 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
@@ -41,9 +41,8 @@ Azure 포털에서, 찾는 메트릭 중 관심있는 스트림 분석 작업을
 | 메트릭 | 정의 |
 |--------|-------------|
 | SU % 사용률 | 작업의 크기 조정 탭에서 작업에 할당한 스트리밍 단위의 사용률입니다. 이 표시가 80% 이상에 도달하면 이벤트 처리가 지연되거나 진행을 중단할 가능성이 큽니다. |
-| 입력 이벤트 | 이벤트 개수를 기준으로 스트림 분석 작업이 받은 데이터의 양입니다. 입력 소스로 전송되는 이벤트의 유효성을 검사하는 데 사용할 수 있습니다. |
-| 입력 이벤트 바이트 | 처리량(바이트)을 기준으로 스트림 분석 작업이 받은 데이터의 양입니다. |
-| 출력 이벤트 | 이벤트 개수를 기준으로 스트림 분석 작업이 출력 대상에 보낸 데이터의 양입니다. |
+| 입력 이벤트 | 스트림 분석 작업이 받은 데이터의 양(이벤트 수)입니다. 입력 소스로 전송되는 이벤트의 유효성을 검사하는 데 사용할 수 있습니다. |
+| 출력 이벤트 | 스트림 분석 작업이 출력 대상에 보낸 데이터의 양입니다(이벤트 수). |
 | 순서 비지정 이벤트 | 이벤트 순서 지정 정책에 기반하여 조정된 타임스탬프를 받거나 삭제된 순서가 정해지지 않은 수신 이벤트의 수입니다. 잘못된 순서 허용 시간 설정의 구성에 의해 영향을 받을 수 있습니다. |
 | 데이터 변환 오류 | 스트림 분석 작업에 의해 발생하는 데이터 변환 오류 수입니다. |
 | 런타임 오류 | 스트림 분석 작업을 실행하는 동안 발생하는 오류 수입니다. |
@@ -75,7 +74,7 @@ Azure 포털에서, 찾는 메트릭 중 관심있는 스트림 분석 작업을
 
 작업의 목록을 볼 수 있는 Azure 클래식 포털에서 스트림 분석 작업의 상태를 확인할 수 있습니다. Azure 클래식 포털에서 스트림 분석 아이콘을 클릭하여 작업 목록을 볼 수 있습니다.
 
-| 상태 | 정의 |
+| 가동 상태 | 정의 |
 |--------|------------|
 | 작성자 | 그러나 작업이 만들어졌지만 시작되지는 않았습니다. |
 | Starting | 사용자가 작업 시작을 클릭하면 작업이 시작됩니다. |
@@ -97,7 +96,7 @@ Azure 관리 포털에서 작업 대시보드는 진단(즉, 입력, 출력 및/
   ![쿼리 진단](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png)
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 사용해 보세요.
 
 ## 다음 단계
 
@@ -107,4 +106,4 @@ Azure 관리 포털에서 작업 대시보드는 진단(즉, 입력, 출력 및/
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

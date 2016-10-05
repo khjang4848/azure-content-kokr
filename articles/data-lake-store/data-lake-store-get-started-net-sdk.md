@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2016"
+   ms.date="09/26/2016"
    ms.author="nitinme"/>
 
 # .NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작
@@ -37,13 +37,7 @@
 
 * **Azure Data Lake 저장소 계정** 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
-* Azure Active Directory를 사용하여 응용 프로그램을 자동으로 인증하려는 경우 **Azure Active Directory 응용 프로그램을 만듭니다**.
-
-	* **비대화형 서비스 주체 인증의 경우** - Azure Active Directory에서 **웹 응용 프로그램**을 만들어야 합니다. 응용 프로그램을 만든 후 응용 프로그램과 관련된 다음 값을 검색합니다.
-		- 응용 프로그램에 **클라이언트 ID** 및 **클라이언트 암호** 가져오기
-		- 역할에 Azure Active Directory 응용 프로그램을 할당합니다. Azure Active Directory 응용 프로그램에 권한을 부여하려는 범위의 수준을 역할에 지정할 수 있습니다. 예를 들어 구독 수준 또는 리소스 그룹 수준으로 응용 프로그램을 할당할 수 있습니다.
-
-	이러한 값을 검색하고 권한을 설정하며 역할을 할당하는 방법에 대한 지침은 [포털을 사용하여 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요.
+* **Azure Active Directory 응용 프로그램을 만듭니다**. Azure AD 응용 프로그램을 사용하여 Azure AD로 Data Lake Store 응용 프로그램을 인증합니다. Azure AD로 인증하는 여러 접근 방법에는 **최종 사용자 인증** 또는 **서비스 간 인증**이 있습니다. 인증 하는 방법에 대한 지침 및 자세한 내용은 [Azure Active Directory를 사용하여 Data Lake Store로 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
 
 ## .NET 응용 프로그램 만들기
 
@@ -96,12 +90,15 @@
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
+				private static string _subId;
+
                 
                 private static void Main(string[] args)
                 {
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
                     _location = "East US 2";
+					_subId = "<SUBSCRIPTION-ID>";
                     
                     string localFolderPath = @"C:\local_path"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
@@ -115,31 +112,41 @@
 
 ## 인증
 
-다음 코드 조각은 환경의 대화형 로그에 사용될 수 있습니다.
+### 최종 사용자 인증을 사용하는 경우
+
+아래에 제공되는 기존 Azure AD "네이티브 클라이언트" 응용 프로그램과 함께 사용합니다.
 
     // User login via interactive popup
-    //    Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD "Native Client" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-또는 다음 코드 조각은 응용 프로그램/서비스 보안 주체에 대한 클라이언트 암호/키를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다.
+위의 코드 조각에서는 기본적으로 모든 Azure 구독에 대해 사용할 수 있는 Azure AD 도메인 및 클라이언트 ID를 사용합니다. 사용자 고유의 Azure AD 도메인 및 응용 프로그램 클라이언트 ID를 사용하려는 경우 Azure AD 네이티브 응용 프로그램을 만들어야 합니다. 지침은 [Active Directory 응용 프로그램 만들기](../resource-group-create-service-principal-portal.md#create-an-active-directory-application)를 참조하세요.
+
+>[AZURE.NOTE] 위의 링크에서 지침은 Azure AD 웹 응용 프로그램용입니다. 그러나 대신 네이티브 클라이언트 응용 프로그램을 만들더라도 단계는 정확하게 동일합니다.
+
+### 클라이언트 암호로 서비스 간 인증을 사용하는 경우 
+
+다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 암호/키를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 [Azure AD "Web App" 응용 프로그램](../resource-group-create-service-principal-portal.md)과 함께 사용합니다.
 
     // Service principal / appplication authentication with client secret / key
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    var clientSecret = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-세 번째 옵션으로 다음 코드 조각은 응용 프로그램/서비스 보안 주체에 대한 인증서를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다.
+### 인증서로 서비스 간 인증을 사용하는 경우
+
+세 번째 옵션으로 다음 코드 조각은 응용 프로그램/서비스 보안 주체에 대한 인증서를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 [Azure AD "Web App" 응용 프로그램](../resource-group-create-service-principal-portal.md)과 함께 사용합니다.
 
     // Service principal / application authentication with certificate
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -151,8 +158,11 @@
 
 다음 코드 조각은 이는 서비스에 요청을 발급하는 데 사용되는 Data Lake Store 계정 및 파일 시스템 클라이언트 개체를 만듭니다.
 
-    // Create client objects
-    var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    // Create client objects and set the subscription ID
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+
+	_adlsClient.SubscriptionId = _subId;
 
 ## 구독 내 모든 Data Lake Store 계정 나열
 
@@ -161,7 +171,7 @@
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
+        var response = _adlsClient.Account.List();
         var accounts = new List<DataLakeStoreAccount>(response);
         
         while (response.NextPageLink != null)
@@ -196,7 +206,7 @@
         uploader.Execute();
     }
 
-DataLakeStoreUploader는 Data Lake Store에 대한 로컬 파일(또는 폴더) 경로 간의 재귀 업로드 및 다운로드를 지원합니다.
+`DataLakeStoreUploader`는 로컬 파일 경로와 Data Lake Store 파일 경로 간의 재귀 업로드 및 다운로드를 지원합니다.
 
 ## 파일 또는 디렉터리 정보 가져오기
 
@@ -263,4 +273,4 @@ DataLakeStoreUploader는 Data Lake Store에 대한 로컬 파일(또는 폴더) 
 - [Data Lake Store .NET SDK 참조](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Data Lake Store REST 참조](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
+	keywords="Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
 
 <tags
 	ms.service="functions"
@@ -65,6 +65,13 @@ public static void Run(string myQueueItem, TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 }
+```
+
+#### Service Bus 큐 메시지를 처리하는 F# 코드 예제
+
+```fsharp
+let Run(myQueueItem: string, log: TraceWriter) =
+    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
 #### 서비스 버스 큐 메시지를 처리하는 Node.js 코드 예제
@@ -168,6 +175,15 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 }
 ```
 
+#### Service Bus 큐 메시지를 작성하는 F# 코드 예제
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
+    log.Info(message)
+    outputSbQueue = message
+```
+
 #### 서비스 버스 큐 메시지를 작성하는 Node.js 코드 예제
 
 ```javascript
@@ -189,4 +205,4 @@ module.exports = function (context, myTimer) {
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

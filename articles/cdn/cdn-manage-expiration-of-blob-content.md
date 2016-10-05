@@ -12,11 +12,15 @@
  ms.tgt_pltfrm="na"
  ms.devlang="multiple"
  ms.topic="article"
- ms.date="08/24/2016"
+ ms.date="09/15/2016"
  ms.author="casoper"/>
 
 
 # Azure CDN에서 Azure Storage Blob 콘텐츠의 만료 관리
+
+> [AZURE.SELECTOR]
+- [Azure Web Apps/Cloud Services, ASP.NET 또는 IIS](cdn-manage-expiration-of-cloud-service-content.md)
+- [Azure Storage Blob service](cdn-manage-expiration-of-blob-content.md)
 
 [Azure Storage](../storage/storage-introduction.md)에서 [Blob 서비스](../storage/storage-introduction.md#blob-storage)는 Azure CDN과 통합된 여러 Azure 기반 원본 중 하나입니다. TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다. TTL은 Azure Storage의 HTTP 응답에 있는 [*캐시 제어* 헤더](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)에 의해 결정됩니다.
 
@@ -108,4 +112,4 @@ Blob의 TTL을 쉽게 확인할 수 있습니다. 브라우저 [개발자 도구
 - [*캐시 제어* 헤더에 대해 참고하기](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 - [Azure CDN에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법을 알아봅니다.](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

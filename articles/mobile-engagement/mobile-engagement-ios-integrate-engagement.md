@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK 통합"
+	pageTitle="Azure Mobile Engagement iOS SDK 통합 | Microsoft Azure"
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="09/14/2016"
+	ms.author="piyushjo" />
 
 #IOS에서 Engagement를 통합하는 방법
 
@@ -26,25 +26,30 @@
 
 이 절차에서는 iOS 응용 프로그램에서 Engagement의 분석 및 모니터링 기능을 활성화하는 가장 간단한 방법을 설명합니다.
 
-> [AZURE.IMPORTANT] Engagement SDK에는 iOS6 이상이 필요합니다. 응용 프로그램의 배포 대상은 iOS 6 이상이어야 합니다.
+Engagement SDK에는 iOS6 이상 및 Xcode 8이 필요합니다. 응용 프로그램의 배포 대상은 iOS 6 이상이어야 합니다.
+
+> [AZURE.NOTE]
+XCode 7을 사용하는 경우 [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh)를 사용할 수도 있습니다. iOS 10 장치에서 실행되는 경우 이 이전 버전의 도달률 모듈에서는 알려진 버그가 있습니다. 자세한 내용은 [도달률 모듈 통합](mobile-engagement-ios-integrate-engagement-reach.md)을 참조하세요. SDK v3.2.4를 사용하도록 선택하는 경우 다음 단계의 `UserNotifications.framework` 가져오기로 건너뜁니다.
 
 다음 단계만 수행하면 사용자, 세션, 활동, 작동 중단 및 기술과 관련된 모든 통계를 계산하는 데 필요한 로그 보고를 활성화할 수 있습니다. 이벤트, 오류, 작업 등의 기타 통계는 응용 프로그램별로 다르므로, 해당 통계를 계산하는 데 필요한 로그 보고는 Engagement API를 사용하여 수동으로 수행해야 합니다. 관련 설명은 [iOS 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-ios-use-engagement-api.md)을 참조하세요.
 
 ##IOS 프로젝트에 Engagement SDK를 포함합니다.
 
-[여기](http://aka.ms/qk2rnj)에서 iOS SDK를 다운로드합니다.
-iOS 프로젝트에 Engagement SDK를 추가합니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **"Add files to ..."**를 선택하고 `EngagementSDK` 폴더를 선택합니다.
+- [여기](http://aka.ms/qk2rnj)에서 iOS SDK를 다운로드합니다.
 
-Engagement가 작동하려면 추가 프레임워크가 필요합니다. 프로젝트 탐색기에서 프로젝트 창을 열고 올바른 대상을 선택합니다. 그런 다음 **"Build phases"** 탭을 열고 **"Link Binary With Libraries"** 메뉴에서 다음 프레임워크를 추가합니다.
+- iOS 프로젝트에 Engagement SDK를 추가합니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **"Add files to ..."**를 선택하고 `EngagementSDK` 폴더를 선택합니다.
 
-> -   `AdSupport.framework` - 링크를 `Optional`(으)로 설정합니다.
-> -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
-> -   `libxml2.dylib`
+- Engagement가 작동하려면 추가 프레임워크가 필요합니다. 프로젝트 탐색기에서 프로젝트 창을 열고 올바른 대상을 선택합니다. 그런 다음 **"Build phases"** 탭을 열고 **"Link Binary With Libraries"** 메뉴에서 다음 프레임워크를 추가합니다.
 
-> [AZURE.NOTE] AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다 \<ios-sdk-engagement-idfa\>.
+	-   `UserNotifications.framework` - 링크를 `Optional`(으)로 설정합니다.
+	-   `AdSupport.framework` - 링크를 `Optional`(으)로 설정합니다.
+	-   `SystemConfiguration.framework`
+	-   `CoreTelephony.framework`
+	-   `CFNetwork.framework`
+	-   `CoreLocation.framework`
+	-   `libxml2.dylib`
+
+> [AZURE.NOTE] AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다(<ios-sdk-engagement-idfa>).
 
 ##Engagement SDK 초기화
 
@@ -208,4 +213,4 @@ Engagement에서 로그 전송을 중지하려면 다음을 호출할 수 있습
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 # 트래픽 관리자를 사용하는 Azure 앱 서비스의 웹 앱에 대한 사용자 지정 도메인 이름 구성
@@ -55,7 +55,7 @@
 
 1. 각 등록 기관에 대한 구체적인 설명은 다르지만 일반적으로 사용자 지정 도메인 이름(예: **contoso.com**)*에서* 웹앱에 사용하는 트래픽 관리자 도메인 이름(**contoso.trafficmanager.net**)*으로* 매핑합니다.
 
-> [AZURE.NOTE] 또는 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우에는 **awverify.contoso.com**을 **contoso.trafficmanager.net**에 대해 TXT 레코드를 만듭니다.
+    > [AZURE.NOTE] 또는 레코드를 이미 사용 중이고 앱을 우선적으로 바인딩해야 하는 경우 추가 CNAME 레코드를 만들 수 있습니다. 예를 들어 웹앱에 **www.contoso.com**을 우선적으로 바인딩하려면 **awverify.www**에서 **contoso.trafficmanager.net**으로 CNAME 레코드를 만듭니다. 그런 다음 "www" CNAME 레코드를 변경하지 않고 "www.contoso.com"을 웹앱에 추가할 수 있습니다. 자세한 내용은 [사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기][CREATEDNS]를 참조하세요.
 
 1. 등록 기관에서 DNS 레코드를 추가하거나 수정했으면 변경 내용을 저장합니다.
 
@@ -72,4 +72,8 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!-- URL List -->
+
+[CREATEDNS]: ../dns/dns-web-sites-custom-domain.md
+
+<!---HONumber=AcomDC_0921_2016-->

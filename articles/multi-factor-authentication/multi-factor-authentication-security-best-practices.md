@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure MFA 사용에 대한 보안 모범 사례" 
-	description="이 문서에서는 Azure 계정으로 Azure MFA를 사용하는 모범 사례를 제공합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure MFA 사용에 대한 보안 모범 사례"
+	description="이 문서에서는 Azure 계정으로 Azure MFA를 사용하는 모범 사례를 제공합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 모범 사례
 
@@ -31,7 +31,7 @@
 ![EMS](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 Azure AD Premium 또는 Enterprise Mobility Suite를 사용하여 클라우드에서 Azure MFA를 채택하기 위한 첫 번째 권장 단계는 사용자에게 라이선스를 할당하는 것입니다. Azure Multi-factor Authentication은 이러한 제품군의 일부이며 따라서 Multi-factor Authentication을 조직의 모든 사용자에게 확장하기 위해 추가로 아무 것도 필요하지 않습니다.
- 
+
 Multi-factor Authentication을 설정할 때 고려해야 할 사항:
 
 - Multi-Factor Auth 공급자를 만들 필요가 없습니다. Azure AD Premium 및 Enterprise Mobility Suite에 Azure Multi-Factor Authentication이 함께 제공됩니다. Auth 공급자를 만들면 중복 청구될 수 있습니다.
@@ -102,7 +102,7 @@ Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액�
 온-프레미스로 배포할 각 구성 요소에 대한 일부 추가 고려 사항과 모범 사례를 이해하려면 아래 목록을 사용하십시오.
 
 메서드|설명
-:------------- | :------------- | 
+:------------- | :------------- |
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|AD FS를 사용한 Azure Multi-Factor Authentication 설정에 대한 정보입니다.
 [RADIUS 인증](multi-factor-authentication-get-started-server-radius.md)| RADIUS를 사용한 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
 [IIS 인증](multi-factor-authentication-get-started-server-iis.md)|IIS를 사용한 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
@@ -111,7 +111,7 @@ Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액�
 [RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](multi-factor-authentication-get-started-server-rdg.md)| RADIUS를 사용한 원격 데스크톱 게이트웨이에서 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
 [Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md)|Active Directory와 Azure MFA 서버 간의 동기화 설정 및 구성에 대한 정보입니다.
 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)|Azure MFA 서버 웹 서비스 구성 및 설치에 대한 정보입니다.
-[Azure Multi-Factor Authentication으로 고급 VPN 구성](multi-factor-authentication-advanced-vpn-configurations.md)|LDAP 또는 RADIUS를 사용한 Cisco ASA, Citrix Netscaler 및 Juniper/Pulse Secure VPN 어플라이언스 구성에 대한 정보. 
+[Azure Multi-Factor Authentication으로 고급 VPN 구성](multi-factor-authentication-advanced-vpn-configurations.md)|LDAP 또는 RADIUS를 사용한 Cisco ASA, Citrix Netscaler 및 Juniper/Pulse Secure VPN 어플라이언스 구성에 대한 정보.
 
 
 ## 추가 리소스
@@ -121,4 +121,4 @@ Azure Multi-factor Authentication 서버를 사용하여 Azure AD 계정이 액�
 - [Azure Multi-Factor Authentication의 환경 설정](multi-factor-authentication-end-user-first-time.md)
 - [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

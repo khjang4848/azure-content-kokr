@@ -61,28 +61,24 @@
 
 	![][3]
 
-6. **XCode 7**의 경우 - `libxml2.dylib` 대신 `libxml2.tbd`를 추가합니다.
-
-7. Azure 포털의 앱 **연결 정보** 페이지로 돌아가서 연결 문자열을 복사합니다.
+6. Azure 포털의 앱 **연결 정보** 페이지로 돌아가서 연결 문자열을 복사합니다.
 
 	![][4]
 
-8. **AppDelegate.m** 파일에 다음 코드 줄을 추가합니다.
+7. **AppDelegate.m** 파일에 다음 코드 줄을 추가합니다.
 
 		#import "EngagementAgent.h"
 
-9. 이제 연결 문자열을 `didFinishLaunchingWithOptions` 대리자에 붙여넣습니다.
+8. 이제 연결 문자열을 `didFinishLaunchingWithOptions` 대리자에 붙여넣습니다.
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
-  			[...]
-			//[EngagementAgent setTestLogEnabled:YES];
-   
+  			[...]   
   			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
   			[...]
 		}
 
-10. `setTestLogEnabled`는 SDK 로그를 통해 문제를 식별할 수 있도록 하는 선택적 문입니다.
+9. `setTestLogEnabled`는 SDK 로그를 통해 문제를 식별할 수 있도록 하는 선택적 문입니다.
 
 ##<a id="monitor"></a>실시간 모니터링 사용
 
@@ -121,6 +117,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 1. **AppDeletegate.m** 파일로 돌아가서 Engagement 도달률 모듈을 가져옵니다.
 
 		#import "AEReachModule.h"
+		#import <UserNotifications/UserNotifications.h>
 
 2. 다음과 같이 `application:didFinishLaunchingWithOptions` 메서드 내에서 도달률 모듈을 만든 다음 기존 Engagement 초기화 줄에 전달합니다.
 
@@ -135,12 +132,19 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 1. 다음 줄을 `application:didFinishLaunchingWithOptions` 메서드에 추가합니다.
 
-		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
 			[application registerForRemoteNotifications];
 		}
-		else {
-
+		else
+		{
 			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 		}
 
@@ -178,4 +182,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

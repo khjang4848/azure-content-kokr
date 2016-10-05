@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
+	keywords="Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
 
 <tags
 	ms.service="functions"
@@ -145,8 +145,9 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
+* [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions: Azure 앱 서비스](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) 팀 블로그 과정. Azure Functions 개발에 대한 기록
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

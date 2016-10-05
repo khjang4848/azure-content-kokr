@@ -42,7 +42,7 @@ Azure Functions은 이벤트 기반 주문형 계산 환경이며 이를 통해 
 
 	![새 GitHub 웹후크 함수 만들기](./media/functions-create-a-web-hook-or-api-function/functions-create-new-github-webhook.png)
 
-4. **개발** 탭의 **코드** 창에서 샘플 express.js 함수를 적어둡니다. 이 함수는 문제 주석 웹후크에서 GitHub 요청을 받고 문제 텍스트를 기록하며 웹후크에 `New GitHub comment: <Your issue comment text>`으로 응답을 보냅니다.
+4. **개발**의 **코드** 창에서 샘플 express.js 함수를 적어둡니다. 이 함수는 문제 주석 웹후크에서 GitHub 요청을 받고 문제 텍스트를 기록하며 웹후크에 `New GitHub comment: <Your issue comment text>`으로 응답을 보냅니다.
 
 
 	![새 GitHub 웹후크 함수 만들기](./media/functions-create-a-web-hook-or-api-function/functions-new-webhook-in-portal.png)
@@ -89,4 +89,4 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 [AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

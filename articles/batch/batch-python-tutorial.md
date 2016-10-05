@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/08/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Azure 배치 Python 클라이언트 시작
@@ -44,9 +44,33 @@ Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-bat
 
 ### Python 환경
 
-로컬 워크스테이션에서 *python\_tutorial\_client.py* 샘플 스크립트를 실행하려면 **2.7** 또는 **3.3-3.5**와 호환되는 **Python 인터프리터**가 필요합니다. 스크립트는 Linux와 Windows 모두에서 테스트되었습니다.
+로컬 워크스테이션에서 *python\_tutorial\_client.py* 샘플 스크립트를 실행하려면 **2.7** 또는 **3.3+**와 호환되는 **Python 인터프리터**가 필요합니다. 스크립트는 Linux와 Windows 모두에서 테스트되었습니다.
 
-또한 **Azure 배치** 및 **Azure Storage** Python 패키지를 설치해야 합니다. 다음에 위치한 **pip** 및 *requirements.txt*를 사용하여 수행할 수 있습니다.
+### 암호화 종속성
+
+`azure-batch` 및 `azure-storage` Python 패키지에 필수적인 [암호화][crypto] 라이브러리에 대한 종속성을 설치해야 합니다. 자세한 내용은 플랫폼에 적합한 다음 작업 중 하나를 수행하거나 [암호화 설치][crypto_install] 세부 정보를 참조하세요.
+
+* Ubuntu
+
+    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
+
+* CentOS
+
+    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+
+* SLES/OpenSUSE
+
+    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
+
+* Windows
+
+    `pip install cryptography`
+
+>[AZURE.NOTE] Linux에서 Python 3.3+를 설치하는 경우 Python 종속성에 해당하는 python3을 사용합니다. 예를 들어 Ubuntu에서 `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+
+### Azure 패키지
+
+또한 **Azure Batch** 및 **Azure Storage** Python 패키지를 설치합니다. 다음에 위치한 **pip** 및 *requirements.txt*를 사용하여 수행할 수 있습니다.
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -56,7 +80,7 @@ Python 자습서 [코드 샘플][github_article_samples]은 GitHub의 [azure-bat
 
 또는 [azure-batch][pypi_batch] 및 [azure-storage][pypi_storage] Python 패키지를 수동으로 설치할 수 있습니다.
 
-`pip install azure-batch==0.30.0rc4`<br/> `pip install azure-storage==0.30.0`
+`pip install azure-batch`<br/> `pip install azure-storage`
 
 > [AZURE.TIP] 권한 없는 계정을 사용하는 경우 명령의 접두사로 `sudo`을 사용합니다. 예: `sudo pip install -r requirements.txt` Python 패키지를 설치하는 방법에 대한 자세한 내용은 readthedocs.io에서 [패키지 설치][pypi_install]를 참조하세요.
 
@@ -254,7 +278,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 ```python
 def create_pool(batch_service_client, pool_id,
-                resource_files, distro, version):
+                resource_files, publisher, offer, sku):
     """
     Creates a pool of compute nodes with the specified OS settings.
 
@@ -263,10 +287,9 @@ def create_pool(batch_service_client, pool_id,
     :param str pool_id: An ID for the new pool.
     :param list resource_files: A collection of resource files for the pool's
     start task.
-    :param str distro: The Linux distribution that should be installed on the
-    compute nodes, e.g. 'Ubuntu' or 'CentOS'.
-    :param str version: The version of the operating system for the compute
-    nodes, e.g. '15' or '14.04'.
+    :param str publisher: Marketplace image publisher
+    :param str offer: Marketplace image offer
+    :param str sku: Marketplace image sku
     """
     print('Creating pool [{}]...'.format(pool_id))
 
@@ -282,24 +305,32 @@ def create_pool(batch_service_client, pool_id,
         # Copy the python_tutorial_task.py script to the "shared" directory
         # that all tasks that run on the node have access to.
         'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
-        # Install pip and then the azure-storage module so that the task
-        # script can access Azure Blob storage
+        # Install pip and the dependencies for cryptography
         'apt-get update',
         'apt-get -y install python-pip',
+        'apt-get -y install build-essential libssl-dev libffi-dev python-dev',
+        # Install the azure-storage module so that the task script can access
+        # Azure Blob storage
         'pip install azure-storage']
 
-    # Get the virtual machine configuration for the desired distro and version.
+    # Get the node agent SKU and image reference for the virtual machine
+    # configuration.
     # For more information about the virtual machine configuration, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
-    vm_config = get_vm_config_for_distro(batch_service_client, distro, version)
+    sku_to_use, image_ref_to_use = \
+        common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
+            batch_service_client, publisher, offer, sku)
 
     new_pool = batch.models.PoolAddParameter(
         id=pool_id,
-        virtual_machine_configuration=vm_config,
+        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            node_agent_sku_id=sku_to_use),
         vm_size=_POOL_VM_SIZE,
         target_dedicated=_POOL_NODE_COUNT,
         start_task=batch.models.StartTask(
-            command_line=wrap_commands_in_shell('linux', task_commands),
+            command_line=
+            common.helpers.wrap_commands_in_shell('linux', task_commands),
             run_elevated=True,
             wait_for_success=True,
             resource_files=resource_files),
@@ -310,7 +341,6 @@ def create_pool(batch_service_client, pool_id,
     except batchmodels.batch_error.BatchErrorException as err:
         print_batch_exception(err)
         raise
-}
 ```
 
 풀을 만들 경우 풀에 대한 몇 가지 속성을 지정하는 [PoolAddParameter][py_pooladdparam]를 정의합니다.
@@ -319,7 +349,7 @@ def create_pool(batch_service_client, pool_id,
 
 - **계산 노드 수**(*target\_dedicated* - 필수)<p/>이 속성은 풀에 배포할 VM 수를 지정합니다. 모든 배치 계정에서 배치 계정에 있는 **코어**(및 계산 노드)의 수를 제한하는 기본 **할당량**이 있어야 합니다. 기본 할당량 및 [할당량을 증가](batch-quota-limit.md#increase-a-quota)하는 방법에 대한 지침(예: 배치 계정의 최대 코어 수)은 [Azure 배치 서비스에 대한 할당량 및 제한](batch-quota-limit.md)에서 찾을 수 있습니다. "풀이 X 노드보다 더 멀리 도달할 수 없나요?"하는 질문의 경우 이 코어 할당량이 원인일 수 있습니다.
 
-- 노드에 대한 **운영 체제**(*virtual\_machine\_configuration* **또는** *cloud\_service\_configuration* - 필수)<p/>*python\_tutorial\_client.py*에서 `get_vm_config_for_distro` 도우미 함수로 얻은 [VirtualMachineConfiguration][py_vm_config]을 사용하여 Linux 노드의 풀을 만듭니다. 이 도우미 함수는 [list\_node\_agent\_skus][py_list_skus]를 사용하여 호환되는 [Azure 가상 컴퓨터 마켓플레이스][vm_marketplace] 이미지 목록에서 이미지를 가져오고 선택합니다. 대신 [CloudServiceConfiguration][py_cs_config]을 지정하고 클라우드 서비스에서 Windows 노드 풀을 만들 수 있습니다. 두 개의 서로 다른 구성에 대한 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
+- 노드에 대한 **운영 체제**(*virtual\_machine\_configuration* **또는** *cloud\_service\_configuration* - 필수)<p/>*python\_tutorial\_client.py*에서 [VirtualMachineConfiguration][py_vm_config]을 사용하여 Linux 노드의 풀을 만듭니다. `common.helpers`에서 `select_latest_verified_vm_image_with_node_agent_sku` 함수는 [Azure Virtual Machines 마켓플레이스][vm_marketplace] 이미지를 사용하는 방법을 간소화합니다. 마켓플레이스 이미지를 사용하는 방법에 대한 자세한 내용은 [Azure Batch 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
 - **계산 노드 크기**(*vm\_size* - 필수)<p/>[VirtualMachineConfiguration][py_vm_config]에 Linux 노드를 지정하기 때문에 [Azure의 가상 컴퓨터에 대한 크기](../virtual-machines/virtual-machines-linux-sizes.md)에서 VM 크기(이 샘플의 `STANDARD_A1`)를 지정합니다. 다시 자세한 내용은 [Azure 배치 풀에서 Linux 계산 노드 프로비전](batch-linux-nodes.md)을 참조하세요.
 
@@ -428,7 +458,7 @@ def add_tasks(batch_service_client, job_id, input_files,
 
 4. **storagecontainer**: 출력 파일을 업로드해야 하는 저장소 컨테이너 이름입니다.
 
-5. **sastoken**: Azure Storage의 **출력** 컨테이너에 쓰기 액세스를 제공하는 SAS(공유 액세스 서명)입니다. *python\_tutorial\_task.py* 스크립트가 BlockBlobService 참조를 만들 경우 이 공유 액세스 서명을 사용합니다. 저장소 계정에 대한 선택키를 요구하지 않고 컨테이너에 대한 쓰기 액세스를 제공합니다.
+5. **sastoken**: Azure Storage의 **출력** 컨테이너에 쓰기 액세스를 제공하는 SAS(공유 액세스 서명)입니다. *python\_tutorial\_task.py* 스크립트가 BlockBlobService 참조를 만들 경우 이 공유 액세스 서명을 사용합니다. 저장소 계정에 대한 액세스 키를 요구하지 않고 컨테이너에 대한 쓰기 액세스를 제공합니다.
 
 ```python
 # NOTE: Taken from python_tutorial_task.py
@@ -556,7 +586,9 @@ if query_yes_no('Delete pool?') == 'yes':
 
 자습서 [코드 샘플][github_article_samples]에서 *python\_tutorial\_client.py* 스크립트를 실행하는 경우 콘솔 출력은 다음과 유사합니다. 풀의 계산 노드를 만들고 시작하고 풀의 시작 태스크에서 명령을 실행하는 동안 `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`에서 일시 중지가 발생합니다. [Azure 포털][azure_portal]을 사용하여 실행 중 및 실행 후에 풀, 계산 노드, 작업 및 태스크를 모니터링합니다. [Azure 포털][azure_portal] 또는 [Microsoft Azure Storage 탐색기][storage_explorer]를 사용하여 응용 프로그램에서 만든 저장소 리소스(컨테이너 및 Blob)를 봅니다.
 
-기본 구성에서 응용 프로그램을 실행하는 경우 일반적인 실행 시간은 **약 5-7분**입니다.
+>[AZURE.TIP] `azure-batch-samples/Python/Batch/article_samples` 디렉터리 내에서 *python\_tutorial\_client.py* 스크립트를 실행합니다. `common.helpers` 모듈 가져오기에 대한 상대 경로를 사용하므로 이 디렉터리 내에서 스크립트를 실행하지 않는 경우 `ImportError: No module named 'common'`가 표시될 수 있습니다.
+
+기본 구성에서 샘플을 실행하는 경우 일반적인 실행 시간은 **약 5-7분**입니다.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -601,6 +633,8 @@ Press ENTER to exit...
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
+[crypto]: https://cryptography.io/en/latest/
+[crypto_install]: https://cryptography.io/en/latest/installation/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
@@ -658,4 +692,4 @@ Press ENTER to exit...
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "포털의 저장소 자격 증명"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "배치 솔루션 워크플로(최소 다이어그램)"
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

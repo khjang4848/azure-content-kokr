@@ -15,7 +15,7 @@
 	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure" 
-	ms.date="06/28/2016" 
+	ms.date="09/19/2016" 
 	ms.author="iainfou" 
 />
 
@@ -49,4 +49,4 @@ azure vm list -g <resourcegroup>
 ## 다음 단계
 VM에 연결하는 데 문제가 있는 경우 [SSH 연결 문제 해결](virtual-machines-linux-troubleshoot-ssh-connection.md) 또는 [자세한 SSH 문제 해결 단계](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md)에서 특정 도움말을 찾을 수 있습니다. VM에서 실행 중인 응용 프로그램에 액세스할 수 없는 경우 [응용 프로그램 문제 해결](virtual-machines-linux-troubleshoot-app-connection.md)을 읽어볼 수도 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

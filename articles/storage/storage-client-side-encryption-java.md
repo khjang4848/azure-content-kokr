@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="java"
 	authors="dineshmurthy"
-	manager="carmonm"
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="dineshm"/>
+	ms.date="09/20/2016"
+	ms.author="dineshm;robinsh"/>
 
 
 # Microsoft Azure 저장소용 Java를 이용한 클라이언트쪽 암호화   
@@ -247,4 +247,4 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 	- [클라이언트](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 패키지
 - [Azure 주요 자격 증명 모음 설명서](../key-vault/key-vault-whatis.md) 참조
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

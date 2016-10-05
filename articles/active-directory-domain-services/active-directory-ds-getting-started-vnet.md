@@ -58,4 +58,4 @@ Azure AD 도메인 서비스를 사용하도록 설정할 Azure 가상 네트워
 ## 작업 3 - Azure AD 도메인 서비스 활성화
 다음 구성 태스크는 [Azure AD 도메인 서비스를 활성화](active-directory-ds-getting-started-enableaadds.md)하는 것입니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!-----HONumber=AcomDC_0921_2016-->

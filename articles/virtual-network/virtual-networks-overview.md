@@ -95,4 +95,4 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 - [NSG](virtual-networks-nsg.md)에 대해 알아보기.
 - [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아보기.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!-----HONumber=AcomDC_0810_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/14/2016" 
 	ms.author="jaymathe"/>
 
 
@@ -74,4 +74,4 @@ Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 �
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

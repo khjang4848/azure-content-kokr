@@ -73,4 +73,4 @@
 
 - [Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!-----HONumber=AcomDC_0921_2016-->

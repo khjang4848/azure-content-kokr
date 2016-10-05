@@ -3,8 +3,8 @@
    description="자격 증명 모음을 만들고, 복구 서비스 에이전트를 설치하고, 파일과 폴더를 Azure에 백업하여 Windows Server 데이터를 백업하는 방법을 알아봅니다."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
    keywords="백업 방법, 백업하는 방법"/>
 
@@ -14,8 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>
 
 # 소개: Resource Manager 배포 모델을 사용하여 Azure 백업이 포함된 파일 및 폴더 백업
 
@@ -25,11 +25,11 @@ Azure 백업에 대해 자세히 알아보려면 이 [개요](backup-introductio
 
 Azure에 파일 및 폴더를 백업하려면 다음과 같은 작업이 필요합니다.
 
-![1단계](./media/backup-try-azure-backup-in-10-mins/step-1.png) 아직 Azure 구독이 없는 경우 새로 하나 만듭니다.<br> ![2단계](./media/backup-try-azure-backup-in-10-mins/step-2.png) 복구 서비스 자격 증명 모음을 만듭니다.<br> ![3단계](./media/backup-try-azure-backup-in-10-mins/step-3.png) 필요한 파일을 다운로드합니다.<br> ![4단계](./media/backup-try-azure-backup-in-10-mins/step-4.png) 복구 서비스 에이전트를 설치 및 등록합니다.<br> ![5단계](./media/backup-try-azure-backup-in-10-mins/step-5.png) 파일과 폴더를 백업합니다.
+![1단계](./media/backup-try-azure-backup-in-10-mins/step-1.png) 아직 Azure 구독이 없는 경우 만듭니다.<br> ![2단계](./media/backup-try-azure-backup-in-10-mins/step-2.png) 복구 서비스 자격 증명 모음을 만듭니다.<br> ![3단계](./media/backup-try-azure-backup-in-10-mins/step-3.png) 필요한 파일을 다운로드합니다.<br> ![4단계](./media/backup-try-azure-backup-in-10-mins/step-4.png) 복구 서비스 에이전트를 설치 및 등록합니다.<br> ![5단계](./media/backup-try-azure-backup-in-10-mins/step-5.png) 파일과 폴더를 백업합니다.
 
 ![Azure 백업을 사용하여 Windows 컴퓨터를 백업하는 방법](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
-## 1단계: Azure 구독하기
+## 1단계: Azure 구독 가져오기
 
 Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -49,13 +49,13 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 
     ![복구 서비스 자격 증명 모음 만들기 2단계](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    복구 서비스 자격 증명 모음 블레이드가 열리고 **이름**, **구독**, **리소스 그룹**, **위치**를 입력하라는 메시지가 표시됩니다.
+    복구 서비스 자격 증명 모음 블레이드가 열리고 **이름**, **구독**, **리소스 그룹** 및 **위치**를 입력하라는 메시지가 표시됩니다.
 
     ![복구 서비스 자격 증명 모음 만들기 5단계](./media/backup-try-azure-backup-in-10-mins/rs-vault-attributes.png)
 
 4. **이름**에 자격 증명 모음을 식별할 수 있는 이름을 입력합니다.
 
-5. **구독**을 클릭하면 사용 가능한 구독의 목록이 표시됩니다.
+5. **구독**을 클릭하여 사용 가능한 구독 목록을 볼 수 있습니다.
 
 6. **리소스 그룹**을 클릭하여 사용 가능한 리소스 그룹 목록을 표시하거나 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다.
 
@@ -203,4 +203,4 @@ Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 
 - 파일과 폴더를 백업했으므로 이제 [자격 증명 모음 및 서버](backup-azure-manage-windows-server.md)를 관리할 수 있습니다.
 - 백업을 복원해야 하는 경우 이 문서를 참조하여 [Windows 컴퓨터에 파일을 복원](backup-azure-restore-windows-server.md)할 수 있습니다.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

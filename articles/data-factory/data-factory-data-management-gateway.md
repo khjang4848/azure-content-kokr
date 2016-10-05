@@ -494,6 +494,6 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
 
 
 ## 다음 단계
-- 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
+- [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 이 연습에서는 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 이동하는 파이프라인을 만듭니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

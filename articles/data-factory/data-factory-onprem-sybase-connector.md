@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Sybase에서 데이터 이동 
@@ -22,7 +22,8 @@
 
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 Sybase 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
-**참고:** Azure IaaS VM에서 호스팅되는 경우에도 Sybase에 연결하려면 게이트웨이를 활용해야 합니다. 또한 클라우드에서 호스트되는 Sybase의 인스턴스에 연결하려고 하는 경우 IaaS VM에 게이트웨이 인스턴스를 설치할 수 있습니다.
+> [AZURE.NOTE]
+게이트웨이는 Sybase 데이터베이스가 Azure IaaS VM에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 IaaS VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
 
 현재 데이터 팩터리는 다른 데이터 저장소에서 Sybase로가 아닌 Sybase에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
@@ -50,7 +51,7 @@ Sybase 데이터베이스의 데이터를 지원되는 싱크 데이터 저장�
 
 샘플은 Sybase 데이터베이스의 쿼리 결과에서 blob에 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
-첫 번째 단계로 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서의 지침에 따라 데이터 관리 게이트웨이를 설정합니다.
+첫 번째 단계로 데이터 관리 게이트웨이를 설정합니다. 해당 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서에 나와 있습니다.
 
 **Sybase 연결된 서비스:**
 
@@ -87,7 +88,7 @@ Sybase 데이터베이스의 데이터를 지원되는 싱크 데이터 저장�
 
 샘플은 Sybase에서 만든 테이블 "MyTable"에 시계열 데이터에 대한 "timestamp" 라는 열이 포함되어 있다고 가정합니다.
 
-"external": true를 설정하고 externalData 정책을 지정함으로써 데이터 팩터리에 이 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 작업에 의해 생성되지 않는다는 점을 알려줍니다. 연결된 서비스의 **type**을 **RelationalTable**로 설정합니다.
+"external": true를 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 정보가 Data Factory 서비스에 전달됩니다. 연결된 서비스의 **type**을 **RelationalTable**로 설정합니다.
 	
 	{
 	    "name": "SybaseDataSet",
@@ -172,7 +173,7 @@ Sybase 데이터베이스의 데이터를 지원되는 싱크 데이터 저장�
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 데이터베이스의 DBA.Orders 테이블에서 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 데이터베이스의 DBA.Orders 테이블에서 데이터를 선택합니다.
 
 
 	{
@@ -247,11 +248,11 @@ tableName | 연결된 서비스가 참조하는 Sybase 데이터베이스 인스
 
 ## Sybase 복사 작업 형식 속성 
 
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
-반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
+반면 활동의 typeProperties 섹션에서 사용할 수 있는 속성은 각 활동 형식에 따라 다릅니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
-원본이 **RelationalSource** 형식인 복사 작업의 경우(Sybase 포함) **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
+원본이 **RelationalSource**(Sybase 포함) 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
@@ -261,7 +262,7 @@ tableName | 연결된 서비스가 참조하는 Sybase 데이터베이스 인스
 
 ## Sybase에 대한 형식 매핑
 
-데이터 이동 활동 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼, 복사 활동은 다음과 같은 2단계 방식을 사용해 소스 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -275,4 +276,4 @@ Sybase는 T-SQL 및 T-SQL 형식을 지원합니다. sql 형식에서 .NET 형�
 ## 성능 및 튜닝  
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

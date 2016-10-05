@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 />
 
@@ -51,4 +51,4 @@
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

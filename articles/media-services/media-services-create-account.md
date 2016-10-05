@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 
@@ -65,7 +65,7 @@ Azure 클래식 포털을 통해 Azure 미디어 서비스 계정을 신속하�
 
 6. 양식 맨 아래에 있는 **빠른 생성**을 클릭합니다.
 
-창 맨 아래에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
+창 아래쪽에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
 
 계정이 생성되면 상태가 활성으로 변경됩니다. **미디어 서비스** 페이지가 열리고 새 계정이 표시됩니다.
 
@@ -106,4 +106,4 @@ Azure 클래식 포털을 통해 Azure 미디어 서비스 계정을 신속하�
 
   [Azure 클래식 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

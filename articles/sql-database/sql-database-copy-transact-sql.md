@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -100,4 +100,4 @@ sys.databases 및 sys.dm\_database\_copies 뷰 쿼리를 통해 복사 프로세
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

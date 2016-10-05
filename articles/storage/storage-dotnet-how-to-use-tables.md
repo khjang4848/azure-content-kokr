@@ -19,7 +19,9 @@
 
 # .NET을 사용하여 Azure 테이블 저장소 시작
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## 개요
 
@@ -469,4 +471,4 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

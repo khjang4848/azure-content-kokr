@@ -23,8 +23,7 @@
 
 서비스 가동 중지 시간 없이 구독을 더 유리한 제품으로 [전환할 수 있습니다](#where-is-the-button). 현재 [계정 센터](https://account.windowsazure.com/Subscriptions)에서 지원되는 경로는 다음과 같습니다. 요구 사항에 대해 자세히 알아보려면 링크를 클릭하세요.
 
-| 원본 | 받는 사람  
- |
+| 원본 | 받는 사람   |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) | [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) | [12개월 선불](https://azure.microsoft.com/offers/ms-azr-0026p/) |

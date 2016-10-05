@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure VM에서 SAP HANA 수동 설치에 대한 빠른 시작 가이드 | Microsoft Azure"
    description="Azure VM에서 SAP HANA 수동 설치에 대한 빠른 시작 가이드"
-   services="virtual-machines,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.service="virtual-machines-linux"
+   ms.devlang="na"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
-   ms.date="09/07/2016"
+   ms.workload="infrastructure-services"
+   ms.date="09/15/2016"
    ms.author="hermannd"/>
 
 # Azure VM에서 단일 인스턴스 SAP HANA 수동 설치에 대한 빠른 시작 가이드
@@ -384,11 +384,11 @@ SWPM을 통한 분산 설치의 일부로 SAP HANA를 설치하는 방법 외에
 
 다음은 HANA hdblcm 도구에 대해 설명하는 세 개의 문서입니다.
 
-[Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)(작업을 위해 올바른 SAP HANA HDBLCM 선택)
+[Choosing the Correct SAP HANA HDBLCM for Your Task(작업을 위해 올바른 SAP HANA HDBLCM 선택)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
 
-[SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)(SAP HANA 수명 주기 관리 도구)
+[SAP HANA Lifecycle Management Tools(SAP HANA 수명 주기 관리 도구)](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
 
-[SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)(SAP HANA 서버 설치 및 업데이트 가이드)
+[SAP HANA Server Installation and Update Guide(SAP HANA 서버 설치 및 업데이트 가이드)](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 
 
@@ -484,4 +484,4 @@ SWPM 데이터베이스 인스턴스 설치가 완료되면 HANA Studio에서 SA
 
 * SAP Service Marketplace에서 HANA SP12 플랫폼 버전 다운로드: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

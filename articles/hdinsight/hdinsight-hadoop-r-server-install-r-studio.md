@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/22/2016"
+   ms.date="09/16/2016"
    ms.author="jeffstok"/>
 
 
@@ -28,7 +28,7 @@
 ## 필수 조건
 
 * R 서버가 설치된 Azure HDInsight 클러스터. 자세한 내용은 [HDInsight 클러스터에서 R 서버 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요.
-* SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)가 좋습니다.
+* SSH 클라이언트. Linux 및 Unix 배포 또는 Macintosh OS X의 경우 `ssh` 명령은 운영 체제에 제공됩니다. Windows의 경우 [OpenSSH 옵션](https://www.youtube.com/watch?v=CwYSvvGaiWU) 또는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 [Cygwin](http://www.redhat.com/services/custom/cygwin/)를 사용하는 것이 좋습니다.
 
 
 ## 사용자 지정 스크립트를 사용하여 클러스터에 RStudio 설치
@@ -73,13 +73,13 @@
 
 7. HDInsight 클러스터에서 `localhost:8787`을 클라이언트 컴퓨터에 매핑하여 클러스터에 대한 SSH 터널을 만듭니다. 새 브라우저 세션을 열기 전에 SSH 터널을 만들어야 합니다.
 
-	* Linux 클라이언트 또는 Windows 클라이언트([Cygwin](http://www.redhat.com/services/custom/cygwin/) 사용)에서 터미널 세션을 열고 다음 명령을 사용합니다.
+	* [Cygwin](http://www.redhat.com/services/custom/cygwin/)을 사용하는 Linux 클라이언트 또는 Windows 클라이언트에서 터미널 세션을 열고 다음 명령을 사용합니다.
 
 			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		**USERNAME**을 HDInsight 클러스터에 대한 SSH 사용자로 바꾸고 **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다. `-i id_rsa_key`을(를) 추가하여 암호 대신 SSH 키를 사용할 수도 있습니다.
 
-	* Windows 클라이언트에서 SSH 터널 PuTTY를 만듭니다.
+	* PuTTY와 Windows 클라이언트를 사용하는 경우
 
 		1.  PuTTY를 열고 연결 정보를 입력합니다. PuTTY를 잘 알고 있지 않다면 HDInsight와 함께 사용하는 방법에 대한 정보에 대해 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조합니다.
 		2.  대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
@@ -126,4 +126,4 @@
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@ ms.workload="data-services"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="06/14/2016"
+ms.date="09/16/2016"
 ms.author="garye;krishnan"/>
 
 # 온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure 기계 학습을 통해 고급 분석 수행
@@ -70,49 +70,49 @@ Azure 기계 학습에서 온-프레미스 SQL Server 데이터베이스에 액�
 
 첫 번째 단계는 온-프레미스 SQL 데이터베이스에 액세스하기 위한 게이트웨이를 만들고 설정하는 것입니다.
 
-1.  [Azure 기계 학습 스튜디오](https://studio.azureml.net/Home/)에 로그인하고 작업할 작업 영역을 선택합니다.
+1. [Azure 기계 학습 스튜디오](https://studio.azureml.net/Home/)에 로그인하고 작업할 작업 영역을 선택합니다.
 
-2.  왼쪽에서 **설정** 블레이드를 클릭하고 위쪽의 **데이터 게이트웨이** 탭을 클릭합니다.
+2. 왼쪽에서 **설정** 블레이드를 클릭하고 위쪽의 **데이터 게이트웨이** 탭을 클릭합니다.
 
-3.  화면 아래쪽에 있는 **새 데이터 게이트웨이**를 클릭합니다.
+3. 화면 아래쪽에 있는 **새 데이터 게이트웨이**를 클릭합니다.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
 
-4.  **새 데이터 게이트웨이** 대화 상자에서 **게이트웨이 이름**을 입력하고 필요에 따라 **설명**을 추가합니다. 오른쪽 아래에 있는 화살표를 클릭하여 구성의 다음 단계로 이동합니다.
+4. **새 데이터 게이트웨이** 대화 상자에서 **게이트웨이 이름**을 입력하고 필요에 따라 **설명**을 추가합니다. 오른쪽 아래에 있는 화살표를 클릭하여 구성의 다음 단계로 이동합니다.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 
-5.  데이터 게이트웨이 다운로드 및 등록 대화 상자에서 게이트웨이 등록 키를 클립보드에 복사합니다.
+5. 데이터 게이트웨이 다운로드 및 등록 대화 상자에서 게이트웨이 등록 키를 클립보드에 복사합니다.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 
-6.  <span id="note-1" class="anchor"></span>Microsoft 데이터 관리 게이트웨이를 아직 다운로드해서 설치하지 않은 경우 **데이터 관리 게이트웨이 다운로드**를 클릭합니다. 이렇게 하면 필요한 게이트웨이 버전을 선택하고 다운로드한 후 설치할 수 있는 Microsoft 다운로드 센터로 이동하게 됩니다. [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md) 문서의 시작 섹션에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
+6. <span id="note-1" class="anchor"></span>Microsoft 데이터 관리 게이트웨이를 아직 다운로드해서 설치하지 않은 경우 **데이터 관리 게이트웨이 다운로드**를 클릭합니다. 이렇게 하면 필요한 게이트웨이 버전을 선택하고 다운로드한 후 설치할 수 있는 Microsoft 다운로드 센터로 이동하게 됩니다. [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../data-factory/data-factory-move-data-between-onprem-and-cloud.md) 문서의 시작 섹션에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
 
-7.  게이트웨이가 설치되면 데이터 관리 게이트웨이 구성 관리자가 열리고 **게이트웨이 등록** 대화 상자가 표시됩니다. 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣고 **등록**을 클릭합니다.
+7. 게이트웨이가 설치되면 데이터 관리 게이트웨이 구성 관리자가 열리고 **게이트웨이 등록** 대화 상자가 표시됩니다. 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣고 **등록**을 클릭합니다.
 
-8.  게이트웨이가 이미 설치된 경우 데이터 관리 게이트웨이 구성 관리자를 실행하고 **키 변경**을 클릭한 후 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣은 후 **확인**을 클릭합니다.
+8. 게이트웨이가 이미 설치된 경우 데이터 관리 게이트웨이 구성 관리자를 실행하고 **키 변경**을 클릭한 후 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣은 후 **확인**을 클릭합니다.
 
-9.  설치가 완료되면 Microsoft 데이터 관리 게이트웨이 구성 관리자에 대한 **게이트웨이 등록** 대화 상자가 표시됩니다. 위에서 클립보드에 복사한 게이트웨이 등록 키를 붙여 넣고 **등록**을 클릭합니다.
+9. 설치가 완료되면 Microsoft 데이터 관리 게이트웨이 구성 관리자에 대한 **게이트웨이 등록** 대화 상자가 표시됩니다. 위에서 클립보드에 복사한 게이트웨이 등록 키를 붙여 넣고 **등록**을 클릭합니다.
 
     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
 
-10.  Microsoft 데이터 관리 게이트웨이 구성 관리자의 **홈** 탭에서 다음 값에 설정되면 게이트웨이 구성이 완료된 것입니다.
+10. Microsoft 데이터 관리 게이트웨이 구성 관리자의 **홈** 탭에서 다음 값에 설정되면 게이트웨이 구성이 완료된 것입니다.
 
-    -   **게이트웨이 이름** 및 **인스턴스 이름**이 게이트웨이의 이름으로 설정됩니다.
+    - **게이트웨이 이름** 및 **인스턴스 이름**이 게이트웨이의 이름으로 설정됩니다.
 
-    -   **등록**이 **Registered**로 설정됩니다.
+    - **등록**이 **Registered**로 설정됩니다.
 
-    -   **상태**가 **Started**로 설정됩니다.
+    - **상태**가 **Started**로 설정됩니다.
 
-    -   맨 아래 상태 표시줄에 **Connected to Data Management Gateway Cloud Service(데이터 관리 게이트웨이 클라우드 서비스에 연결됨)**와 함께 녹색 확인 표시가 나타납니다.
+    - 맨 아래 상태 표시줄에 녹색 확인 표시가 있는 **데이터 관리 게이트웨이 클라우드 서비스에 연결됨**이 표시됩니다.
 
-    ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
+     ![](media/machine-learning-use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-registered.png)
 
-    또한 등록이 완료되면 Azure 기계 학습 스튜디오가 업데이트됩니다.
+     또한 등록이 완료되면 Azure 기계 학습 스튜디오가 업데이트됩니다.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-registered.png)
 
-11.  **데이터 게이트웨이 다운로드 및 등록** 대화 상자에서 확인 표시를 클릭하여 설정을 완료합니다. **설정** 페이지에 게이트웨이 상태가 "온라인"으로 표시됩니다. 오른쪽 창에서 상태 및 기타 유용한 정보를 찾을 수 있습니다.
+11. **데이터 게이트웨이 다운로드 및 등록** 대화 상자에서 확인 표시를 클릭하여 설정을 완료합니다. **설정** 페이지에 게이트웨이 상태가 "온라인"으로 표시됩니다. 오른쪽 창에서 상태 및 기타 유용한 정보를 찾을 수 있습니다.
 
     ![](media\machine-learning-use-data-from-an-on-premises-sql-server\gateway-status.png)
 
@@ -162,4 +162,4 @@ Azure 기계 학습의 게이트웨이 설정 프로세스를 마쳤습니다. �
 
 실험 개발이 끝나면 모델을 배포하고 운영할 수 있습니다. 배치 실행 서비스를 사용하는 경우 **데이터 가져오기** 모듈에서 구성한 온-프레미스 SQL Server 데이터베이스의 데이터는 읽힌 후 점수를 매기는 데 사용됩니다. 온-프레미스 데이터의 점수를 매기는 데 요청 응답 서비스를 사용할 수 있지만, 대신 [Excel 추가 기능](machine-learning-excel-add-in-for-web-services.md)을 사용하는 것이 좋습니다. 현재, **데이터 내보내기**를 통해 온-프레미스 SQL Server 데이터베이스에 쓰는 방식은 실험 또는 게시된 웹 서비스에서 지원되지 않습니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

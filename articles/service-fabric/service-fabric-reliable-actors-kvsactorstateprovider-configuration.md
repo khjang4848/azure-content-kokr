@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/30/2016"
+   ms.date="09/20/2016"
    ms.author="sumukhs"/>
 
 # Reliable Actors 구성--KVSActorStateProvider
@@ -86,4 +86,4 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 
 BatchAcknowledgementInterval 매개 변수는 복제 지연을 제어합니다. '0' 값은 처리량을 희생하여 가장 낮은 대기 시간을 제공합니다(더 많은 승인 메시지를 보내고 처리해야 하므로 각각에 포함된 승인은 적음). BatchAcknowledgementInterval의 값이 클수록 전체적인 복제 처리량은 높아지고 작업 대기 시간은 더욱 길어집니다. 이 값은 트랜잭션 커밋의 대기 시간으로 직접 변환됩니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

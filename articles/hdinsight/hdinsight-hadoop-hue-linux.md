@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/13/2016" 
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에 Hue 설치 및 사용
@@ -68,15 +68,24 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 1. [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 다른 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)에 있는 정보를 사용하여 클라이언트 시스템에서 HDInsight 클러스터로 SSH 터널을 만들고 SSH 터널을 프록시로 사용하도록 웹 브라우저를 구성합니다.
 
-2. SSH 터널을 생성하고 프록시 트래픽이 통과하는 브라우저를 구성했으면, 헤드 노드의 호스트 이름을 찾아야 합니다. 다음 단계를 수행하여 Ambari에서 이 정보를 가져오십시오.
+2. SSH 터널을 생성하고 이를 통해 프록시 트래픽에 대한 브라우저를 구성했으면 기본 헤드 노드의 호스트 이름을 찾아야 합니다. 포트 22에 SSH를 사용하는 클러스터에 연결하여 수행할 수 있습니다. 예를 들어 `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`에서 __USERNAME__은 SSH 사용자 이름이고 __CLUSTERNAME__은 클러스터의 이름입니다.
 
-    1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. 메시지가 표시되면 관리자 사용자 이름 및 암호를 사용하여 사이트에 인증합니다.
-    
-    2. 페이지 위쪽에 있는 메뉴에서 __호스트__를 선택합니다.
-    
-    3. __hn0__으로 시작하는 항목을 선택합니다. 페이지가 열릴 때 호스트 이름이 위쪽에 표시됩니다. 호스트 이름의 형식은 __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__입니다. 이 호스트 이름은 Hue에 연결할 때 사용해야만 합니다.
+    SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-2. SSH 터널을 만들고 이를 통해 트래픽을 프록시하도록 브라우저를 구성했으면 브라우저를 사용하여 http://HOSTNAME:8888에서 Hue 포털을 엽니다. HOSTNAME을 이전 단계의 Ambari에서 얻은 이름으로 바꿉니다.
+    * [Linux, Unix 또는 Mac OS X 클라이언트에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Windows 클라이언트에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+3. 일단 연결되면 다음 명령을 사용하여 기본 헤드 노드의 정규화된 도메인 이름을 확인합니다.
+
+        hostname -f
+
+    다음과 유사한 이름을 반환합니다.
+
+        hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
+    
+    Hue 웹 사이트가 위치한 기본 헤드의 호스트 이름입니다.
+
+2. 브라우저를 사용하여 http://HOSTNAME:8888에서 Hue 포털을 엽니다. HOSTNAME을 이전 단계에서 얻은 이름으로 바꿉니다.
 
     > [AZURE.NOTE] 처음으로 로그인할 때 Hue 포털에 로그인할 계정을 만들라는 메시지가 표시됩니다. 여기에서 지정한 자격 증명은 포털로 제한되며 클러스터를 프로비전하는 동안 지정한 관리자 또는 SSH 사용자 자격 증명과 관련이 없습니다.
 
@@ -108,7 +117,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 ## 중요 고려 사항
 
-1. Hue를 설치할 때 사용된 스크립트는 클러스터의 헤드 노드 0에만 설치합니다.
+1. Hue를 설치하는 데 사용한 스크립트는 클러스터의 기본 헤드 노드에만 설치합니다.
 
 2. 설치하는 동안 구성을 업데이트하기 위해 여러 Hadoop 서비스(HDFS, YARN, MR2, Oozie)를 다시 시작합니다. 스크립트가 Hue의 설치를 완료한 후에 다른 Hadoop 서비스를 시작하려면 시간이 걸릴 수 있습니다. 처음에 Hue의 성능이 달라질 수 있습니다. 모든 서비스를 시작하면 Hue는 완벽하게 작동합니다.
 
@@ -116,11 +125,11 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 		set hive.execution.engine=mr;
 
-4.	Linux 클러스터를 사용하면 리소스 관리자를 헤드 노드1에서 실행할 동안 서비스가 헤드 노드0에서 실행되는 시나리오를 사용할 수 있습니다. Hue를 사용하여 클러스터에서 실행 중인 작업의 세부 정보를 보려면 이러한 시나리오에 오류가 발생할 수 있습니다. 그러나 작업이 완료되었을 때 작업 세부 정보를 볼 수 있습니다.
+4.	Linux 클러스터의 경우 보조 헤드 노드에서 Resource Manager를 실행하는 반면 기본 헤드 노드에서 서비스를 실행하는 시나리오가 있을 수 있습니다. Hue를 사용하여 클러스터에서 실행 중인 작업의 세부 정보를 보려면 이러한 시나리오에 오류가 발생할 수 있습니다. 그러나 작업이 완료되었을 때 작업 세부 정보를 볼 수 있습니다.
 
 	![Hue 포털 오류](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Hue 포털 오류")
 
-	이는 알려진 문제 때문입니다. 두 번째 해결책으로, 활성 리소스 관리자 또한 헤드 노드0에서 실행되도록 Ambari를 수정합니다.
+	이는 알려진 문제 때문입니다. 해결 방법으로 Ambari를 수정하여 활성 Resource Manager가 기본 헤드 노드에서 실행되도록 합니다.
 
 5.	`wasbs://`을 사용하여 HDInsight 클러스터가 Azure 저장소를 사용하는 동안 Hue는 WebHDFS를 이해합니다. 따라서 스크립트 동작에 사용할 사용자 지정 스크립트는 WASB와 통신을 위한 WebHDFS와 호환 가능한 서비스인 WebWasb를 설치합니다. 따라서 Hue 포털이 HDFS가 제대로 있다고 하더라도(**파일 브라우저**로 마우스를 이동할 때처럼) WASB로 해석되어야 합니다.
 
@@ -137,4 +146,4 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

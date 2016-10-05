@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # 고객 사례 연구
@@ -48,4 +48,4 @@
 
 [클라우드 기계 학습을 통한 고객 파악으로 관계 개선](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

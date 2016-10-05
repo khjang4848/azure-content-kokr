@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
 
 # Visual Studio Code에서 Azure Resource Manager 템플릿으로 작업
@@ -136,4 +136,4 @@ VS Code에서 JSON 템플릿을 사용하려면 확장을 설치해야 합니다
 - 템플릿 함수에 대해 알아보려면 [Azure Resource Manager 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
 - Visual Studio 코드를 사용한 작업의 더 많은 예제는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 연결 [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Visual Studio Code를 사용한 클라우드 앱 빌드](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code)를 참조하세요. HealthClinic.biz 데모에서 빠른 시작을 더 살펴보려면 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

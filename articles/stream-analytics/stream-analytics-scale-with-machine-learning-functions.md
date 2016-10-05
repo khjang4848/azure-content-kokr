@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 />
 
@@ -87,9 +87,9 @@
 | 1 SU | 2,500 | 5, 000 | 20,000 | 30,000 | 50,000 |
 | 3SU | 2,500 | 5, 000 | 20,000 | 30,000 | 50,000 |
 | 6SU | 2,500 | 5, 000 | 20,000 | 30,000 | 50,000 |
-| 12SU | 5, 000 | 10000 | 40,000 | 60,000 | 100,000 |
+| 12SU | 5, 000 | 10,000 | 40,000 | 60,000 | 100,000 |
 | 18SU | 7,500 | 15,000 | 60,000 | 90,000 | 150,000 |
-| 24SU | 10000 | 20,000 | 80,000 | 120,000 | 200,000 |
+| 24SU | 10,000 | 20,000 | 80,000 | 120,000 | 200,000 |
 | … | … | … | … | … | … |
 | 60SU | 25,000 | 50,000 | 200,000 | 300,000 | 500,000 |
 
@@ -130,4 +130,4 @@
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -87,7 +87,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 --- | ---
 **VMM**| System Center 2012 R2에서 실행되는 VMM 서버가 하나 이상 필요합니다. 각 VMM 서버에 하나 이상의 클라우드가 구성되어 있어야 합니다. 클라우드에 <br/><br/> 하나 이상의 VMM 호스트 그룹이 있어야 합니다.<br/><br/> 각 호스트 그룹에 하나 이상의 Hyper-V 호스트 서버 또는 클러스터가 있어야 합니다.<br/><br/>VMM 클라우드 설정에 대해 [알아보세요](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
 **Hyper-V** | Hyper-V 호스트 서버는 Hyper-V 역할로 Windows Server 2012 R2 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.<br/><br/> Hyper-V 서버에 VM이 하나 이상 있어야 합니다.<br/><br/> 복제하려는 VM이 들어 있는 Hyper-V 호스트 서버 또는 클러스터는 VMM 클라우드에서 관리해야 합니다.<br/><br/>Hyper-V 서버는 인터넷에 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다.<br/><br/>[2961977](https://support.microsoft.com/kb/2961977) 문서에서 언급한 픽스가 Hyper-V서버에 설치되어 있어야 합니다.<br/><br/>Azure에 데이터를 복제하려면 Hyper-V 호스트 서버가 인터넷에 액세스할 수 있어야 합니다.
-**공급자 및 에이전트** | Azure Site Recovery를 배포하는 동안 VMM 서버에 Azure Site Recovery 공급자를, Hyper-V 호스트에 복구 서비스 에이전트를 설치하게 됩니다. 공급자 및 에이전트는 인터넷에 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다. HTTPS 기반 프록시는 지원되지 않습니다. VMM 서버의 프록시 서버와 Hyper-V 호스트가 다음에 대한 액세스를 허용해야 합니다. <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>VMM에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인해야 합니다. [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(433) 프로토콜을 허용해야 합니다.<br/><br/>구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용하세요.<br/><br/>뿐만 아니라 VMM 서버의 프록시 서버가 https://www.msftncsi.com/ncsi.txt에 액세스할 수 있어야 합니다.
+**공급자 및 에이전트** | Azure Site Recovery를 배포하는 동안 VMM 서버에 Azure Site Recovery 공급자를, Hyper-V 호스트에 복구 서비스 에이전트를 설치하게 됩니다. 공급자 및 에이전트는 인터넷에 직접 또는 프록시를 통해 인터넷에 연결되어야 합니다. HTTPS 기반 프록시는 지원되지 않습니다. VMM 서버의 프록시 서버와 Hyper-V 호스트가 다음에 대한 액세스를 허용해야 합니다. <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>VMM에 IP 주소 기반 방화벽 규칙이 있는 경우 해당 규칙이 Azure와의 통신을 허용하는지 확인해야 합니다. [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용해야 합니다.<br/><br/>구독의 Azure 지역 및 미국 서부에 대한 IP 주소 범위를 허용하세요.<br/><br/>뿐만 아니라 VMM 서버의 프록시 서버가 https://www.msftncsi.com/ncsi.txt에 액세스할 수 있어야 합니다.
 
 
 ## 보호된 컴퓨터 필수 조건
@@ -114,7 +114,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 - 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) 또는 [클래식 모드](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)에서 Azure 네트워크를 설정합니다.
 - 시작하기 전에 네트워크를 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
 
-> [AZURE.NOTE] [Migration of networks]동일한 구독 내 또는 구독 간의 리소스 그룹 간에 (../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 네트워크에 대해 지원되지 않습니다.
+> [AZURE.NOTE] 동일한 구독 내 또는 구독 간의 리소스 그룹 간에 [Migration of networks](../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 네트워크에 대해 지원되지 않습니다.
 
 
 ### Azure 저장소 계정 설정
@@ -123,7 +123,7 @@ Azure 포털의 Azure Site Recovery는 여러 새 기능을 제공합니다.
 - 장애 조치(failover)된 Azure VM에 사용하려는 리소스 모델에 따라 [Resource Manager 모드](../storage/storage-create-storage-account.md) 또는 [클래식 모드](../storage/storage-create-storage-account-classic-portal.md)에서 계정을 설정합니다.
 - 시작하기 전에 계정을 설정하는 것이 좋습니다. 그렇지 않으면 Site Recovery를 배포하는 동안 설정해야 합니다.
 
-> [AZURE.NOTE] [Migration of storage accounts]동일한 구독 내 또는 구독 간의 리소스 그룹 간에 (../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 저장소 계정에 대해 지원되지 않습니다.
+> [AZURE.NOTE] 동일한 구독 내 또는 구독 간의 리소스 그룹 간에 [Migration of storage accounts](../resource-group-move-resources.md)는 Site Recovery를 배포하는 데 사용되는 저장소 계정에 대해 지원되지 않습니다.
 
 ### VMM 서버 준비
 
@@ -571,4 +571,4 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 배포가 설정되고 실행된 후에는 다양한 형식의 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

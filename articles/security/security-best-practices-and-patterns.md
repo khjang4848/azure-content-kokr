@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
+   ms.date="09/16/2016"
    ms.author="terrylan"/>
 
 # Azure 보안 모범 사례 및 패턴
@@ -44,4 +44,4 @@ Azure는 솔루션을 빌드할 수 있도록 안전한 플랫폼을 제공합�
 
 Azure 보안 아키텍처 및 모범 사례에 대한 많은 문서를 갖추려고 합니다. 추가할 항목이 있으시면 이 페이지의 아래쪽에 있는 토론 영역에서 알려주세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

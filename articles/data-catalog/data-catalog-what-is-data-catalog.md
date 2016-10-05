@@ -74,4 +74,4 @@ Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 
 * [비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)
 * [질문과 대답](data-catalog-frequently-asked-questions.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!-----HONumber=AcomDC_0921_2016-->

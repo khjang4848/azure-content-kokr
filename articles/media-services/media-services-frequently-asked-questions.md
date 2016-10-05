@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="질문과 대답" 
+	pageTitle="질문과 대답 | Microsoft Azure" 
 	description="FAQ(질문과 대답)" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
-#질문과 대답  
+#질문과 대답
 
-##일반 AMS FAQ 
+##일반 AMS FAQ
 
 Q: 인덱싱을 확장하려면 어떻게 하나요?
 
-A: 예약 단위는 인코딩 및 인덱싱 작업에서 동일합니다. [인코딩 예약 단위 크기를 조정하는 방법](media-services-how-to-scale.md)의 지침에 따르세요. **참고**: 인덱서 성능은 예약 단위 유형의 영향을 받지 않습니다.
+A: 예약 단위는 인코딩 및 인덱싱 작업에서 동일합니다. [인코딩 예약 단위 크기를 조정하는 방법](media-services-scale-media-processing-overview.md)의 지침에 따르세요. **참고**: 인덱서 성능은 예약 단위 유형의 영향을 받지 않습니다.
 
 Q: 업로드, 인코딩 및 동영상을 게시합니다. 스트리밍하려고 할 때 어떤 이유로 비디오가 재생되지 않는 걸까요?
 
-A: 가장 일반적인 이유 중 하나는 재생하려고 하는 스트리밍 끝점에 할당된 예약된 스트리밍 단위가 없기 때문입니다. [스트리밍 예약 단위 크기를 조정하는 방법](media-services-how-to-scale.md)의 지침에 따르세요.
+A: 가장 일반적인 이유 중 하나는 재생하려고 하는 스트리밍 끝점에 할당된 예약된 스트리밍 단위가 없기 때문입니다. [스트리밍 예약 단위 크기를 조정하는 방법](media-services-portal-scale-streaming-endpoints.md)의 지침에 따르세요.
 
 Q: 라이브 스트림에서 합치기를 수행할 수 있나요?
 
@@ -35,7 +35,7 @@ A: 라이브 스트림 합치기는 현재 Azure 미디어 서비스에서 제�
 
 Q: 라이브 스트리밍으로 Azure CDN을 사용할 수 있나요?
 
-A: 미디어 서비스는 Azure CDN와의 통합을 지원합니다(자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점을 관리하는 방법](media-services-manage-origins.md#enable_cdn)을 참조하세요.) CDN을 사용하여 라이브 스트리밍을 사용할 수 있습니다. Azure 미디어 서비스는 부드러운 스트리밍, HLS 및 MPEG-DASH 출력을 제공합니다. 이러한 형식에서는 HTTP를 데이터 전송에 사용하여 HTTP 캐싱의 이점을 얻을 수 있습니다. 라이브 스트리밍에서 실제 비디오/오디오 데이터가 조각으로 분할되고 이 개별 조각은 CDN에 캐시됩니다. 새로 고쳐야 하는 데이터 요구는 매니페스트 데이터입니다. CDN은 매니페스트 데이터를 주기적으로 새로 고칩니다.
+A: 미디어 서비스는 Azure CDN와의 통합을 지원합니다(자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점을 관리하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.) CDN을 사용하여 라이브 스트리밍을 사용할 수 있습니다. Azure 미디어 서비스는 부드러운 스트리밍, HLS 및 MPEG-DASH 출력을 제공합니다. 이러한 형식에서는 HTTP를 데이터 전송에 사용하여 HTTP 캐싱의 이점을 얻을 수 있습니다. 라이브 스트리밍에서 실제 비디오/오디오 데이터가 조각으로 분할되고 이 개별 조각은 CDN에 캐시됩니다. 새로 고쳐야 하는 데이터 요구는 매니페스트 데이터입니다. CDN은 매니페스트 데이터를 주기적으로 새로 고칩니다.
 
 Q: Azure 미디어 서비스는 저장된 이미지를 지원하나요?
 
@@ -83,4 +83,4 @@ A: [미디어 인코더 표준](media-services-dotnet-encode-with-media-encoder-
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

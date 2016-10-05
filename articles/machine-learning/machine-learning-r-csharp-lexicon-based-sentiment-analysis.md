@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2016" 
+	ms.date="09/16/2016" 
 	ms.author="pengxia"/>
 
 
@@ -153,4 +153,4 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

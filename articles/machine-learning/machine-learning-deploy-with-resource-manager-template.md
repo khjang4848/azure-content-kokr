@@ -124,6 +124,12 @@ $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\ml
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
+기존 작업 영역의 토큰을 검색하는 또 다른 방법은 Invoke-AzureRmResourceAction 명령을 사용하는 것입니다. 예를 들어 모든 작업 영역의 기본 및 보조 토큰을 나열할 수 있습니다.
+
+```  
+# List the primary and secondary tokens of all workspaces
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+```
 작업 영역이 프로비전되면 [Azure 기계 학습에 대한 PowerShell 모듈](http://aka.ms/amlps)을 사용하여 많은 Azure 기계 학습 스튜디오 작업을 자동화할 수도 있습니다.
 
 ## 다음 단계 
@@ -138,4 +144,4 @@ $rgd.Outputs.mlWorkspaceToken.Value
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

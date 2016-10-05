@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/20/2016"
 	ms.author="daleche"/>
 
 
@@ -218,8 +218,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-자세한 내용은
-[방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+자세한 내용은 [방법: SQL 데이터베이스에 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -245,8 +244,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 클라이언트 프로그램이 Azure VM(가상 컴퓨터)에 호스팅된 경우 <br/>[ADO.NET 4.5 및 SQL 데이터베이스 V12용 1433 이상의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)가 표시됩니다.
 
 
-포트 및 IP 주소 구성에 대한 배경 정보는
-[Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
+포트 및 IP 주소 구성에 대한 배경 정보는 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
@@ -562,4 +560,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying*은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 **Python**으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

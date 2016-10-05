@@ -3,8 +3,8 @@
 	description="이 문서에서는 Azure Multi-Factor Authentication에 대한 기본 연락 방법으로 모바일 앱을 사용하는 방법을 보여줍니다."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenp"
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Azure Multi-factor Authentication을 통해 연락 방법으로 모바일 앱 사용
 
@@ -78,4 +78,4 @@
 
 3. 활성화가 완료되면 **연락처**를 선택합니다. 이렇게 하면 휴대폰으로 알림 또는 확인 코드가 전송됩니다. **확인**을 선택합니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

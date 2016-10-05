@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/15/2016"
 	ms.author="casoper"/>
 
 # Azure CDN 개발 시작
 
 > [AZURE.SELECTOR]
-- [.NET](cdn-app-dev-net.md)
 - [Node.JS](cdn-app-dev-node.md)
+- [.NET](cdn-app-dev-net.md)
 
 [.NET용 Azure CDN 라이브러리](https://msdn.microsoft.com/library/mt657769.aspx)를 사용하여 CDN 프로필과 끝점의 생성 및 관리를 자동화할 수 있습니다. 이 자습서에서는 여러 가지 사용 가능한 작업을 보여주는 간단한 .NET 콘솔 응용 프로그램을 살펴봅니다. 이 자습서는 .NET용 Azure CDN 라이브러리의 모든 측면을 상세하게 설명하지 않습니다.
 
@@ -339,4 +339,4 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 [PowerShell](./cdn-manage-powershell.md)을 사용하여 CDN 리소스를 관리합니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

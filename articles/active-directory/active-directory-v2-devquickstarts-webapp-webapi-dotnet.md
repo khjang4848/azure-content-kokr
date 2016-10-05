@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # .NET 웹앱에서 Web API 호출
@@ -201,4 +201,4 @@ catch (AdalException ee)
 
 [이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

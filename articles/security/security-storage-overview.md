@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
+   ms.date="09/16/2016"
    ms.author="terrylan"/>
 
 # Azure 저장소 보안 개요
@@ -101,4 +101,4 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/services/
 - [Azure 주요 자격 증명 모음이란?](../key-vault/key-vault-whatis.md)
 - [Azure 주요 자격 증명 모음 시작](../key-vault/key-vault-get-started.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

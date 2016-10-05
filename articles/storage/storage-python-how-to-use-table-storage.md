@@ -3,8 +3,8 @@
 	description="Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="emgerner"/>
+	ms.date="09/20/2016"
+	ms.author="gusapost;tamram"/>
 
 
 # Python에서 테이블 저장소를 사용하는 방법
@@ -149,4 +149,4 @@
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

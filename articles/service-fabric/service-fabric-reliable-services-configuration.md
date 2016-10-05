@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/30/2016"
+   ms.date="09/20/2016"
    ms.author="sumukhs"/>
 
 # 상태 저장 Reliable Services 구성
@@ -162,4 +162,4 @@ SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 
  - [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
  - [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

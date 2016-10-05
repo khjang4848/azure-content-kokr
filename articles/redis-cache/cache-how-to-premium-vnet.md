@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/12/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법
 Azure Redis Cache에는 새 프리미엄 계층을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다.
 
-Azure Redis Cache 프리미엄 계층에는 클러스터링, 지속성 및 VNet(가상 네트워크) 지원이 포함됩니다. VNet은 클라우드의 개인 네트워크입니다. Azure Redis Cache 인스턴스를 VNet으로 구성한 경우 클라이언트에서만 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 컴퓨터 및 응용 프로그램에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법을 설명합니다.
+Azure Redis Cache 프리미엄 계층 기능에는 클러스터링, 지속성 및 VNet(가상 네트워크) 지원이 포함됩니다. VNet은 클라우드의 개인 네트워크입니다. Azure Redis Cache 인스턴스를 VNet으로 구성한 경우 클라이언트에서만 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 컴퓨터 및 응용 프로그램에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법을 설명합니다.
 
 >[AZURE.NOTE] Azure Redis Cache는 클래식 및 ARM VNet을 둘 다 지원합니다.
 
-프리미엄 캐시 기능에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)과 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
+다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Redis Cache 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
 
 ## VNet을 사용하는 이유
 [Azure VNet(가상 네트워크)](https://azure.microsoft.com/services/virtual-network/) 배포는 Azure Redis Cache의 보안과 격리를 강화하며 Azure Redis Cache에 대한 액세스를 추가적으로 제한하기 위한 서브넷, 액세스 제어 정책 및 기타 기능을 제공합니다.
@@ -95,10 +95,10 @@ Azure Redis Cache가 VNet에 호스트된 경우 다음 표의 포트가 사용�
 | 20226 | 인바운드+아웃바운드 | TCP | Redis 클러스터에 대한 구현 세부 정보 | VIRTUAL\_NETWORK |
 
 
-가상 네트워크에서 처음에 충족되지 않는 Azure Redis Cache에 대한 네트워크 연결 요구 사항이 있습니다. Azure Redis Cache를 가상 네트워크 내에서 사용하는 경우 제대로 작동되려면 다음 조건이 모두 충족되어야 합니다.
+가상 네트워크에서 처음에 충족되지 않는 Azure Redis Cache에 대한 네트워크 연결 요구 사항이 있습니다. Azure Redis Cache를 가상 네트워크 내에서 사용하는 경우 제대로 작동되려면 다음 항목이 모두 필요합니다.
 
 -  전세계 Azure 저장소 끝점에 아웃바운드 네트워크 연결. Azure Redis Cache 인스턴스와 동일한 지역에 있는 끝점 뿐만 아니라 **다른** Azure 지역에 있는 저장소 끝점을 포함합니다. 다음 DNS 도메인에서 Azure 저장소 끝점은 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*.
--  *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다. SSL 기능을 지원하는 데 필요합니다.
+-  *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다. 이 연결은 SSL 기능을 지원하는 데 필요합니다.
 -  가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 끝점 및 도메인을 모두 해결할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
 
 
@@ -115,7 +115,7 @@ ARM VNet에 Azure Redis Cache를 배포하는 경우 캐시가 다른 리소스�
 
 ### VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?
 
-캐시가 VNET의 일부인 경우 VNET에서 클라이언트만이 캐시에 액세스할 수 있으며 이 때 결과적으로 다음과 같은 캐시 관리 기능이 작동하지 않습니다.
+캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. 결과적으로 이번에는 다음 캐시 관리 기능이 작동하지 않습니다.
 
 -	Redis 콘솔 - Redis 콘솔은 VNET의 일부가 아닌 VM에서 호스팅되는 redis-cli.exe 클라이언트를 사용하므로 캐시에 연결할 수 없습니다.
 
@@ -128,7 +128,7 @@ ARM VNet에 Azure Redis Cache를 배포하는 경우 캐시가 다른 리소스�
 
 그러나 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. 이 트래픽 흐름은 변함없이 Azure Redis Cache와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 끝점에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다.
 
-해결책은 하나의(또는 그 이상) UDR(사용자 정의 경로)를 Azure Redis Cache를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
+해결책은 하나의(또는 그 이상) UDR(사용자 정의 경로)을 Azure Redis Cache를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
 
 가능하면 다음 구성을 사용하는 것이 좋습니다.
 
@@ -139,20 +139,18 @@ ARM VNet에 Azure Redis Cache를 배포하는 경우 캐시가 다른 리소스�
 
 Express 경로를 사용하여 온-프레미스 응용 프로그램에서 Azure Redis Cache 인스턴스에 연결하는 것은 성능상의 이유로 일반적인 사용 시나리오에 해당하지 않지만(최상의 성능을 위해 Azure Redis Cache 클라이언트는 Azure Redis Cache와 동일한 지역에 있어야 함) 이 시나리오에서 아웃바운드 네트워크 경로는 내부 회사 프록시를 통과할 수 없고 온-프레미스에 강제로 터널링될 수도 없습니다. 이렇게 하면 Azure Redis Cache에서 아웃바운드 네트워크 트래픽의 효율적인 NAT 주소를 변경합니다. Azure Redis Cache 인스턴스의 아웃바운드 네트워크 트래픽의 NAT 주소 변경은 위에 나열된 끝점 대부분에 연결 실패를 초래합니다. 이로 인해 Azure Redis Cache를 만들려고 하면 실패합니다.
 
-**중요:** UDR에 정의된 경로는 Express 경로 구성을 통해 보급된 경로보다 우선하도록 충분히 **구체적이어야** 합니다. 아래 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용하고 따라서 잠재적으로 보다 구체적인 주소 범위를 사용하는 경로 알림에서 실수로 재정의될 수 있습니다.
+**중요:** UDR에 정의된 경로는 Express 경로 구성을 통해 보급된 경로보다 우선하도록 충분히 **구체적이어야** 합니다. 다음 예제에서는 광범위한 0.0.0.0/0 주소 범위를 사용하고 따라서 잠재적으로 보다 구체적인 주소 범위를 사용하는 경로 알림에서 실수로 재정의될 수 있습니다.
 
 **매우 중요:** **공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 잘못**한 Express 경로 구성에서는 Azure Redis Cache가 지원되지 않습니다. 구성된 공용 피어링이 있는 Express 경로 구성은 다양한 Microsoft Azure IP 주소 범위 집합에 대해 Microsoft에서 경로 보급을 받습니다. 이러한 주소 범위의 교차 보급을 개인 피어링 경로에 잘못한 경우 Azure Redis Cache 인스턴스의 서브넷에서 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라에 강제 터널링되는 잘못된 최종 결과를 발생시킵니다. 이 네트워크 흐름은 Azure Redis Cache를 중단합니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로 이어진 교차 보급 경로를 중지합니다.
 
-사용자 정의 경로에 대한 배경 정보는 [개요](../virtual-network/virtual-networks-udr-overview.md)에서 사용 가능합니다.
+사용자 정의 경로에 대한 배경 정보는 [개요](../virtual-network/virtual-networks-udr-overview.md)를 참조하세요.
 
 Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## 다음 단계
 더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
 
--	[프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)
--	[프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
--	[Azure Redis Cache에서 데이터 가져오기 및 내보내기](cache-how-to-import-export-data.md)
+-	[Azure Redis Cache 프리미엄 계층 소개](cache-premium-tier-intro.md)
 
 
 
@@ -167,4 +165,4 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../e
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

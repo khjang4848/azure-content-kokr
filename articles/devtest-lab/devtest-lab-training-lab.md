@@ -108,4 +108,4 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

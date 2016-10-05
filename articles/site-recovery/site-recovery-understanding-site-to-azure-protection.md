@@ -13,9 +13,9 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="09/12/2016" 
 	ms.author="anbacker"/>
-
+ 
 
 # Azure Site Recovery를 사용한 Hyper-V 복제 이해
 
@@ -24,7 +24,7 @@
 ## 구성 요소 이해
 
 ### 온-프레미스와 Azure 간 복제를 위한 Hyper-V 사이트 또는 VMM 사이트 배포
-
+ 
 온-프레미스 및 Azure 간 DR 설정의 일부로 각 Hyper-v 호스트에 설치해야 하는 Azure 복구 서비스 에이전트와 함께 Azure 사이트 복구 공급자를 다운로드하여 VMM 서버에 설치해야 합니다.
 
 ![온-프레미스와 Azure 간 복제를 위한 VMM 사이트 배포](media/site-recovery-understanding-site-to-azure-protection/image00.png)
@@ -36,11 +36,11 @@ Hyper-V 사이트 배포는 VMM 배포와 동일합니다. 서로 다른 공급�
 ### 보호 사용
 포털 또는 온-프레미스에서 가상 컴퓨터를 보호하면 *보호 사용*이라고 명명된 ASR 작업이 시작되며 작업 탭에서 모니터링할 수 있습니다.
 
-![온-프레미스 Hyper-V 문제 해결](media/site-recovery-understanding-site-to-azure-protection/image01.png)
+![온-프레미스 Hyper-V 문제 해결](media/site-recovery-understanding-site-to-azure-protection/image001.PNG)
 
 *보호 사용* 작업은 보호 중에 구성된 입력을 사용하여 Azure에 대한 복제를 만드는 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx)을 호출하기 전에 필수 구성 요소를 검사합니다. *보호 사용* 작업은 가상 컴퓨터의 가상 디스크를 Azure로 보내는 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx)을 호출하여 온-프레미스에서 초기 복제를 시작합니다.
 
-![온-프레미스 Hyper-V 문제 해결](media/site-recovery-understanding-site-to-azure-protection/image02.png)
+![온-프레미스 Hyper-V 문제 해결](media/site-recovery-understanding-site-to-azure-protection/IMAGE002.PNG)
 
 ### 보호 완료
 초기 복제가 트리거될 때 [Hyper-V VM 스냅숏](https://technet.microsoft.com/library/dd560637.aspx)이 만들어집니다. 모든 디스크가 Azure에 업로드될 때까지 가상 하드 디스크가 하나씩 처리됩니다. 일반적으로 디스크 크기 및 대역폭에 따라 완료하는 데 다소 시간이 소요됩니다. 네트워크 사용을 최적화하려면 [Azure 보호 네트워크 대역폭 사용에 대한 온-프레미스 관리 방법](https://support.microsoft.com/kb/3056159)을 참조하세요. 초기 복제가 완료되면 *가상 컴퓨터에 대한 보호 완료* 작업이 네트워크 및 복제 후 설정을 구성합니다. 초기 복제가 진행되는 동안 디스크에 대한 모든 변경 내용이 아래 델타 복제 섹션에 설명된 것처럼 추적됩니다. 초기 복제가 진행되는 동안 스냅숏 및 HRL 파일을 위해 추가 디스크 저장소가 사용됩니다. 초기 복제가 완료되면 Hyper-V VM 스냅숏이 삭제되며 그 결과, 데이터 병합 변경으로 초기 복제가 부모 디스크에 게시됩니다.
@@ -57,7 +57,9 @@ Hyper-V 복제본 복제 엔진의 일부인 Hyper-V 복제본 복제 추적기�
 
 다시 동기화가 완료되면 정상적인 델타 복제가 다시 시작됩니다. 중단(예: 네트워크 중단, VMMS 충돌 등)이 발생한 경우 다시 동기화를 다시 시작할 수 있습니다.
 
-기본적으로 *자동으로 예약된 다시 동기화*는 비 업무 시간 중에 구성됩니다. 가상 컴퓨터를 수동으로 다시 동기화해야 하는 경우 포털에서 가상 컴퓨터를 선택하고 다시 동기화를 클릭합니다. ![온-프레미스 Hyper-V 문제 해결](media/site-recovery-understanding-site-to-azure-protection/image04.png)
+기본적으로 *자동으로 예약된 다시 동기화*는 비 업무 시간 중에 구성됩니다. 가상 컴퓨터를 수동으로 다시 동기화해야 하는 경우 포털에서 가상 컴퓨터를 선택하고 다시 동기화를 클릭합니다.
+
+![온-프레미스 Hyper-V 문제 해결](media/site-recovery-understanding-site-to-azure-protection/image04.png)
 
 다시 동기화는 고정 블록 청크 알고리즘을 사용하며 이 경우 원본 및 대상 파일이 고정 청크로 나누어집니다. 각 청크에 대한 체크섬을 생성한 후 이를 비교하여 원본의 어떤 블록을 대상에 적용해야 하는지 결정합니다.
 
@@ -79,4 +81,4 @@ Hyper-V 복제본 복제 엔진의 일부인 Hyper-V 복제본 복제 추적기�
 - [Microsoft 지원을 위한 연락](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [일반적 ARS 오류 및 해결 방법](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0921_2016-->

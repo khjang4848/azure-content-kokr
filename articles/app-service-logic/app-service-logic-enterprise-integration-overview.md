@@ -67,4 +67,4 @@ Azure 포털에서 앱을 만들기 전에 수행해야 하는 단계의 개요�
 - [XML 변환](./app-service-logic-enterprise-integration-transform.md "엔터프라이즈 통합 맵에 대해 알아보기")
 - [엔터프라이즈 통합 커넥터](../connectors/apis-list.md "엔터프라이즈 통합 팩 커넥터에 대해 알아보기")
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

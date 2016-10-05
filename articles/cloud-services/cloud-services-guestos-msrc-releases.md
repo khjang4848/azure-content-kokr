@@ -20,6 +20,25 @@
 
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
+## 게스트 OS 9월 
+
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-104 | [3183038] | Internet Explorer용 누적 보안 업데이트 | 4\.36, 3.43, 2.55 | 2016년 9월 13일 |
+| MS16-106 | [3185848] | Microsoft 그래픽 구성 요소용 보안 업데이트 | 4\.36, 3.43, 2.55 | 2016년 9월 13일 |
+| MS16-110 | [3178467] | Windows 용 보안 업데이트 | 4\.36, 3.43, 2.55 | 2016년 9월 13일 |
+| MS16-111 | [3186973] | Windows 커널용 보안 업데이트 | 4\.36, 3.43, 2.55 | 2016년 9월 13일 |
+| MS16-112 | [3178469] | Windows 화면 잠금용 보안 업데이트 | 4\.36 | 2016년 9월 13일 |
+| MS16-114 | [3185879] | Windows SMB 서버용 보안 업데이트 | 4\.36, 3.43, 2.55 | 2016년 9월 13일 |
+| MS16-115 | [3188733] | PDF용 보안 업데이트 | 4\.35, 3.43 | 2016년 9월 13일 |
+| MS16-116 | [3188724] | VBScript 스크립팅 엔진용 OLE Automation 보안 업데이트 | 4\.36, 3.43, 2.55 | 2016년 9월 13일 |
+| | [3174644] | Diffie-hellman 키 교환에 대한 업데이트 된 지원 | 4\.36, 3.43, 2.55 | 2016년 9월 13일 |
+| | [3177723] | 표준 시간대 업데이트 - 이집트의 DST (일광 절약 시간) 취소 | 4\.36, 3.43, 2.55 | 2016년 9월 13일 |
+| | [3179573] | Windows 7 SP1 및 Windows Server 2008 R2 SP1용 2016년 8월 업데이트 롤업 | 2\.55 | 2016년 9월 13일 |
+| | [3179575] | Windows Server 2012용 2016년 8월 업데이트 롤업 | 3\.43 | 2016년 9월 13일 |
+| | [3179574] | Windows RT 8.1, Windows 8.1 및 Windows Server 2012 R2용 2016년 8월 업데이트 롤업 | 4\.36 | 2016년 9월 13일 |
+
+
 ## 게스트 OS 8월 
 
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -349,6 +368,19 @@
 | 해당 없음 | [2999802][2999802] | 점선 대신 실선이 Windows에서 인쇄됨 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 | 해당 없음 | [2896881][2896881] | Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 
+[3183038]: http://support.microsoft.com/kb/3183038
+[3185848]: http://support.microsoft.com/kb/3185848
+[3178467]: http://support.microsoft.com/kb/3178467
+[3186973]: http://support.microsoft.com/kb/3186973
+[3178469]: http://support.microsoft.com/kb/3178469
+[3185879]: http://support.microsoft.com/kb/3185879
+[3188733]: http://support.microsoft.com/kb/3188733
+[3188724]: http://support.microsoft.com/kb/3188724
+[3174644]: http://support.microsoft.com/kb/3174644
+[3177723]: http://support.microsoft.com/kb/3177723
+[3179573]: http://support.microsoft.com/kb/3179573
+[3179575]: http://support.microsoft.com/kb/3179575
+[3179574]: http://support.microsoft.com/kb/3179574
 
 [3177356]: http://support.microsoft.com/kb/3177356
 [3177393]: http://support.microsoft.com/kb/3177393
@@ -522,7 +554,7 @@
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/en-us/kb/3042553/
+[3042553]: https://support.microsoft.com/ko-KR/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -602,4 +634,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

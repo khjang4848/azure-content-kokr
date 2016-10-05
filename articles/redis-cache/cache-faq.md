@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2016" 
+	ms.date="09/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -45,6 +45,56 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 -	[내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 
 
+
+## 계획 FAQ
+
+-	[어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](#what-redis-cache-offering-and-size-should-i-use)
+-	[Azure Redis Cache 성능](#azure-redis-cache-performance)
+-	[어떤 영역에 내 캐시를 배치해야 하나요?](#in-what-region-should-i-locate-my-cache)
+-	[Azure Redis Cache에 대한 요금은 어떻게 청구되나요?](#how-am-i-billed-for-azure-redis-cache)
+
+
+
+## 개발 FAQ
+
+-	[StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#what-do-the-stackexchangeredis-configuration-options-do)
+-	[어떤 Redis Cache 클라이언트를 사용할 수 있나요?](#what-redis-cache-clients-can-i-use)
+-	[Azure Redis Cache에 대한 로컬 에뮬레이터가 있나요?](#is-there-a-local-emulator-for-azure-redis-cache)
+-	[어떻게 Redis 명령을 실행할 수 있나요?](#how-can-i-run-redis-commands)
+-	[다른 일부 Azure 서비스와 달리 Azure Redis Cache에는 왜 MSDN 클래스 라이브러리 참조가 없나요?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
+-	[Azure Redis Cache를 PHP 세션 캐시로 사용할 수 있나요?](#can-i-use-azure-redis-cache-as-a-php-session-cache)
+
+
+## 보안 FAQ
+
+-	[언제 비 SSL 포트를 사용하여 Redis에 연결할 수 있도록 해야 하나요?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+
+
+## 프로덕션 FAQ
+
+-	[프로덕션 모범 사례에는 어떤 것이 있나요?](#what-are-some-production-best-practices)
+-	[일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?](#what-are-some-of-the-considerations-whko-KRing-common-redis-commands)
+-	[내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-	[ThreadPool 증가에 대한 중요한 세부 정보](#important-details-about-threadpool-growth)
+-	[StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-whko-KRing-stackexchangeredis)
+
+
+## 모니터링 및 문제 해결 FAQ
+
+이 섹션의 FAQ는 일반적인 모니터링 및 문제 해결 질문을 다룹니다. Azure Redis Cache 인스턴스를 모니터링하고 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Redis Cache 모니터링 방법](cache-how-to-monitor.md) 및 [Azure Redis Cache 문제 해결 방법](cache-how-to-troubleshoot.md)을 참조하세요.
+
+-	[내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
+-	[내 캐시 진단 저장소 계정 설정이 변경되었습니다. 무슨 일인가요?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
+-	[다른 것을 제외하고 일부 새 캐시에 대해서만 진단이 사용되는 이유는 무엇인가요?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
+-	[왜 시간 초과가 표시되나요?](#why-am-i-seeing-timeouts)
+-	[내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?](#why-was-my-client-disconnected-from-the-cache)
+
+
+## 이전 캐시 제공 FAQ
+
+-	[내게 적합한 Azure 캐시 기능](#which-azure-cache-offering-is-right-for-me)
+
+
 ### Azure Redis Cache란?
 
 Azure Redis Cache는 인기 있는 오픈 소스 [Redis Cache](http://redis.io)를 기반으로 하며, Microsoft에서 관리하여 Azure에 있는 모든 응용 프로그램에서 액세스할 수 있는 안전한 전용 Redis Cache에 대한 액세스를 제공합니다. 자세한 개요는 Azure.com의 [Azure Redis Cache](https://azure.microsoft.com/services/cache/) 제품 페이지를 참조하세요.
@@ -64,12 +114,6 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 -    [Azure 계정을 무료로 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=redis_cache_hero). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능을 사용할 수 있습니다.
 -    [Visual Studio 구독자 혜택 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero) MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
-## 계획 FAQ
-
--	[어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](#what-redis-cache-offering-and-size-should-i-use)
--	[Azure Redis Cache 성능](#azure-redis-cache-performance)
--	[어떤 영역에 내 캐시를 배치해야 하나요?](#in-what-region-should-i-locate-my-cache)
--	[Azure Redis Cache에 대한 요금은 어떻게 청구되나요?](#how-am-i-billed-for-azure-redis-cache)
 
 <a name="cache-size"></a>
 ### 어떤 Redis Cache 제품 및 크기를 사용해야 하나요?
@@ -82,7 +126,7 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 -	**처리량**: 프리미엄 계층은 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과가 수신됩니다. 자세한 내용은 다음 표를 참조하세요.
 -	**고가용성/SLA**: Azure Redis Cache는 표준/프리미엄 캐시가 최소 99.9% 시간 동안 사용할 수 있도록 보장합니다. SLA에 대한 자세한 내용은 [ Azure Redis Cache 가격 책정](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)을 참조하세요. SLA에서는 캐시 끝점에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
 -	**Redis 데이터 지속성**: 프리미엄 계층을 사용하면 Azure 저장소 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라의 경우 문제는 잠재적인 데이터 손실이 있을 수 있다는 점입니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Redis Cache는 Redis 지속성에서 RDB 및 AOF(출시 예정) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
--	**Redis 클러스터**: 53GB보다 큰 캐시를 만들거나 여러 Redis 노드에서 데이터를 분할하려는 경우 프리미엄 계층에서 사용 가능한 Redis 클러스터링을 사용할 수 있습니다. 각 노드는 고가용성을 위해 주/복제본 캐시 쌍으로 구성됩니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
+-	**Redis Cluster**: 53GB보다 큰 캐시를 만들거나 여러 Redis 노드에서 데이터를 분할하려면 프리미엄 계층에서 사용 가능한 Redis 클러스터링을 사용할 수 있습니다. 각 노드는 고가용성을 위해 주/복제본 캐시 쌍으로 구성됩니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
 -	**보안 및 네트워크 격리 향상**: Azure VNET(가상 네트워크) 배포는 Azure Redis Cache의 보안과 격리를 강화하며 액세스를 추가적으로 제한하기 위한 서브넷, 액세스 제어 정책 및 기타 기능을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
 -	**Redis 구성**: 표준과 프리미엄 계층에서 Redis Keyspace 알림을 구성할 수 있습니다.
 -	**최대 클라이언트 연결 수**: 프리미엄 계층은 더 큰 캐시에 대해 더 많은 수의 연결과, Redis에 연결 가능한 최대 클라이언트 수를 제공합니다. [자세한 내용은 가격 책정 페이지를 참조하세요.](https://azure.microsoft.com/pricing/details/cache/)
@@ -130,13 +174,6 @@ Azure 계정이 없는 경우 다음을 수행할 수 있습니다.
 
 Azure Redis Cache 가격 책정에 대해서는 [여기](https://azure.microsoft.com/pricing/details/cache/)를 참조하세요. 가격 책정 페이지에는 시간 단위로 가격이 나와 있습니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
 
-## 개발 FAQ
-
--	[StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#what-do-the-stackexchangeredis-configuration-options-do)
--	[어떤 Redis Cache 클라이언트를 사용할 수 있나요?](#what-redis-cache-clients-can-i-use)
--	[Azure Redis Cache에 대한 로컬 에뮬레이터가 있나요?](#is-there-a-local-emulator-for-azure-redis-cache)
--	[어떻게 Redis 명령을 실행할 수 있나요?](#how-can-i-run-redis-commands)
--	[다른 일부 Azure 서비스와 달리 Azure Redis Cache에는 왜 MSDN 클래스 라이브러리 참조가 없나요?](#why-doesnt-azure-redis-cache-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services)
 
 <a name="cache-configuration"></a>
 ### StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?
@@ -221,9 +258,19 @@ Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 
 클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다. 이러한 자습서에 액세스하려면 [Azure Redis Cache 사용 방법](cache-dotnet-how-to-use-azure-redis-cache.md)을 참조하고 문서 맨 위에 있는 언어 전환기에서 원하는 언어를 클릭합니다.
 
 
-## 보안 FAQ
+### Azure Redis Cache를 PHP 세션 캐시로 사용할 수 있나요?
 
--	[언제 비 SSL 포트를 사용하여 Redis에 연결할 수 있도록 해야 하나요?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+예. Azure Redis Cache를 PHP 세션 캐시로 사용하려면 `session.save_path`에서 Azure Redis Cache 인스턴스에 대한 연결 문자열을 지정합니다.
+
+>[AZURE.IMPORTANT] Azure Redis Cache를 PHP 세션 캐시로 사용하는 경우 다음 예제와 같이 캐시에 연결하는 데 사용되는 보안 키를 URL로 인코드해야 합니다.
+>
+>`session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
+>
+>키가 URL로 인코드되지 않으면 `Failed to parse session.save_path`와 비슷한 예외가 발생할 수 있습니다.
+
+PhpRedis 클라이언트에서 Redis Cache를 PHP 세션 캐시로 사용하는 방법에 대한 자세한 내용은 [PHP 세션 처리기](https://github.com/phpredis/phpredis#php-session-handler)를 참조하세요.
+
+
 
 <a name="cache-ssl"></a>
 ### 언제 비 SSL 포트를 사용하여 Redis에 연결할 수 있도록 해야 하나요?
@@ -236,13 +283,7 @@ Redis 서버는 기본적으로 SSL을 지원하지 않지만 Azure Redis Cache�
 
 Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행할 수 있나요?](#cache-commands) 섹션을 참조하세요.
 
-## 프로덕션 FAQ
 
--	[프로덕션 모범 사례에는 어떤 것이 있나요?](#what-are-some-production-best-practices)
--	[일반적인 Redis 명령을 사용할 때 고려해야 하는 몇 가지 사항은 무엇인가요?](#what-are-some-of-the-considerations-whko-KRing-common-redis-commands)
--	[내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
--	[ThreadPool 증가에 대한 중요한 세부 정보](#important-details-about-threadpool-growth)
--	[StackExchange.Redis를 사용하는 경우 클라이언트에서 더 많은 처리량을 가져오는 서버 GC를 사용하도록 설정](#enable-server-gc-to-get-more-throughput-on-the-client-whko-KRing-stackexchangeredis)
 
 ### 프로덕션 모범 사례에는 어떤 것이 있나요?
 
@@ -357,15 +398,7 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 
 
 
-## 모니터링 및 문제 해결 FAQ
 
-이 섹션의 FAQ는 일반적인 모니터링 및 문제 해결 질문을 다룹니다. Azure Redis Cache 인스턴스를 모니터링하고 관련 문제를 해결하는 방법에 대한 자세한 내용은 [Azure Redis Cache 모니터링 방법](cache-how-to-monitor.md) 및 [Azure Redis Cache 문제 해결 방법](cache-how-to-troubleshoot.md)을 참조하세요.
-
--	[내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
--	[내 캐시 진단 저장소 계정 설정이 변경되었습니다. 무슨 일인가요?](#my-cache-diagnostics-storage-account-settings-changed-what-happened)
--	[다른 것을 제외하고 일부 새 캐시에 대해서만 진단이 사용되는 이유는 무엇인가요?](#why-is-diagnostics-enabled-for-some-new-caches-but-not-others)
--	[왜 시간 초과가 표시되나요?](#why-am-i-seeing-timeouts)
--	[내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?](#why-was-my-client-disconnected-from-the-cache)
 
 <a name="cache-monitor"></a>
 ### 내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?
@@ -418,9 +451,7 @@ Redis Cache **설정** 블레이드의 **지원 + 문제 해결** 섹션에는 �
 
 
 
-## 이전 캐시 제공 FAQ
 
--	[내게 적합한 Azure 캐시 기능](#which-azure-cache-offering-is-right-for-me)
 
 ### 내게 적합한 Azure 캐시 기능
 
@@ -449,4 +480,4 @@ Azure Redis Cache를 시작하는 방법에 대한 자세한 내용은 [Azure Re
 
 ["minIoThreads" 구성 설정]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

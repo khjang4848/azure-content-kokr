@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="09/14/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 
@@ -78,7 +78,7 @@
 방화벽 규칙을 보거나, 만들거나, 업데이트하려면 **SQL 데이터베이스** 블레이드에서 **Set server firewall**(서버 방화벽 설정)을 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 
-![방화벽 규칙](./media/sql-database-manage-portal/commands.png)
+![방화벽 규칙](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 
 ## SQL 데이터베이스 서비스 계층 또는 성능 수준을 변경하는 방법
@@ -128,14 +128,14 @@ SQL 데이터베이스에 대한 지역에서 복제를 설정하려면 **SQL �
 SQL 데이터베이스를 복사하려면 **SQL 데이터베이스** 블레이드에서 **복사**를 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 복사](sql-database-copy-portal.md)를 참조하세요.
 
 
-![SQL 데이터베이스 설정](./media/sql-database-manage-portal/commands.png)
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-copy.png)
 
 ## Azure SQL Database를 BACPAC 파일에 보관하는 방법
 
 SQL 데이터베이스의 BACPAC를 만들려면 **SQL 데이터베이스** 블레이드에서 **내보내기**를 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database를 BACPAC 파일에 보관](sql-database-export.md)을 참조하세요.
 
 
-![SQL 데이터베이스 내보내기](./media/sql-database-manage-portal/commands.png)
+![SQL 데이터베이스 내보내기](./media/sql-database-manage-portal/sql-database-export.png)
 
 
 
@@ -144,7 +144,7 @@ SQL 데이터베이스의 BACPAC를 만들려면 **SQL 데이터베이스** 블�
 SQL 데이터베이스를 복원하려면 **SQL 데이터베이스** 블레이드에서 **복원**을 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 이전 시점으로 Azure SQL Database 복원](sql-database-point-in-time-restore-portal.md)을 참조하세요.
 
 
-![SQL 데이터베이스 설정](./media/sql-database-manage-portal/commands.png)
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-restore.png)
 
 
 ## BACPAC 파일에서 Azure SQL Database를 만드는 방법
@@ -163,7 +163,7 @@ BACPAC 파일에서 SQL 데이터베이스를 만들려면 **SQL Server** 블레
 
 SQL 데이터베이스를 삭제하려면 **SQL 데이터베이스** 블레이드에서 **삭제**를 클릭합니다.
 
-![SQL 데이터베이스 설정](./media/sql-database-manage-portal/commands.png)
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 
@@ -172,4 +172,4 @@ SQL 데이터베이스를 삭제하려면 **SQL 데이터베이스** 블레이�
 - [SQL 데이터베이스](sql-database-technical-overview.md)
 - [Azure 포털을 사용하여 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

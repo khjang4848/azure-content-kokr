@@ -109,7 +109,7 @@ PowerShell을 사용하여 VNet 피어링을 만들려면 다음 단계를 수�
 	|AllowVirtualNetworkAccess|피어링 VNet의 주소 공간이 Virtual\_network 태그의 일부로 포함되는지 여부입니다.|예|
 	|AllowForwardedTraffic|피어링된 VNet에서 시작된 트래픽이 허용되거나 삭제될 수 있습니다.|아니요|
 	|AllowGatewayTransit|피어링 VNet이 VNet 게이트웨이를 사용할 수 있습니다.|아니요|
-	|UseRemoteGateways|피어링한 VNet 게이트웨이를 사용합니다. 피어링 VNet에는 게이트웨이가 구성되어 있어야 하고 AllowGatewayTransit을 선택합니다. 구성된 게이트웨이가 있는 경우 이 옵션을 사용할 수 없습니다.|아니요|
+	|UseRemoteGateways|피어링한 VNet 게이트웨이를 사용합니다. 피어링 VNet에는 게이트웨이가 구성되어 있어야 하고 AllowGatewayTransit을 선택해야 합니다. 구성된 게이트웨이가 있는 경우 이 옵션을 사용할 수 없습니다.|아니요|
 
 	VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 예를 들어, AllowVirtualNetworkAccess를 VNet 피어링 링크 VNet2-VNet1에 대해 True로 설정하고 다른 방향의 VNet 피어링 링크에 대해 False로 설정할 수 있습니다.
 
@@ -143,13 +143,13 @@ PowerShell을 사용하여 구독에 VNet 피어링을 만들려면 다음 단�
 
 1. 구독-A에 대한 권한이 있는 사용자-A 계정으로 Azure에 로그인하고 다음 cmdlet을 실행합니다.
 
-        New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
+        New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet5
 
-    이는 요구 사항이 아니며 요청이 일치하면 사용자가 해당하는 Vnet에 대한 피어링 요청을 개별적으로 요구하는 경우에도 피어링을 설정할 수 있습니다. 다른 VNet의 권한있는 사용자를 로컬 VNet의 사용자로 추가하면 설치가 수월해집니다.
+    이는 요구 사항이 아니며 요청이 일치하면 사용자가 해당하는 VNet에 대한 피어링 요청을 개별적으로 요구하는 경우에도 피어링을 설정할 수 있습니다. 다른 VNet의 권한있는 사용자를 로컬 VNet의 사용자로 추가하면 설치가 수월해집니다.
 
 2. 구독-B에 대한 권한이 있는 사용자-B 계정으로 Azure에 로그인하고 다음 cmdlet을 실행합니다.
 
-        New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet3
+        New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet3
 
 3. 사용자-A의 로그인 세션에서 다음 cmdlet을 실행합니다.
 
@@ -234,4 +234,4 @@ PowerShell에서 클래식 가상 네트워크와 Azure Resource Manager 가상 
 
 2. VNet 피어링에서 하나의 링크만을 제거하면 피어링 링크 상태는 연결이 끊깁니다. 이 상태에서는 피어링 링크 상태가 시작됨으로 변경될 때까지 링크를 다시 만들 수 없습니다. VNet 피어링을 다시 만들기 전에 링크를 모두 제거하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

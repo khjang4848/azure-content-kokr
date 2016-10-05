@@ -3,7 +3,7 @@
 	description="Spark MLlib 도구 키트를 통해 많은 기계 학습 모델링 기능을 이 분산 HDInsight 환경에서 사용할 수 있습니다."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요
 
@@ -37,7 +37,11 @@
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+<!-- -->
+
 > [AZURE.NOTE] Python이 아닌 Scala를 사용하여 종단 간 데이터 과학 프로세스에 대한 작업을 완료하는 방법을 보여 주는 항목에 대해서는 [Azure에서 Spark를 사용하는 데이터 과학](machine-learning-data-science-process-scala-walkthrough.md)을 참조하세요.
+
+<!-- -->
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -146,4 +150,4 @@ Notebook을 Github에서 Spark 클러스터의 Jupyter Notebook 서버에 직접
 
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

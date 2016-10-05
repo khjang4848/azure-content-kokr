@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # 단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
@@ -61,4 +61,4 @@
   - [Android OAuth2 클라이언트](https://github.com/wuman/android-oauth-client)
   - [Android OpenID Connect 클라이언트](https://github.com/kalemontes/OIDCAndroidLib)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

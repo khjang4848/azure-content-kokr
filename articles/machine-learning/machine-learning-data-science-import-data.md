@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -53,6 +53,8 @@
 - 일반 텍스트(.txt)
 - 헤더가 있거나(.csv) 없는(.nh.csv) 쉼표로 구분된 값(CSV)
 - 헤더가 있거나(.tsv) 없는(.nh.tsv) 탭으로 구분된 값(TSV)
+- Excel 파일
+- Azure 테이블
 - Hive 테이블
 - SQL 데이터베이스 테이블
 - OData 값
@@ -89,4 +91,4 @@
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

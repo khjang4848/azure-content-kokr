@@ -306,4 +306,4 @@ NIC를 만들고(또는 기존 NIC 수정) NAT 규칙, 부하 분산 장치 규�
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->

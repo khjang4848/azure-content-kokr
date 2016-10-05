@@ -20,14 +20,14 @@
 
 Azure Multi-Factor Authentication에는 여러 가지 버전이 있기 때문에 사용하기에 적절한 버전을 파악하기 위해 몇 가지 사항을 확인해야 합니다. 이러한 사항은 다음과 같습니다.
 
--	[보안을 유지하려는 대상은 무엇입니까](#what-am-i-trying-to-secure)
--	[사용자는 어디에 있습니까](#where-are-the-users-located)
+-	<a href="#-1">보안을 유지하려는 대상은 무엇입니까</a>
+-	<a href="#-2">사용자는 어디에 있습니까</a>
 
 다음 섹션에서는 이러한 각 결정에 대한 지침을 제공합니다.
 
-## 보안을 유지하려는 대상은 무엇입니까?
+<h2 id="-1">보안을 유지하려는 대상은 무엇입니까?</h2>
 
-올바른 다단계 인증 솔루션을 결정하기 위해 먼저 두 번째 인증 방법으로 보안을 유지하려는 대상이 무엇인지 답해야 합니다. Azure에 있는 응용프로그램 입니까? 아니면 예를 들어 원격 액세스 시스템입니까? 보안을 유지하려는 대상이 무엇인지 결정하여 다단계 인증 활성화가 필요한 곳에 대한 질문의 답을 확인합니다.
+올바른 다단계 인증 솔루션을 결정하기 위해 먼저 두 번째 인증 방법으로 보안을 유지하려는 대상이 무엇인지 답해야 합니다. Azure에 있는 응용프로그램 입니까? 아니면 예를 들어 원격 액세스 시스템입니까? 보안을 유지하려는 대상이 무엇인지 결정하여 Multi-Factor Authentication 활성화가 필요한 곳에 대한 질문의 답을 확인합니다.
 
 
 보안을 유지하려는 대상은 무엇입니까| 클라우드에서 Multi-Factor Authentication|Multi-Factor Authentication 서버
@@ -40,7 +40,7 @@ VPN, RDG와 같은 원격 액세스| |* |
 
 
 
-## 사용자는 어디에 있습니까
+<h2 id="-2">사용자는 어디에 있습니까</h2>
 
 다음으로 사용자의 위치에 따라 사용할 올바른 솔루션이 클라우드에 있는 Multi-Factor Authentication인지 MFA 서버를 사용한 온-프레미스인지를 확인할 수 있습니다.
 
@@ -81,4 +81,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

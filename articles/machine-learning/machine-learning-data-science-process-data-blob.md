@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
-	ms.author="sunliangms;fashah;garye;bradsev" />
+	ms.date="09/19/2016"
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 
@@ -191,4 +191,4 @@
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/20/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에 R 설치 및 사용
@@ -146,4 +146,4 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

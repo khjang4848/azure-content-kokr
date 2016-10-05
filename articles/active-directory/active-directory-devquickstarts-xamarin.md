@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -184,4 +184,4 @@ ADAL은 앱에 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또�
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

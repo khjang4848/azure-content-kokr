@@ -24,8 +24,6 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 
 이 자습서에서는 일반 관리 작업은 물론 테스트 데이터 생성 및 작업 제출 샘플을 포함하는 Java 콘솔 응용 프로그램을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요.
 
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
-
 ## 필수 조건
 
 * JDK(Java Development Kit) 8 (Java 버전 1.8 사용).
@@ -356,4 +354,4 @@ Azure Data Lake 분석 Java SDK를 사용하여 Azure Data Lake 계정을 만들
 - 관리 작업을 보려면 [Azure 포털을 사용하여 Azure 데이터 레이크 분석 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 - 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

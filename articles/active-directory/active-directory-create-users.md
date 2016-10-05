@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
-	ms.author="curtand;viviali"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # Azure Active Directory에 새 사용자 또는 Microsoft 계정이 있는 사용자 추가
 
@@ -31,7 +31,7 @@
 	- **기존 Microsoft 계정이 있는 사용자** – 디렉터리에 기존 사용자 Microsoft 고객 계정(예: Outlook 계정)을 추가합니다.
 
 5. **사용자 유형**에 따라 사용자 이름(새 사용자) 또는 전자 메일 주소(Microsoft 계정이 있는 사용자)를 입력합니다.
-6. 사용자 **프로필** 페이지에 이름과 성, 별명 및 **역할 목록**의 사용자 역할을 입력합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요. 사용자에 대해 **다단계 인증 사용** 여부를 지정합니다.
+6. 사용자 **프로필** 페이지에 이름과 성, 별명 및 **역할 목록**의 사용자 역할을 입력합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요. 사용자에 대해 **Multi-Factor Authentication 사용** 여부를 지정합니다.
 7. **임시 암호 가져오기** 페이지에서 **만들기**를 선택합니다.
 
 > [AZURE.IMPORTANT] 조직에서 둘 이상의 도메인을 사용하는 경우 사용자 계정을 추가할 때 다음과 같은 문제를 알고 있어야 합니다.
@@ -86,4 +86,4 @@ Azure 클래식 포털에서 **구성** 탭을 열려면 **Active Directory**를
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

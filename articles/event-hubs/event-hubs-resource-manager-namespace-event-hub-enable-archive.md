@@ -18,9 +18,9 @@
 
 # Azure Resource Manager 템플릿으로 이벤트 허브가 있는 Event Hubs 네임스페이스 만들기 및 보관 파일 활성화
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용하여 이벤트 허브가 있는 Event Hubs 네임스페이스를 만들고 해당 이벤트 허브에 대한 보관 파일을 활성화하는 방법을 설명합니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알게 됩니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 이벤트 허브가 있는 Event Hubs 네임스페이스를 만들고 해당 이벤트 허브에 대한 보관 파일을 활성화하는 방법을 설명합니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 알아봅니다. 자체 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
-템플릿을 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성][]을 참조하세요.
+템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성하기][]를 참조하십시오.
 
 Azure 리소스 명명 규칙의 사례 및 패턴에 대한 자세한 내용은 [Azure 리소스 명명 규칙][]을 참조하세요.
 
@@ -29,11 +29,11 @@ Azure 리소스 명명 규칙의 사례 및 패턴에 대한 자세한 내용은
 >[AZURE.NOTE]
 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][] 갤러리를 방문하여 이벤트 허브를 검색하세요.
 
-## 배포할 항목
+## 무엇을 배포하시겠습니까?
 
-이 템플릿으로 이벤트 허브가 있는 Event Hubs 네임스페이스를 배포하고 보관 파일을 활성화합니다.
+이 템플릿으로 Event Hubs가 있는 Event Hubs 네임스페이스를 배포하고 보관을 활성화합니다.
 
-[이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 ingestor 서비스입니다. Event Hubs Archive를 사용하면 Event Hubs의 스트리밍 데이터를 지정한 시간이나 크기 간격 내에서 선택한 Azure Blob 저장소에 자동으로 전달할 수 있습니다.
+[이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)는 짧은 대기 시간 및 높은 안정성으로 이벤트 및 원격 분석을 엄청난 규모의 Azure에 제공하는 데 사용되는 이벤트 ingestor 서비스입니다. Event Hubs Archive를 사용하면 Event Hubs의 스트리밍 데이터를 지정한 시간이나 크기 간격 내에서 선택한 Azure Blob Storage에 자동으로 전달할 수 있습니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
@@ -169,7 +169,7 @@ Azure Blob 저장소에 데이터를 보관하기 위한 크기 간격입니다.
 
 ### destinationStorageAccountResourceId
 
-원하는 Azure Storage에 보관하기 위해 보관 파일에 필요한 저장소 계정 리소스 ID입니다.
+원하는 Azure Storage에 보관하기 위해 보관에 저장소 계정 리소스 ID가 필요합니다.
 
 ```
  "destinationStorageAccountResourceId":{
@@ -281,12 +281,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
 - [서비스 버스 탐색기로 이벤트 허브 리소스 관리](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
-  [Azure Resource Manager 템플릿 작성]: ../resource-group-authoring-templates.md
+  [Azure Resource Manager 템플릿 작성하기]: ../resource-group-authoring-templates.md
   [Azure 빠른 시작 템플릿]: https://azure.microsoft.com/documentation/templates/?term=event+hubs
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
-  [Azure 리소스 명명 규칙]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-  [이벤트 허브 및 보관 파일 활성화 템플릿]: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive]
+  [Azure 리소스 명명 규칙]: https://azure.microsoft.com/ko-KR/documentation/articles/guidance-naming-conventions/
+  [이벤트 허브 및 보관 파일 활성화 템플릿]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

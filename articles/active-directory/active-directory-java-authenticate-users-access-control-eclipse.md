@@ -288,7 +288,7 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [encutil.exe]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
+[Azure 액세스 제어 서비스에 의해 반환되는 SAML을 확인하는 방법]: /ko-kr/develop/java/how-to-guides/view-saml-returned-by-acs/
 [액세스 제어 서비스 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -310,4 +310,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!----HONumber=AcomDC_0817_2016-->

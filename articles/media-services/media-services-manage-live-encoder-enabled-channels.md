@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍" 
+	pageTitle="Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍 | Microsoft Azure" 
 	description="이 항목에서는 온-프레미스 인코더에서 단일 비트 전송률 라이브 스트림을 받은 다음 미디어 서비스를 사용하여 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH, HDS 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/19/2016"
+	ms.author="juliako;anilmur"/>
 
 #Azure 미디어 서비스를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 
@@ -59,7 +59,7 @@ AMS(Azure 미디어 서비스)에서 **채널**은 라이브 스트리밍 콘텐
  
 채널 상태|포털 UI 표시기|요금이 청구됩니까?
 ---|---|---
-시작 중|시작 중|없음(일시적인 상태)
+시작 중|Starting|없음(일시적인 상태)
 실행 중|준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임)|예
 중지 중|중지 중|없음(일시적인 상태)
 중지됨|중지됨|아니요
@@ -416,7 +416,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
  
 채널 상태|포털 UI 표시기|청구 여부
 ---|---|---
-시작 중|시작 중|없음(일시적인 상태)
+Starting|Starting|없음(일시적인 상태)
 실행 중|준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임)|예
 중지 중|중지 중|없음(일시적인 상태)
 중지됨|중지됨|아니요
@@ -457,7 +457,9 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 
-##미디어 서비스 학습 경로
+##다음 단계
+
+미디어 서비스 학습 경로를 검토합니다.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -468,7 +470,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 ##관련된 항목
 
-[Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공](media-services-live-streaming-workflow.md)
+[Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공](media-services-overview.md)
 
 [미디어 서비스 개념](media-services-concepts.md)
 
@@ -476,4 +478,4 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

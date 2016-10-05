@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 # Azure Active Directory Reporting - 미리 보기
@@ -26,7 +26,7 @@ Azure Active Directory 미리 보기에서 리포팅으로 사용자 환경의 �
 
 - **로그인 활동** – 관리되는 응용 프로그램 및 사용자 로그인 활동의 사용량에 대한 정보
 
-- **시스템 활동** - 사용자 및 그룹 관리, 관리되는 응용 프로그램 및 디렉터리 활동에 대한 감사 정보
+- **감사 로그** - 사용자 및 그룹 관리, 관리되는 응용 프로그램 및 디렉터리 활동에 대한 시스템 활동 정보
 
 원하는 데이터의 범위에 따라 [Azure Portal](https://portal.azure.com)의 서비스 목록에서 **사용자 및 그룹** 또는 **엔터프라이즈 응용 프로그램**을 클릭하여 이러한 보고서에 액세스할 수 있습니다.
 
@@ -118,7 +118,7 @@ Azure Active Directory 미리 보기에서 리포팅으로 사용자 환경의 �
 
 ![보고](./media/active-directory-reporting-azure-portal/84.png "보고")
 
-## 시스템 활동
+## 감사 로그
 
 Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다.
 
@@ -216,4 +216,4 @@ Azure Portal에서 관련된 활동을 감사하기 위한 세 가지 범주가 
 
 [Azure Active Directory Reporting 가이드](active-directory-reporting-guide.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
@@ -41,6 +41,10 @@ HDInsight 클러스터는 주 노드에서 오류가 발생할 경우 마스터 
 
 > [AZURE.IMPORTANT] 두 헤드 노드는 동시에 클러스터 내에서 활성화되어 실행됩니다. 일부 서비스(예: HDFS 또는 YARN)는 항상 헤드 노드 하나에서만 '활성화'됩니다(다른 헤드 노드에서는 '대기'). 다른 서비스(예: HiveServer2 또는 Hive MetaStore)는 두 헤드 노드에서 동시에 활성화됩니다.
 
+헤드 노드(및 HDInsight의 다른 노드)에는 노드 호스트 이름의 일부인 숫자 값이 있습니다. 예를 들면 `hn0-CLUSTERNAME` 또는 `hn4-CLUSTERNAME`과 같습니다.
+
+> [AZURE.IMPORTANT] 기본 노드 또는 보조 노드인지를 숫자 값과 연결하지 않습니다. 숫자 값은 각 노드에 고유한 이름을 제공하기 위해 표시됩니다.
+
 ###Nimbus 노드
 
 Storm 클러스터의 경우 Nimbus 노드는 작업자 노드에 대한 프로세싱을 배포하고 모니터링하여 Hadoop JobTracker에 유사한 기능을 제공합니다. HDInsight은 Storm 클러스터 유형에 대해 2개의 Nimbus 노드를 제공합니다.
@@ -64,9 +68,9 @@ Storm 클러스터의 경우 Nimbus 노드는 작업자 노드에 대한 프로�
 
 ## 노드 액세스
 
-인터넷을 통한 클러스터에 대한 액세스는 공용 게이트웨이를 통해 제공되며 헤드 노드 및 (HDInsight 클러스터의 R 서버인 경우)에지 노드에 연결되는 데 제한됩니다. 헤드 노드에서 실행되는 서비스에 대한 액세스는 공용 게이트웨이 경로가 요청된 서비스를 호스팅하는 헤드 노드에 요청한 대로 여러 헤드 노드의 존재에 영향을 받지 않습니다. 예를 들어 현재 Ambari가 헤드 노드 1에서 호스팅되는 경우 게이트웨이는 Ambari에 들어오는 요청을 해당 노드에 라우팅합니다.
+인터넷을 통한 클러스터에 대한 액세스는 공용 게이트웨이를 통해 제공되며 헤드 노드 및 (HDInsight 클러스터의 R 서버인 경우)에지 노드에 연결되는 데 제한됩니다. 헤드 노드에서 실행되는 서비스에 대한 액세스는 공용 게이트웨이 경로가 요청된 서비스를 호스팅하는 헤드 노드에 요청한 대로 여러 헤드 노드의 존재에 영향을 받지 않습니다. 예를 들어 현재 Ambari가 보조 헤드 노드에서 호스팅되는 경우 게이트웨이는 Ambari에 들어오는 요청을 해당 노드에 라우팅합니다.
 
-SSH를 사용하여 클러스터에 액세스하고 포트 22(SSH의 기본값)를 통해 연결할 경우 headnode0에 연결되고 포트 23을 통해 연결할 경우 headnode 1에 연결됩니다. 예를 들어 `ssh username@mycluster-ssh.azurehdinsight.net`은 __mycluster__라는 클러스터의 헤드 노드 0에 연결합니다.
+SSH를 사용하여 클러스터에 액세스하고 포트 22(SSH의 기본값)를 통해 연결할 경우 기본 헤드 노드에 연결되고 포트 23을 통해 연결할 경우 보조 헤드 노드에 연결됩니다. 예를 들어 `ssh username@mycluster-ssh.azurehdinsight.net`은 __mycluster__라는 클러스터의 기본 헤드 노드에 연결합니다.
 
 > [AZURE.NOTE] SFTP(SSH 파일 전송 프로토콜)와 같은 SSH에 기반한 프로토콜에도 적용됩니다.
 
@@ -143,7 +147,7 @@ Ambari REST API는 인터넷을 통해 사용할 수 있고 공용 게이트웨�
 	  }
 	}
 
-URL은 현재 서비스가 **head node 0**에서 실행되고 있음을 알려줍니다.
+URL은 현재 서비스가 __hn0-CLUSTERNAME__라는 헤드 노드에서 실행되고 있음을 알려줍니다.
 
 상태는 현재 서비스가 실행되고 있음(**STARTED**)을 알려줍니다.
 
@@ -225,4 +229,4 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

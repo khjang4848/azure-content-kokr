@@ -1,20 +1,20 @@
 <properties 
 pageTitle="Microsoft Azure에서 S/4 HANA 또는 BW/4 HANA 배포 | Microsoft Azure" 
 description="Microsoft Azure에서 S/4 HANA 또는 BW/4 HANA 배포" 
-services="virtual-machines,virtual-network,storage" 
-documentationCenter="saponazure" 
+services="virtual-machines-linux" 
+documentationCenter="" 
 authors="hermanndms" 
-manager="juergent" 
+manager="timlt" 
 editor="" 
 tags="azure-resource-manager" 
   keywords=""/>
 <tags  
-  ms.service="virtual-machines" 
-  ms.devlang="NA" 
-  ms.topic="campaign-page" 
+  ms.service="virtual-machines-linux" 
+  ms.devlang="na" 
+  ms.topic="article" 
   ms.tgt_pltfrm="vm-linux" 
-  ms.workload="na" 
-  ms.date="09/12/2016" 
+  ms.workload="infrastructure-services" 
+  ms.date="09/15/2016" 
   ms.author="hermannd"/>
 
 
@@ -88,4 +88,4 @@ Azure 포털에서 가상 컴퓨터가 SAP CAL에 지정된 것과 동일한 인
 
 다른 옵션은 클라이언트 Windows VM에 로그인하고 예를 들어 미리 구성된 SAP GUI를 시작하는 것입니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

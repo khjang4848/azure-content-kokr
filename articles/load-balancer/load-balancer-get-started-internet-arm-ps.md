@@ -92,8 +92,8 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
 - 포트 3441~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
 - 포트 3442~포트 3389에서 들어오는 모든 트래픽을 변환하는 NAT 규칙
-- 포트 80~포트 80에서 들어오는 모든 트래픽을 백 엔드 풀에 있는 주소로 분산하는 부하 분산 장치 규칙
 - **HealthProbe.aspx**라는 페이지에 대한 상태를 확인할 프로브 규칙
+- 포트 80~포트 80에서 들어오는 모든 트래픽을 백 엔드 풀에 있는 주소로 분산하는 부하 분산 장치 규칙
 - 이러한 개체를 모두 사용하는 부하 분산 장치
 
 다음 단계를 사용:
@@ -104,11 +104,7 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
         $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-2. 부하 분산 장치를 만듭니다.
-
-        $lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-
-3. 상태 프로브를 만듭니다. 프로브를 구성하는 방법은 두 가지가 있습니다.
+2. 상태 프로브를 만듭니다. 프로브를 구성하는 방법은 두 가지가 있습니다.
 
     HTTP 프로브
 
@@ -117,6 +113,10 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
     TCP 프로브
 
         $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+
+3. 부하 분산 장치를 만듭니다.
+
+        $lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 
 4. 이전에 만든 개체를 사용하여 부하 분산 장치를 만듭니다.
 
@@ -150,16 +150,22 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
         Location             : westus
         Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
         Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
+        ResourceGuid         : 896cac4f-152a-40b9-b079-3e2201a5906e
         ProvisioningState    : Succeeded
         Tags                 :
         VirtualMachine       : null
         IpConfigurations     : [
                             {
+                            "Name": "ipconfig1",
+                            "Etag": "W/"d448256a-e1df-413a-9103-a137e07276d1"",
+                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1",
                             "PrivateIpAddress": "10.0.2.6",
                             "PrivateIpAllocationMethod": "Static",
                             "Subnet": {
                                 "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
                             },
+                            "ProvisioningState": "Succeeded",
+                            "PrivateIpAddressVersion": "IPv4",
                             "PublicIpAddress": {
                                 "Id": null
                             },
@@ -173,19 +179,18 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
                                 "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
                                 }
                             ],
-                            "ProvisioningState": "Succeeded",
-                            "Name": "ipconfig1",
-                            "Etag": "W/"d448256a-e1df-413a-9103-a137e07276d1"",
-                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                            "Primary": true,
+                            "ApplicationGatewayBackendAddressPools": []
                             }
                         ]
         DnsSettings          : {
                             "DnsServers": [],
-                            "AppliedDnsServers": []
+                            "AppliedDnsServers": [],
+                            "InternalDomainNameSuffix": "prcwibzcuvie5hnxav0yjks2cd.dx.internal.cloudapp.net"
                         }
-        AppliedDnsSettings   :
+        EnableIPForwarding   : False
         NetworkSecurityGroup : null
-        Primary              : False
+        Primary              : 
 
 5. `Add-AzureRmVMNetworkInterface` cmdlet을 사용하여 NIC를 다른 VM에 할당합니다.
 
@@ -249,4 +254,4 @@ PowerShell에 대한 Azure Resource Manager 모듈의 최신 프로덕션 버전
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="09/26/2016"
 	ms.author="juliako"/>
 
 # 환경 설정
@@ -52,4 +52,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 .NET 또는 
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

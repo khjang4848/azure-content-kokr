@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/02/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # Azure Active Directory의 다른 디렉터리 또는 파트너 회사의 사용자 추가
 
 > [AZURE.SELECTOR]
-- [Azure 포털](active-directory-create-users-external-azure-portal.md)
+- [Azure 포털](active-directory-users-create-external-azure-portal.md)
 - [Azure 클래식 포털](active-directory-create-users-external.md)
 
 이 문서에서는 Azure Active Directory에 있는 다른 디렉터리의 사용자를 추가하거나 파트너 회사의 사용자를 추가하는 방법을 설명합니다. 조직 내에서 새 사용자 추가 및 Microsoft 계정이 있는 사용자 추가에 대한 자세한 내용은 [Azure Active Directory에 새 사용자 추가](active-directory-create-users.md)를 참조하세요. 기본적으로 추가된 사용자에게는 관리자 권한이 없지만 언제든 역할을 할당할 수 있습니다.
@@ -70,7 +70,7 @@ ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 �
 - **Azure 클래식 포털**: 여러 디렉터리의 관리자인 외부 사용자가 해당하는 각 디렉터리를 관리할 수 있습니다.
 - **SharePoint Online**: 외부 공유가 활성화될 경우 SharePoint Online에서 권한을 부여한 리소스에 외부 사용자가 액세스할 수 있습니다.
 - **Dynamics CRM**: PowerShell을 통해 라이선스를 부여할 경우 사용이 허가된 리소스에 외부 사용자가 액세스할 수 있습니다.
-- **Dynamics AX**: PowerShell을 통해 라이선스를 부여할 경우 외부 사용자가 Dynamics AX의 권한이 부여된 리소스에 액세스할 수 있습니다. [Azure AD 외부 사용자](#known-limitations-of-azure-ad-external-users) 및 [게스트 사용자](#guest-user-management-and-limitations)에 대한 제한은 Dynamics AX의 외부 사용자에게도 적용합니다.
+- **Dynamics AX**: PowerShell을 통해 라이선스를 부여할 경우 외부 사용자가 Dynamics AX의 권한이 부여된 리소스에 액세스할 수 있습니다. [Azure AD 외부 사용자](#known-limitations-of-azure-ad-external-users)에 대한 제한은 Dynamics AX의 외부 사용자에게도 적용합니다.
 
 ### Azure AD 외부 사용자의 알려진 제한 사항
 
@@ -88,4 +88,4 @@ ID가 온-프레미스 Active Directory 서비스와 동기화된 사용자에 �
 - [Azure AD에서 암호 관리](active-directory-manage-passwords.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

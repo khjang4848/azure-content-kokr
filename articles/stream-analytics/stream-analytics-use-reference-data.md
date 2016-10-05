@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -92,7 +92,7 @@
 3.	드물지만 작업의 시간을 되돌려야 할 경우가 있으므로 참조 데이터 BLOB를 변경 또는 삭제해서는 안 됩니다.
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 사용해 보세요.
 
 ## 다음 단계
 사물 인터넷에서 발생한 데이터에 대한 스트리밍 분석용 관리 서비스, 스트림 분석에 대해 소개하였습니다. 이 서비스에 대해 자세히 알아보려면 다음을 참조하세요.
@@ -110,4 +110,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
 	description="Azure Data Lake를 사용하여 데이터 집합에 대해 데이터 탐색 및 이진 분류 작업을 수행하는 방법입니다."  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="bradsev;weig;gopitk"/>
+	ms.date="09/19/2016"
+	ms.author="bradsev;weig"/>
 
 
 # Azure Data Lake에서 확장성 있는 데이터 과학: 종단 간 연습
 
-이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 집합 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. [데이터 과학 프로세스](http://aka.ms/datascienceprocess), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
+이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 집합 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
 
 
 ### Azure 데이터 레이크 분석
@@ -76,10 +76,8 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 - Azure 기계 학습 스튜디오 계정
 - Visual Studio용 Azure Data Lake 도구(권장)
 
-이 섹션에서는 이러한 각 리소스를 만드는 방법에 대한 지침을 제공합니다. Azure 기계 학습에서 Python 대신 Hive 테이블을 사용하여 모델을 작성하려는 경우 HDInsight(Hadoop) 클러스터를 프로비전해야 합니다. 이러한 대체 절차는 아래의 해당 섹션에 설명되어 있습니다.
-
->AZURE.NOTE **Azure Data Lake 저장소**는 별도로 만들거나 **Azure Data Lake 분석**을 만들 때 기본 저장소로 만들 수 있습니다. 아래에서는 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다.
-
+이 섹션에서는 이러한 각 리소스를 만드는 방법에 대한 지침을 제공합니다. Azure 기계 학습에서 Python 대신 Hive 테이블을 사용하여 모델을 작성하려는 경우 HDInsight(Hadoop) 클러스터를 프로비전해야 합니다. 이러한 대체 절차는 아래의 해당 섹션에 설명되어 있습니다. <br/>
+>AZURE.NOTE **Azure Data Lake 저장소**는 별도로 만들거나 **Azure Data Lake 분석**을 만들 때 기본 저장소로 만들 수 있습니다. 아래에서는 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다. <br/>
 ### Azure 데이터 레이크 저장소 만들기
 
 [Azure 포털](http://portal.azure.com)에서 ADLS를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 여기 설명된 **옵션 구성** 블레이드의 **DataSource** 블레이드에서 클러스터 AAD ID를 설정해야 합니다.
@@ -741,4 +739,4 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 - [팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
 - [Azure HDInsight에서 Spark를 사용하는 데이터 과학 프로세스 개요](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

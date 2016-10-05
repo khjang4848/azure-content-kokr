@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Azure 저장소에 대한 Azure Functions 트리거 및 바인딩 | Microsoft Azure"
-	description="Azure Functions에서 Azure 저장소 트리거 및 바인딩을 사용하는 방법을 파악합니다."
+	pageTitle="Azure Storage에 대한 Azure Functions 트리거 및 바인딩 | Microsoft Azure"
+	description="Azure Functions에서 Azure Storage 트리거 및 바인딩을 사용하는 방법을 파악합니다."
 	services="functions"
 	documentationCenter="na"
 	authors="christopheranderson"
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
+	keywords="Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
 
 <tags
 	ms.service="functions"
@@ -442,7 +442,7 @@ C# 함수에서 다음 형식으로 바인딩할 수 있습니다.
 
 	함수 런타임에서는 테이블에 바인딩된 `ICollector<T>` 또는 `IAsyncCollector<T>`를 제공하며 여기서 `T`은 추가하려는 엔터티의 스키마를 지정합니다. 일반적으로 `T` 형식은 `TableEntity`에서 파생되거나 `ITableEntity`을 구현하지만 반드시 그런 것은 아닙니다. `partitionKey`, `rowKey`, `filter` 및 `take` 속성은 이 시나리오에서 사용되지 않습니다.
 
-#### 저장소 테이블 예제: C# 또는 노드에서 단일 테이블 엔터티 읽기
+#### Storage 테이블 예제: C# 또는 노드에서 단일 테이블 엔터티 읽기
 
 다음 C# 코드 예제에서는 앞에 표시된 *function.json* 파일로 작업하여 단일 테이블 엔터티를 읽습니다. 큐 메시지에는 행 키 값이 있고 *run.csx* 파일에 정의된 형식으로 테이블 엔터티를 읽습니다. 형식은 `PartitionKey` 및 `RowKey` 속성을 포함하며 `TableEntity`에서 파생되지 않습니다.
 
@@ -461,6 +461,21 @@ public class Person
 }
 ```
 
+또한 다음 F# 코드 예제에서는 앞의 *function.json* 파일로 작업하여 단일 테이블 엔터티를 읽습니다.
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(myQueueItem: string, personEntity: Person) =
+    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
+```
+
 또한 다음 노드 코드 예제에서는 앞의 *function.json* 파일로 작업하여 단일 테이블 엔터티를 읽습니다.
 
 ```javascript
@@ -471,7 +486,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-#### 저장소 테이블 예제: C에서 여러 테이블 엔터티 읽기# 
+#### Storage 테이블 예제: C에서 여러 테이블 엔터티 읽기# 
 
 다음 *function.json* 및 C# 코드 예제에서는 큐 메시지에 지정된 파티션 키에 대한 엔터티를 읽습니다.
 
@@ -518,7 +533,7 @@ public class Person : TableEntity
 }
 ``` 
 
-#### 저장소 테이블 예제: C로 테이블 엔터티 만들기# 
+#### Storage 테이블 예제: C로 테이블 엔터티 만들기# 
 
 다음 *function.json* 및 *run.csx* 예제에서는 C#에서 테이블 엔터티를 작성하는 방법을 보여 줍니다.
 
@@ -567,7 +582,48 @@ public class Person
 
 ```
 
-#### 저장소 테이블 예제: Node에서 테이블 엔터티 만들기
+#### Storage 테이블 예제: F에서 테이블 엔터티 만들기#
+
+다음 *function.json* 및 *run.fsx* 예제에서는 F#에서 테이블 엔터티를 작성하는 방법을 보여 줍니다.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnection",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+    for i = 1 to 10 do
+        log.Info(sprintf "Adding Person entity %d" i)
+        tableBinding.Add(
+            { PartitionKey = "Test"
+              RowKey = i.ToString()
+              Name = "Name" + i.ToString() })
+```
+
+#### Storage 테이블 예제: Node에서 테이블 엔터티 만들기
 
 다음 *function.json* 및 *run.csx* 예제에서는 노드에서 테이블 엔터티를 작성하는 방법을 보여 줍니다.
 
@@ -607,4 +663,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

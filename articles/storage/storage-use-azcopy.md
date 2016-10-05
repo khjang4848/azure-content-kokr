@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/02/2016"
-	ms.author="micurd"/>
+	ms.author="micurd;tamram"/>
 
 # AzCopy 명령줄 유틸리티로 데이터 전송
 
@@ -866,4 +866,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 - [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

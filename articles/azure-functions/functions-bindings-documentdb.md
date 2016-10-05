@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
+	keywords="Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
 
 <tags
 	ms.service="functions"
@@ -67,6 +67,29 @@
 	{   
 	    document.text = "This has changed.";
 	}
+
+#### F# 큐 트리거에 대한 Azure DocumentDB 입력 코드 예제
+
+위의 function.json 예제를 사용하여 DocumentDB 입력 바인딩이 큐 메시지 문자열과 일치하는 ID로 문서를 검색하고 '문서' 매개 변수에 전달합니다. 해당 문서가 없는 경우 '문서' 매개 변수가 null이 됩니다. 문서는 함수가 종료되는 경우 새 텍스트 값으로 업데이트됩니다.
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- "This has changed."
+
+다음과 같이 NuGet을 사용하여 `FSharp.Interop.Dynamic` 및 `Dynamitey` 패키지를 패키지 종속성으로 지정하는 `project.json` 파일이 필요합니다.
+
+	{
+	  "frameworks": {
+	    "net46": {
+	      "dependencies": {
+	        "Dynamitey": "1.0.2",
+	        "FSharp.Interop.Dynamic": "3.0.0"
+	      }
+	    }
+	  }
+	}
+
+그러면 NuGet을 사용하여 종속성을 가져오고 스크립트에서 해당 항목을 참조하게 됩니다.
 
 #### Node.js 큐 트리거에 대한 Azure DocumentDB 입력 코드 예제
  
@@ -131,6 +154,12 @@ function.json 파일은 다음 속성을 제공합니다.
 	}
  
 
+#### F# 큐 트리거에 대한 Azure DocumentDB 출력 코드 예제
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+
 #### C# 큐 트리거에 대한 Azure DocumentDB 출력 코드 예제
 
 
@@ -178,6 +207,27 @@ function.json 파일은 다음 속성을 제공합니다.
 	    };
 	}
 
+또는 해당하는 F# 코드:
+
+	open FSharp.Interop.Dynamic
+	open Newtonsoft.Json
+
+	type Employee = {
+	    id: string
+	    name: string
+	    employeeId: string
+	    address: string
+	}
+
+	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+	    let employee = JObject.Parse(myQueueItem)
+	    employeeDocument <-
+	        { id = sprintf "%s-%s" employee?name employee?employeeId
+	          name = employee?name
+	          employeeId = employee?id
+	          address = employee?address }
+
 예제 출력:
 
 	{
@@ -191,4 +241,4 @@ function.json 파일은 다음 속성을 제공합니다.
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

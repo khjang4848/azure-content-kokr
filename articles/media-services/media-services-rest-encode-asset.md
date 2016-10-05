@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="미디어 인코더 표준을 사용하여 자산을 인코드하는 방법" 
+	pageTitle="미디어 인코더 표준을 사용하여 자산을 인코드하는 방법 | Microsoft Azure" 
 	description="미디어 인코더 표준을 사용하여 미디어 서비스에서 미디어 콘텐츠를 인코드하는 방법에 대해 알아봅니다. REST API를 사용하는 코드 샘플입니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encode-asset.md)
 - [REST (영문)](media-services-rest-encode-asset.md)
-- [포털](media-services-manage-content.md#encode)
+- [포털](media-services-portal-encode.md)
 
 ##개요
 인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 디지털 비디오 파일은 크기가 상당히 크기 때문에 인터넷을 통해 전달하거나 고객의 장치에서 제대로 표시하지 못할 수 있습니다. 인코딩은 고객이 미디어를 볼 수 있도록 비디오 및 오디오를 압축하는 과정입니다.
@@ -34,16 +34,16 @@
 
 - 작업 엔터티에 대한 작업 탐색 속성 또는
 - OData 배치 처리를 통해 작업을 인라인으로 정의할 수 있습니다.
-  
 
-항상 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다. 동적 패키징을 이용하려면 먼저 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 주문형 스트리밍 단위를 하나 이상 가져와야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-manage-origins.md#scale_streaming_endpoints)을 참조하세요.
+
+항상 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다. 동적 패키징을 이용하려면 먼저 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 주문형 스트리밍 단위를 하나 이상 가져와야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
 
 출력 자산이 암호화된 저장소인 경우 자산 배달 정책을 구성해야 합니다. 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
 
 
 >[AZURE.NOTE]미디어 프로세서 참조를 시작하기 전에 올바른 미디어 프로세서 ID를 가지고 있는지 확인하십시오. 자세한 내용은 [미디어 프로세서 가져오기](media-services-rest-get-media-processor.md)를 참조하세요.
 
-##작업을 단일 인코딩 작업으로 만들기 
+##작업을 단일 인코딩 작업으로 만들기
 
 >[AZURE.NOTE] 미디어 서비스 REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
@@ -54,18 +54,10 @@
 >JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **\_\_metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(Accept: application/json;odata=verbose)으로 설정해야 합니다.
 
 다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 미디어 인코더 표준으로 인코드할 때 [여기](http://msdn.microsoft.com/library/mt269960)에 지정된 작업 구성 기본 설정을 사용할 수 있습니다.
-	
+
 요청:
 
-	POST https://media.windows.net/API/Jobs HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer <token value>
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-	Host: media.windows.net
+POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;odata=verbose Accept: application/json;odata=verbose DataServiceVersion: 3.0 MaxDataServiceVersion: 3.0 x-ms-version: 2.11 Authorization: Bearer <token value> x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 Host: media.windows.net
 
 	
 	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
@@ -78,7 +70,7 @@
 
 ###출력 자산 이름 설정
 
-다음 예제에서는 assetName 특성을 설정하는 방법을 보여줍니다.
+다음 예제에서는 assetName 특성을 설정하는 방법을 보여 줍니다.
 
 	{ "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"}
 
@@ -275,4 +267,4 @@
 
 [미디어 프로세서 가져오기](media-services-rest-get-media-processor.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

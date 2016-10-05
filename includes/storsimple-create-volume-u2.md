@@ -42,4 +42,4 @@
 
 4. 확인 아이콘![확인 아이콘](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png)을 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!-----HONumber=AcomDC_0914_2016-->

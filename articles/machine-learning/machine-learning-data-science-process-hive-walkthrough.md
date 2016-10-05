@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 
 # 실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용
 
-이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 팀 데이터 과학 프로세스를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
+이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 [TDSP(팀 데이터 과학 프로세스)](data-science-process-overview.md)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
 
 데이터 처리에 HDInsight Hadoop 클러스터를 사용하는 유사한 시나리오에서 더 큰 데이터 집합(1TB)을 처리하는 방법을 보여 주는 연습은 [팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-criteo-walkthrough.md)을 참조하세요.
 
@@ -97,7 +97,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 여기에서는 AzCopy를 사용하여 데이터가 포함된 파일을 전송하는 방법을 설명합니다. AzCopy를 다운로드하여 설치하려면 [AzCopy 명령줄 유틸리티 시작](../storage/storage-use-azcopy.md) 지침을 따릅니다.
 
-1. 명령 프롬프트 창에서 *<path\_to\_data\_folder>*를 원하는 대상으로 바꿔 다음 AzCopy 명령을 실행합니다.
+1. 명령 프롬프트 창에서 *<path_to_data_folder>*를 원하는 대상으로 바꿔 다음 AzCopy 명령을 실행합니다.
 
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -142,7 +142,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-이 두 명령은 이 연습에 필요한 모든 .hql 파일을 헤드 노드의 로컬 디렉터리 ***C:\\temp & #92;***에 다운로드합니다.
+이 두 명령은 이 연습에 필요한 모든 .hql 파일을 헤드 노드의 로컬 디렉터리 ***C:\temp&#92;***에 다운로드합니다.
 
 ## <a name="#hive-db-tables"></a>월별로 분할된 Hive 데이터베이스 및 테이블 만들기
 
@@ -434,10 +434,10 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 다음은 검사할 *sample\_hive\_quality\_assessment.hql* 파일의 내용입니다.
 
-    	SELECT COUNT(*) FROM nyctaxidb.trip
-    	WHERE month=1
-    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+	    SELECT COUNT(*) FROM nyctaxidb.trip
+	    WHERE month=1
+	    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+	    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
 	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
 	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
@@ -564,10 +564,10 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 다음은 Azure 기계 학습에서 모델 빌드를 위한 데이터를 준비하는 *sample\_hive\_prepare\_for\_aml\_full.hql* 파일의 내용입니다.
 
-		set R = 3959;
-	    set pi=radians(180);
+        set R = 3959;
+        set pi=radians(180);
 
-		create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
         medallion string,
         hack_license string,
@@ -622,7 +622,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
-		t.direct_distance,
+        t.direct_distance,
         f.payment_type,
         f.fare_amount,
         f.surcharge,
@@ -794,7 +794,9 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 
 ## 참조
 
-• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) • [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
+•	[Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•	[NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -808,4 +810,4 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

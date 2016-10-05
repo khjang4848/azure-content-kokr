@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="09/27/2016"
    ms.author="cherylmc"/>
 
 # 클래식 포털을 사용하여 VNet에 지점 및 사이트 간 연결 구성
@@ -25,12 +25,12 @@
 
 지점 및 사이트 간(P2S) 구성을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. P2S 연결은 집 또는 회의와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우 유용합니다.
 
-이 문서에서는 **클래식 포털**을 사용하여 **클래식 배포 모델**에서 지점 및 사이트 간 연결로 VNet을 만드는 방법을 안내합니다. 현재는 클래식 배포 모델에 대한 Azure 포털에서 이 종단 간 구성을 만들 수 없습니다. Azure Portal에서 일부의 단계를 수행할 수 있지만 VPN 클라이언트 구성을 다운로드하기 위해 PowerShell이 필요합니다.
+이 문서에서는 **클래식 포털**을 사용하여 **클래식 배포 모델**에서 지점 및 사이트 간 연결로 VNet을 만드는 방법을 안내합니다.
 
 지점 및 사이트 간 연결을 작동하는 데는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 클라이언트 컴퓨터에서 연결을 시작하여 VPN 연결을 설정합니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) 및 [계획 및 설계](vpn-gateway-plan-design.md)를 참조하세요.
 
 
-**지점 및 사이트 간 연결에 대한 배포 모델 및 도구**
+### P2S 연결에 대한 배포 모델 및 메서드
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
@@ -193,4 +193,4 @@ Azure에 신뢰할 수 있는 인증서를 추가합니다. Azure에 Base64 인�
 
 가상 네트워크에 대한 자세한 내용은 [가상 네트워크 설명서](https://azure.microsoft.com/documentation/services/virtual-network/) 페이지를 참조하세요.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

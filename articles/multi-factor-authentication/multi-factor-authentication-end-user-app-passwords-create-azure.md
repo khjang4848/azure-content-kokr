@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication을 위해 Azure 포털에서 앱 암호 만들기" 
-	description="이 페이지에서는 Azure 포털에서 추가 앱 암호를 만드는 방법을 보여 줍니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Azure Multi-Factor Authentication을 위해 Azure 포털에서 앱 암호 만들기"
+	description="이 페이지에서는 Azure 포털에서 추가 앱 암호를 만드는 방법을 보여 줍니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication을 위해 Azure 포털에서 앱 암호 만들기
 
@@ -32,6 +32,4 @@ Azure에서 다단계 인증을 사용하는 경우 Azure 포털을 통해 앱 �
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

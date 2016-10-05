@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/19/2016" 
     ms.author="jeedes" />
 
 #자습서: Sprinklr와 Azure Active Directory 통합
@@ -107,7 +107,7 @@
     1.  **이름** 텍스트 상자에서 구성할 이름을 입력합니다.(예: *WAADSSOTest*).
     2.  **사용**을 선택합니다.
     3.  **새 SSO 인증서 사용**을 선택합니다.
-    4.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.
+    4.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
 
         >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
@@ -184,4 +184,4 @@ AAD 사용자가 로그인할 수 있도록 Sprinklr 응용 프로그램 내 액
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

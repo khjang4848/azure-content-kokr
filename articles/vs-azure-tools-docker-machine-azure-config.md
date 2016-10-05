@@ -3,7 +3,7 @@
    description="Docker Machine을 사용하여 Azure에서 Docker 호스트를 만드는 방법에 대해 설명합니다."
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas" />
+   ms.author="mlearned" />
 
 # Docker Machine으로 Azure에서 Docker 호스트 만들기
 
@@ -27,7 +27,7 @@
 
 `azure` 드라이버를 사용한 `docker-machine create` 명령으로 Azure에서 Docker 호스트를 만듭니다.
 
-Azure 드라이버에는 구독 ID가 필요합니다. Azure 구독을 검색하려면 [Azure CLI](xplat-cli-install.md) 또는 [Azure 포털](https://portal.azure.com)을 사용할 수 있습니다.
+Azure 드라이버에는 구독 ID가 필요합니다. Azure 구독을 검색하려면 [Azure CLI](xplat-cli-install.md) 또는 [Azure Portal](https://portal.azure.com)을 사용할 수 있습니다.
 
 **Azure 포털 사용**
 - 왼쪽 탐색 페이지에서 구독을 선택하고, 구독 ID를 복사합니다.
@@ -109,4 +109,4 @@ Docker-machine을 사용하면 개별 docker 호스트 유효성 검사를 위�
 
 Visual Studio를 사용한 .NET 핵심 응용 프로그램 개발은 [Visual Studio 용 Docker 도구](http://aka.ms/DockerToolsForVS)를 참조합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

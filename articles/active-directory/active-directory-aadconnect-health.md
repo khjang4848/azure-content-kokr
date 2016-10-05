@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="karavar"/>
 
 <tags
@@ -123,4 +123,4 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 버전 내역](active-directory-aadconnect-health-version-history.md)
 
-<!-----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

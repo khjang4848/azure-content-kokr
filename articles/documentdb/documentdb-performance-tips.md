@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2016" 
+	ms.date="09/19/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB에 대한 성능 팁
@@ -65,18 +65,18 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
 3. **첫 번째 요청 시 시작 대기 시간을 피하기 위해 OpenAsync 호출**
 
-    기본적으로 첫 번째 요청은 주소 라우팅 테이블을 가져와야 하기 때문에 대기 시간이 길어집니다. 첫 번째 요청에서 이 시작 대기 시간을 피하기 위해 다음과 같이 초기화할 때 OpenAsync()를 한 번만 호출합니다.
+    기본적으로 첫 번째 요청은 주소 라우팅 테이블을 가져와야 하기 때문에 대기 시간이 길어집니다. 첫 번째 요청에서 이 시작 대기 시간을 방지하려면 다음과 같이 초기화할 때 OpenAsync()를 한 번만 호출해야 합니다.
 
         await client.OpenAsync();
 <a id="same-region"></a>
 4. **성능을 위해 동일한 Azure 지역에 클라이언트 배치**
 
-    가능한 경우 동일한 지역에서 DocumentDB를 호출하는 모든 응용 프로그램을 DocumentDB 데이터베이스로서 배치합니다. 개략적인 비교를 위해 동일한 지역 내의 DocumentDB 호출이 1-2ms 내에 완료되지만 미국 서부와 동부 해안 사이의 대기 시간이 50ms보다 큽니다. 클라이언트에서 Azure 데이터 센터 경계로 요청이 전달되는 경로에 따라 이러한 요청 간 대기 시간은 달라질 수 있습니다. 호출 응용 프로그램을 프로비전된 DocumentDB 끝점과 동일한 Azure 지역 내에 위치시키면 대기 시간을 가장 낮출 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
+    가능한 경우 동일한 지역에서 DocumentDB를 호출하는 모든 응용 프로그램을 DocumentDB 데이터베이스로서 배치합니다. 대략적인 비교를 위해 동일한 지역 내의 DocumentDB 호출이 1-2ms 내에 완료되지만 미국 서부와 동부 해안 사이의 대기 시간이 50ms보다 큽니다. 클라이언트에서 Azure 데이터 센터 경계로 요청이 전달되는 경로에 따라 이러한 요청 간 대기 시간은 달라질 수 있습니다. 프로비전된 DocumentDB 끝점과 동일한 Azure 지역 내에 위치한 응용 프로그램을 호출하도록 하여 대기 시간을 가장 낮출 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
     ![DocumentDB 연결 정책 그림](./media/documentdb-performance-tips/azure-documentdb-same-region.png) <a id="increase-threads"></a>
 5. **스레드/작업의 수 늘리기**
 
-    DocumentDB에 대한 호출이 네트워크를 통해 수행되므로 클라이언트 응용 프로그램이 요청 간에 대기하는 시간이 짧도록 요청의 병렬 처리 수준을 다양하게 지정해야 할 수 있습니다. 예를 들어 .NET의 [태스크 병렬 라이브러리](https://msdn.microsoft.com//library/dd460717.aspx)를 사용하는 경우 DocumentDB에 대해 약 100개의 읽기 또는 쓰기 태스크를 만드세요.
+    DocumentDB에 대한 호출이 네트워크를 통해 수행되므로 클라이언트 응용 프로그램이 요청 간에 대기하는 시간이 짧도록 요청의 병렬 처리 수준을 다양하게 지정해야 할 수 있습니다. 예를 들어 .NET의 [태스크 병렬 라이브러리](https://msdn.microsoft.com//library/dd460717.aspx)를 사용하는 경우 DocumentDB에 대해 몇 백 개의 읽기 또는 쓰기 태스크를 만듭니다.
 
 ## SDK 사용
 
@@ -89,34 +89,46 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
     각 DocumentClient 인스턴스는 스레드로부터 안전하고 직접 모드에서 작동하는 경우 효율적인 연결 관리와 주소 캐싱을 수행합니다. DocumentClient에 의해 연결을 효율적으로 관리하고 성능을 개선하려면 응용 프로그램 수명 동안 AppDomain당 DocumentClient의 단일 인스턴스를 사용하는 것이 좋습니다. <a id="max-connection"></a>
 3. **호스트당 System.Net MaxConnections 늘리기**
 
-    DocumentDB 요청이 기본적으로 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 DocumentDB에 대한 여러 동시 연결을 사용할 수 있도록 더 높은 값(100-1000)으로 설정해야 할 수 있습니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/ko-KR/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.
+    DocumentDB 요청이 기본적으로 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 DocumentDB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections을 더 높은 값(100-1000)으로 설정해야 합니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/ko-KR/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.
 
-4. **서버 쪽 GC 켜기**
+4. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
+
+    DocumentDB .NET SDK 버전 1.9.0 이상은 동시에 분할된 컬렉션을 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용 및 관련된 코드 샘플을 참고하세요. 쿼리 대기 시간 및 처리량을 개선하도록 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 동시에 쿼리될 수 있는 파티션의 최대 수를 제어합니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
+    
+    (a) ***MaxDegreeOfParallelism 튜닝:*** 여러 파티션을 병렬로 쿼리하여 병렬 쿼리가 작동합니다. 그러나 개별 분할된 수집의 데이터는 쿼리와 관련하여 순차적으로 가져옵니다. 따라서 MaxDegreeOfParallelism을 파티션 수로 설정하면 다른 모든 시스템 조건을 동일하게 유지하는 동시에 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성을 극대화합니다. 파티션 수를 모르는 경우 MaxDegreeOfParallelism을 높게 설정할 수 있습니다. 그러면 시스템은 MaxDegreeOfParallelism의 최소값(사용자가 제공한 입력인 파티션 수)을 선택합니다.
+    
+    데이터가 쿼리와 관련하여 모든 파티션에 균등하게 분산되어 있는 경우 병렬 쿼리가 최고의 성능을 발휘한다는 것이 중요합니다. 쿼리에서 반환된 전체 또는 대부분의 데이터가 몇 개의 파티션(최악의 경우 하나의 파티션)에 집중되는 것처럼 분할된 컬렉션이 분할되는 경우 해당 파티션으로 인해 쿼리의 성능에는 장애가 발생합니다.
+    
+    (b) ***MaxBufferedItemCount 튜닝:*** 결과의 현재 배치가 클라이언트에서 처리되는 반면 병렬 쿼리는 결과를 프리페치하도록 설계되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. MaxBufferedItemCount는 프리페치된 결과의 크기를 제한하는 매개 변수입니다. MaxBufferedItemCount를 반환된 결과의 예상 수(또는 더 높은 숫자)로 설정하면 쿼리가 프리페치의 최대 이점을 얻을 수 있습니다.
+    
+    프리페치는 MaxDegreeOfParallelism에 관계없이 동일한 방식으로 작동하고 여기에는 모든 파티션의 데이터에 대한 단일 버퍼가 있습니다.
+
+5. **서버 쪽 GC 켜기**
     
     경우에 따라 가비지 수집의 빈도를 줄이는 것이 도움이 될 수 있습니다. .NET에서 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx)를 true로 설정합니다.
 
-5. **RetryAfter 간격으로 백오프 구현**
+6. **RetryAfter 간격으로 백오프 구현**
  
-    성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 응용 프로그램은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 이렇게 하면 재시도 간 기간을 최소화할 수 있습니다. 다시 시도 정책 지원은 DocumentDB [.NET](documentdb-sdk-dotnet.md) 및 [Java](documentdb-sdk-java.md)의1.8.0 버전 이상, [Node.js](documentdb-sdk-nodejs.md) 및 [Python](documentdb-sdk-python.md)의 1.9.0 버전에 포함됩니다. 자세한 내용은 [예약된 처리량 제한 초과](documentdb-request-units.md#exceeding-reserved-throughput-limits) 및 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)를 참조하세요.
+    성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 응용 프로그램은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다. 다시 시도 정책 지원은 DocumentDB [.NET](documentdb-sdk-dotnet.md) 및 [Java](documentdb-sdk-java.md)의1.8.0 버전 이상, [Node.js](documentdb-sdk-nodejs.md) 및 [Python](documentdb-sdk-python.md)의 1.9.0 버전 이상에 포함됩니다. 자세한 내용은 [예약된 처리량 제한 초과](documentdb-request-units.md#exceeding-reserved-throughput-limits) 및 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)를 참조하세요.
 
-6. **클라이언트 워크로드 규모 확장**
+7. **클라이언트 워크로드 규모 확장**
 
     높은 처리량 수준에서 테스트하는 경우(>50,000 RU/s) 컴퓨터의 CPU 또는 네트워크 사용률이 최대화되므로 클라이언트 응용 프로그램은 병목 상태가 될 수 있습니다. 이 시점에 도달하면 여러 서버에 걸쳐 클라이언트 응용 프로그램을 확장하여 DocumentDB 계정을 계속 추가할 수 있습니다.
 
-7. **짧은 읽기 대기 시간 동안 문서 URI 캐시**
+8. **짧은 읽기 대기 시간 동안 문서 URI 캐시**
 
     최상의 문서 읽기 성능이 필요할 때마다 문서 URI를 캐시합니다. <a id="tune-page-size"></a>
-8. **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**
+9. **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**
 
     읽기 피드 기능을 사용하여 대량의 문서 읽기를 수행하거나(예: ReadDocumentFeedAsync) 또는 DocumentDB SQL 쿼리를 발행하면, 결과 집합이 너무 큰 경우 결과가 분할되어 반환됩니다. 기본적으로, 100개의 항목 또는 1MB 단위(둘 중 먼저 도달하는 단위)로 결과가 반환됩니다.
 
-    모든 적용 가능한 결과를 검색하는 데 필요한 네트워크 왕복 횟수를 줄이기 위해, x-ms-max-item-count 요청 헤더를 사용하는 페이지 크기를 최대 1000으로 늘릴 수 있습니다. 사용자 인터페이스 또는 응용 프로그램 API가 한 번에 10개의 결과만 반환하는 것처럼 몇 가지 결과만 표시해야 하는 경우, 읽기 및 쿼리에 사용되는 처리량을 줄이기 위해 페이지 크기를 10으로 줄 일 수도 있습니다.
+    모든 적용 가능한 결과를 검색하는 데 필요한 네트워크 왕복 횟수를 줄이려면 x-ms-max-item-count 요청 헤더를 사용하는 페이지 크기를 최대 1000으로 늘릴 수 있습니다. 사용자 인터페이스 또는 응용 프로그램 API가 한 번에 10개의 결과만 반환하는 것처럼 몇 가지 결과만 표시해야 하는 경우, 읽기 및 쿼리에 사용되는 처리량을 줄이기 위해 페이지 크기를 10으로 줄일 수도 있습니다.
 
     또한 DocumentDB SDK를 사용하여 페이지 크기를 설정할 수도 있습니다. 예:
     
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 
-9. **스레드/작업의 수 늘리기**
+10. **스레드/작업의 수 늘리기**
 
 	네트워킹 섹션의 [스레드/작업의 수 늘리기](increase-threads.md)를 참조하세요.
 
@@ -124,15 +136,15 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
 1. **더 빠른 피크 시간 수집 속도에 대한 지연 인덱싱 사용**
 
-    컬렉션 수준에서 DocumentDB를 통해 컬렉션의 문서를 자동으로 인덱싱할지 여부를 선택할 수 있는 인덱싱 정책을 지정할 수 있습니다. 또한 동기(일관성)와 비동기(지연) 인덱스 업데이트 중에서 선택할 수 있습니다. 기본적으로 컬렉션의 문서를 삽입하거나 바꾸거나 삭제할 때마다 인덱스가 동기적으로 업데이트됩니다. 따라서 쿼리가 인덱스가 따라잡을 때까지의 지연 없이 문서 읽기의 [일관성 수준](documentdb-consistency-levels.md)과 동일한 일관성 수준을 적용할 수 있습니다.
+    컬렉션 수준에서 DocumentDB를 통해 컬렉션의 문서를 자동으로 인덱싱할지 여부를 선택할 수 있는 인덱싱 정책을 지정할 수 있습니다. 또한 동기(일관성)와 비동기(지연) 인덱스 업데이트 중에서 선택할 수 있습니다. 기본적으로 컬렉션의 문서를 삽입하거나 바꾸거나 삭제할 때마다 인덱스가 동기적으로 업데이트됩니다. 동기적으로 모드를 사용하면 쿼리가 인덱스가 따라잡을 때까지의 지연 없이 문서 읽기의 [일관성 수준](documentdb-consistency-levels.md)과 동일한 일관성 수준을 적용할 수 있습니다.
     
-    지연 인덱싱은 데이터가 갑자기 작성되는 시나리오에 대해 고려할 수 있으며, 오랜 시간 동안 콘텐츠를 인덱싱하는 데 필요한 작업을 분할하고자 합니다. 그러면 프로비전된 처리량을 효과적으로 사용하고 최대 사용 시간에 최소 대기 시간으로 쓰기 요청을 처리할 수 있습니다. 반면 지연 인덱싱을 사용할 경우 쿼리 결과는 DocumentDB 계정에 대해 구성된 일관성 수준에 관계없이 일관성을 지니게 됩니다.
+    지연 인덱싱은 데이터가 갑자기 작성되는 시나리오에 대해 고려할 수 있으며, 오랜 시간 동안 콘텐츠를 인덱싱하는 데 필요한 작업을 분할하고자 합니다. 또한 지연 인덱스를 사용하면 프로비전된 처리량을 효과적으로 사용하고 최대 사용 시간에 최소 대기 시간으로 쓰기 요청을 처리할 수 있습니다. 반면 지연 인덱싱을 사용할 경우 쿼리 결과는 DocumentDB 계정에 대해 구성된 일관성 수준에 관계없이 일관성을 지니게 됩니다.
 
     따라서 일관된 인덱싱 모드(IndexingPolicy.IndexingMode가 Consistent로 설정됨)는 한 번 쓰는 데 가장 높은 요청 단위 요금이 부과되고, 지연 인덱싱 모드(IndexingPolicy.IndexingMode는 Lazy로 설정됨)와 인덱싱 없음 모드(IndexingPolicy.Automatic이 False로 설정됨)는 쓰는 시간에 대한 인덱싱 비용이 없습니다.
 
 2. **더 빠른 쓰기에 대한 인덱싱에서 사용하지 않는 경로 제외**
 
-    DocumentDB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다. 예를 들어, 다음 코드는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여줍니다.
+    DocumentDB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다. 예를 들어, 다음 코드는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
 
         var collection = new DocumentCollection { Id = "excludedPathCollection" };
         collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
@@ -146,13 +158,13 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
 1. **낮은 요청 단위/초 사용량 측정 및 튜닝**
 
-    DocumentDB는 관계형 쿼리와 계층형 쿼리 등 다양한 데이터베이스 작업에 데이터베이스 컬렉션 내부의 문서에서 적용되는 UDF, 저장 프로시저 및 트리거를 제공합니다. 각 작업과 관련된 비용은 작업을 완료하는 데 필요한 CPU, IO 및 메모리에 따라 달라집니다. 하드웨어 리소스를 고려하고 관리하는 대신 다양한 데이터베이스 작업을 수행하고 응용 프로그램 요청을 처리하는 데 필요한 리소스의 단일 측정값으로 RU(요청 단위)를 고려할 수 있습니다.
+    DocumentDB는 관계형 쿼리와 계층형 쿼리 등 다양한 데이터베이스 작업에 데이터베이스 컬렉션 내부의 문서에서 적용되는 UDF, 저장 프로시저 및 트리거를 제공합니다. 이러한 작업 각각과 관련된 비용은 작업을 완료하는 데 필요한 CPU, IO 및 메모리에 따라 달라집니다. 하드웨어 리소스를 고려하고 관리하는 대신 다양한 데이터베이스 작업을 수행하고 응용 프로그램 요청을 처리하는 데 필요한 리소스의 단일 측정값으로 RU(요청 단위)를 고려할 수 있습니다.
 
     구매하는 용량 단위 수에 따라 각 데이터베이스 계정에 대해 [요청 단위](documentdb-request-units.md)가 프로비전됩니다. 요청 단위 소비는 초당 비율로 평가됩니다. 계정에 프로비전된 요청 단위 비율을 초과하는 응용 프로그램은 비율이 계정에 예약된 수준 아래로 떨어질 때까지 제한됩니다. 응용 프로그램에 더 높은 처리량 수준이 필요한 경우 추가 용량 단위를 구매할 수 있습니다.
 
     쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
-    모든 작업(만들기, 업데이트 또는 삭제)에 대한 인덱싱 오버헤드를 측정하려면 x-ms-request-charge 헤더(또는 .NET SDK의 ResourceResponse<T> 또는 FeedResponse<T>에 있는 동등한 RequestCharge 속성)를 검사하여 이 작업에 사용된 요청 단위 수를 측정합니다.
+    모든 작업(만들기, 업데이트 또는 삭제)에 대한 오버헤드를 측정하려면 x-ms-request-charge 헤더(또는 .NET SDK의 ResourceResponse<T> 또는 FeedResponse<T>에 있는 동등한 RequestCharge 속성)를 검사하여 이 작업에 사용된 요청 단위 수를 측정합니다.
 
         // Measure the performance (request units) of writes
         ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
@@ -195,8 +207,8 @@ Azure DocumentDB는 보장된 대기 시간 및 처리량으로 원활하게 규
 
 ## 다음 단계
 
-적은 수의 클라이언트 컴퓨터에서 고성능 시나리오에 대해 DocumentDB를 평가하는 데 사용된 샘플 응용 프로그램은 [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
+몇 개의 클라이언트 컴퓨터에서 고성능 시나리오에 대한 DocumentDB를 평가하는 데 사용된 샘플 응용 프로그램은 [Azure DocumentDB를 사용한 성능 및 규모 테스트](documentdb-performance-testing.md)를 참조하세요.
 
 또는 확장성 및 고성능을 위한 응용 프로그램 설계에 대한 자세한 내용은 [Azure DocumentDB의 분할 및 크기 조정](documentdb-partition-data.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

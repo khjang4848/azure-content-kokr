@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/30/2016"
+   	ms.date="09/20/2016"
    	ms.author="larryfr"/>
 
 #Azure CLI를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -23,11 +23,11 @@
 
 Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 명령줄 유틸리티입니다. Azure 리소스 관리 템플릿과 함께 사용하여 HDInsight 클러스터를 연결된 저장소 계정 및 기타 서비스와 함께 만들 수 있습니다.
 
-Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 리소스를 설명하는 JSON 문서입니다.(예: HDInsight) 이 템플릿 기반 접근 방식을 사용하면 HDInsight에 필요한 모든 리소스를 하나의 템플릿에 정의하고 그룹에 변경 내용을 적용하는 __배포__를 통해 그룹에 대한 변경 내용을 전체적으로 관리할 수 있습니다.
+Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 리소스를 설명하는 JSON 문서입니다(예: HDInsight). 이 템플릿 기반 접근 방식을 사용하면 하나의 템플릿에서 HDInsight에 필요한 모든 리소스를 정의할 수 있습니다. 또한 __배포__를 통해 전체적으로 그룹에 대한 변경 내용을 관리할 수 있으며 이렇게 하면 전체 그룹에 변경 내용을 적용합니다.
 
 이 문서의 단계는 Azure CLI 및 템플릿을 사용하여 새 HDInsight 클러스터를 만드는 과정을 안내합니다.
 
-> [AZURE.IMPORTANT] 이 문서의 단계는 HDInsight 클러스터에 대해 작업자 노드 (4)의 기본 갯수를 사용합니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
+> [AZURE.IMPORTANT] 이 문서의 단계는 HDInsight 클러스터에 대해 작업자 노드 (4)의 기본 갯수를 사용합니다. 클러스터를 만드는 동안 또는 클러스터를 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
 >
 > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
@@ -40,7 +40,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-##Azure 구독에 로그인
+##Azure 구독에 로그인합니다.
 
 [Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](../xplat-cli-connect.md)에서 설명된 단계에 따라 __login__ 메서드를 사용하여 구독에 연결합니다.
 
@@ -52,22 +52,22 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
         azure login
 
-    사용자 이름 및 암호를 제공하라는 메시지가 표시됩니다. 여러 Azure 구독이 있는 경우 `azure account set <subscriptionname>`을 사용하여 Azure CLI 명령이 사용할 구독을 설정할 수 있습니다.
+    사용자 이름 및 암호를 제공하라는 메시지가 표시됩니다. 여러 Azure 구독이 있는 경우 `azure account set <subscriptionname>`을 사용하여 Azure CLI 명령이 사용할 구독을 설정합니다.
 
 3. 다음 명령을 사용하여 Azure 리소스 관리자 모드로 전환합니다.
 
         azure config mode arm
 
-4. 새 리소스 그룹을 만듭니다. 여기에는 HDInsight 클러스터 및 연결된 저장소 계정이 포함되어 있습니다.
+4. 리소스 그룹을 만듭니다. 이 리소스 그룹에는 HDInsight 클러스터 및 연결된 저장소 계정이 포함됩니다.
 
         azure group create groupname location
         
     * __groupname__을 그룹의 고유한 이름으로 바꿉니다.
     * __location__을 그룹을 만들 지리적 지역으로 바꿉니다.
     
-        유효한 위치 목록에 대해서는 `azure locations list` 명령을 사용하고 __이름__ 열의 위치 중 하나를 사용합니다.
+        유효한 위치 목록에 대해서는 `azure location list` 명령을 사용하고 __이름__ 열의 위치 중 하나를 사용합니다.
 
-5. 새 저장소 계정을 만듭니다. 이 저장소는 HDInsight 클러스터에 대한 기본 저장소로 사용됩니다.
+5. 저장소 계정을 만듭니다. 이 저장소 계정은 HDInsight 클러스터에 대한 기본 저장소로 사용됩니다.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
         
@@ -86,7 +86,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
     
     반환된 데이터에서 __key1__의 __키__ 값을 저장합니다.
 
-6. 새 HDInsight 클러스터를 만듭니다.
+6. HDInsight 클러스터 만들기
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
@@ -121,4 +121,4 @@ Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

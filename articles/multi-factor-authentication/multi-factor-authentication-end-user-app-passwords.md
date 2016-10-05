@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure MFA에서 앱 암호란 무엇인가요?" 
-	description="이 페이지는 사용자가 앱 암호란 무엇이며 Azure MFA와 관련해서 암호가 어떤 용도로 사용되는지를 이해하는 데 도움이 됩니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure MFA에서 앱 암호란 무엇인가요?"
+	description="이 페이지는 사용자가 앱 암호란 무엇이며 Azure MFA와 관련해서 암호가 어떤 용도로 사용되는지를 이해하는 데 도움이 됩니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -25,7 +25,7 @@ Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트�
 >[AZURE.NOTE] Office 2013 클라이언트에 대한 최신 인증
 >
 > Office 2013 클라이언트(Outlook 포함)는 이제 새 인증 프로토콜을 지원하고 Multi-Factor Authentication을 지원하도록 설정할 수 있습니다. 즉, 일단 이렇게 설정되면 Office 2013 클라이언트에서 앱 암호를 사용할 필요가 없습니다. 자세한 내용은 [발표된 Office 2013 최신 인증 공개 미리 보기](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)를 참조하세요.
- 
+
 ## 앱 암호를 사용하는 방법
 
 다음은 앱 암호를 사용하는 방법과 관련해서 유의해야 할 사항입니다.
@@ -34,7 +34,7 @@ Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트�
 - 현재 사용자 당 40개의 암호로 제한되어 있습니다. 이 제한에 도달한 후에 만들려고 시도하면 기존 앱 암호 중 하나를 삭제해야 새로 만들 수 있다는 메시지가 표시됩니다.
 - 응용 프로그램이 아닌 장치별로 앱 암호를 만드는 것이 좋습니다. 예를 들어 노트북에 사용할 앱 암호를 하나 만든 다음 노트북의 모든 응용 프로그램에 이 앱 암호를 사용할 수 있습니다.
 - 처음 로그인할 때 앱 암호가 부여됩니다. 추가 암호가 필요한 경우 만들 수 있습니다.
- 
+
 ![설정](./media/multi-factor-authentication-end-user-app-passwords/app.png)
 
 앱 암호를 만든 후 이러한 비브라우저 앱에서 원래 암호 대신 사용할 수 있습니다. 예를 들어 휴대폰에서 다단계 인증 및 Apple 네이티브 메일 클라이언트를 사용하고 있는 경우 앱 암호를 사용하면 다단계 인증을 바이패스하고 작업을 계속할 수 있습니다.
@@ -43,12 +43,12 @@ Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트�
 초기 로그인 중에 사용할 수 있는 앱 암호가 제공됩니다. 또한 나중에 앱 암호를 만들고 삭제할 수도 있습니다. 이 방법은 다단계 인증을 사용하는 방법에 따라 달라집니다. 본인에게 가장 적합한 방법을 선택합니다.
 
 다단계 인증을 사용하는 방법|설명
-:------------- | :------------- | 
-<a href="#Office">Office 365에서 사용</a> | Office 365 포털을 통해 앱 암호를 만들 수 있습니다.
-<a href="#vai">잘 모름</a>|[https://myapps.microsoft.com](https://myapps.microsoft.com)을 통해 앱 암호를 만들 수 있습니다.
-<a href="#Microsoft">Microsoft Azure에서 사용</a> | Azure 포털을 통해 앱 암호를 만들 수 있습니다.
+:------------- | :------------- |
+[Office 365에서 사용](#creating-and-deleting-app-passwords-with-office-365)| Office 365 포털을 통해 앱 암호를 만들 수 있습니다.
+[잘 모름](#creating-and-deleting-app-passwords-with-myapps-portal)|[https://myapps.microsoft.com](https://myapps.microsoft.com)을 통해 앱 암호를 만들 수 있습니다.
+[Microsoft Azure에서 사용](#create-app-passwords-in-the-azure-portal)| Azure 포털을 통해 앱 암호를 만들 수 있습니다.
 
-<h2 id="Office">Office 365에서 사용</h2> 
+## Office 365에서 앱 암호 만들기 및 삭제
 
 Office 365에서 Multi-Factor Authentication을 사용하는 경우 Office 365 포털을 통해 앱 암호를 만들고 삭제할 수 있습니다.
 
@@ -81,7 +81,7 @@ Office 365에서 Multi-Factor Authentication을 사용하는 경우 Office 365 �
 9. 앱 암호가 삭제되면 **닫기**를 클릭할 수 있습니다. ![닫기](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="Microsoft">Microsoft Azure에서 사용</h2>
+## Myapps 포털에서 앱 암호 만들기 및 삭제
 Multi-Factor Authentication을 사용하는 방법을 잘 모르는 경우 myapps 포털을 통해 항상 앱 암호를 만들고 삭제할 수 있습니다.
 
 ### Myapps 포털을 사용하여 앱 암호를 만들려면
@@ -107,7 +107,7 @@ Multi-Factor Authentication을 사용하는 방법을 잘 모르는 경우 myapp
 8. 앱 암호가 삭제되면 **닫기**를 클릭할 수 있습니다. ![닫기](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-<h2 id="vai">Azure 포털에서 앱 암호 만들기</h2>
+## Azure 포털에서 앱 암호 만들기
 
 Azure에서 다단계 인증을 사용하는 경우 Azure 포털을 통해 앱 암호를 만들 수 있습니다.
 
@@ -129,4 +129,4 @@ Azure에서 다단계 인증을 사용하는 경우 Azure 포털을 통해 앱 �
 5. **예**를 클릭하여 삭제를 확인합니다.
 6. 앱 암호가 삭제되면 **닫기**를 클릭할 수 있습니다. ![닫기](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

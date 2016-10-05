@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # 고급 분석을 위해 Azure 가상 컴퓨터를 IPython Notebook으로 설정
@@ -85,9 +85,9 @@ IPython Notebook 서버에 액세스하려면 웹 브라우저를 열고 URL 텍
 
 다음 그림과 같이 _이 웹 사이트의 보안 인증서에 문제가 있습니다_(Internet Explorer) 또는 _Your connection is not private_(Chrome)이라는 경고가 나타납니다. **이 웹 사이트를 계속 탐색합니다(권장하지 않음)**(Internet Explorer)를 클릭하거나 **Advanced**, **Proceed to &#60;*DNS Name*> (unsafe)**(Chrome)를 차례로 클릭하여 계속합니다. 그런 다음 이전에 지정한 암호를 입력하여 IPython Notebook에 액세스합니다.
 
-Internet Explorer: ![작업 영역 만들기][20]
+**Internet Explorer:** ![작업 영역 만들기][20]
 
-Chrome: ![작업 영역 만들기][21]
+**Chrome:** ![작업 영역 만들기][21]
 
 IPython Notebook에 로그온하면 *DataScienceSamples* 디렉터리가 브라우저에 표시됩니다. 이 디렉터리에는 사용자가 데이터 과학 작업을 수행하도록 도와주기 위해 Microsoft에서 공유하는 샘플 IPython Notebook이 포함되어 있습니다. 이러한 샘플 IPython Notebook은 IPython Notebook 서버 설정 프로세스 중에 [**Github 리포지토리**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)에서 가상 컴퓨터로 체크 아웃됩니다. Microsoft는 이 리포지토리를 유지 관리하고 자주 업데이트합니다. 사용자는 Github 리포지토리를 방문하여 최근에 업데이트된 샘플 IPython Notebook을 얻을 수 있습니다. ![작업 영역 만들기][18]
 
@@ -142,4 +142,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

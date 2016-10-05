@@ -5,7 +5,7 @@
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -215,7 +215,7 @@ Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영�
 ![PowerBI 유효성 검사 갱신](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-renewed.png)
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 사용해 보세요.
 
 ## 다음 단계
 
@@ -240,4 +240,4 @@ Power BI를 사용하여 권한 부여가 새로 고쳐지면 권한 부여 영�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

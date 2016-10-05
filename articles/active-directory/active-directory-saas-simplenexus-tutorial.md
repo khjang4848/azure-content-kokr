@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/19/2016" 
     ms.author="jeedes" />
 
 #자습서: SimpleNexus와 Azure Active Directory 통합
@@ -80,11 +80,11 @@
 
     ![앱 URL 구성](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "앱 URL 구성")
 
-4.  **SimpleNexus에서 Single Sign-On 구성 ** 페이지에서 **메타데이터 다운로드**를 클릭하고 메타데이터 파일을 SimpleNexus 지원팀에 전달하십시오.
+4.  **SimpleNexus에서 Single Sign-On 구성 ** 페이지에서 **메타데이터 다운로드**를 클릭하고 메타데이터 파일을 SimpleNexus 지원 팀에 전달하십시오.
 
     ![Single Sign-On 구성](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Single Sign-On 구성")
 
-    >[AZURE.NOTE] Single Sign-On은 SimpleNexus 지원팀에서 사용할 수 있어야 합니다.
+    >[AZURE.NOTE] Single Sign-On은 SimpleNexus 지원 팀에서 사용할 수 있어야 합니다.
 
 5.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
@@ -113,4 +113,4 @@ Azure AD 사용자가 SimpleNexus에 로그인할 수 있도록 하려면 Simple
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

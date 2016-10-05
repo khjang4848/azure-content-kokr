@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev;fashah;garye" />
 
 
@@ -23,7 +23,7 @@
 이 문서에서는 데이터에서 알고리즘을 효율적으로 학습할 수 있는 Azure의 SQL Server VM에 저장된 데이터에 대한 기능을 생성하는 방법을 보여 줍니다. 이렇게 하려면 SQL을 사용하거나 Python과 같은 프로그래밍 언어를 사용하며, 둘 다 여기에서 설명합니다.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP 팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
 > [AZURE.NOTE] 실용적인 예제에는 [NYC Taxi 데이터 집합](http://www.andresmh.com/nyctaxitrips/)을 참조할 수 있으며, 종단 간 연습에 [IPython Notebook 및 SQL Server를 사용한 NYC 데이터 랭글링](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)이라는 IPNB를 참조할 수 있습니다.
 
@@ -32,7 +32,7 @@
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure 저장소 계정 만들기](../hdinsight-get-started.md#storage)를 참조하세요.
-* 데이터는 SQL Server에 저장됩니다. 그렇지 않은 경우, 데이터를 이동하는 방법에 대한 지침은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
+* 데이터가 SQL Server에 저장되어 있습니다. 그렇지 않은 경우, 데이터를 이동하는 방법에 대한 지침은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
 
 
 ##<a name="sql-featuregen"></a>SQL로 기능 생성
@@ -95,10 +95,7 @@
 위의 위치 기반 기능을 사용하여 앞서 설명한 대로 추가 개수 기능을 생성할 수도 있습니다.
 
 
-> [AZURE.TIP] 선택한 언어를 사용하여 프로그래밍 방식으로 레코드를 삽입할 수 있습니다. 쓰기 효율성을 개선하기 위해 청크에 데이터를 삽입해야 할 수도 있습니다. [pyodbc를 사용하여 이 작업을 수행하는 방법에 대한 예제는 여기를 참조](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)하세요.
- 
-
-> [AZURE.TIP] 또 다른 방법은 [BCP 유틸리티](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터베이스에 데이터를 삽입하는 것입니다.
+> [AZURE.TIP] 선택한 언어를 사용하여 프로그래밍 방식으로 레코드를 삽입할 수 있습니다. 쓰기 효율성을 개선하기 위해 청크에 데이터를 삽입해야 할 수도 있습니다. [pyodbc를 사용하여 이 작업을 수행하는 방법에 대한 예제는 여기를 참조](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)하세요. 또 다른 방법은 [BCP 유틸리티](https://msdn.microsoft.com/library/ms162802.aspx)를 사용하여 데이터베이스에 데이터를 삽입하는 것입니다.
 
 ###<a name="sql-aml"></a>Azure 기계 학습에 연결
 
@@ -125,4 +122,4 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/)에서는 Python �
 
  
 
-<!---HONumber=AcomDC_0914_2016--->
+<!---HONumber=AcomDC_0921_2016-->

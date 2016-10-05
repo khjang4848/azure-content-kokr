@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/06/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그 용어
@@ -40,7 +40,7 @@ Azure 데이터 카탈로그는 데이터 원본이 있는 클라우드 기반 �
 
 ## 설명이 포함된 메타데이터
 
-설명이 포함된 메타데이터는 목적 또는 데이터 자산의 의도를 설명하는 메타데이터입니다. 일반적으로 설명이 포함된 메타데이터는 Azure 데이터 카탈로그 포털을 사용하여 카탈로그 사용자가 추가하지만 등록 중에 데이터 원본에서 추출할 수도 있습니다. Azure 데이터 카탈로그 등록 도구는 SQL Server Analysis Services 및 SQL Server Reporting Services의 Description 속성 및 SQL Server의 [ms\_description extended property](https://technet.microsoft.com/library/ms190243.aspx)(이러한 속성이 값으로 채워진 경우)에서 설명을 추출합니다.
+설명이 포함된 메타데이터는 목적 또는 데이터 자산의 의도를 설명하는 메타데이터입니다. 일반적으로 설명이 포함된 메타데이터는 Azure 데이터 카탈로그 포털을 사용하여 카탈로그 사용자가 추가하지만 등록 중에 데이터 원본에서 추출할 수도 있습니다. 예를 들어 Azure Data Catalog registration tool은 SQL Server Analysis Services 및 SQL Server Reporting Services의 Description 속성 및 SQL Server의 [ms\_description extended property](https://technet.microsoft.com/library/ms190243.aspx)(이러한 속성이 값으로 채워진 경우)에서 설명을 추출합니다.
 
 ## 액세스 요청
 
@@ -86,4 +86,4 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 
 - [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) - 이 문서에서는 데이터 원본 검색을 위해 Azure 데이터 카탈로그를 사용하는 방법을 보여주는 포괄적인 자습서를 제공합니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

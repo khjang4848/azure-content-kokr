@@ -13,24 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 # VPN 게이트웨이 설정 정보
 
 VPN 게이트웨이 연결 솔루션은 가상 네트워크와 온-프레미스 위치 간에 네트워크 트래픽을 전송하기 위해 여러 리소스의 구성에 의존합니다. 각 리소스에는 구성 가능한 설정이 포함되어 있습니다. 리소스 및 설정에 따라 연결 결과가 결정됩니다.
 
-이 문서의 섹션에서는 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다. 연결 토폴로지 다이어그램을 통해 사용 가능한 구성을 쉽게 확인할 수 있습니다. [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md) 문서에서 각 연결 솔루션에 대한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다.
+이 문서의 섹션에서는 **Resource Manager** 배포 모델의 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다. 연결 토폴로지 다이어그램을 통해 사용 가능한 구성을 쉽게 확인할 수 있습니다. [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md) 문서에서 각 연결 솔루션에 대한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다.
 
 ## <a name="gwtype"></a>게이트웨이 유형
 
-게이트웨이 형식은 게이트웨이를 연결하는 방법을 지정하며 Resource Manager 배포 모델에 대한 필수 구성 설정입니다. 가상 네트워크마다 각 유형의 가상 네트워크 게이트웨이를 하나씩만 포함할 수 있습니다. `-GatewayType`에 사용 가능한 값은 다음과 같습니다.
+가상 네트워크마다 각 유형의 가상 네트워크 게이트웨이를 하나씩만 포함할 수 있습니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 유형이 구성에 정확한지 확인해야 합니다.
+
+-GatewayType에 사용 가능한 값은 다음과 같습니다.
 
 - Vpn
 - Express 경로
 
+VPN 게이트웨이에는 `-GatewayType` *Vpn*이 필요합니다.
 
-Resource Manager 배포 모델에 대한 다음 PowerShell 예제에 표시된 것처럼 VPN 게이트웨이에는 GatewayType *Vpn*이 필요합니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 유형이 구성에 정확한지 확인해야 합니다.
+예제:
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 	-Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
@@ -39,19 +42,30 @@ Resource Manager 배포 모델에 대한 다음 PowerShell 예제에 표시된 �
 
 ## <a name="gwsku"></a>게이트웨이 SKU
 
-VPN 게이트웨이 만들 때 사용하려는 가상 네트워크 게이트웨이 SKU를 지정해야 합니다. 게이트웨이 SKU는 Express 경로 및 VPN 게이트웨이 유형에 모두 적용됩니다. 가격은 게이트웨이 SKU마다 다릅니다. 가격에 대한 자세한 내용은 [VPN 게이트웨이 가격](https://azure.microsoft.com/pricing/details/vpn-gateway/)을 참조하세요. Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
-세 가지 VPN 게이트웨이 SKU가 있습니다.
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-- Basic
-- Standard
-- HighPerformance
+**Azure 포털에서 게이트웨이 SKU 지정**
+
+Azure Portal을 사용하여 Resource Manager 가상 네트워크 게이트웨이를 만들려면 기본적으로 표준 SKU를 사용하여 가상 네트워크 게이트웨이를 구성합니다. 현재, Azure Portal에서 Resource Manager 배포 모델에 다른 SKU를 지정할 수 없습니다. 그러나 게이트웨이를 만든 후에 `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet을 사용하여 더 강력한 게이트웨이 SKU로 업그레이드할 수 있습니다(기본/표준에서 HighPerformance로). 또한 PowerShell을 사용하여 게이트웨이 SKU 크기를 다운그레이드할 수도 있습니다.
+
+**PowerShell을 사용하여 게이트웨이 SKU 지정**
+
 
 다음 PowerShell 예제에서는 `-GatewaySku`를 *표준*으로 지정합니다.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 	-Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 	-GatewayType Vpn -VpnType RouteBased
+
+**게이트웨이 SKU 변경**
+
+게이트웨이 SKU의 크기를 조정할 수 있습니다. 다음 PowerShell 예제에서는 HighPerformance로 크기가 조정되는 게이트웨이 SKU를 보여 줍니다.
+
+	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+
+<br>
 
 
 ###  <a name="aggthroughput"></a>SKU 및 게이트웨이 유형에서 예상된 총 처리량
@@ -64,7 +78,7 @@ VPN 게이트웨이 만들 때 사용하려는 가상 네트워크 게이트웨�
 
 ## <a name="connectiontype"></a>연결 유형
 
-각 구성이 작동하려면 특정 가상 네트워크 게이트웨이 연결 유형이 필요합니다. `-ConnectionType`에 대해 사용 가능한 Resource Manager PowerShell 값은 다음과 같습니다.
+Resource Manager 배포 모델에서 각 구성이 작동하려면 특정 가상 네트워크 게이트웨이 연결 유형이 필요합니다. `-ConnectionType`에 대해 사용 가능한 Resource Manager PowerShell 값은 다음과 같습니다.
 
 - IPsec
 - Vnet2Vnet
@@ -89,7 +103,7 @@ VPN 게이트웨이 구성에 대한 가상 네트워크 게이트웨이 만들 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
 
-Resource Manager 배포 모델에 대한 다음 PowerShell 예제는 `-VpnType`을 *RouteBased*로 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
+다음 PowerShell 예제에서는 `-VpnType`를 *RouteBased*로 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 	-Location 'West US' -IpConfigurations $gwipconfig `
@@ -102,7 +116,7 @@ Resource Manager 배포 모델에 대한 다음 PowerShell 예제는 `-VpnType`�
 
 ## <a name="gwsub"></a>게이트웨이 서브넷
 
-가상 네트워크 게이트웨이를 구성하려면 먼저 VNet에 대한 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷이 제대로 작동하려면 이름을 *GatewaySubnet*으로 지정해야 합니다. 이 이름을 사용하면 Azur에서 해당 게이트웨이에 이 서브넷을 사용해야 한다는 것을 알게 됩니다. 클래식 포털을 사용하는 경우 게이트웨이 서브넷은 포털 인터페이스에서 자동으로 *Gateway*로 명명됩니다. 클래식 포털에서 게이트웨이 서브넷을 보는 것에만 해당됩니다. 이 경우에 서브넷은 *GatewaySubnet* 값으로 실제로 만들어지며 Azure 포털 및 PowerShell에서 이러한 방식으로 볼 수 있습니다.
+가상 네트워크 게이트웨이를 구성하려면 먼저 VNet에 대한 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷이 제대로 작동하려면 이름을 *GatewaySubnet*으로 지정해야 합니다. 이 이름을 사용하면 Azur에서 해당 게이트웨이에 이 서브넷을 사용해야 한다는 것을 알게 됩니다.
 
 게이트웨이 서브넷의 최소 크기는 전적으로 만들려는 구성에 따라 달라집니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 게이트웨이 서브넷을 /28 이상으로 만드는 것이 좋습니다(/28, /27, /26등).
 
@@ -117,11 +131,11 @@ Resource Manager 배포 모델에 대한 다음 PowerShell 예제는 `-VpnType`�
 
 ## <a name="lng"></a>로컬 네트워크 게이트웨이
 
-VPN 게이트웨이 솔루션을 만들 때 로컬 네트워크 게이트웨이는 종종 온-프레미스 위치를 나타냅니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 사이트라고 했습니다.
+VPN 게이트웨이 구성을 만들 때 로컬 네트워크 게이트웨이는 종종 온-프레미스 위치를 나타냅니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 사이트라고 했습니다.
 
 로컬 네트워크 게이트웨이에 이름인 온-프레미스 VPN 장치의 공용 IP 주소를 지정하고 온-프레미스 위치에 있는 주소 접두사를 지정합니다. Azure는 네트워크 트래픽에 대상 주소 접두사를 보고 로컬 네트워크 게이트웨이에 대해 지정한 구성을 참조하며 그에 따라 패킷을 라우팅합니다. VPN 게이트웨이 연결을 사용하는 VNet-VNet 구성에 대해서도 로컬 네트워크 게이트웨이를 지정합니다.
 
-다음 Resource Manager PowerShell 예제에서는 새 로컬 네트워크 게이트웨이 만듭니다.
+다음 PowerShell 예제에서는 새 로컬 네트워크 게이트웨이 만듭니다.
 
 	New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 	-Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
@@ -150,4 +164,4 @@ VPN 게이트웨이 솔루션을 만들 때 로컬 네트워크 게이트웨이�
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

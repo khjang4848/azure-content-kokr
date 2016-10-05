@@ -94,4 +94,4 @@ Azure PowerShell에서 "NextHopType" 값의 일부에는 다른 이름이 지정
 - [Resource Manager 배포 모델에서 경로를 만들어](virtual-network-create-udr-arm-template.md) 서브넷에 연결하는 방법에 대해 알아봅니다.
 - [클래식 배포 모델에서 경로를 만들어](virtual-network-create-udr-classic-ps.md) 서브넷에 연결하는 방법에 대해 알아봅니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!-----HONumber=AcomDC_0810_2016-->

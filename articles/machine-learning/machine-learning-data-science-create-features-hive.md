@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 
@@ -25,8 +25,8 @@
 
 또한 [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대해 제공되는 쿼리 예제가 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에도 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다. 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해서도 설명합니다.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] 
-이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP 팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
 
 ## 필수 조건
@@ -184,4 +184,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
  
 
-<!---HONumber=AcomDC_0914_2016--->
+<!---HONumber=AcomDC_0921_2016-->

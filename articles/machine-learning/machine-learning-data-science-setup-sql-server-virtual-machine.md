@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # 고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook으로 설정
@@ -219,7 +219,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 11. 처음 로그인을 만드는 경우 이 로그인을 SQL Server 관리자로 지정할 수 있습니다. 그렇게 하는 경우 **서버 역할** 페이지에서 **sysadmin**을 선택합니다.
 
-    **보안 정보:** sysadmin 고정 서버 역할의 구성원은 데이터베이스 엔진을 완전히 제어할 수 있습니다. 따라서 이 역할의 구성원은 신중하게 제한해야 합니다.
+    > [AZURE.IMPORTANT] sysadmin 고정 서버 역할의 구성원은 데이터베이스 엔진을 완전히 제어할 수 있습니다. 보안상의 이유로 이 역할의 구성원은 신중하게 제한해야 합니다.
 
     ![sysadmin][12]
 
@@ -306,4 +306,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

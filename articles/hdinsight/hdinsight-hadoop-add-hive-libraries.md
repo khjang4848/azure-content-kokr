@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/05/2016"
+ms.date="09/20/2016"
 ms.author="larryfr"/>
 
 #HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가
@@ -88,4 +88,4 @@ __요구 사항__
 
 이 문서에서는 클러스터를 만드는 동안 jar 파일에 포함된 Hive 라이브러리를 HDInsight 클러스터에 추가하는 방법을 알아보았습니다. Hive로 작업하는 방법에 대한 자세한 내용은 [HDInsight로 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

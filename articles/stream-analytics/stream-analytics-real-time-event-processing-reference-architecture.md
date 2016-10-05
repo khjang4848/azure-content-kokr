@@ -5,7 +5,7 @@
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor=""/>
 
 <tags 
@@ -51,7 +51,7 @@ Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 
 
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 사용해 보세요.
 
 ## 다음 단계
 
@@ -63,4 +63,4 @@ Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/18/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory Graph API
@@ -27,7 +27,7 @@ Azure Active Directory Graph API는 REST API 끝점을 통해 Azure AD에 프로
 
 - 해당 위치 및 전화번호와 같은 사용자의 속성을 업데이트 또는 암호 변경
 
-- 역할 기반 액세스에 대한 사용자의 그룹 맴버 자격 확인
+- 역할 기반 액세스에 대한 사용자의 그룹 멤버 자격 확인
 
 - 사용자의 계정 비활성화 또는 완전히 삭제
 
@@ -73,4 +73,4 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0921_2016-->

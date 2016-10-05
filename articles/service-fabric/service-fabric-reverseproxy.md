@@ -56,7 +56,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http(s):** 역방향 프록시를HTTP 또는 HTTPS 트래픽을 허용하도록 구성할 수 있습니다. HTTPS 트래픽의 경우 SSL 종료는 역방향 프록시에서 발생합니다. 클러스터에서 역방향 프록시에 의해 서비스에 전달되는 요청은 http 상에서 이루어집니다.
- - **게이트웨이 FQDN | 내부 IP:** 외부 클라이언트의 경우, 역방향 프록시를 구성하여 클러스터 도메인을 통해 연결할 수 있습니다(예: mycluster.eastus.cloudapp.azure.com). 기본적으로 역방향 프록시는 모든 노드에서 실행되기 때문에, 내부 트래픽에 대해 localhost 또는 모든 내부 노드 IP(예: 10.0.0.1)에서 연결할 수 있습니다.
+ - ** 클러스터 FQDN| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
  - **포트:** 역방향 프록시에 대해 지정된 포트입니다. 예: 19008.
  - **ServiceInstanceName:** "fabric:/" 체계 없이 연결하려고 하는 서비스의 정규화된 배포된 서비스 인스턴스 이름입니다. 예를 들어 서비스 *fabric:/myapp/myservice/*에 연결하려면 *myapp/myservice*를 사용합니다.
  - **접미사 경로:** 연결할 서비스에 대한 실제 URL 경로입니다. 예, *myapi/values/add/3*
@@ -241,4 +241,4 @@ http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

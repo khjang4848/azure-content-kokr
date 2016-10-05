@@ -1,5 +1,5 @@
 <properties
-   pageTitle="테스트/개발용으로 Windows 클라이언트 이미지 사용 | Microsoft Azure"
+   pageTitle="테스트/개발 시나리오용으로 Windows 클라이언트 이미지 사용 | Microsoft Azure"
    description="Visual Studio 구독 혜택을 사용하여 개발/테스트 시나리오용으로 Azure에서 Windows 7/8/10을 배포하는 방법"
    services="virtual-machines-windowse"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="08/31/2016"
    ms.author="iainfou"/>
 
-# 개발/테스트용으로 Azure에서 Windows 클라이언트 사용
+# 개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
 
 적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10을 사용할 수 있습니다. 이 문서에서는 Azure에서 Windows 클라이언트를 실행하고 Azure 갤러리 이미지를 사용하기 위한 적격성 요구 사항에 대해 대략적으로 설명합니다.
 
@@ -57,4 +57,4 @@ Azure 계정 포털의 ['구독' 탭](http://account.windowsazure.com/Subscripti
 ## 다음 단계
 이제 [PowerShell](virtual-machines-windows-ps-create.md), [Resource Manager 템플릿](virtual-machines-windows-ps-template.md) 또는 [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 사용하여 VM을 배포할 수 있습니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

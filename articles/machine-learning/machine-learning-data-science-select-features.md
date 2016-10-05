@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="zhangya;bradsev" />
 
 
 # TDSP(팀 데이터 과학 프로세스)의 기능 선택
 
-이 토픽은 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이들 예는 Azure 기계 학습 스튜디오에서 가져온 것입니다.
+이 문서에서는 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이들 예는 Azure 기계 학습 스튜디오에서 가져온 것입니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -27,7 +27,9 @@
 이 토픽은 기능 선택의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이들 예는 Azure 기계 학습 스튜디오에서 가져온 것입니다.
 
 기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스란 무엇입니까?](data-science-process-overview.md)에 설명된 TDSP의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다.
+
 * **기능 엔지니어링** 이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
+
 * **선택 기능**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
 
 일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링**을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택** 단계가 수행됩니다.
@@ -74,4 +76,4 @@ Azure 기계 학습 스튜디오에서는 기능 선택에 제공되는 모듈�
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

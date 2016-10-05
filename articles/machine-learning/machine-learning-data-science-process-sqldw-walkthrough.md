@@ -3,7 +3,7 @@
 	description="활성 중인 고급 분석 프로세스 및 기술"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -969,4 +969,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

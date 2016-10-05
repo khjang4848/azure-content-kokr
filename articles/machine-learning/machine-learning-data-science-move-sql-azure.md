@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
-	ms.author="fashah;bradsev" />
+	ms.date="09/14/2016"
+	ms.author="bradsev" />
 
 # Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동
 
@@ -22,7 +22,7 @@
 
 기계 학습을 위해 온-프레미스 SQL Server로 데이터를 이동하기 위한 옵션을 설명하는 토픽은 [Azure 가상 컴퓨터의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md)을 참조하세요.
 
-다음 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 토픽에 연결됩니다.
+다음 **메뉴**는 팀 데이터 과학 프로세스 중 데이터를 저장하고 처리할 수 있는 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -65,7 +65,7 @@
 3. [데이터베이스 백업 및 복원](#db-migration)
 4. [Azure 데이터 팩터리](#adf)
 
-처음 세 개 단계는 이와 동일한 절차를 다루는 [Azure 가상 컴퓨터의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md)의 해당 섹션과 매우 유사합니다. 이 토픽에서 해당 섹션에 대한 링크가 아래에 제공됩니다.
+처음 세 개 단계는 이와 동일한 절차를 다루는 [Azure 가상 컴퓨터의 SQL Server로 데이터 이동](machine-learning-data-science-move-sql-server-virtual-machine.md)의 해당 섹션과 매우 유사합니다. 이 항목의 해당 섹션에 대한 링크가 다음 절차에 제공됩니다.
 
 ###<a name="export-flat-file"></a>플랫 파일로 내보내기
 
@@ -81,8 +81,8 @@ SQL 데이터베이스 마이그레이션 마법사를 사용하는 단계는 [S
 
 ###<a name="adf"></a>Azure Data Factory
 
-ADF(Azure Data Factory)를 사용하여 Azure SQL 데이터베이스로 데이터를 이동하는 절차는 [Azure Data Factory를 사용하여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동](machine-learning-data-science-move-sql-azure-adf.md) 토픽에 제공됩니다. 이 토픽에서는 ADF를 사용하여 Azure Blob 저장소를 통해 온-프레미스 SQL Server 데이터베이스에서 Azure SQL 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
+ADF(Azure Data Factory)를 사용하여 Azure SQL 데이터베이스로 데이터를 이동하는 절차는 [Azure 데이터 팩터리를 사용하여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동](machine-learning-data-science-move-sql-azure-adf.md) 항목에 제공됩니다. 이 항목에서는 ADF를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server 데이터베이스에서 Azure SQL 데이터베이스로 데이터를 이동하는 방법을 보여 줍니다.
 
-온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션 과정 중에 비즈니스 로직을 추가해야 하는 경우 ADF를 사용하는 것이 좋습니다. ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다.
+온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션할 때 비즈니스 논리를 추가해야 하는 경우 ADF를 사용하는 것이 좋습니다. ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스크립트를 사용하여 작업 예약 및 모니터링이 가능합니다. 또한 복잡한 작업을 지원하는 기타 기능도 포함하고 있습니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

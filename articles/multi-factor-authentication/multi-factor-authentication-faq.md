@@ -3,8 +3,8 @@
 	description="Azure multi-factor Authentication과 관련된 질문과 대답 목록을 제공합니다. Multi-Factor Authentication은 사용자 이름 및 암호 이상을 요구하여 사용자 ID를 확인하는 방법입니다. 이 기능은 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication FAQ
 
@@ -38,7 +38,7 @@
   기존 PhoneFactor 고객이며 암호를 재설정에 대해 질문이 있거나 도움이 필요한 경우 [암호 재설정](mailto:phonefactorsupport@microsoft.com) 링크를 사용하여 지원 사례를 개설하세요.
 
 - [Azure Multi-Factor Authentication 서버(PhoneFactor) 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)
-  
+
   이 링크를 사용하여 Microsoft 기술 지원 엔지니어에게 문의합니다. 전자 메일, 온라인 제출 또는 전화 지원이 포함될 수 있는 지원 옵션을 확인하는 데 도움이 되는 몇 가지 질문이 요구됩니다.
 
 
@@ -185,4 +185,4 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-factor Authenticat
 
 이 문제를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능 제공](http://help.outlook.com/141/gg709759.aspx?sl=1) 방법을 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

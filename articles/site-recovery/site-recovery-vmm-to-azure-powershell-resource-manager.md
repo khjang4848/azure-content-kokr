@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/16/2016"
 	ms.author="rajanaki"/>
 
 # PowerShell 및 Azure Resource Manager를 사용하여 Azure에 VMM 클라우드의 Hyper-V 가상 컴퓨터 복제
@@ -35,11 +35,11 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 이 문서는 시나리오의 필수 조건을 포함하고 있으며, 다음 내용을 보여 줍니다.
 
 - 복구 서비스 자격 증명 모음을 설정하는 방법
-- 원본 VMM 서버에 Azure Site Recovery 공급자 설치 
+- 원본 VMM 서버에 Azure Site Recovery 공급자 설치
 - 자격 증명 모음에 서버를 등록하고, Azure 저장소 계정 추가
 - Hyper-V 호스트 서버에 Azure 복구 서비스 에이전트 설치
-- VMM 클라우드에 대한 보호 설정 구성, 이 구성은 모든 보호되는 가상 컴퓨터에 적용됩니다. 
-- 이러한 가상 컴퓨터의 보호 활성화 
+- VMM 클라우드에 대한 보호 설정 구성, 이 구성은 모든 보호되는 가상 컴퓨터에 적용됩니다.
+- 이러한 가상 컴퓨터의 보호 활성화
 - 모든 기능이 예상대로 작동하는지 확인하기 위해 장애 조치(Failover) 테스트
 
 이 시나리오를 설정하는 동안 문제가 발생할 경우 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 문의 사항을 게시하세요.
@@ -75,7 +75,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 ### Hyper-V 필수 조건
 
 - 호스트 Hyper-V 서버는 Hyper-V 역할로 Windows Server 2012 이상을 실행해야 하며 최신 업데이트가 설치되어 있어야 합니다.
-- 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. 자세한 
+- 클러스터에서 Hyper-V를 실행하는 경우 고정 IP 주소 기반 클러스터가 있으면 클러스터 브로커가 자동으로 만들어지지 않습니다. 클러스터 브로커를 수동으로 구성해야 합니다. 자세한
 - 자세한 내용은 [Hyper-V 복제본 Broker 구성 방법](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx)을 참조하세요.
 - 보호를 관리할 Hyper-V 호스트 서버 또는 클러스터가 모두 VMM 클라우드에 포함되어야 합니다.
 
@@ -89,7 +89,7 @@ Azure에서 가상 컴퓨터를 보호하는 경우 네트워크 매핑은 원�
 네트워크 매핑을 배포하려면 다음이 필요합니다.
 
 - 원본 VMM 서버에서 보호할 가상 컴퓨터가 VM 네트워크에 연결되어야 합니다. 해당 네트워크가 클라우드와 연결된 논리 네트워크에 연결되어야 합니다.
-- 복제된 가상 컴퓨터가 장애 조치(Failover) 후 연결할 수 있는 Azure 네트워크. 이 네트워크는 장애 조치(Failover) 시 선택합니다. 네트워크가 Azure Site Recovery 구독과 동일한 지역에 있어야 합니다.
+- 복제된 가상 컴퓨터가 장애 조치(Failover) 후 연결할 수 있는 Azure 네트워크. 이 네트워크는 장애 조치(Failover) 시 선택합니다. 네트워크는 Azure Site Recovery 구독과 동일한 지역에 있어야 합니다.
 
 네트워크 매핑에 대해 자세히 알아보기
 
@@ -101,7 +101,7 @@ Azure에서 가상 컴퓨터를 보호하는 경우 네트워크 매핑은 원�
 ###PowerShell 필수 구성 요소
 Azure PowerShell을 사용할 준비가 되었는지 확인하세요. 이미 PowerShell을 사용하고 있는 경우 버전 0.8.10 이상으로 업그레이드해야 합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요. PowerShell을 설정 및 구성하면 [여기](https://msdn.microsoft.com/library/dn850420.aspx)에서 서비스에 사용 가능한 모든 cmdlet을 볼 수 있습니다.
 
-Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처리되는 방법 등 cmdlet을 사용하는 데 도움이 되는 팁을 보려면 [Azure Cmdlet 시작하기](https://msdn.microsoft.com/library/azure/jj554332.aspx)를 참조하세요.
+Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처리되는 방법 등 cmdlet를 사용하는 데 도움이 되는 팁을 보려면 [Azure Cmdlet 시작하기](https://msdn.microsoft.com/library/azure/jj554332.aspx)를 참조하세요.
 
 ## 1단계: 구독 설정 
 
@@ -345,4 +345,4 @@ Azure PowerShell에서 매개 변수 값, 입력, 출력이 일반적으로 처�
 
 Azure Resource Manager PowerShell cmdlet과 함께 Azure Site Recovery에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/mt637930.aspx).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

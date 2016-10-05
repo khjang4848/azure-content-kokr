@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 다음 작업" 
-	description="MFA로 다음에 수행할 작업을 설명하는 Azure Multi-Factor Authentication 페이지입니다. 보고서, 사기 행위 경고, 일회성 바이패스, 사용자 지정 음성 메시지, 캐시, 신뢰할 수 있는 ip 및 앱 암호를 포함합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure Multi-Factor Authentication 다음 작업"
+	description="MFA로 다음에 수행할 작업을 설명하는 Azure Multi-Factor Authentication 페이지입니다. 보고서, 사기 행위 경고, 일회성 바이패스, 사용자 지정 음성 메시지, 캐시, 신뢰할 수 있는 ip 및 앱 암호를 포함합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication 구성
 
@@ -28,12 +28,12 @@ MFA 서비스 설정 페이지를 통해 MFA 관리 포털에 액세스하려면
 
 
 기능| 설명| 포함된 내용
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 [사기 행위 경고](#fraud-alert)|사기 행위 경고를 구성하고 설정하여 사용자가 해당 리소스에 액세스하려는 사기성 시도를 사기를 보고할 수 있습니다.|사기 행위 설치, 구성 및 보고 방법
 [일회성 바이패스](#one-time-bypass) |일회성 바이패스로 Multi-Factor Authentication "바이패스"하여 사용자가 단일 시간을 인증할 수 있습니다.|일회성 바이패스 설치 및 구성 방법
 [사용자 지정 음성 메시지](#custom-voice-messages) |사용자 지정 음성 메시지를 사용하면 Multi-Factor Authentication으로 사용자 고유의 녹음/녹화 또는 인사말을 사용할 수 있습니다. |사용자 지정 인사말 및 메시지 설정 및 구성 방법
 [캐싱](#caching-in-azure-multi-factor-authentication)|캐싱을 사용하면 특정 시간 기간을 설정하여 후속 인증 시도가 자동으로 성공하도록 할 수 있습니다. |인증 캐싱을 설정 및 구성하는 방법입니다.
-[신뢰할 수 있는 IP](#trusted-ips)|신뢰할 수 있는 IP는 관리 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있도록 하는 Multi-Factor Authentication의 기능입니다.|Multi-Factor Authentication에서 제외된 IP 주소 구성 및 설정	
+[신뢰할 수 있는 IP](#trusted-ips)|신뢰할 수 있는 IP는 관리 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있도록 하는 Multi-Factor Authentication의 기능입니다.|Multi-Factor Authentication에서 제외된 IP 주소 구성 및 설정
 [앱 암호](#app-passwords)|앱 암호를 사용하면 mfa를 인식하지 않는 응용 프로그램은 Multi-Factor Authentication를 바이패스하고 계속 작업할 수 있습니다.|앱 암호에 대한 정보입니다.
 [기억된 장치 및 브라우저용 Multi-Factor Authentication 기억](#remember-multi-factor-authentication-for-devices-users-trust)|사용자가 MFA를 사용하여 성공적으로 로그인한 후 정해진 일수 동안 장치를 기억할 수 있습니다.|이 기능을 활성화하고 일 수를 설정하는 방법에 대한 정보입니다.
 [선택 가능한 확인 방법](#selectable-verification-methods)|사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다.|전화 또는 문자 메시지 같은 특정 인증 방법을 활성화 또는 비활성화하는 방법에 대한 정보입니다.
@@ -172,9 +172,9 @@ Microsoft의 기본 음성 인사말은 사용자가 사기 행위 경고 제출
 
 신뢰할 수 있는 IP는 관리 또는 페더레이션된 테넌트의 관리자가 회사의 로컬 인트라넷에서 로그인하는 사용자를 위해 Multi-Factor Authentication을 바이패스할 수 있도록 하는 Multi-Factor Authentication의 기능입니다. 기능은 Azure AD Premium, Enterprise Mobility Suite 또는 Azure Multi-Factor Authentication 라이선스가 있는 Azure AD 테넌트에서 사용할 수 있습니다.
 
- 
+
 Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
-:------------- | :------------- | 
+:------------- | :------------- |
 관리|특정 IP 주소 범위 – 관리자는 사용자 회사의 인트라넷에서 로그인하는 사용자에 대해 Multi-factor Authentication을 바이패스할 수 있는 IP 주소를 지정할 수 있습니다.
 페더레이션|<li>모든 페더레이션된 사용자 - 조직 내에서 로그인한 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하는 Multi-Factor Authentication을 바이패스합니다. </li><li>특정 IP 주소 범위 – 관리자는 회사의 인트라넷에서 로그인하는 사용자에 대해 Multi-Factor Authentication을 바이패스할 수 있는 범위의 IP 주소를 지정할 수 있습니다.
 
@@ -182,7 +182,7 @@ Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
 
 
 |활성화된 신뢰할 수 있는 IP| 비활성화된 신뢰할 수 있는 IP
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 회사 네트워크 내부|브라우저 흐름을 위해 Multi-factor Authentication는 필요하지 않습니다.|브라우저 흐름을 위해 Multi-factor Authentication가 필요합니다.
 |리치 클라이언트 앱을 위해 사용자가 앱 암호를 생성하지 않은 경우 일반 암호가 작동합니다. 앱 암호를 만들면 앱 암호가 필요합니다.|리치 클라이언트 앱을 위해 앱 암호가 필요합니다
 회사 네트워크 외부|브라우저 흐름을 위해 Multi-factor Authentication가 필요합니다|브라우저 흐름을 위해 Multi-factor Authentication가 필요합니다
@@ -209,7 +209,7 @@ Azure AD 테넌트의 유형| 사용 가능한 신뢰할 수 있는 IP 옵션
 
 
 
- 
+
 ## 앱 암호
 
 Office 2010 또는 이전 및 Apple 메일과 같은 일부 앱에서 Multi-factor Authentication를 사용할 수 없습니다. 이러한 앱을 사용하려면 기존의 암호 대신 "앱 암호"를 사용해야 합니다. 앱 암호를 사용하면 응용 프로그램이 Multi-factor Authentication을 바이패스하고 작업을 계속할 수 있습니다.
@@ -225,7 +225,7 @@ Office 2010 또는 이전 및 Apple 메일과 같은 일부 앱에서 Multi-fact
 다음은 앱 암호에 대해 알고 있어야 하는 중요한 사항의 목록입니다.
 
 인증 환경|브라우저 기반 앱용|브라우저 이외 기반 앱용
-:------------- | :------------- | :------------- 
+:------------- | :------------- | :-------------
 |<ul><li>인증의 첫번째 요소는 수행된 온-프레미스입니다</li><li>두번째 요소는 클라우드 ID에서 수행되는 휴대폰 기반 방법입니다.</li>|<ul><li>관리자 및 사용자는 앱 암호를 사용하여 로그인할 수 있습니다.
 
 - 사용자가 도난 노출 영역이 늘어나는 여러 앱 암호를 가질 수 있습니다. 앱 암호는 기억하기가 어려우므로 사용자가 적어 두는 것이 좋을 수도 있습니다. 앱 암호로 로그인하는 데 단 하나의 요소만 필요하므로 이는 권장되지 않으며 하지 않는 것이 좋습니다.
@@ -362,7 +362,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 이제 Azure Multi-factor Authentication을 사용할 때 사용자에게 제공되는 인증 방법을 선택할 수 있게 되었습니다. 이 기능은 이전에 온-프레미스 서버 버전에만 제공되었습니다. 아래 테이블은 사용자에게 활성화 또는 비활성화할 수 있는 다양한 인증 방법을 개략적으로 보여 줍니다.
 
 메서드|설명
-:------------- | :------------- | 
+:------------- | :------------- |
 [휴대폰에 전화 걸기](multi-factor-authentication-end-user-first-time-mobile-phone.md)| 인증 휴대폰으로 자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다.
 [휴대폰에 문자 메시지 전송](multi-factor-authentication-end-user-first-time-mobile-phone.md)|확인 코드를 포함하는 문자 메시지를 사용자에게 보냅니다. 사용자는 확인 코드로 문자 메시지에 응답하거나 또는 로그인 인터페이스에 확인 코드를 입력하도록 요구됩니다.
 [모바일 앱을 통한 알림](multi-factor-authentication-end-user-first-time-mobile-app.md)|이 모드에서는 Microsoft Authenticator 앱이 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지합니다. 이 작업은 휴대폰이나 등록된 장치로 푸시 알림을 보내는 방식으로 수행됩니다. 알림을 확인한 후 올바르면 확인을 누릅니다. 그렇지 않은 경우 거부를 선택하거나 사기성 알림을 거부한 후 보고하도록 선택할 수 있습니다. 사기성 알림을 보고하는 방법에 대한 자세한 내용은 Multi-Factor Authentication에 사기 행위 거부 및 보고 기능을 사용하는 방법을 참조하세요.</br></br>Microsoft Authenticator 앱은 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)에 제공됩니다.|
@@ -379,4 +379,4 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 9. 저장을 클릭합니다.
 10. 닫기를 클릭합니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

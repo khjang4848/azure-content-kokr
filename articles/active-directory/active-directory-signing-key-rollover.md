@@ -18,9 +18,7 @@
 
 # Azure Active Directory에서 서명 키 롤오버
 
-이 항목에서는 보안 토큰을 서명하기 위해 Azure AD(Azure Active Directory)에 사용되는 공개 키에 대해 알아야 할 내용을 설명합니다. 이러한 키 롤오버가 정기적으로 있으며, 비상 시에는 곧바로 롤오버될 수 있습니다. Azure AD를 사용하는 모든 응용 프로그램은 키 롤오버 프로세스를 프로그래밍 방식으로 처리할 수 있어야 합니다. 키의 작동 방식과 롤오버가 응용 프로그램에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 응용 프로그램을 업데이트하는 방법을 이해하려면 계속 읽어 보세요.
-
-> [AZURE.IMPORTANT] 다음 서명 키 롤오버는 2016년 8월 15일로 예정되어 있으며 Azure AD 응용 프로그램 갤러리에서 추가한 응용 프로그램(사용자 지정 포함), 응용 프로그램 프록시를 통해 게시된 온-프레미스 응용 프로그램, Azure AD B2C 테넌트의 응용 프로그램, ACS 또는 ADFS와 통합되는 응용 프로그램에는 영향을 주지 **않습니다**.
+이 항목에서는 보안 토큰을 서명하기 위해 Azure AD(Azure Active Directory)에 사용되는 공개 키에 대해 알아야 할 내용을 설명합니다. 이러한 키 롤오버가 정기적으로 있으며, 비상 시에는 곧바로 롤오버될 수 있습니다. Azure AD를 사용하는 모든 응용 프로그램은 키 롤오버 프로세스를 프로그래밍 방식으로 처리하거나 정기적인 수동 롤오버 프로세스를 설정할 수 있어야 합니다. 키의 작동 방식과 롤오버가 응용 프로그램에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 응용 프로그램을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
 
 ## Azure AD의 서명 키 개요
 
@@ -47,6 +45,11 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 * [리소스를 보호하며 Visual Studio 2010, 2008 또는 WIF(Windows Identity Foundation)를 사용하여 만든 웹 응용 프로그램](#vs2010)
 * [다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하여 리소스를 보호하는 웹 응용 프로그램/API](#other)
 
+이 설명서는 다음에 적용할 수 **없습니다**.
+
+* Azure AD 응용 프로그램 갤러리에서 추가된 응용 프로그램(사용자 지정 포함)에는 서명 키와 관련하여 별도 설명서가 있습니다. [자세한 정보](active-directory-sso-certs.md).
+* 응용 프로그램 프록시를 통해 게시된 온-프레미스 응용 프로그램은 서명 키에 대해 걱정할 필요가 없습니다.
+
 ### <a name="nativeclient"></a>리소스에 액세스하는 네이티브 클라이언트 응용 프로그램
 
 리소스에만 액세스하는 응용 프로그램(즉, Microsoft Graph, KeyVault, Outlook API 및 기타 Microsoft API)은 일반적으로 토큰만 가져와서 리소스 소유자에게 전달합니다. 리소스를 보호하지 못한다면 토큰을 검사하지 않으므로 제대로 서명되었는지 확인할 필요도 없습니다.
@@ -59,7 +62,7 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 
 앱 전용 흐름을 사용하는 웹 응용 프로그램 및 웹 API(클라이언트 자격 증명/클라이언트 인증서)가 이 범주에 해당하므로 롤오버의 영향을 받지 않습니다.
 
-### <a name="appservices"></a>리소스를 보호하고 Azure 앱 서비스를 사용하여 구축된 웹 응용 프로그램/API
+### <a name="appservices"></a>리소스를 보호하고 Azure App Services를 사용하여 구축된 웹 응용 프로그램/API
 
 Azure 앱 서비스의 인증/권한 부여(EasyAuth) 기능에는 이미 키 롤오버를 자동으로 처리하는 데 필요한 논리가 있습니다.
 
@@ -150,7 +153,9 @@ Visual Studio 2013에서 웹 응용 프로그램 템플릿을 사용하여 응�
 
 ### <a name="vs2013"></a>리소스를 보호하며 Visual Studio 2013을 사용하여 만든 웹 API
 
-Visual Studio 2013에서 Web API 템플릿을 사용하여 Web API 응용 프로그램을 만들었고 **인증 변경** 메뉴에서 **조직 계정**을 선택한 경우 응용 프로그램에 필요한 논리가 이미 있는 것입니다. 인증을 수동으로 구성한 경우 아래 지침을 따라 키 정보를 자동으로 업데이트하는 Web API를 구성하는 방법을 알아봅니다.
+Visual Studio 2013에서 Web API 템플릿을 사용하여 Web API 응용 프로그램을 만들었고 **인증 변경** 메뉴에서 **조직 계정**을 선택한 경우 응용 프로그램에 필요한 논리가 이미 있는 것입니다.
+
+인증을 수동으로 구성한 경우 아래 지침을 따라 키 정보를 자동으로 업데이트하는 Web API를 구성하는 방법을 알아봅니다.
 
 다음 코드 조각은 페더레이션 메타데이터 문서에서 최신 키를 가져온 후 [JWT 토큰 처리기](https://msdn.microsoft.com/library/dn205065.aspx)를 사용하여 토큰의 유효성을 검사하는 방법을 보여 줍니다. 이 코드 조각은 Azure AD에서 향후 토큰의 유효성을 검사하기 위해 키를 유지하는 데 키 위치에 관계 없이(데이터베이스, 구성 파일 또는 다른 곳) 고유의 캐싱 메커니즘을 사용한다고 가정합니다.
 
@@ -293,11 +298,13 @@ protected void Application_Start()
 
 ### <a name="vs2010"></a>리소스를 보호하며 Visual Studio 2008 또는 2010 및 .NET 3.5용 WIF(Windows Identity Foundation) v1.0을 사용하여 만든 웹 응용 프로그램
 
-WIF v1.0에서 응용 프로그램을 빌드한 경우 새 키를 사용하도록 응용 프로그램의 구성을 자동으로 새로 고치는 데 제공된 메커니즘이 없습니다. 키를 업데이트하는 가장 쉬운 방법은 WIF SDK에 포함된 FedUtil 도구를 사용하는 것입니다. 이 도구를 통해 최신 메타데이터 문서를 검색하고 구성을 업데이트할 수 있습니다. 이러한 지침은 아래에 포함됩니다. 또는 다음 중 하나를 수행할 수 있습니다.
+WIF v1.0에서 응용 프로그램을 빌드한 경우 새 키를 사용하도록 응용 프로그램의 구성을 자동으로 새로 고치는 데 제공된 메커니즘이 없습니다.
 
-- 아래 최신 키 수동 검색 및 응용 프로그램 업데이트 섹션의 지침을 따르고 단계를 프로그래밍 방식으로 수행하도록 논리를 작성합니다.
+- *가장 쉬운 방법* WIF SDK에 포함된 FedUtil 도구를 사용합니다. 이 도구를 통해 최신 메타데이터 문서를 검색하고 구성을 업데이트할 수 있습니다.
 - 응용 프로그램을 시스템 네임스페이스에 있는 최신 버전의 WIF를 포함하는 .NET 4.5로 업데이트합니다. 그런 다음 [발급자 이름 레지스트리 유효성 검사(VINR)](https://msdn.microsoft.com/library/dn205067.aspx)를 사용하여 응용 프로그램 구성의 자동 업데이트를 수행할 수 있습니다.
+- 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행합니다.
 
+구성을 업데이트하기 위해 FedUtil을 사용하는 지침:
 
 1. Visual Studio 2008 또는 2010의 개발 컴퓨터에 WIF v1.0 SDK가 설치되어 있는지 확인합니다. 아직 설치되어 있지 않은 경우 [여기에서 다운로드](https://www.microsoft.com/ko-KR/download/details.aspx?id=4451)할 수 있습니다.
 2. Visual Studio에서 솔루션을 열고 해당 프로젝트를 마우스 오른쪽 단추로 클릭하고 **페더레이션 메타데이터 업데이트**를 선택합니다. 이 옵션을 사용할 수 없는 경우 FedUtil 및/또는 WIF v1.0 SDK가 설치되지 않은 것입니다.
@@ -308,47 +315,14 @@ WIF v1.0에서 응용 프로그램을 빌드한 경우 새 키를 사용하도�
 
 다른 라이브러리를 사용하거나 지원되는 프로토콜을 수동으로 구현하는 경우, 키가 OpenID Connect discovery 문서 또는 페더레이션 메타데이터 문서에서 검색되는지 확인하기 위해 라이브러리나 구현을 검토할 필요가 있습니다. 이를 확인하는 하나의 방법은 OpenID discovery 문서 또는 페더레이션 메타데이터 문서에 대한 모든 호출 코드 또는 라이브러리 코드를 검색하는 것입니다.
 
-키는 어딘가에 저장되거나 응용 프로그램에 하드 코딩되어 있다면, 키를 수동으로 검색하여 그에 따라 업데이트할 수 있습니다. Azure AD가 롤오버 주기를 늘리거나 비상 대역 외 롤오버를 갖는 경우 이후 작업 중단 및 오버 헤드를 방지하기 위해 이 문서에 나오는 방법 개요를 사용하여 **자동 롤오버를 지원하기 위해 응용 프로그램을 향상하는 것이 아주 좋습니다**.
-
-OpenID discovery 문서에서 최신 키 수동 검색.
-
-1. 웹 브라우저에서 `https://login.microsoftonline.com/your_directory_name/.well-known/openid-configuration`으로 이동합니다. OpenID Connect discovery 문서의 내용이 표시됩니다. 이 문서에 대한 자세한 내용은 [OpenID Discovery 문서 사양](http://openid.net/specs/openid-connect-discovery-1_0.html)을 참조하세요.
-2. Jwks\_uri의 값에 있는 링크를 복사합니다.
-3. 브라우저에서 새 탭을 열고 방금 복사한 URL로 이동합니다. JSON Web Key Set 문서의 내용이 표시됩니다.
-4. 새 키를 사용하도록 응용 프로그램을 업데이트하기 위해 각 **x5c** 요소를 찾은 후 각 요소의 값을 복사합니다. 예:
-```
-keys: [
-	{
-		kty: "RSA",
-		use: "sig",
-		kid: "MnC_VZcATfM5pOYiJHMba9goEKY",
-		x5t: "MnC_VZcATfM5pOYiJHMba9goEKY",
-		n: "vIqz-4-ER_vNW...ixLUQ",
-		e: "AQAB",
-		x5c: [
-			"MIIC4jCCAcqgAw...dhXsIIKvJQ=="
-		]
-	},
-```
-5. **<X509Certificate>** 요소 값을 복사한 후 일반 텍스트 편집기를 열고 값을 붙여넣습니다. 후행 공백을 모두 제거하고 **.cer** 확장명으로 파일을 저장합니다.
-
-페더레이션 메타데이터 문서 문서에서 최신 키 수동 검색.
-
-1. 웹 브라우저에서 `https://login.microsoftonline.com/your_directory_name/federationmetadata/2007-06/federationmetadata.xml`으로 이동합니다. 페더레이션 메타데이터 XML 문서의 내용이 표시됩니다. 이 문서에 대한 자세한 내용은 [페더레이션 메타데이터](active-directory-federation-metadata.md) 항목을 참조하세요.
-2. 새 키를 사용하도록 응용 프로그램을 업데이트하기 위해 각 **<RoleDescriptor>** 블록을 찾은 후 각 블록의 **<X509Certificate>** 요소 값을 복사합니다. 예:
-```
-<RoleDescriptor xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType">
-      <KeyDescriptor use="signing">
-            <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
-                <X509Data>
-                    <X509Certificate>MIIDPjC…BcXWLAIarZ</X509Certificate>
-```
-3. **<X509Certificate>** 요소 값을 복사한 후 일반 텍스트 편집기를 열고 값을 붙여넣습니다. 후행 공백을 모두 제거하고 **.cer** 확장명으로 파일을 저장합니다.
-
-Azure AD에 대한 공개 키로 사용되는 X509 인증서를 만들었습니다. 지문 및 만료 날짜 등의 세부 정보를 사용하여 응용 프로그램의 현재 사용되는 인증서 및 지문이 유효한지 수동으로 또는 프로그래밍 방식으로 확인할 수 있습니다.
+키가 어딘가에 저장되거나 응용 프로그램에 하드 코딩되는 경우 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행하여 수동으로 키를 검색하고 적절하게 업데이트할 수 있습니다. Azure AD가 롤오버 주기를 늘리거나 비상 대역 외 롤오버를 갖는 경우 이후 작업 중단 및 오버 헤드를 방지하기 위해 이 문서에 나오는 방법 개요를 사용하여 **자동 롤오버를 지원하기 위해 응용 프로그램을 향상하는 것이 아주 좋습니다**.
 
 ## 응용 프로그램을 테스트하여 영향을 받을지 확인하는 방법
 
 스크립트를 다운로드하고 [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)의 지침에 따라 응용 프로그램이 자동 키 롤오버를 지원하는지 여부를 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+## 응용 프로그램이 자동 롤오버를 지원하지 않는 경우 수동 롤오버를 수행하는 방법
+
+응용 프로그램이 자동 롤오버를 지원하지 **않는** 경우 주기적으로 Azure AD의 서명 키를 모니터링하고 적절하게 수동 롤오버를 수행하는 프로세스를 설정해야 합니다. [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)는 이 작업을 수행하는 방법에 대한 스크립트 및 지침을 포함합니다.
+
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="AES-128 동적 암호화 및 키 전달 서비스 사용"
+	pageTitle="AES-128 동적 암호화 및 키 전달 서비스 사용 | Microsoft Azure"
 	description="Microsoft Azure 미디어 서비스를 사용하면 AES 128비트 암호화 키로 암호화된 콘텐츠를 배달할 수 있습니다. 미디어 서비스는 권한 있는 사용자에게 암호화 키를 제공하는 키 배달 서비스도 제공합니다. 이 항목에서는 AES-128로 동적으로 암호화하는 방법과 키 배달 서비스를 사용하는 방법을 보여 줍니다."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 #AES-128 동적 암호화 및 키 전달 서비스 사용
@@ -33,7 +33,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 이 항목은 보호된 미디어를 배달하는 응용 프로그램에 대한 작업을 수행하는 개발자에게 유용합니다. 이 항목에서는 권한 부여 정책으로 키 배달 서비스를 구성하여 권한이 있는 클라이언트만 암호화 키를 받을 수 있도록 하는 방법을 보여 줍니다. 또한 동적 암호화를 사용하는 방법도 보여 줍니다.
 
->[AZURE.NOTE]동적 암호화를 사용하려면 하나 이상의 배율 단위(스트리밍 단위라고도 함)를 얻어야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-manage-origins.md#scale_streaming_endpoints)을 참조하세요.
+>[AZURE.NOTE]동적 암호화를 사용하려면 하나 이상의 배율 단위(스트리밍 단위라고도 함)를 얻어야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
 
 ##AES-128 동적 암호화 및 키 배달 서비스 워크플로
 
@@ -45,11 +45,11 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 1. [콘텐츠 키의 권한 부여 정책을 구성합니다](media-services-protect-with-aes128.md#configure_key_auth_policy). 콘텐츠 키 권한 부여 정책은 사용자가 구성해야 하며 콘텐츠 키를 클라이언트에 배달하기 위해서는 해당 클라이언트를 충족시켜야 합니다.
 1. [자산에 대한 배달 정책을 구성합니다](media-services-protect-with-aes128.md#configure_asset_delivery_policy). 배달 정책 구성에는 키 획득 URL 및 IV(Initialization Vector)(AES 128에는 암호화 및 해독 시 동일한 IV를 제공해야 함), 배달 프로토콜(예: MPEG DASH, HLS, HDS, 부드러운 스트리밍 또는 모두), 동적 암호화 유형(예: 봉투(envelope) 또는 동적이지 않은 암호화)이 포함됩니다.
 
-	동일한 자산의 각 프로토콜에 다른 정책을 적용할 수 있습니다. 예를 들어, Smooth/DASH에 PlayReady 암호화를, HLS에 AES 봉투(envelope)를 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜(예: HLS만 프로토콜로 지정하는 단일 정책)은 스트리밍에서 차단됩니다. 정의한 자산 배달 정책이 없는 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
+동일한 자산의 각 프로토콜에 다른 정책을 적용할 수 있습니다. 예를 들어, Smooth/DASH에 PlayReady 암호화를, HLS에 AES 봉투(envelope)를 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜(예: HLS만 프로토콜로 지정하는 단일 정책)은 스트리밍에서 차단됩니다. 정의한 자산 배달 정책이 없는 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
 
 1. 스트리밍 URL을 얻기 위해 [주문형 로케이터를 만듭니다](media-services-protect-with-aes128.md#create_locator).
 
-또한 이 항목에서는 [클라이언트 응용 프로그램이 키 배달 서비스로부터 키를 요청하는 방법](media-services-protect-with-aes128.md#client_request)도 보여줍니다.
+또한 이 항목에서는 [클라이언트 응용 프로그램이 키 배달 서비스로부터 키를 요청하는 방법](media-services-protect-with-aes128.md#client_request)도 보여 줍니다.
 
 이 항목의 끝부분에서 전체 .NET [예제](media-services-protect-with-aes128.md#example)가 나와 있습니다.
 
@@ -172,7 +172,7 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 	
 ###키 배달 서비스로부터 키 요청
 
-다음 코드에서는 키 배달 Uri(매니페스트에서 추출됨) 및 토큰을 사용하여 미디어 서비스 키 배달 서비스로 요청을 보내는 방법을 보여 줍니다(이 항목에서는 보안 토큰 서비스에서 간단한 웹 토큰을 가져오는 방법에 대해서는 다루지 않습니다).
+다음 코드에서는 키 배달 Uri(매니페스트에서 추출됨) 및 토큰을 사용하여 미디어 서비스 키 배달 서비스로 요청을 보내는 방법을 보여 줍니다(이 항목에서는 보안 토큰 서비스에서 간단한 웹 토큰을 가져오는 방법에 대해서는 다루지 않음).
 
 	private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
 	{
@@ -629,4 +629,4 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

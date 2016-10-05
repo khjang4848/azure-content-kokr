@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # 클래식 배포 모델을 사용하여 SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성
@@ -33,7 +33,7 @@ Azure 응용 프로그램 게이트웨이 구성을 사용하여 웹 팜에서 �
 
 응용 프로그램 게이트웨이에서 SSL 오프로드를 구성하려면 다음 단계를 나열된 순서대로 수행합니다.
 
-1. [새 응용 프로그램 게이트웨이 만들기](#create-a-new-application-gateway)
+1. [응용 프로그램 게이트웨이 만들기](#create-an-application-gateway)
 2. [SSL 인증서를 업로드 합니다.](#upload-ssl-certificates)
 3. [게이트웨이 구성](#configure-the-gateway)
 4. [게이트웨이 구성 설정](#set-the-gateway-configuration)
@@ -45,57 +45,27 @@ Azure 응용 프로그램 게이트웨이 구성을 사용하여 웹 팜에서 �
 
 게이트웨이를 만들려면 **New-AzureApplicationGateway** cmdlet을 사용하여 해당 값을 원하는 값으로 바꿉니다. 게이트웨이에 대한 청구는 이 시점에서 시작되지 않습니다. 게이트웨이가 성공적으로 작동되면, 요금청구가 시작됩니다.
 
-이 출력 다음 샘플에서는 첫 줄에 cmdlet을 보여줍니다.
-
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 생성된 게이트웨이의 유효성을 검사하려면 **Get-AzureApplicationGateway** cmdlet을 사용합니다.
 
 이 샘플에서 *Description*, *InstanceCount* 및 *GatewaySize*는 선택적 매개 변수입니다. *InstanceCount*에 대한 기본값은 2이고, 최대값은 10입니다. *GatewaySize*에 대한 기본값은 보통입니다. 크고 작은 다른 사용 가능한 값이 됩니다. 게이트웨이가 아직 시작되지 않았으므로 *VirtualIPs* 및 *DnsName*이 빈 값으로 표시됩니다. 이 값들은 게이트웨이가 실행 상태가 되면 생성됩니다.
 
-이 출력 다음 샘플에서는 첫 줄에 cmdlet을 보여줍니다.
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 4:39:39 PM - Begin Operation:
-	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed
-	Operation: Get-AzureApplicationGateway
-	Name: AppGwTest
-	Description:
-	VnetName: testvnet1
-	Subnets: {Subnet-1}
-	InstanceCount: 2
-	GatewaySize: Medium
-	State: Stopped
-	VirtualIPs:
-	DnsName:
-
+	Get-AzureApplicationGateway AppGwTest
 
 ## SSL 인증서를 업로드 합니다.
 
 **Add-AzureApplicationGatewaySslCertificate**를 사용하여 응용 프로그램 게이트웨이에 *pfx* 형식의 서버 인증서를 업로드합니다. 인증서 이름은 사용자가 선택해야 하고 응용 프로그램 게이트웨이 내에서 고유해야 합니다. 이 인증서는 응용 프로그램 게이트웨이에 대한 모든 인증서 관리작업에 이름이 참조됩니다.
 
-이 출력 다음 샘플에서는 첫 줄에 cmdlet을 보여줍니다. 사용자 고유의 샘플 값으로 대체 합니다.
+이 다음 예제에서는 cmdlet을 보여 주고 사용자 고유의 샘플 값으로 대체 합니다.
 
-	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
-
-	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
-	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   21fdc5a0-3bf7-2c12-ad98-192e0dd078ef
+	Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
 
 그런 다음 인증서 업로드 유효성을 검사 합니다. **Get-AzureApplicationGatewayCertificate** cmdlet을 사용합니다.
 
 이 출력 다음 샘플에서는 첫 줄에 cmdlet을 보여줍니다.
 
-	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest
+	Get-AzureApplicationGatewaySslCertificate AppGwTest
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -116,21 +86,20 @@ Azure 응용 프로그램 게이트웨이 구성을 사용하여 웹 팜에서 �
 - **백 엔드 서버 풀:** 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 가상 네트워크 서브넷에 속하거나 공용 IP/VIP이어야 합니다.
 - **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
 - **프런트 엔드 포트:** 이 포트는 응용 프로그램 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
-- **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 경우 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
+- **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 값은 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
 - **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다. 현재는 *기본* 규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
 
 **추가 구성 정보**
 
-SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*(대/소문자 구분)로 바꿔야 합니다. **SslCert** 요소는 위의 SSL 인증서 섹션의 업로드에 사용된 것과 동일한 이름으로 값을 설정하여 **HttpListener**에 추가됩니다. 프런트 엔드 포트는 443으로 업데이트되어야 합니다.
+SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*(대/소문자 구분)로 바꿔야 합니다. **SslCert** 요소는 이전 SSL 인증서 섹션의 업로드에 사용된 것과 동일한 이름으로 값을 설정하여 **HttpListener**에 추가됩니다. 프런트 엔드 포트는 443으로 업데이트되어야 합니다.
 
-**쿠키 기반 선호도를 사용하도록 설정**: 응용 프로그램 게이트웨이는 클라이언트 세션의 요청이 항상 웹 팜에 있는 동일한 VM으로 전송되도록 구성될 수 있습니다. 트래픽에 적절하게 연결해주는 게이트웨이를 허용하는 세션 쿠키를 삽입하면 완료됩니다. 쿠키를 기반 선호도를 사용하려면 **BackendHttpSettings** 요소에서 **CookieBasedAffinity**를 *Enabled*로 설정합니다.
+**쿠키 기반 선호도를 사용하도록 설정**: 응용 프로그램 게이트웨이는 클라이언트 세션의 요청이 항상 웹 팜에 있는 동일한 VM으로 전송되도록 구성될 수 있습니다. 게이트웨이에서 트래픽을 적절하게 지시할 수 있는 세션 쿠키를 삽입하면 이 시나리오가 완료됩니다. 쿠키를 기반 선호도를 사용하려면 **BackendHttpSettings** 요소에서 **CookieBasedAffinity**를 *Enabled*로 설정합니다.
 
 
 
 구성 개체를 만들거나, 구성 XML 파일을 사용하여 구성을 생성할 수 있습니다. 구성 XML 파일을 사용하여 구성을 생성하려면 다음 샘플을 사용합니다.
 
 **구성 XML 샘플**
-
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -182,14 +151,7 @@ SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*(대/소�
 
 다음으로, 응용 프로그램 게이트웨이를 설정합니다. **Set-AzureApplicationGatewayConfig** cmdlet을 구성 XML 파일 또는 구성 개체와 함께 사용할 수 있습니다.
 
-
-	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
-
-	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
-	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
+	Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 ## 게이트웨이 시작
 
@@ -198,15 +160,7 @@ SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*(대/소�
 
 **알림:** **Start-AzureApplicationGateway** cmdlet은 완료하는 데 최대 15-20분까지 걸릴 수 있습니다.
 
-
-	PS C:\> Start-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
+	Start-AzureApplicationGateway AppGwTest
 
 ## 게이트웨이 상태를 확인합니다.
 
@@ -214,7 +168,7 @@ SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*(대/소�
 
 이 샘플에서는 응용 프로그램 게이트웨이가 시작, 실행 그리고 트래픽을 받을 준비가 된 것을 보여 줍니다.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
 	Name          : AppGwTest2
 	Description   :
@@ -235,4 +189,4 @@ SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*(대/소�
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

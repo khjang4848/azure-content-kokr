@@ -71,4 +71,4 @@ Azure Resource Manager cmdlet, 명령줄 도구 및 REST API 시작
 
 [부하 분산 장치의 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)을 관리하는 방법을 파악합니다. 응용 프로그램이 부하 분산 장치를 통해 서버에 대한 연결 상태를 유지해야 하는 경우에는 이 내용을 숙지하고 있어야 합니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

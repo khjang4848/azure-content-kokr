@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 #  v2.0 끝점을 사용하는 Graph API와 함께 타사 라이브러리를 사용하여 Android 앱에 로그인 추가
@@ -197,4 +197,4 @@ OAuth2를 프로토콜로 사용하는 경우 이러한 끝점은 변경되어�
 
 [Security TechCenter](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

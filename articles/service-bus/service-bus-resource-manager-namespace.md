@@ -35,7 +35,7 @@
 
 ## 배포할 항목
 
-이 템플릿을 사용하여 [기본 또는 표준 SKU](https://azure.microsoft.com/pricing/details/service-bus/)가 있는 서비스 버스 네임스페이스를 배포합니다.
+이 템플릿을 사용하여 [기본, 표준 또는 프리미엄](https://azure.microsoft.com/pricing/details/service-bus/) SKU가 있는 서비스 버스 네임스페이스를 배포합니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
@@ -69,7 +69,8 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
     "type": "string", 
     "allowedValues": [ 
         "Basic", 
-        "Standard" 
+        "Standard",
+        "Premium" 
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -78,9 +79,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ```
 
-이 매개 변수에 허용되는 값(Basic 또는 Standard)을 정의하고, 값이 지정되지 않은 경우에는 기본값(Standard)을 할당하는 템플릿입니다.
-
-추가 비용 없이 최대 1250만 개의 작업을 수행할 수 있는 매월 10달러의 표준 계층 기본 요금이 있습니다. 기본 계층은 백만 개 작업당 0.05달러가 듭니다.
+이 매개 변수에 허용되는 값(기본, 표준 또는 프리미엄)을 정의하고, 값이 지정되지 않은 경우에는 기본값(표준)을 할당하는 템플릿입니다.
 
 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격 책정 및 대금 청구][]를 참조하세요.
 
@@ -154,4 +153,4 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

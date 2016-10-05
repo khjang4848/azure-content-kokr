@@ -83,9 +83,7 @@ Azure 웹앱의 [Azure 포털](https://portal.azure.com)에서 환경 변수를 
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
 	    if(!error){
-	      // Container exists and allows
-	      // anonymous read access to blob
-	      // content and metadata within this container
+	      // Container exists and is private
 	    }
 	});
 
@@ -103,7 +101,9 @@ Azure 웹앱의 [Azure 포털](https://portal.azure.com)에서 환경 변수를 
 
 	blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
 	    if(!error){
-	      // Container exists and is private
+	      // Container exists and allows
+	      // anonymous read access to blob
+	      // content and metadata within this container
 	    }
 	});
 
@@ -415,4 +415,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 공유 액세스 서명�
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Node용 Azure 저장소 SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

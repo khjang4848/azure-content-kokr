@@ -29,11 +29,11 @@ Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌�
 
 SSE는 데이터를 Azure Storage에 기록할 때 데이터를 암호화하는 방식으로 작동하며 블록 Blob, 페이지 Blob 및 추가 Blob에 사용할 수 있습니다. 다음에 대해 작동합니다.
 
-	- General purpose storage accounts and Blob storage accounts
-	- Standard storage and Primary storage 
-	- All redundancy levels (LRS, ZRS, GRS, RA-GRS)
-	- Azure Resource Manager storage accounts (but not classic) 
-	- All regions
+-   일반 용도의 저장소 계정 및 Blob 저장소 계정
+-   표준 저장소 및 기본 저장소
+-   모든 중복 수준(LRS, ZRS, GRS, RA-GRS)
+-   Azure Resource Manager 저장소 계정(클래식 아님)
+-   모든 지역
 
 다음 스크린샷은 [Azure 포털](https://azure.portal.com)을 사용하여 저장소 서비스 암호화 설정을 찾을 위치를 보여 줍니다. 이 화면에서 계속하려면 암호화를 클릭합니다.
 
@@ -195,4 +195,4 @@ A: 저장소 서비스 암호화에 대한 문제는 [ssediscussions@microsoft.c
 
 Azure 저장소는 여러 개발자가 보안 응용 프로그램을 함께 빌드할 수 있도록 하는 포괄적인 보안 기능을 제공합니다. 자세한 내용은 [저장소 보안 가이드](storage-security-guide.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

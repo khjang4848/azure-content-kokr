@@ -17,7 +17,9 @@
 
 # Windows에서 Azure 파일 저장소 시작
 
-[AZURE.INCLUDE [저장소-선택기-파일-포함](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[AZURE.INCLUDE [저장소-선택기-파일-포함](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## 개요
 
@@ -667,4 +669,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->

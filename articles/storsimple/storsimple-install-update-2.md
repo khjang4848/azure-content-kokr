@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치에 업데이트 2 설치
@@ -91,4 +91,4 @@ Azure 클래식 포털을 통해 업데이트를 설치하려고 할 때 게이�
 
 [업데이트 2 릴리스](storsimple-update2-release-notes.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

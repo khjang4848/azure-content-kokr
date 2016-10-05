@@ -33,7 +33,7 @@
 
 	![마켓플레이스 주문](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
 
-3. 표시된 주문 중 하나를 클릭하면 현재 청구 주기에 대한 해당 주문의 요약 개요로 이동됩니다. 다른 가격 책정 모델에 대한 설명은 [마켓플레이스 FAQ] (https://azure.microsoft.com/marketplace/faq/)에서 찾을 수 있습니다.
+3. 표시된 주문 중 하나를 클릭하면 현재 청구 주기에 대한 해당 주문의 요약 개요로 이동됩니다. 다른 가격 책정 모델에 대한 설명은 [마켓플레이스 FAQ](https://azure.microsoft.com/marketplace/faq/)에서 찾을 수 있습니다.
 
 	![주문 요약](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 

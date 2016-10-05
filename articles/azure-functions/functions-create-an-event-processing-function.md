@@ -1,7 +1,7 @@
 <properties
    pageTitle="이벤트 처리 기능 만들기 | Microsoft Azure"
    description="Azure Functions를 사용하여 이벤트 타이머에 기반하여 실행되는 C# 함수를 만듭니다."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 # 이벤트 처리 Azure 기능 만들기
@@ -44,7 +44,7 @@ Azure Functions은 이벤트 기반 주문형 계산 환경이며 이를 통해 
 
 	![새 타이머로 트리거되는 함수 만들기](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. **Azure 저장소 큐 출력**에서 **저장소 계정 연결**의 옆에 있는 **선택**을 클릭하고 기존 저장소 계정을 선택하거나 새 항목을 만든 다음 **저장**을 클릭합니다.
+5. **Azure Storage 큐 출력**에서 기존 **저장소 계정 연결**을 선택하거나 새 항목을 만든 다음 **저장**을 클릭합니다.
 
 	![새 타이머로 트리거되는 함수 만들기](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
@@ -69,7 +69,7 @@ Azure Functions은 이벤트 기반 주문형 계산 환경이며 이를 통해 
 
 9. **통합** 탭으로 돌아가서 일정 필드를 `0 0 * * * *`로 변경합니다. 함수는 이제 한 시간마다 한 번씩 실행됩니다.
 
-이는 타이머 트리거 및 저장소 큐 출력 바인딩의 매우 간단한 예입니다. 자세한 내용은 [Azure Functions 타이머 트리거](functions-bindings-timer.md) 및 [Azure 저장소에 Azure Functions 트리거 및 바인딩](functions-bindings-storage.md) 항목을 모두 참조하세요.
+이는 타이머 트리거 및 저장소 큐 출력 바인딩의 매우 간단한 예입니다. 자세한 내용은 [Azure Functions 타이머 트리거](functions-bindings-timer.md) 및 [Azure Storage에 Azure Functions 트리거 및 바인딩](functions-bindings-storage.md) 항목을 모두 참조하세요.
 
 ##다음 단계
 
@@ -77,8 +77,8 @@ Azure Functions에 대한 자세한 내용은 다음 항목을 참조합니다.
 
 + [Azure Functions 개발자 참조](functions-reference.md) 함수를 코딩하고 트리거 및 바인딩을 정의하기 위한 프로그래머 참조입니다.
 + [Azure Functions 테스트](functions-test-a-function.md) 함수를 테스트하는 다양한 도구와 기법을 설명합니다.
-+ [Azure Functions 크기 조정 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.  
++ [Azure Functions 크기 조정 방법](functions-scale.md) 동적 서비스 계획 등 Azure Functions에 사용할 수 있는 서비스 계획과 적절한 계획을 선택하는 방법을 설명합니다.
 
 [AZURE.INCLUDE [시작 메모](../../includes/functions-get-help.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

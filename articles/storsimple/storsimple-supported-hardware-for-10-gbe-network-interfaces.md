@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어
@@ -130,4 +130,4 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 
 [StorSimple 하드웨어 구성 요소 및 상태에 대해 자세히 알아보기](storsimple-monitor-hardware-status.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

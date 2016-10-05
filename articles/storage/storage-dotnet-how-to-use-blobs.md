@@ -19,7 +19,9 @@
 
 # .NET을 사용하여 Azure Blob 저장소 시작
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## 개요
 
@@ -407,4 +409,4 @@ Azure 저장소는 클라이언트와 서버 모두에서 Blob 데이터를 암�
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->

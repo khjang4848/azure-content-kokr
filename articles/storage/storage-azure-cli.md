@@ -4,7 +4,8 @@
     services="storage"
     documentationCenter="na"
     authors="tamram"
-    manager="carmonm"/>
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -12,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/02/2016"
-    ms.author="micurd"/>
+    ms.date="09/20/2016"
+    ms.author="micurd;tamram"/>
 
 # Azure 저장소에서 Azure CLI 사용
 
@@ -133,7 +134,7 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `azure st
 
 ### 컨테이너에 Blob 업로드
 
-Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob,추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 
 컨테이너의 blob를 업로드하도록 `azure storage blob upload`을 사용할 수 있습니다. 기본적으로 이 명령은 로컬 파일을 블록 Blob에 업로드합니다. Blob의 종류를 지정하기 위해 `--blobtype` 매개 변수를 사용할 수 있습니다.
 
@@ -221,4 +222,4 @@ Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 �
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

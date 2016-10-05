@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
+	keywords="Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
 
 <tags
 	ms.service="functions"
@@ -87,6 +87,13 @@ function.json 파일은 다음 속성을 제공합니다.
 	    context.done();
 	};
 
+## F# 타이머 트리거에 대한 Azure Notification Hub 코드 예제
+
+이 예제는 `location` 및 `message`을 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+
 ## C# 큐 트리거에 대한 Azure 알림 허브 코드 예제
 
 이 예제는 `message`를 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
@@ -157,4 +164,4 @@ project.json 파일을 업로드하는 자세한 내용은 [project.json 파일 
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

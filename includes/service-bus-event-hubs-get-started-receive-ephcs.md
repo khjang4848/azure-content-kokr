@@ -8,33 +8,33 @@
 
 2. **데이터 + 저장소**를 클릭한 다음 **저장소 계정**을 클릭합니다.
 
-    ![][1]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
 
 3. **저장소 계정 만들기** 블레이드에서 저장소 계정의 이름을 입력합니다. 리소스를 만들 Azure 구독, 리소스 그룹 및 위치를 선택합니다. 그런 다음 **Create**를 클릭합니다.
 
-    ![][2]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)
 
 4. 저장소 계정 목록에서 새로 만든 저장소 계정을 클릭합니다.
 
 5. 저장소 계정 블레이드에서 **선택키**를 클릭합니다. 이 자습서에서 나중에 **key1** 값을 복사합니다.
 
-	![][3]
+	![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)
 
 4. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver**로 지정합니다.
 
-    ![][14]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png)
 
 5. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다.
 
 6. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색합니다. 프로젝트 이름(**수신기**)이 **버전** 상자에 지정되는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 
-    ![][13]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)
 
 	Visual Studio는 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성을 다운로드, 설치 및 추가합니다.
 
 7. **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다. 새 클래스의 이름을 **SimpleEventProcessor**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다.
 
-	![][15]
+	![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 
 8. SimpleEventProcessor.cs 파일의 맨 위에 다음 구문을 추가합니다.
 
@@ -130,13 +130,4 @@
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure portal]: https://portal.azure.com
 
-<!-- Images -->
-
-[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
-[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
-[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
-[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
-
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

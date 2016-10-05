@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/05/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발
@@ -167,6 +167,11 @@ Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 �
 | `test_is_headnode` | 클러스터 헤드 노드에서 실행되는 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
 | `test_is_datanode` | 현재 노드가 데이터(작업자) 노드인 경우 1을 반환합니다. 그렇지 않으면 0을 반환합니다. |
 | `test_is_first_datanode` | 현재 노드가 첫 번째 데이터(작업자) 노드(workernode0라는 이름)인 경우 1을 반환합니다. 그렇지 않으면 0을 반환합니다. |
+| `get_headnodes` | 클러스터에서 헤드 노드의 정규화된 도메인 이름을 반환합니다. 이름은 쉼표로 구분됩니다. 빈 문자열이 오류에 반환됩니다. |
+| `get_primary_headnode` | 기본 헤드 노드의 정규화된 도메인 이름을 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
+| `get_secondary_headnode` | 보조 헤드 노드의 정규화된 도메인 이름을 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
+| `get_primary_headnode_number` | 기본 헤드 노드의 숫자 접미사를 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
+| `get_secondary_headnode_number` | 보조 헤드 노드의 숫자 접미사를 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
 
 ## <a name="commonusage"></a>일반적인 사용 패턴
 
@@ -268,4 +273,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx)를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->
