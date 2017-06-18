@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Swift에서 iOS용 Azure Mobile Engagement 시작"
+	pageTitle="Swift에서 iOS용 Azure Mobile Engagement 시작 | Microsoft Azure"
 	description="iOS 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 	services="mobile-engagement"
-	documentationCenter="ios"
+	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
 	ms.topic="hero-article"
-	ms.date="08/19/2016"
+	ms.date="09/20/2016"
 	ms.author="piyushjo" />
 
 # Swift에서 iOS 앱용 Azure Mobile Engagement 시작
@@ -24,11 +24,11 @@
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ MAC 앱 스토어에서 설치할 수 있는 XCode 6 또는 XCode 7
++ MAC 앱 스토어에서 설치할 수 있는 XCode 8
 + [Mobile Engagement iOS SDK]
 + Apple 개발자 센터에서 가져올 수 있는 푸시 알림 인증서(.p12)
 
-> [AZURE.NOTE] 이 자습서에서는 Swift 버전 2.0을 사용합니다.
+> [AZURE.NOTE] 이 자습서에서는 Swift 버전 3.0을 사용합니다.
 
 이 자습서를 완료해야 다른 모든 iOS 앱용 Mobile Engagement 자습서를 진행할 수 있습니다.
 
@@ -60,17 +60,15 @@
 
 	![][2]
 
-5. `Build Phases` 탭을 열고 `Link Binary With Libraries` 메뉴에서 아래와 같이 프레임워크를 추가합니다. **참고** `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`를 포함해야 합니다.
+5. `Build Phases` 탭을 열고 `Link Binary With Libraries` 메뉴에서 아래와 같이 프레임워크를 추가합니다.
 
 	![][3]
 
-6. **XCode 7**의 경우 - `libxml2.dylib` 대신 `libxml2.tbd`를 추가합니다.
-
-7. 파일 > 새로 만들기 > 파일 > iOS > 소스 > 헤더 파일을 선택하여 SDK의 Objective C API를 사용할 수 있도록 Bridging 헤더를 만듭니다.
+8. 파일 > 새로 만들기 > 파일 > iOS > 소스 > 헤더 파일을 선택하여 SDK의 Objective C API를 사용할 수 있도록 Bridging 헤더를 만듭니다.
 
 	![][4]
 
-8. Mobile Engagement Objective-C 코드를 Swift 코드에 노출하도록 Bridging 헤더 파일을 편집하고 다음 import를 추가합니다.
+9. Mobile Engagement Objective-C 코드를 Swift 코드에 노출하도록 Bridging 헤더 파일을 편집하고 다음 import를 추가합니다.
 
 		/* Mobile Engagement Agent */
 		#import "AEModule.h"
@@ -79,19 +77,20 @@
 		#import "EngagementAgent.h"
 		#import "EngagementTableViewController.h"
 		#import "EngagementViewController.h"
+		#import "AEUserNotificationHandler.h"
 		#import "AEIdfaProvider.h"
 
-9. 빌드 설정에서 Swift 컴파일러 - 코드 생성 아래의 Objective-C Bridging 헤더 빌드 설정에 이 헤더에 대한 경로가 있는지 확인합니다. 다음은 경로 예입니다. **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h(경로에 따라 다름)**
+10. 빌드 설정에서 Swift 컴파일러 - 코드 생성 아래의 Objective-C Bridging 헤더 빌드 설정에 이 헤더에 대한 경로가 있는지 확인합니다. 다음은 경로 예입니다. **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h(경로에 따라 다름)**
 
 	![][6]
 
-10. Azure 포털의 앱 *연결 정보* 페이지로 돌아가서 연결 문자열을 복사합니다.
+11. Azure 포털의 앱 *연결 정보* 페이지로 돌아가서 연결 문자열을 복사합니다.
 
 	![][5]
 
-11. 이제 연결 문자열을 `didFinishLaunchingWithOptions` 대리자에 붙여넣습니다.
+12. 이제 연결 문자열을 `didFinishLaunchingWithOptions` 대리자에 붙여넣습니다.
 
-		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
 		{
   			[...]
 				EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
@@ -154,9 +153,10 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 1. 다음과 같이 `didFinishLaunchingWithOptions` 내부에서 도달률 모듈을 생성하여 기존 참여 초기화 줄에 전달합니다.
 
-		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-			let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
-			EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
+		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
+		{
+			let reach = AEReachModule.module(withNotificationIcon: UIImage(named:"icon.png")) as! AEReachModule
+    		EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
 			[...]
 			return true
 		}
@@ -164,29 +164,32 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 ###앱이 APNS 푸시 알림을 받을 수 있도록 설정
 1. 다음 줄을 `didFinishLaunchingWithOptions` 메서드에 추가합니다.
 
-		/* Ask user to receive push notifications */
 		if #available(iOS 8.0, *)
 		{
-		   let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
-		   application.registerUserNotificationSettings(settings)
-		   application.registerForRemoteNotifications()
+			if #available(iOS 10.0, *)
+			{
+				UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in }
+			}else
+			{
+				let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+				application.registerUserNotificationSettings(settings)
+			}
+			application.registerForRemoteNotifications()
 		}
 		else
 		{
-		   application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
+			application.registerForRemoteNotifications(matching: [.alert, .badge, .sound])
 		}
 
 2. 다음과 같이 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드를 추가합니다.
 
-		func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-		{
+		func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 			EngagementAgent.shared().registerDeviceToken(deviceToken)
 		}
 
 3. 다음과 같이 `didReceiveRemoteNotification:fetchCompletionHandler:` 메서드를 추가합니다.
 
-		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-		{
+		func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
 		}
 
@@ -203,4 +206,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

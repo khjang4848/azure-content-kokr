@@ -132,7 +132,7 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
 | 별칭 이름 | 설명 |
 | ---------- | ----------- |
-| {resourceType}/sku.name | 지원되는 리소스 종류: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | 지원되는 리소스 유형: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
 | {resourceType}/sku.family | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | 지원되는 리소스 종류: Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -414,6 +414,27 @@ HTTP PUT을 사용하여 리소스 생성 또는 템플릿 배포가 발생하�
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
+### Azure CLI를 사용하여 정책 정의 만들기
+
+아래와 같이 정책 정의 명령과 함께 azure CLI를 사용하여 새 정책 정의를 만들 수 있습니다. 아래 예제는 북유럽과 서유럽에서만 리소스를 허용하기 위한 정책을 만듭니다.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    
+    
+
+아래 나와 있는 것처럼 정책 인라인을 지정하지 않고 정책이 포함된 .json 파일에 대한 경로를 지정할 수 있습니다.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
+
 
 ## 정책 적용
 
@@ -456,17 +477,46 @@ Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition 및 Remove-AzureRmPolic
 
 마찬가지로 Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment 및 Remove-AzureRmPolicyAssignment cmdlet을 통해 각각 정책 할당을 가져오거나 변경 또는 제거할 수 있습니다.
 
+### Azure CLI를 사용하여 정책 할당
+
+Azure CLI를 통해 위에서 만든 정책을 아래 나와 있는 것처럼 정책 할당 명령을 사용하여 원하는 범위에 적용할 수 있습니다.
+
+    azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+여기서 범위는 지정하는 리소스 그룹의 이름입니다. 매개 변수 정책 정의 ID 값을 알 수 없는 경우 아래와 같이 Azure CLI를 통해 얻을 수 있습니다.
+
+    azure policy definition show <policy-name>
+
+위의 정책 할당을 제거하려는 경우 다음과 같이 수행하면 됩니다.
+
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+정책 정의 표시, 설정 및 삭제 명령 각각을 통해 정책 정의를 가져오거나, 변경하거나 또는 제거할 수 있습니다.
+
+마찬가지로 정책 할당 표시 및 삭제 명령 각각을 통해 정책 할당을 가져오거나 변경하거나 제거할 수 있습니다.
+
 ##정책 감사 이벤트
 
-정책을 적용한 후 정책 관련 이벤트를 보려면 시작합니다. 포털로 이동하거나 PowerShell을 사용하여 이 데이터를 가져올 수 있습니다.
+정책을 적용한 후 정책 관련 이벤트를 보려면 시작합니다. 포털로 이동하거나 PowerShell 또는 Azure CLI를 사용하여 이 데이터를 가져올 수 있습니다.
 
-거부 효과와 관련된 모든 이벤트를 보려면 다음 명령을 사용합니다.
+### PowerShell을 사용하여 정책 감사 이벤트
+
+거부 효과와 관련된 모든 이벤트를 보려면 다음 PowerShell 명령을 사용할 수 있습니다.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 감사 효과와 관련된 모든 이벤트를 보려면 다음 명령을 사용합니다.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
-    
 
-<!---HONumber=AcomDC_0810_2016-->
+### Azure CLI를 사용하여 정책 감사 이벤트
+
+거부 효과와 관련된 리소스 그룹의 모든 이벤트를 보려면 다음 CLI 명령을 사용할 수 있습니다.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
+
+감사 효과와 관련된 모든 이벤트를 보려면 다음 CLI 명령을 사용할 수 있습니다.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
+
+<!---HONumber=AcomDC_0914_2016-->

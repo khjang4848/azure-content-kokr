@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: TeamSeer와 Azure Active Directory 통합
@@ -78,7 +78,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-teamseer-tutorial/IC789628.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **TeamSeer 로그인 URL** 텍스트 상자에 다음 패턴 "**http://www.teamseer.com/companyid*"을 사용하여 URL을 입력한 다음 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **TeamSeer 로그인 URL** 텍스트 상자에 다음 패턴 "*http://www.teamseer.com/companyid*"을(를) 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-teamseer-tutorial/IC789629.png "앱 URL 구성")
 
@@ -104,12 +104,12 @@
 
     ![SAML 설정](./media/active-directory-saas-teamseer-tutorial/IC789637.png "SAML 설정")
 
-    1.  Azure 클래식 포털의 **TeamSeer에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **URL** 텍스트 상자에 붙여넣습니다.
-    2.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
+    1.  Azure 클래식 포털의 **TeamSeer에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **URL** 텍스트 상자에 붙여 넣습니다.
+    2.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
 
         >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
-    3.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **IdP 공용 인증서** 텍스트 상자에 붙여넣습니다.
+    3.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **IdP 공용 인증서** 텍스트 상자에 붙여 넣습니다.
 
 10. SMAL 공급자 구성을 완료하려면 다음 단계를 수행합니다.
 
@@ -127,7 +127,7 @@
   
 Azure AD 사용자가 TeamSeer에 로그인할 수 있도록 하려면 ShiftPlanning으로 프로비전되어야 합니다. TeamSeer의 경우 프로비전은 수동 작업입니다.
 
-###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
+###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1.  **TeamSeer** 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -143,7 +143,7 @@ Azure AD 사용자가 TeamSeer에 로그인할 수 있도록 하려면 ShiftPlan
     ![사용자 세부 정보](./media/active-directory-saas-teamseer-tutorial/IC789641.png "사용자 세부 정보")
 
     1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름**, **성**, **사용자 이름(전자 메일 주소)**을 입력합니다.
-    2.  **다음**을 클릭합니다.
+    2.  **Next**를 클릭합니다.
 
 4.  새 사용자를 추가하기 위한 화면의 지시를 따르고 **마침**을 클릭합니다.
 
@@ -167,4 +167,4 @@ Azure AD 사용자가 TeamSeer에 로그인할 수 있도록 하려면 ShiftPlan
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

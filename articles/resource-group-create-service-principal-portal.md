@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
 # 포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기
@@ -118,7 +118,7 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 
 1. **응용 프로그램 추가**를 선택합니다.
 
-2. 목록에서 **Microsoft Azure Service Management API** 를 선택합니다. 그런 후 완료 아이콘을 선택합니다.
+2. 목록에서 **Microsoft Azure Service Management API**를 선택합니다. 그런 후 완료 아이콘을 선택합니다.
 
       ![앱 선택](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -148,9 +148,23 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 
      응용 프로그램에 대한 액세스 권한을 부여하는 데 필요한 사용 권한이 없는 경우 사용자 액세스 관리자 역할에 추가해 달라고 구독 관리자에게 요청하거나 응용 프로그램에 대한 액세스 권한을 부여해 달라고 관리자에게 요청해야 합니다.
 
-1. 응용 프로그램을 할당하려는 범위 수준으로 이동합니다. 이 토픽의 경우 리소스 그룹으로 이동한 다음 리소스 그룹 블레이드에서 **액세스 제어**를 선택합니다.
+1. 응용 프로그램을 할당하려는 범위 수준으로 이동합니다. 구독 범위에서 역할을 할당하려면 **구독**을 선택합니다.
+
+     ![구독 선택](./media/resource-group-create-service-principal-portal/select-subscription.png)
+
+     응용 프로그램을 할당할 특정 구독을 선택합니다.
+
+     ![할당을 위한 구독 선택](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+
+     오른쪽 위 모퉁이에서 **액세스** 아이콘을 선택합니다.
+
+     ![액세스 선택](./media/resource-group-create-service-principal-portal/select-access.png)
+     
+     또는 리소스 그룹 범위에서 역할을 할당하려면 리소스 그룹으로 이동합니다. 리소스 그룹 블레이드에서 **액세스 제어**를 선택합니다.
 
      ![사용자 선택](./media/resource-group-create-service-principal-portal/select-users.png)
+
+     다음 단계는 모든 범위에서 동일합니다.
 
 2. **추가**를 선택합니다.
 
@@ -208,4 +222,4 @@ PowerShell을 통해 테넌트 ID를 검색할 수도 있습니다.
 - 보안 정책 지정에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어](./active-directory/role-based-access-control-configure.md)를 참조하세요.
 - 이러한 단계에 대한 비디오 데모를 보려면 [Azure Active Directory에서 Azure 리소스의 프로그래밍 방식 관리 활성화](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory)를 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -23,6 +23,7 @@
 - 공용 인증서는 CA(인증 기관)에서 구입해야 합니다
 - 개인 인증서는 직접 발행할 수 있습니다. 이러한 인증서를 자체 서명된 인증서라고도 합니다.
 
+
 ## 인증서란?
 인증서는 전자 통신에서 참가자의 ID를 확인하고 전자 통신을 보호하는 데 사용하는 디지털 문서입니다.
 
@@ -36,7 +37,7 @@
 ### 공용 인증서
 B2B 기능이 포함된 논리 앱에서 **공용 인증서**를 사용하려면 먼저 통합 계정에 업로드해야 합니다. 다른 한편 **자체 서명된 인증서**를 사용하려면 먼저 [주요 자격 증명 모음](../key-vault/key-vault-get-started.md "주요 자격 증명 모음에 대해 알아보기")을 업로드해야 합니다.
 
-인증서를 업로드한 후에 만든 [규약](./app-service-logic-enterprise-integration-agreements.md)에서 해당 속성을 정의하는 경우 B2B 메시지를 보호하는 데 사용할 수 있습니다.
+인증서를 업로드한 후에 [규약](./app-service-logic-enterprise-integration-agreements.md)에서 해당 속성을 정의하는 경우 B2B 메시지를 보호하는 데 사용할 수 있습니다.
 
 Azure Portal에 로그인한 후에 통합 계정에 공용 인증서를 업로드하는 자세한 단계는 다음과 같습니다.
 1. **찾아보기**를 선택합니다. ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
@@ -49,6 +50,7 @@ Azure Portal에 로그인한 후에 통합 계정에 공용 인증서를 업로�
 8. **인증서 타일**을 선택합니다. 페이지를 새로 고친 후에 새로 추가된 인증서가 표시되어야 합니다. ![](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)
 
 ### 개인 인증서
+
 또한 다음 단계를 수행하여 통합 계정에 개인 인증서를 업로드할 수 있습니다.
 
 1. [개인 키를 주요 자격 증명 모음에 업로드](../key-vault/key-vault-get-started.md "주요 자격 증명 모음에 대해 알아보기")
@@ -61,6 +63,7 @@ Azure Portal에 로그인한 후에 통합 계정에 공용 인증서를 업로�
 위의 단계를 완료한 후에 개인 인증서를 사용하여 규약을 만들 수 있습니다.
 
 Azure Portal에 로그인한 후에 통합 계정에 개인 인증서를 업로드하는 자세한 단계는 다음과 같습니다.
+   
 1. **찾아보기**를 선택합니다. ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. 필터 검색 상자에 **통합**을 입력하고 결과 목록에서 **통합 계정**을 선택합니다. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. 인증서를 추가할 **통합 계정**을 선택합니다. ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
@@ -78,4 +81,4 @@ Azure Portal에 로그인한 후에 통합 계정에 개인 인증서를 업로�
 - [B2B 규약 만들기](./app-service-logic-enterprise-integration-agreements.md)
 - [주요 자격 증명 모음에 대해 자세히 알아보기](../key-vault/key-vault-get-started.md "주요 자격 증명 모음에 대해 알아보기")
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

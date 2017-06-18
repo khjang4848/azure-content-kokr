@@ -3,7 +3,7 @@
 	description="Linux 기반 HDInsight에서 Java MapReduce 프로그램을 개발하여 Linux 기반 HDInsight로 배포하는 방법에 대해 알아봅니다."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="Blackmist"
 	documentationCenter=""
 	tags="azure-portal"/>
@@ -288,4 +288,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

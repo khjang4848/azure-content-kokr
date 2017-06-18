@@ -24,8 +24,6 @@ Azure 포털을 사용하여 Azure 데이터 레이크 분석 계정을 만들�
 
 이 자습서에서는 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환하는 작업을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 탭을 클릭하세요. 첫 번째 작업이 완료되면 U-SQL로 더 복잡한 데이터 변환 작성을 시작할 수 있습니다.
 
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
-
 ##필수 조건
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -156,4 +154,4 @@ Azure 포털은 검색 로그 파일을 포함하는 기본 데이터 레이크 
 - 다른 도구를 사용하여 같은 자습서를 보려면 페이지 맨 위의 탭 선택기를 클릭합니다.
 - 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!-----HONumber=AcomDC_0921_2016-->

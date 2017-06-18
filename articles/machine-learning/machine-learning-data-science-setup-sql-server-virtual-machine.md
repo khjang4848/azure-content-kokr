@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # 고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook으로 설정
 
-이 항목에서는 클라우드 기반 데이터 과학 환경의 일부로 사용할 SQL Server 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure 저장소 탐색기 및 AzCopy와 같은 지원 도구뿐만 아니라 데이터 과학 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
+이 토픽에서는 클라우드 기반 데이터 과학 환경의 일부로 사용할 SQL Server 가상 컴퓨터를 프로비전 및 구성하는 방법을 보여 줍니다. Windows 가상 컴퓨터는 IPython Notebook, Azure 저장소 탐색기 및 AzCopy와 같은 지원 도구뿐만 아니라 데이터 과학 프로젝트에 유용한 기타 유틸리티로 구성됩니다. 예를 들어 Azure 저장소 탐색기와 AzCopy는 로컬 컴퓨터에서 Azure Blob 저장소로 데이터를 업로드하거나 Blob 저장소에서 로컬 컴퓨터로 데이터를 다운로드하는 데 편리한 방법을 제공합니다.
 
 Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 있습니다. 데이터 요구 사항에 적합한 SQL Server VM 이미지를 선택하세요. 권장 이미지는 다음과 같습니다.
 
@@ -90,7 +90,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
 3.  **Windows 보안** 대화 상자에서, 이전 단계에서 지정한 로컬 관리자 계정의 암호를 입력합니다. 가상 컴퓨터의 자격 증명을 확인하도록 요청될 수도 있습니다.
 
-4.  이 가상 컴퓨터에 처음 로그온하는 경우 데스크톱 설정, Windows 업데이트 및 Windows 초기 구성 작업(sysprep) 완료를 포함하여 여러 프로세스를 완료해야 할 수 있습니다. Windows sysprep이 완료되면 SQL Server 설치 프로세스에서 구성 작업을 완료합니다. 이러한 작업으로 인해 완료되는 동안 잠시 지연이 발생할 수 있습니다. SQL Server 설치가 완료될 때까지 `SELECT @@SERVERNAME`에서 올바른 이름을 반환하지 못할 수 있으며, SQL Server Management Studio가 시작 페이지에 표시되지 않을 수 있습니다.
+4.  이 가상 컴퓨터에 처음 로그온하는 경우 데스크톱 설정, Windows 업데이트 및 Windows 초기 구성 작업(sysprep) 완료를 포함하여 여러 프로세스를 완료해야 할 수 있습니다. Windows sysprep가 완료되면 SQL Server 설치 프로세스에서 구성 작업을 완료합니다. 이러한 작업으로 인해 완료되는 동안 잠시 지연이 발생할 수 있습니다. SQL Server 설치가 완료될 때까지 `SELECT @@SERVERNAME`에서 올바른 이름을 반환하지 못할 수 있으며, SQL Server Management Studio가 시작 페이지에 표시되지 않을 수 있습니다.
 
 Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 가상 컴퓨터는 다른 컴퓨터와 상당히 유사하게 작동합니다. SQL Server Management Studio(가상 컴퓨터에서 실행 중인)가 설치되어 있는 기본 SQL Server 인스턴스에 일반적인 방식으로 연결합니다.
 
@@ -139,7 +139,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
     처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2.  Management Studio를 열면 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 **VM\_이름**\\로컬\_관리자*를 그대로 둡니다. **Connect**를 클릭합니다.
+2.  Management Studio를 열면 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 ***VM\_이름**\\로컬\_관리자*를 그대로 둡니다. **Connect**를 클릭합니다.
 
     ![서버에 연결][6]
 
@@ -219,7 +219,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 11. 처음 로그인을 만드는 경우 이 로그인을 SQL Server 관리자로 지정할 수 있습니다. 그렇게 하는 경우 **서버 역할** 페이지에서 **sysadmin**을 선택합니다.
 
-    **보안 정보:** sysadmin 고정 서버 역할의 구성원은 데이터베이스 엔진을 완전히 제어할 수 있습니다. 따라서 이 역할의 구성원은 신중하게 제한해야 합니다.
+    > [AZURE.IMPORTANT] sysadmin 고정 서버 역할의 구성원은 데이터베이스 엔진을 완전히 제어할 수 있습니다. 보안상의 이유로 이 역할의 구성원은 신중하게 제한해야 합니다.
 
     ![sysadmin][12]
 
@@ -251,7 +251,7 @@ SQL Server Management Studio를 사용하여 새 SQL Server 로그인을 만들�
 
 ##<a name="amlconnect"></a>Azure 기계 학습에서 데이터베이스 엔진에 연결
 
-팀 데이터 과학 프로세스의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net)를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 실험에서 **데이터 가져오기** 모듈을 사용합니다. 이 항목은 팀 데이터 과학 프로세스 가이드 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
+팀 데이터 과학 프로세스의 이후 단계에서는 [Azure 기계 학습 스튜디오](https://studio.azureml.net)를 사용하여 기계 학습 모델을 빌드 및 배포합니다. 학습 또는 점수 매기기를 위해 SQL Server VM 데이터베이스에서 직접 Azure 기계 학습으로 데이터를 수집하려면 새 [Azure 기계 학습 스튜디오](https://studio.azureml.net) 실험에서 **데이터 가져오기** 모듈을 사용합니다. 이 토픽은 팀 데이터 과학 프로세스 가이드 링크를 통해 보다 자세히 다룹니다. 지침은 [Azure 기계 학습 스튜디오란?](machine-learning-what-is-ml-studio.md)을 참조하세요.
 
 2.	[데이터 가져오기 모듈](https://msdn.microsoft.com/library/azure/dn905997.aspx)의 **속성** 창에 있는 **데이터 원본** 드롭다운 목록에서 **Azure SQL 데이터베이스**를 선택합니다.
 
@@ -271,7 +271,7 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 가상 컴퓨터를 종료하고 할당을 해제하려면 다음을 수행합니다.
 
-1. 사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다.  
+1. 사용자 계정을 사용하여 [Azure 클래식 포털](http://manage.windowsazure.com/)에 로그인합니다.
 
 2. 왼쪽 탐색 모음에서 **가상 컴퓨터**를 선택합니다.
 
@@ -306,4 +306,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

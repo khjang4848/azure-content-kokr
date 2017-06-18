@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="09/09/2016" 
 	ms.author="jgao"/>
 
 # HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석
@@ -95,9 +95,9 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 1. [Twitter Apps](https://apps.twitter.com/)에 로그인합니다. Twitter 계정이 없는 경우 **Sign up now** 링크를 클릭합니다.
 2. **Create New App**을 클릭합니다.
-3. **Name**, **Description** 및 **Website**를 입력합니다. Twitter 응용 프로그램 이름은 고유해야 합니다. 웹 사이트 필드는 실제로 사용되지는 않으므로 유효한 URL을 입력하지 않아도 됩니다. 
+3. **Name**, **Description** 및 **Website**를 입력합니다. Twitter 응용 프로그램 이름은 고유해야 합니다. 웹 사이트 필드는 실제로 사용되지는 않으므로 유효한 URL을 입력하지 않아도 됩니다.
 4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
-5. **Permissions** 탭을 클릭합니다. 기본 권한은 **Read only**입니다. 이 자습서에는 이 권한이면 충분합니다. 
+5. **Permissions** 탭을 클릭합니다. 기본 권한은 **Read only**입니다. 이 자습서에는 이 권한이면 충분합니다.
 6. **Keys and Access Tokens** 탭을 클릭합니다.
 7. **Create my access token**을 클릭합니다.
 8. 페이지의 오른쪽 위에서 **Test OAuth**를 클릭합니다.
@@ -140,24 +140,29 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **스트리밍 응용 프로그램을 만들려면**
 
-1. **Visual Studio**를 열고 **TweetSentimentStreaming**이라는 Visual C# 콘솔 응용 프로그램을 만듭니다. 
+1. **Visual Studio**를 열고 **TweetSentimentStreaming**이라는 Visual C# 콘솔 응용 프로그램을 만듭니다.
 2. **패키지 관리자 콘솔**에서 다음 명령을 실행합니다.
 
-		Install-Package Microsoft.HBase.Client
-		Install-Package TweetinviAPI
-    이러한 명령으로 [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) 패키지(HBase 클러스터에 액세스하기 위한 클라이언트 라이브러리) 및 [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/) 패키지(Twitter API에 액세스하는 데 사용)를 설치합니다.
-3. **솔루션 탐색기**에서 **System.Configuration**을 참조에 추가합니다.
-4. 프로젝트에 **HBaseWriter.cs**라는 새 클래스 파일을 추가하고 코드를 다음과 같이 바꿉니다.
+		Install-Package Microsoft.HBase.Client -version 0.4.2.0
+		Install-Package TweetinviAPI -version 1.0.0.0
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.IO;
-        using System.Threading;
-        using Microsoft.HBase.Client;
-        using Tweetinvi.Core.Interfaces;
-        using org.apache.hadoop.hbase.rest.protobuf.generated;
+	이러한 명령으로 [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) 패키지(HBase 클러스터에 액세스하기 위한 클라이언트 라이브러리) 및 [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/) 패키지(Twitter API에 액세스하는 데 사용)를 설치합니다.
+
+	> [AZURE.NOTE] 이 문서에서 사용된 샘플은 위에 지정 된 버전을 사용하여 테스트되었습니다. -version 스위치를 제거하면 최신 버전을 설치할 수 있습니다.
+
+3. **솔루션 탐색기**에서 **System.Configuration**을 참조에 추가합니다.
+4. 새로운 **HBaseWriter.cs** 클래스 파일을 프로젝트에 추가하고 다음과 같은 코드로 바꿉니다.
+
+		using System;
+		using System.Collections.Generic;
+		using System.IO;
+		using System.Linq;
+		using System.Text;
+		using System.Threading;
+		using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
+		using org.apache.hadoop.hbase.rest.protobuf.generated;
+		using Microsoft.HBase.Client;
+		using Tweetinvi.Models;
 
         namespace TweetSentimentStreaming
         {
@@ -167,7 +172,12 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
                 const string CLUSTERNAME = "https://<Enter Your Cluster Name>.azurehdinsight.net/";
                 const string HADOOPUSERNAME = "admin"; //the default name is "admin"
                 const string HADOOPUSERPASSWORD = "<Enter the Hadoop User Password>";
+
                 const string HBASETABLENAME = "tweets_by_words";
+				const string COUNT_ROW_KEY = "~ROWCOUNT";
+				const string COUNT_COLUMN_NAME = "d:COUNT";
+        		
+				long rowCount = 0;
 
                 // Sentiment dictionary file and the punctuation characters
                 const string DICTIONARYFILENAME = @"..\..\dictionary.tsv";
@@ -198,9 +208,12 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
                         TableSchema tableSchema = new TableSchema();
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
-                        client.CreateTableAsync(tableSchema).Wait;
+						client.CreateTableAsync(tableSchema).Wait();
                         Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
                     }
+
+					// Read current row count cell
+            		rowCount = GetRowCount();
 
                     // Load sentiment dictionary from a file
                     LoadDictionary();
@@ -214,6 +227,38 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
                 {
                     threadRunning = false;
                 }
+
+				private long GetRowCount()
+				{
+					try
+					{
+						RequestOptions options = RequestOptions.GetDefaultOptions();
+						options.RetryPolicy = RetryPolicy.NoRetry;
+						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY, null, null, options).Result;
+						if (cellSet.rows.Count != 0)
+						{
+							var countCol = cellSet.rows[0].values.Find(cell => Encoding.UTF8.GetString(cell.column) == COUNT_COLUMN_NAME);
+							if (countCol != null)
+							{
+								return Convert.ToInt64(Encoding.UTF8.GetString(countCol.data));
+							}
+						}
+					}
+					catch(Exception ex)
+					{
+						if (ex.InnerException.Message.Equals("The remote server returned an error: (404) Not Found.", StringComparison.OrdinalIgnoreCase))
+						{
+							return 0;
+						}
+						else
+						{
+							throw ex;
+						}
+						
+					}
+
+					return 0;
+				}
 
                 // Enqueue the Tweets received
                 public void WriteTweet(ITweet tweet)
@@ -369,12 +414,12 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 6. 이전 코드에서 **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** 및 DICTIONARYFILENAME 등의 상수를 설정합니다. DICTIONARYFILENAME은 파일 이름 및 direction.tsv의 위치입니다. 파일은 **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**에서 다운로드할 수 있습니다. HBase 테이블 이름을 변경하려면 웹 응용 프로그램에서 테이블 이름을 적절하게 변경해야 합니다.
 
-7. **Program.cs**를 열고 코드를 다음으로 바꿉니다.
+7. **Program.cs**를 열고 다음과 같은 코드로 바꿉니다.
 
         using System;
         using System.Diagnostics;
         using Tweetinvi;
-        using Tweetinvi.Core.Parameters;
+        using Tweetinvi.Models;
 
         namespace TweetSentimentStreaming
         {
@@ -400,7 +445,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
                         {
                             HBaseWriter hbase = new HBaseWriter();
                             var stream = Stream.CreateFilteredStream();
-                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90)); //Geo .GenerateLocation(-180, -90, 180, 90));
+                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90)); 
 
                             var tweetCount = 0;
                             var timer = Stopwatch.StartNew();
@@ -463,15 +508,15 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 	- 템플릿 범주: **Visual C#/웹**
 	- 템플릿: **ASP.NET 웹 응용 프로그램**
 	- 이름: **TweetSentimentWeb**
-	- 위치: **C:\\Tutorials** 
+	- 위치: **C:\\Tutorials**
 4. **확인**을 클릭합니다.
-5. **템플릿 선택**에서 **MVC**를 클릭합니다. 
+5. **템플릿 선택**에서 **MVC**를 클릭합니다.
 6. **Microsoft Azure**에서 **구독 관리**를 클릭합니다.
 7. **Microsoft Azure 구독 관리**에서 **로그인**을 클릭합니다.
-8. Azure 자격 증명을 입력합니다. 그러면 **계정** 탭에 Azure 구독 정보가 표시됩니다.
+8. Azure 자격 증명을 입력합니다. 그러면 **계정** 탭에서 Azure 구독 정보가 표시됩니다.
 9. **닫기**를 클릭하여 **Microsoft Azure 구독 관리** 창을 닫습니다.
 10. **새 ASP.NET 프로젝트 - TweetSentimentWeb**에서 **확인**을 클릭합니다.
-11. **Microsoft Azure 사이트 설정 구성**에서 현재 위치와 가장 인접한 **지역**을 선택합니다. 데이터베이스 서버는 지정하지 않아도 됩니다. 
+11. **Microsoft Azure 사이트 설정 구성**에서 현재 위치와 가장 인접한 **지역**을 선택합니다. 데이터베이스 서버는 지정하지 않아도 됩니다.
 12. **확인**을 클릭합니다.
 
 **Nuget 패키지를 설치하려면**
@@ -597,7 +642,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 4. **HBaseReader** 클래스 내에서 상수 값을 다음과 같이 변경합니다.
 
-	- **CLUSTERNAME**: HBase 클러스터 이름입니다(예: *https://<HBaseClusterName>.azurehdinsight.net/*). 
+	- **CLUSTERNAME**: HBase 클러스터 이름입니다(예: *https://<HBaseClusterName>.azurehdinsight.net/*).
     - **HADOOPUSERNAME**: HBase 클러스터 Hadoop 사용자의 사용자 이름입니다. 기본 이름은 *admin*입니다.
     - **HADOOPUSERPASSWORD**: HBase 클러스터 Hadoop 사용자의 암호입니다.
     - **HBASETABLENAME** = "tweets\_by\_words";
@@ -1099,7 +1144,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **layout.cshtml을 수정하려면**
 
-1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **공유**를 차례로 확장하고 \__**Layout.cshtml**을 두 번 클릭합니다.
+1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **공유**를 차례로 확장하고 \_**Layout.cshtml**을 두 번 클릭합니다.
 2. 파일의 내용을 다음으로 바꿉니다.
 
 		<!DOCTYPE html>
@@ -1218,7 +1263,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 2. **F5** 키를 눌러 웹 응용 프로그램을 실행합니다.
 
 	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
-2. 텍스트 상자에 키워드를 입력하고 **검색**을 클릭합니다. HBase 테이블에 수집된 데이터에 따라 일부 키워드는 검색되지 않을 수도 있습니다. "love," "xbox," "playstation" 등의 일반적인 키워드를 사용해 보세요. 
+2. 텍스트 상자에 키워드를 입력하고 **검색**을 클릭합니다. HBase 테이블에 수집된 데이터에 따라 일부 키워드는 검색되지 않을 수도 있습니다. "love," "xbox," "playstation" 등의 일반적인 키워드를 사용해 보세요.
 3. **긍정적**, **중립**, **부정적** 간을 전환하여 주제에 대한 데이터를 비교합니다.
 4. 다른 시간에 스트리밍 서비스를 실행한 다음 같은 키워드를 검색하여 결과를 비교해 봅니다.
 
@@ -1230,14 +1275,14 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 이 자습서에서는 트윗을 가져와서 트윗 데이터를 분석하고 데이터를 HBase에 저장한 다음 실시간 Twitter 데이터를 Bing 지도에 표시하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
 - [HDInsight 시작][hdinsight-get-started]
-- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
+- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md)
 - [HDInsight에서 Hadoop으로 Twitter 데이터 분석][hdinsight-analyze-twitter-data]
 - [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data]
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-tutorial-get-started.md
-[website-get-started]: ../web-sites-dotnet-get-started.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
+[website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
 
 
 
@@ -1276,4 +1321,4 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

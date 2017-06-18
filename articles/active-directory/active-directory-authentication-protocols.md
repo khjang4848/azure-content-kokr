@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory 인증 프로토콜
@@ -55,4 +55,4 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 
 [Active Directory 코드 샘플](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

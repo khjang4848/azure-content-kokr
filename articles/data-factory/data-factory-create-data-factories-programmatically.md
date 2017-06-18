@@ -13,44 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2016" 
+	ms.date="09/14/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
 ## 개요
-데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하며, 관리할 수 있습니다. 이 문서에는 데이터 팩터리를 만들고 모니터링하는 샘플 .NET 콘솔 응용 프로그램을 만들 수 있는 연습이 포함되어 있습니다. 데이터 팩터리 .NET SDK에 대한 자세한 내용은 [데이터 팩터리 클래스 라이브러리 참조][adf-class-library-reference]를 참조하세요.
-
-
+데이터 팩터리 .NET SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하며, 관리할 수 있습니다. 이 문서에는 데이터 팩터리를 만들고 모니터링하는 샘플 .NET 콘솔 응용 프로그램을 만들 수 있는 연습이 포함되어 있습니다. 데이터 팩터리 .NET SDK에 대한 자세한 내용은 [데이터 팩터리 클래스 라이브러리 참조](https://msdn.microsoft.com/library/mt415893.aspx)를 참조하세요.
 
 ## 필수 조건
 
 - Visual Studio 2012, 2013 또는 2015
-- [Azure .NET SDK][azure-developer-center] 다운로드 및 설치
+- [Azure .NET SDK](http://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
+- Azure Active Directory에 네이티브 클라이언트 응용 프로그램을 추가합니다. 응용 프로그램을 추가하는 단계는 [Azure Active Directory와 응용 프로그램 통합](../active-directory/active-directory-integrating-applications.md)을 참조하세요. **구성** 페이지에 **클라이언트 ID** 및 **URI 리디렉션**을 적어둡니다.
+- Azure **구독 ID** 및 **테넌트 ID**.얻기. 자세한 내용은 [Azure 구독 및 테넌트 ID 얻기](#get-azure-subscription-and-tenant-ids)를 참조하세요.
 - Azure Data Factory용 NuGet 패키지 다운로드 및 설치. 지침은 연습에 있습니다.
 
 ## 연습
 1. Visual Studio 2012 또는 2013을 사용하여 C# .NET 콘솔 응용 프로그램을 만듭니다.
-	<ol type="a">
-		<li><b>Visual Studio 2012</b> 또는 <b>Visual Studio 2013</b>을 시작합니다.</li>
-		<li><b>파일</b>을 클릭하고 <b>새로 만들기</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li> 
-		<li><b>템플릿</b>을 확장하고 <b>Visual C#</b>을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.</li> 
-		<li>오른쪽의 프로젝트 형식 목록에서 <b>콘솔 응용 프로그램</b>을 선택합니다.</li>
-		<li><b>DataFactoryAPITestApp</b>을 <b>이름</b>으로 입력합니다.</li> 
-		<li><b>C:\ADFGetStarted</b>를 <b>위치</b>로 선택합니다.</li>
-		<li><b>확인</b>을 클릭하여 프로젝트를 만듭니다.</li>
-	</ol>
-2. <b>도구</b>를 클릭하고 <b>NuGet 패키지 관리자</b>를 가리킨 다음 <b>패키지 관리자 콘솔</b>을 클릭합니다.
-3.	<b>패키지 관리자 콘솔</b>에서 다음 명령을 하나씩 실행합니다.</b>
+	1. **Visual Studio 2012/2013/2015**을 실행합니다.
+	2. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다.
+	3. **템플릿**을 확장하고 **Visual C#**을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
+	4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 응용 프로그램**을 선택합니다.
+	5. **DataFactoryAPITestApp**을 **이름**으로 입력합니다.
+	6. **C:\\ADFGetStarted**를 **위치**로 선택합니다.
+	7. **확인**을 클릭하여 프로젝트를 만듭니다.
+2. **도구**를 클릭하고 **NuGet 패키지 관리자**를 가리킨 다음 **패키지 관리자 콘솔**을 클릭합니다.
+3.	**패키지 관리자 콘솔**에서 다음 명령을 하나씩 실행합니다.
 
-		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-6. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이는 도우미 메서드 **GetAuthorizationHeader**에서 사용됩니다.
+			Install-Package Microsoft.Azure.Management.DataFactories
+			Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+4. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이러한 구성 값은 **GetAuthorizationHeader** 메서드가 사용합니다.
 
-	**AdfClientId**, **RedirectUri**, **SubscriptionId** 및 **ActiveDirectoryTenantId**의 값을 고유한 값으로 바꿉니다.
-
-	Login-AzureRmAccount를 사용하여 로그인한 후에 Azure PowerShell에서 **Get-AzureAccount -Format-List**를 실행하여 구독 ID 및 테넌트 ID 값을 가져올 수 있습니다(먼저 Add-AzureAccount를 사용하여 로그인해야 할 수 있음).
-
-	Azure 포털에서 AD 응용 프로그램에 대한 클라이언트 ID를 가져오고 URI를 리디렉션할 수 있습니다.
+	> [AZURE.IMPORTANT] **AdfClientId**, **RedirectUri**, **SubscriptionId** 및 **ActiveDirectoryTenantId**의 값을 고유한 값으로 대체합니다.
  
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
@@ -58,12 +52,12 @@
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
 		    <!-- Replace the following values with your own -->
-		    <add key="AdfClientId" value="Your AD application ID" />
-		    <add key="RedirectUri" value="Your AD application's redirect URI" />
+		    <add key="AdfClientId" value="Your AAD application ID" />
+		    <add key="RedirectUri" value="Your AAD application's redirect URI" />
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
-6. 다음 **using** 문을 프로젝트의 원본 파일(Program.cs)에 추가합니다.
+5. 다음 **using** 문을 프로젝트의 원본 파일(Program.cs)에 추가합니다.
 
 		using System.Threading;
 		using System.Configuration;
@@ -75,7 +69,7 @@
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. **DataPipelineManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 **Main** 메서드에 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 입력 및 출력 데이터 집합과 파이프라인을 만듭니다. 또한 이 개체를 사용하여 런타임에 데이터 집합의 조각을 모니터링합니다.
+6. **DataPipelineManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 **Main** 메서드에 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 입력 및 출력 데이터 집합과 파이프라인을 만듭니다. 또한 이 개체를 사용하여 런타임 시 데이터 집합의 조각을 모니터링합니다.
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -132,7 +126,6 @@
 	입력 Blob의 **FolderPath**는 **adftutorial/**로 설정됩니다. 여기서 **adftutorial**은 Blob 저장소에 있는 컨테이너의 이름입니다. Azure Blob 저장소에 이 컨테이너가 없는 경우 이름이 **adftutorial**인 컨테이너를 만들고 텍스트 파일을 컨테이너로 업로드합니다.
 	
 	출력 Blob의 FolderPath는 **adftutorial/apifactoryoutput/{Slice}**로 설정됩니다. 여기서 **Slice**는 **SliceStart**(각 조각의 시작 날짜-시간) 값을 기반으로 동적으로 계산됩니다.
-
  
         // create input and output datasets
         Console.WriteLine("Creating input and output datasets");
@@ -207,9 +200,9 @@
                 }
             });
 
-11. **파이프라인을 만들고 활성화**하는 다음 코드를 **Main** 메서드에 추가합니다. 이 파이프라인에는 **BlobSource**를 원본으로 사용하고 **BlobSink**를 싱크로 사용하는 **CopyActivity**가 포함되어 있습니다.
+10. **파이프라인을 만들고 활성화**하는 다음 코드를 **Main** 메서드에 추가합니다. 이 파이프라인에는 **BlobSource**를 원본으로 사용하고 **BlobSink**를 싱크로 사용하는 **CopyActivity**가 포함되어 있습니다.
 
-복사 작업이 Azure Data Factory의 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고, 안정적이고, 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
+	복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -265,9 +258,7 @@
                 }
             });
 
-	
-
-12. **Main** 메서드에 사용되는 다음 도우미 클래스를 **Program** 클래스에 추가합니다. 이 메서드는 Azure 포털에 로그인하는 데 사용하는 **사용자 이름** 및 **암호**를 입력할 수 있는 대화 상자를 표시합니다.
+11. **Main** 메서드에 사용되는 다음 도우미 클래스를 **Program** 클래스에 추가합니다. 이 메서드는 Azure 포털에 로그인하는 데 사용하는 **사용자 이름** 및 **암호**를 입력할 수 있는 대화 상자를 표시합니다.
  
 		public static string GetAuthorizationHeader()
         {
@@ -337,7 +328,7 @@
             }
         }
 
-14. **(선택 사항)** 데이터 조각의 실행 정보를 가져오는 다음 코드를 **Main** 메서드에 추가합니다.
+13. **(선택 사항)** 데이터 조각의 실행 정보를 가져오는 다음 코드를 **Main** 메서드에 추가합니다.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -369,13 +360,12 @@
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. 솔루션 탐색기에서 프로젝트(**DataFactoryAPITestApp**)를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. **System.Configuration** 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
-16. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
+14. 솔루션 탐색기에서 프로젝트(**DataFactoryAPITestApp**)를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
+15. 콘솔 응용 프로그램을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 16. Azure Blob 저장소의 adftutorial 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
         John, Doe
-		Jane, Doe
-	 
+		Jane, Doe 
 17. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 18. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory**가 다음 아티팩트로 생성되었는지 확인합니다.
 	- 연결된 서비스: **LinkedService\_AzureStorage**
@@ -383,13 +373,14 @@
 	- 파이프라인: **PipelineBlobSample**
 18. 출력 파일이 **adftutorial** 컨테이너의 **apifactoryoutput** 폴더에 만들어졌는지 확인합니다.
 
-
 ## 팝업 대화 상자 없이 로그인 
-위의 샘플 코드는 대화 상자를 시작하여 Azure 자격 증명을 입력하도록 합니다. 대화 상자를 사용하지 않고 프로그래밍 방식으로 로그인해야 하는 경우 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)을 참조하세요.
+연습에 나오는 샘플 코드는 대화 상자를 시작하여 Azure 자격 증명을 입력할 수 있게 합니다. 대화 상자를 사용하지 않고 프로그래밍 방식으로 로그인해야 하는 경우 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)을 참조하세요.
+
+> [AZURE.IMPORTANT] Azure Active Directory에 웹 응용 프로그램을 추가하고 클라이언트 ID 및 응용 프로그램의 클라이언트 암호를 적어둡니다.
 
 ### 예
 
-아래와 같이 GetAuthorizationHeaderNoPopup 메서드를 만듭니다.
+GetAuthorizationHeaderNoPopup 메서드를 만듭니다.
 
     public static string GetAuthorizationHeaderNoPopup()
     {
@@ -429,15 +420,24 @@
 		$azureAdApplication
 
 
-응용 프로그램 ID 및 암호(클라이언트 암호)을 기록해 두고 위의 코드에서 사용합니다.
+응용 프로그램 ID 및 암호(클라이언트 암호)을 기록해 두고 연습에 사용합니다.
 
-[data-factory-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
- 
-[adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
-[azure-developer-center]: http://azure.microsoft.com/downloads/
- 
+## Azure 구독 및 테넌트 ID 얻기
+컴퓨터에 Azure PowerShell의 최신 버전이 설치되어 있지 않다면, 설치하기 위해 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 문서의 지침을 따릅니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+1. Azure PowerShell을 시작하고 다음 명령을 실행합니다.
+2. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
+
+		Login-AzureRmAccount
+
+	이 계정에 연결된 Azure 구독이 하나 뿐인 경우 다음 두 단계를 수행할 필요가 없습니다.
+3. 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
+
+		Get-AzureRmSubscription
+4. 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **NameOfAzureSubscription**을 Azure 구독의 이름으로 바꿉니다.
+
+		Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext 
+
+**SubscriptionId** 및 **TenantId** 값을 적어둡니다.
+
+<!---HONumber=AcomDC_0914_2016-->

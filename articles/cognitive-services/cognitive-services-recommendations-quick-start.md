@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -168,4 +168,4 @@ Recommendations API는 좋은 제품을 추천하기 위해 카탈로그 및 트
 ### 다음 작업
 여기까지 잘 따라오신 분들에게 박수를 보냅니다! 좀 더 자세히 배우고 싶은 분들은 [Recommendations API 참조](http://go.microsoft.com/fwlink/?LinkId=759348)를 방문하시고, 질문이 있다면 주저 말고 mlapi@microsoft.com으로 문의하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/14/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
-# Azure 미디어 서비스 분석 개요
+# Azure 미디어 서비스 분석 개요 | Microsoft Azure
 
 ##개요
 
@@ -45,6 +45,8 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
 - **광학 문자 인식** - Azure 미디어 분석 OCR(광학 문자 인식)을 사용하면 비디오 파일의 텍스트 콘텐츠를 편집 및 검색 가능한 디지털 텍스트로 변환할 수 있습니다. 이 방법을 사용하면 미디어의 비디오 신호에서 의미 있는 메타데이터를 자동으로 추출할 수 있습니다.
  
+- **확장성 있는 얼굴 편집** - **Azure Media Redactor**는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 Azure Media Analytics MP입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이](media-services-face-redaction.md) 문서를 참조하세요.
+
  
 ## 일반적인 시나리오
 
@@ -127,7 +129,9 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
 [Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-##미디어 서비스 학습 경로
+##다음 단계
+
+미디어 서비스 학습 경로를 검토합니다.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -135,7 +139,7 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##관련된 문서
+##관련 문서
 
 [미디어 서비스 분석 알림](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)
   
@@ -144,4 +148,4 @@ Azure 미디어 분석을 통해 개발자는 제한된 규모로 비디오에 �
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -40,8 +40,7 @@ PowerShell을 사용하여 SAS URL을 생성할 수 있습니다. 이 문서에�
 		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
 
 		$blobContainerName = "<name of blob container for app backups>"
-		$token = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
-		$sasUrl = $context.BlobEndPoint + $blobContainerName + $token
+		$sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## Azure PowerShell 1.3.2 이상 설치
 
@@ -153,4 +152,4 @@ Remove-AzureRmWebAppBackup cmdlet으로 백업 개체를 파이프하여 삭제�
 		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
 		$backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

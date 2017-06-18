@@ -2,7 +2,7 @@
 	pageTitle="HDInsight에서 Hadoop Sqoop 사용 | Microsoft Azure"
 	description="HDInsight .NET SDK를 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 사이에서 Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-   ms.date="06/28/2016"
+   ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 #HDInsight에서 Hadoop용 .NET SDK를 사용하여 Sqoop 작업 실행
@@ -122,4 +122,4 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 - [HDInsight를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md): Hive를 사용하여 비행 지연 데이터를 분석한 후 Sqoop을 사용하여 데이터를 Azure SQL 데이터베이스로 내보냅니다.
 - [HDInsight에 데이터 업로드](hdinsight-upload-data.md): HDInsight/Azure Blob 저장소에 데이터를 업로드하는 다른 방법을 찾습니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

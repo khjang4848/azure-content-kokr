@@ -3,9 +3,9 @@
 	description="Python용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화를 지원합니다."
 	services="storage"
 	documentationCenter="python"
-	authors="rickle-msft"
-	manager="carmonm"
-	editor=""/>
+	authors="dineshmurthy"
+	manager="jahogg"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="t-rickle"/>
+	ms.date="09/20/2016"
+	ms.author="dineshm;robinsh"/>
 
 
 # Microsoft Azure Storage용 Python을 이용한 클라이언트쪽 암호화
@@ -226,4 +226,4 @@ queueservice 개체에 대해 암호화 정책 필드를 설정합니다. 다른
 - [Java PyPi 패키지에 대한 Azure 저장소 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage) 다운로드
 - GitHub에서 [Python 소스 코드용 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python) 다운로드
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

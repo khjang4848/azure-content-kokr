@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="09/13/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 # 초급자를 위한 데이터 과학 비디오 1: 데이터 과학으로 답변할 수 있는 5가지 질문
@@ -25,7 +25,7 @@
 
 > [AZURE.VIDEO data-science-for-beginners-series-the-5-questions-data-science-answers]
 
-## 시리즈의 다른 비디오
+## 이 시리즈의 다른 비디오
 
 *초급자를 위한 데이터 과학*은 총 25분 동안 데이터 과학을 간략히 소개합니다. 다른 4개의 비디오를 확인해 보세요.
 
@@ -105,7 +105,7 @@
   *	다음 화요일의 기온은 얼마나 될까요?
   *	4사분기 매출은 얼마나 될까요?
 
-수치를 요구할 수 있는 질문에 답변하는 데 도움이 됩니다.
+수치를 요구하는 질문에 답변하는 데 도움이 됩니다.
 
 ## 질문 4: 어떻게 구성되어 있나요?에서는 클러스터링 알고리즘을 사용합니다.
 
@@ -151,4 +151,4 @@
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

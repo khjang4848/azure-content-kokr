@@ -22,7 +22,7 @@ Microsoft Azure는 공용 클라우드용 Microsoft 응용 프로그램 플랫�
 
 **이 문서를 읽는 방법**
 
-Azure는 계속 확장되고 있으므로 너무 많은 서비스를 포함할 수 있습니다. 기본 서비스는 백서 앞부분에 나와 있습니다. 우선 기본 서비스를 읽고 나서 추가 서비스를 살펴보세요. 그러나 추가 서비스만 단독으로 사용할 수 없다는 의미는 아니며 단지 기본 서비스가 Azure에서 실행되는 응용 프로그램의 핵심을 구성한다는 것입니다.
+Azure는 계속 확장되고 있으므로 너무 많은 서비스를 포함할 수 있습니다. 이 문서에서는 먼저 나열되는 기본 서비스를 시작한 다음 추가 서비스를 계속합니다. 그러나 추가 서비스만 단독으로 사용할 수 없다는 의미는 아니며 단지 기본 서비스가 Azure에서 실행되는 응용 프로그램의 핵심을 구성한다는 것입니다.
 
 **사용자 의견 제공**
 
@@ -33,7 +33,7 @@ Microsoft는 사용자의 의견을 소중하게 생각합니다. 이 문서는 
 
 Azure는 [Azure 인포그래픽 정의](https://azure.microsoft.com/documentation/infographics/azure/)와 같은 다양한 시각적 보조 기능 및 관리 포털의 범주로 서비스를 그룹화합니다. 관리 포털은 전부는 아니지만 대부분의 Azure 서비스를 관리하는 포털입니다.
 
-이 백서에서는 **다른 조직**을 사용하여 비슷한 기능을 기반으로 하는 서비스에 대해 설명하고 대규모 서비스를 구성하는 중요 하위 서비스에 대해서도 살펴봅니다.
+이 문서에서는 **다른 조직**을 사용하여 비슷한 기능을 기반으로 하는 서비스에 대해 설명하고 대규모 서비스를 구성하는 중요 하위 서비스에 대해서도 살펴봅니다.
 
 ![Azure 구성 요소](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png) *그림: Azure는 Azure 데이터 센터에서 실행되는 인터넷 액세스가 가능한 응용 프로그램 서비스를 제공합니다.*
 
@@ -606,4 +606,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

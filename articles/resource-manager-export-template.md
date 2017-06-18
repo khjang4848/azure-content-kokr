@@ -144,6 +144,8 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
 
 각 배포에 리소스 그룹에 대해 변경한 사항만 표시되지만 템플릿을 내보내 전체 리소스 그룹의 특성을 표시할 수 있습니다.
 
+> [AZURE.NOTE] 200개 이상의 리소스가 있는 리소스 그룹에 대한 템플릿을 내보낼 수 없습니다.
+
 1. 리소스 그룹에 대한 템플릿을 보려면 **자동화 스크립트**를 선택합니다.
 
       ![리소스 그룹 내보내기](./media/resource-manager-export-template/export-resource-group.png)
@@ -343,4 +345,4 @@ Resource Manager를 사용하면 구독의 기존 리소스에서 Resource Manag
 - PowerShell을 통해 템플릿을 내보내는 방법을 알아보려면 [Azure Resource Manager에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 - Azure CLI를 통해 템플릿을 내보내는 방법은 [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -3,7 +3,7 @@
 	description="회사 브랜딩을 Azure 로그인 페이지 및 액세스 패널 페이지에 추가하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="curtand"
 	manager="femila"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2016"
-	ms.author="MarkVi"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # 로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
 
@@ -25,12 +25,12 @@
 
 - **액세스 패널 페이지** - 액세스 패널은 Azure AD 관리자가 사용자에게 액세스 권한을 부여한 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. 액세스 패널에 액세스하려면 다음 URL을 사용합니다. [https://myapps.microsoft.com](https://myapps.microsoft.com)
 
-이 토픽에서는 로그인 페이지와 액세스 패널 페이지를 사용자 지정하는 방법을 설명합니다.
+이 항목에서는 로그인 페이지와 액세스 패널 페이지를 사용자 지정하는 방법을 설명합니다.
 
 > [AZURE.NOTE]
 >
-- 회사 브랜딩은 Azure Active Directory Premium 또는 Basic 버전으로 업그레이드한 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
-- Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
+- 회사 브랜딩은 Azure Active Directory의 Premium 또는 Basic Edition으로 업그레이드하거나 Office 365 사용자인 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
+- 중국 고객의 경우 전 세계의 Azure Active Directory 인스턴스를 사용하여 Azure Active Directory Premium 및 Basic 버전을 사용할 수 있습니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
 
 
 
@@ -52,11 +52,11 @@ https://outlook.com/**contoso**.com 또는 https://mail.**contoso**.com와 같�
 
 이 페이지에 회사 브랜드, 색 및 기타 사용자지정 가능한 요소를 표시하려면 다음 이미지를 참조하여 두 환경의 차이를 이해하세요.
 
-다음 스크린샷은 사용자 지정을 하기 **전에** 데스크톱 컴퓨터에서 Office 365 로그인 페이지에 대한 예제를 보여줍니다.
+다음 스크린샷은 사용자 지정을 하기 **전에** 데스크톱 컴퓨터에서 Office 365 로그인 페이지에 대한 예제를 보여 줍니다.
 
 ![사용자 지정하기 전 Office 365 로그인 페이지][1]
 
-다음 스크린샷은 사용자 지정 **후** 데스크톱 컴퓨터 Office 365 로그인 페이지의 예제를 보여줍니다.
+다음 스크린샷은 사용자 지정 **후** 데스크톱 컴퓨터 Office 365 로그인 페이지의 예제를 보여 줍니다.
 
 ![사용자 지정한 후 Office 365 로그인 페이지][2]
 
@@ -147,7 +147,7 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 2. **특정 언어에 대한 브랜딩 추가**를 클릭합니다.
 3. 로고를 사용자 지정할 언어를 선택한 후 **다음**을 클릭합니다.
 3. 언어별 재정의를 구성하려는 요소만 편집합니다. 모든 필드는 선택 사항입니다. 필드를 비워 두면 사용자 지정 기본값이 대신 표시되거나, 사용자 지정 기본값이 구성되지 않은 경우에는 Microsoft 기본값이 표시됩니다.
-4. **저장**을 클릭합니다.
+4. **Save**를 클릭합니다.
 
 **디렉터리에서 회사 브랜딩을 제거하려면 다음 단계를 수행합니다.**
 
@@ -164,7 +164,7 @@ Azure 클래식 포털에서 디렉터리당 하나의 기본 사용자 지정 �
 
     c. 모든 텍스트 상자에서 텍스트를 제거합니다.
 
-    d. **다음**을 클릭합니다.
+    d. **Next**를 클릭합니다.
 
     e. 모든 텍스트 상자에서 텍스트를 제거합니다.
 
@@ -219,4 +219,4 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # 앱 등록 참조
@@ -42,4 +42,4 @@ Live SDK 지원을 사용하지 않도록 설정하면 응용 프로그램 암�
 
 Azure AD v2.0 끝점만 사용하려면 안전하게 Live SDK 지원을 사용하지 않도록 설정할 수 있습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -110,7 +110,7 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
     
     **Execute Windows batch command**에 대해 스크립트를 입력한 **명령** 섹션 아래에는 Jenkins에 의해 인식되는 환경 변수에 대한 링크가 있습니다. 환경 변수 이름과 설명을 알아보려면 이 링크를 클릭합니다. **BUILD\_URL** 환경 변수와 같은 특수 문자가 포함된 환경 변수는 컨테이너 이름이나 일반 가상 경로로 사용할 수 없습니다.
 
-8. 이 예의 경우 **Make new container public by default**를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이에 관한 내용은 이 항목의 범위를 벗어납니다. [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)에서 SAS에 대해 자세히 알아볼 수 있습니다.
+8. 이 예의 경우 **Make new container public by default**를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이에 관한 내용은 이 항목의 범위를 벗어납니다. [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
 9. [옵션] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면 **Clean container before uploading**을 클릭합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
 10. **List of Artifacts to upload**에 대해 **text/*.txt**를 입력합니다.
 11. **Common virtual path for uploaded artifacts**에는 이 자습서에서 사용할 **${BUILD\_ID}/${BUILD\_NUMBER}**를 입력합니다.
@@ -166,4 +166,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
 자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

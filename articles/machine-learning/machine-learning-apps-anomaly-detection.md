@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="alokkirpal" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags 
@@ -178,7 +178,7 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 |trenddetector.sensitivity|긍정적인 추세 감지에 대한 민감도. |3\.25|double|없음|3\.25-5(값이 낮을수록 높은 민감도)|
 |tspikedetector.sensitivity |TSpike 감지기의 민감도|3|정수|1-10|3-5(값이 낮을수록 높은 민감도)|
 |zspikedetector.sensitivity |ZSpike 감지기의 민감도|3|정수|1-10 |3-5(값이 낮을수록 높은 민감도)|
-|seasonality.enable|계절성 분석이 수행될지 여부|true|boolean|true, false|시계열에 종속|
+|seasonality.enable|계절성 분석이 수행될지 여부|true|부울|true, false|시계열에 종속|
 |seasonality.numSeasonality |감지할 정기적 주기의 최대 수|1|정수|1, 2|1-2|
 |seasonality.transform |이상 감지를 적용하기 전에 계절성 (및) 추세 구성 요소가 제거될지 여부|deseason|열거형|none, deseason, deseasontrend|해당 없음|
 |postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수|0|정수|0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정|해당 없음|
@@ -211,4 +211,4 @@ API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

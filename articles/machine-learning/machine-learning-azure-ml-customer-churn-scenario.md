@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="jeannt"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016" 
+	ms.date="09/20/2016" 
 	ms.author="jeannt"/>
 
 # Azure 기계 학습을 사용하여 고객 이탈 분석
 
 ##개요
-이 항목에서는 Azure 기계 학습 스튜디오를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 기계 학습을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.
+이 토픽에서는 Azure Machine Learning Studio를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 기계 학습을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.
 
 ### 감사의 말
 
@@ -55,7 +55,7 @@
 
 ![][1]
 
-이러한 미래 예측 접근법은 이탈을 처리하는 가장 좋은 방법이지만 복잡성 문제가 있습니다. 따라서 다중 모델 원형을 개발하고 모델 간의 종속성을 추적해야 합니다. 모델 간의 상호 작용은 다음 다이어그램과 같이 캡슐화할 수 있습니다.
+이러한 미래 예측 접근법은 이탈을 처리하는 가장 좋은 방법이지만 복잡성 문제가 있습니다. 따라서 다중 모델 원형을 개발하고 모델 간의 종속성을 추적해야 합니다. 모델 간의 조작은 다음 다이어그램과 같이 캡슐화할 수 있습니다.
 
 ![][2]
 
@@ -101,7 +101,7 @@
 ![][5]
 
 
-*그림 7: 데이터 원본에서 추출된 기능*
+*그림 7: 데이터 원본에서 추출된 기능*  
 > 이 데이터는 비공개 데이터이므로 모델 및 데이터를 공유할 수 없습니다. 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/): [Telco 고객 이탈](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383)의 이 샘플 실험을 참조하세요.
 > 
 > Cortana Intelligence 제품군을 사용하여 변동 분석을 구현하는 방법에 대한 자세한 내용을 알아보려면 선임 프로그램 관리자인 Wee Hyong Tok의 [이 비디오](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html)를 시청하는 것이 좋습니다.
@@ -202,20 +202,20 @@ Wikipedia의 다음 다이어그램에서는 효과적이고 이해하기 쉬운
 
 Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 사용할 수 있는 미리 정의된 모듈의 리포지토리에 사용자 지정 모듈을 추가하는 기능입니다. 이 기능은 기본적으로 라이브러리를 선택하고 수직적 시장에 대한 템플릿을 만들 기회를 제공합니다. 이는 마켓플레이스에서 Azure 기계 학습의 중요한 차별화 요소입니다.
 
-특히 빅데이터 분석과 관련된 이 항목은 나중에 설명할 기회가 있을 것입니다.
+특히 빅데이터 분석과 관련된 이 토픽은 나중에 설명할 기회가 있을 것입니다.  
 ##결론
 이 문서에서는 일반 프레임워크를 사용하여 일반적인 문제인 고객 이탈을 방지하기 위한 합리적인 접근법에 대해 설명합니다. 점수 매기기 모델의 프로토타입을 고려하고 Azure 기계 학습을 사용하여 해당 프로토타입을 구현했습니다. 마지막으로 SAS의 비슷한 알고리즘과 비교하여 프로토타입 솔루션의 정확도와 성능을 평가했습니다.
 
 **자세한 내용은 다음을 참조하세요.**
 
-이 문서가 도움이 되었나요? 사용자 의견을 보내주세요. 이 문서에 대한 평가를 1(기준 미달)-5(매우 우수) 등급으로 지정하고 이 등급을 지정한 이유를 알려주세요. 예를 들면 다음과 같습니다.
+이 문서가 도움이 되었나요? 사용자 의견을 보내주세요. 이 문서에 대한 평가를 1(기준 미달)-5(매우 우수) 등급으로 지정하고 이 등급을 지정한 이유를 알려주세요. 예:
 
 -	좋은 예제, 우수한 스크린샷, 분명한 설명 또는 다른 이유 때문에 높음 등급을 지정하고 있나요?
 -	기준 미달 예제, 애매한 스크린샷 또는 모호한 설명 때문에 낮음 등급을 지정하고 있나요?  
 
 이 사용자 의견은 릴리스되는 백서의 품질을 향상하는 데 도움이 됩니다.
 
-[사용자 의견 보내기](mailto:sqlfback@microsoft.com).
+[사용자 의견 보내기](mailto:sqlfback@microsoft.com).  
 ##참조
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.
 
@@ -225,7 +225,7 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-\[5] [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)
+\[5] [Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5)  
 ##부록
 
 ![][10]
@@ -244,4 +244,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

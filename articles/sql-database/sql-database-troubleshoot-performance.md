@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
 # SQL 데이터베이스 성능 튜닝 팁
@@ -35,4 +35,4 @@
 1.	단일 데이터베이스의 경우 필요에 따라 [서비스 계층을 변경](sql-database-scale-up.md)하여 데이터베이스 성능을 개선할 수 있습니다.
 2.	여러 데이터베이스의 경우 [탄력적 데이터베이스 풀](sql-database-elastic-pool-guidance.md)을 사용하여 리소스 규모를 자동으로 조정하는 방법을 고려합니다.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

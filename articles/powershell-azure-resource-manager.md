@@ -18,6 +18,13 @@
 
 # Azure 리소스 관리자로 Azure PowerShell 사용
 
+> [AZURE.SELECTOR]
+- [포털](azure-portal/resource-group-portal.md)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [REST API](resource-manager-rest-api.md)
+
+
 Azure Resource Manager는 Azure 리소스 수명 주기 컨트롤에 대한 현대적 접근법을 구현합니다. 개별 리소스를 만들어서 관리하는 대신 블로그, 사진 갤러리, SharePoint 포털, wiki 등의 전체 솔루션을 생각해 보십시오. 템플릿(솔루션의 선언적 표현)을 사용하여 해당 솔루션을 지원하는 데 필요한 모든 리소스가 포함된 리소스 그룹을 만듭니다. 그런 다음 해당 리소스 그룹을 논리 단위로 배포하고 관리합니다.
 
 이 자습서에서는 Azure 리소스 관리자에서 Azure PowerShell을 사용하는 방법에 대해 알아봅니다. 솔루션을 배포하고 해당 솔루션을 사용하는 과정을 안내합니다. Azure PowerShell 및 Resource Manager 템플릿을 사용하여 배포할 것입니다.
@@ -376,4 +383,4 @@ PowerShell을 통해 리소스 그룹의 현재 상태를 나타내는 템플릿
 - 프로젝트 배포의 자세한 예제를 보려면 [Azure에서 예측 가능한 방식으로 microservices 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 실패한 배포 문제 해결에 대해 알아보려면 [Azure에서 리소스 그룹 배포 문제 해결](./resource-manager-troubleshoot-deployments-powershell.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

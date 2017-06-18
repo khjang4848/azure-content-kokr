@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -272,7 +272,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
 
         azure account list
         
-    목록에서 사용하려는 구독을 선택하고 __Id__ 열을 확인합니다. 이는 __구독 ID__이며 이 문서의 대부분의 단계에 사용됩니다.
+    목록에서 사용하려는 구독을 선택하고 __Id__ 열을 확인합니다. 이 ID는 __구독 ID__이며 이 문서의 대부분의 단계에서 사용됩니다.
 
 2. Azure Active Directory에서 새 응용 프로그램을 만듭니다.
 
@@ -305,7 +305,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__과 그 안의 모든 �
         data:                      https://www.contoso.org/example
         info:    ad sp create command OK
         
-4. 이전에 반환된 __개체 ID__ 값을 사용하여 __소유자__ 역할을 서비스 주체에 할당합니다. 또한 이전에 받은 __구독 ID__를 사용해야 합니다.
+4. 이전에 반환된 __개체 ID__ 값을 사용하여 __소유자__ 역할을 서비스 주체에 할당합니다. 또한 이전에 받은 __구독 ID__도 사용해야 합니다.
     
         azure role assignment create --objectId 7dbc8265-51ed-4038-8e13-31948c7f4ce7 -o Owner -c /subscriptions/{SubscriptionID}/
         
@@ -435,4 +435,4 @@ HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하
 * [HDInsight의 Storm에서 Python 구성 요소 사용](hdinsight-storm-develop-python-topology.md)
 * [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

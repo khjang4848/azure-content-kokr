@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 컨테이너 서비스 클러스터 부하 분산 | Microsoft Azure"
-   description="Azure 컨테이너 서비스 클러스터를 부하 분산합니다."
+   pageTitle="Azure Container Service 클러스터에서 컨테이너 부하 분산 | Microsoft Azure"
+   description="Azure Container Service 클러스터에 있는 여러 컨테이너에 대한 부하 분산입니다."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,13 +18,13 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Azure 컨테이너 서비스 클러스터 부하 분산
+# Azure Container Service 클러스터에서 컨테이너 부하 분산
 
-이 문서에서는 DC/OS로 관리되는 Azure 컨테이너 서비스에 웹 프런트 엔드를 설정합니다. 또한 응용 프로그램을 확장할 수 있도록 Marathon-LB를 구성합니다.
+이 문서에서는 Marathon-LB를 사용하여 DC/OS 관리되는 Azure Container Service에서 내부 부하 분산 장치를 만드는 방법을 탐색합니다. 이렇게 하면 응용 프로그램을 수평으로 확장할 수 있습니다. 또한 이렇게 하면 부하 분산 장치를 공용 클러스터에 배치하고 응용 프로그램 컨테이너를 개인 클러스터에 배치하여 공용 및 개인 에이전트 클러스터를 활용할 수 있습니다.
 
 ## 필수 조건
 
-DC/OS Orchestrator 유형을 사용하여 [Azure 컨테이너 서비스의 인스턴스를 배포](container-service-deployment.md)하고 [클라이언트에서 클러스터에 연결할 수 있는지 확인합니다](container-service-connect.md).
+DC/OS Orchestrator 유형을 사용하여 [Azure 컨테이너 서비스의 인스턴스를 배포](container-service-deployment.md)하고 [클라이언트가 클러스터에 연결할 수 있는지 확인합니다](container-service-connect.md).
 
 ## 부하 분산
 
@@ -55,9 +55,11 @@ DC/OS CLI를 설치하고 클러스터에 연결할 수 있는지 확인한 후�
 dcos package install marathon-lb
 ```
 
+이 명령은 공용 에이전트 클러스터에 부하 분산 장치를 자동으로 설치합니다.
+
 ## 부하 분산된 웹 응용 프로그램 배포
 
-이제 marathon-lb 패키지가 있으며 다음 구성을 사용하여 간단한 웹 서버를 배포할 수 있습니다.
+이제 marathon-lb 패키지가 있으므로 부하를 분산하려는 응용 프로그램 컨테이너를 배포할 수 있습니다. 이 예에서는 다음 구성을 사용하여 간단한 웹 서버를 배포합니다.
 
 ```json
 {
@@ -94,11 +96,13 @@ dcos package install marathon-lb
 
 ```
 
-  * `HAProxy_0_VHOST` 값을 에이전트에 대한 Load Balancer의 FQDN으로 설정합니다. `<acsName>agents.<region>.cloudapp.azure.com` 양식입니다. 예를 들어 `West US` 지역에 `myacs`이라는 컨테이너 서비스 클러스터를 만든 경우 FQDN은 `myacsagents.westus.cloudapp.azure.com`이 됩니다. 또한 [Azure 포털](https://portal.azure.com)의 컨테이너 서비스에 대해 만든 리소스 그룹에서 리소스를 조사할 때 Load Balancer의 이름에 "에이전트"를 검색하여 찾을 수도 있습니다.
-  * servicePort를 10,000 이상의 포트로 설정합니다. 이 컨테이너에서 실행되는 서비스를 식별하고 marathon-lb는 이를 사용하여 균형을 조정할 서비스를 식별합니다.
-  * "외부"에 `HAPROXY_GROUP` 레이블을 설정합니다.
+  * `HAProxy_0_VHOST` 값을 에이전트에 대한 부하 분산 장치의 FQDN으로 설정합니다. `<acsName>agents.<region>.cloudapp.azure.com` 양식입니다. 예를 들어 `West US` 지역에 `myacs`이라는 컨테이너 서비스 클러스터를 만든 경우 FQDN은 `myacsagents.westus.cloudapp.azure.com`이 됩니다. 또한 [Azure Portal](https://portal.azure.com)의 컨테이너 서비스에 대해 만든 리소스 그룹에서 리소스를 조사할 때 "에이전트"를 포함한 부하 분산 장치를 검색하여 찾을 수도 있습니다.
+  * servicePort를 10,000 이상의 포트로 설정합니다. 이 컨테이너에서 실행 중인 서비스를 식별하고 marathon-lb는 이를 사용하여 균형을 조정할 서비스를 식별합니다.
+  * `HAPROXY_GROUP` 레이블을 "외부"로 설정합니다.
   * `hostPort`을 0으로 설정합니다. 이렇게 하면 해당 Marathon에서 사용 가능한 포트를 임의로 할당합니다.
   * `instances`을 만들 인스턴스 수로 설정합니다. 나중에 언제든지 확장하거나 축소할 수 있습니다.
+
+Marathon은 기본적으로 개인 클러스터를 배포합니다. 즉, 위의 배포는 부하 분산 장치를 통해서만 액세스할 수 있고 이 동작을 일반적으로 수행하려고 합니다.
 
 ### DC/OS 웹 UI를 사용하여 배포
 
@@ -137,4 +141,4 @@ Azure lb:80 -> marathon-lb:10001 -> mycontainer:233423 Azure lb:8080 -> marathon
 
 [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/)에 대한 자세한 내용은 DC/OS 설명서를 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

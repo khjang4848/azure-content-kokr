@@ -4,8 +4,8 @@
 	keywords="MFA 소개, mfa 개요, mfa 정의"
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
@@ -13,9 +13,9 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication 정의
 Multi-Factor Authentication(MFA)은 두 개 이상의 검증 방법을 사용해야 하며 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.
@@ -147,12 +147,12 @@ Azure Multi-Factor Authentication은 클라우드와 서버 모두에 대해 선
 
 Azure Multi-Factor Authentication에는 여러 가지 버전이 있기 때문에 사용하기에 적절한 버전을 파악하기 위해 몇 가지 사항을 확인해야 합니다. 이러한 사항은 다음과 같습니다.
 
--	<a href="#-1">보안을 유지하려는 대상은 무엇입니까</a>
--	<a href="#-2">사용자는 어디에 있습니까</a>
+-	[보안을 유지하려는 대상은 무엇입니까](#what-am-i-trying-to-secure)
+-	[사용자는 어디에 있습니까](#where-are-the-users-located)
 
 다음 섹션에서는 이러한 각 결정에 대한 지침을 제공합니다.
 
-<h3 id="-1">보안을 유지하려는 대상은 무엇입니까?</h3>
+### 보안을 유지하려는 대상은 무엇입니까?
 
 올바른 다단계 인증 솔루션을 결정하기 위해 먼저 두 번째 인증 방법으로 보안을 유지하려는 대상이 무엇인지 답해야 합니다. Azure에 있는 응용프로그램 입니까? 아니면 예를 들어 원격 액세스 시스템입니까? 보안을 유지하려는 대상이 무엇인지 결정하여 다단계 인증 활성화가 필요한 곳에 대한 질문의 답을 확인합니다.
 
@@ -168,7 +168,7 @@ VPN, RDG와 같은 원격 액세스| |* |
 
 
 
-<h3 id="-2">사용자는 어디에 있습니까</h3>
+### 사용자는 어디에 있습니까
 
 다음으로 사용자의 위치에 따라 사용할 올바른 솔루션과 클라우드에 있는 다중 요소 인증인지 MFA 서버를 사용한 온-프레미스인지 여부를 확인할 수 있습니다.
 
@@ -209,4 +209,4 @@ MFA 보고서 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor=""
    tags="azure-portal"/>
 
@@ -27,7 +27,7 @@
 
 ##포털의 뷰 횟수 및 메트릭 
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. Azure 검색 서비스의 서비스 대시보드를 엽니다. 홈페이지에서 서비스에 대한 타일을 찾거나 표시줄에 있는 찾아보기에서 서비스를 탐색할 수 있습니다. [서비스 만들기](search-create-service-portal.md)의 단계별 지침을 참조하십시오.
 
@@ -59,4 +59,4 @@ Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

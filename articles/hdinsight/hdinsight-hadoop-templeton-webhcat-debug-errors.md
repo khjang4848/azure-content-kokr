@@ -4,7 +4,7 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
  tags="azure-portal"/>
 
@@ -39,7 +39,7 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 
 | 설정 | 기능 | 기본값 |
 | ------- | ------------ | ------------- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] | 동시에 활성화될 수 있는 최대 작업 수(보류 또는 실행 중인) | 10000 |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] | 동시에 활성화될 수 있는 최대 작업 수(보류 또는 실행 중인) | 10,000 |
 | [templeton.exec.max-procs][max-procs] | 동시에 제공 될 수 있는 최대 요청 수 | 20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] | 작업 기록이 보존되는 기간(일) | 7 일 |
 
@@ -86,4 +86,4 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

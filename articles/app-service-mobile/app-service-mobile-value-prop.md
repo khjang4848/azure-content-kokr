@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/03/2016"
-	ms.author="krisagh"/>
+	ms.author="glennga"/>
 
 # <a name="getting-started"> </a>모바일 앱 정의
 
@@ -100,6 +100,6 @@ Azure 모바일 앱에 대한 자세한 내용은 [학습 맵]을 검토하세�
 [가상 네트워크]: ../app-service-web/web-sites-integrate-with-vnet.md
 [Express 경로]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
 [앱 서비스 환경]: ../app-service-web/app-service-app-service-environment-intro.md
-[학습 맵]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
+[학습 맵]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

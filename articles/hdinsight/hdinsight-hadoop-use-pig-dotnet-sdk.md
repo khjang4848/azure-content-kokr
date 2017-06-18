@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=".net"
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
    tags="azure-portal"/>
 
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/17/2016"
+   ms.date="09/06/2016"
    ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
 
-[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
+[AZURE.INCLUDE [pig-선택기](../../includes/hdinsight-selector-use-pig.md)]
 
 이 문서는 HDInsight 클러스터의 Hadoop에 Pig 작업을 제출하기 위해 Hadoop용 .NET SDK를 사용하는 예시를 보여 줍니다.
 
@@ -56,7 +56,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 	</tr>
 	<tr>
 	<th>Template</th>
-	<th>Console Application</th>
+	<th>콘솔 응용 프로그램</th>
 	</tr>
 	<tr>
 	<th>이름</th>
@@ -141,6 +141,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
-[미리 보기 포털]: https://portal.azure.com/
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

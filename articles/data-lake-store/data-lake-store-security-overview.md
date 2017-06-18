@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -123,4 +123,4 @@ Data Lake Store의 새로운 기능을 참조하려는 경우 [Data Lake Store U
 - [Data Lake Store 시작](data-lake-store-get-started-portal.md)
 - [Data Lake Store의 데이터 보호](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

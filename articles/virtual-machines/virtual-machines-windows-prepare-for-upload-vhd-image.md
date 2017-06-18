@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/18/2016"
 	ms.author="glimoli;genli"/>
 
 # Azure에 업로드할 Windows VHD 준비
-온-프레미스에서 Azure로 Windows VM을 업로드하려면 VHD(가상 하드 디스크)를 올바르게 준비해야 합니다. Azure에 VHD를 업로드하기 전에 완료해야 할 몇 가지 권장 단계가 있습니다. `sysprep`을 실행하는 것은 일반적인 프로세스이지만, 이미지를 일반화할 때 수행되는 하나의 단계에 해당합니다. 이 문서에서는 Microsoft Azure에 업로드할 Windows VHD를 준비하는 방법을 설명합니다.
+온-프레미스에서 Azure로 Windows VM을 업로드하려면 VHD(가상 하드 디스크)를 올바르게 준비해야 합니다. Azure에 VHD를 업로드하기 전에 완료해야 할 몇 가지 권장 단계가 있습니다. 이 문서에서는 Microsoft Azure에 업로드할 Windows VHD를 준비하는 방법과 [Sysprep의 사용 시기 및 사용 방법](#step23)을 설명합니다.
 
 ## 가상 디스크 준비
 
@@ -248,8 +248,8 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 14. TCP 패킷을 분석하는 소프트웨어와 같은 추가 전송 드라이버 인터페이스 필터를 모두 제거합니다.
 15. 디스크가 정상 상태이고 일관된지 확인하려면 `CHKDSK /f` 명령을 실행합니다.
-16.	다른 모든 타사 소프트웨어 및 드라이버를 제거합니다.
-17. 타사 응용 프로그램이 포트 3389를 사용하지 않는지 확인합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다.
+16.	실제 구성 요소 또는 다른 가상화 기술과 관련된 다른 타사 소프트웨어 및 드라이버를 제거합니다.
+17. 타사 응용 프로그램이 포트 3389를 사용하지 않는지 확인합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. `netstat -anob` 응용 프로그램에서 사용하는 포트를 확인할 수 있습니다.
 18.	업로드하려는 Windows VHD가 도메인 컨트롤러인 경우 [이러한 추가 단계](https://support.microsoft.com/kb/2904015)를 수행하여 디스크를 준비합니다.
 19.	VM을 다시 부팅하여 Windows가 여전히 정상 상태인지와 RDP 연결을 사용하여 연결할 수 있는지 확인합니다.
 20.	현재 로컬 관리자 암호를 복원하고, 이 계정을 사용하여 RDP 연결을 통해 Windows에 로그인할 수 있는지 확인합니다. 이 액세스 권한은 "원격 데스크톱 서비스를 통한 로그온 허용" 정책 개체에 의해 제어됩니다. 이 개체는 "컴퓨터 구성\\Windows 설정\\보안 설정\\로컬 정책\\사용자 권한 할당" 아래에 있습니다.
@@ -279,13 +279,13 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 	- [KB3140410](https://support.microsoft.com/kb/3140410) MS16-031: 권한 상승 문제를 해결하기 위한 Microsoft Windows용 보안 업데이트: 2016년 3월 8일
 
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: CSRSS용 보안 업데이트에 대한 설명: 2016년 4월 12일
-	- [KB2904100](https://support.microsoft.com/kb/2904100) Windows에서 디스크 입/출력을 수행하는 동안 시스템이 중지됨
-
-23. 여러 컴퓨터에 배포할 이미지를 만들려는 경우 Azure에 VHD를 업로드하기 전에 `sysprep`을 실행하여 이미지를 일반화해야 합니다. 일반화된 이미지를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+	- [KB2904100](https://support.microsoft.com/kb/2904100) Windows에서 디스크 입/출력을 수행하는 동안 시스템이 중지됨 <a id="step23"></a>
+23. 여러 컴퓨터에 배포할 이미지를 만들려는 경우 Azure에 VHD를 업로드하기 전에 `sysprep`을 실행하여 이미지를 일반화해야 합니다. 특수화된 VHD를 사용하여 `sysprep`을 실행할 필요는 없습니다. 일반화된 이미지를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 	- [Resource Manager 배포 모델을 사용하여 기존 Azure VM에서 VM 이미지 만들기](virtual-machines-windows-capture-image.md)
 	- [클래식 배포 모델을 사용하여 기존 Azure VM에서 VM 이미지 만들기](virtual-machines-windows-classic-capture-image.md)
 	- [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
 
 
 ## 제안되는 추가 구성
@@ -319,4 +319,4 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 - [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

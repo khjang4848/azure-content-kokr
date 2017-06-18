@@ -12,13 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;bwren;sngun"/>
 
 # Azure 자동화 Webhook
 
-*Webhook* 을 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.
-![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
+*Webhook*을 사용하면 단일 HTTP 요청을 통해 Azure 자동화에서 특정 runbook을 시작할 수 있습니다. 이는 Azure 자동화 API를 사용하여 전체 솔루션을 구현하지 않아도 Visual Studio Team Services, GitHub 또는 사용자 지정 응용 프로그램과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다. ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)에서 Runbook을 시작하는 다른 방법과 Webhook을 비교할 수 있습니다.
 
@@ -71,7 +70,7 @@ webhook을 만들 때 $WebhookData에 값을 지정 하면 클라이언트가 �
 ![UI에서 WebhookData 매개 변수 시작](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
 
->[AZURE.NOTE]모든 입력 매개 변수의 값은 runbook 작업에 기록됩니다. webhook 요청에서 클라이언트에서 제공된 입력이 기록되고 자동화 작업에 액세스할 수 있는 모든 사용자가 사용할 수 있게 된다는 것을 의미합니다. 따라서 webhook 호출에 중요한 정보를 포함할 때는 주의해야 합니다.
+>[AZURE.NOTE] 모든 입력 매개 변수의 값은 runbook 작업에 기록됩니다. webhook 요청에서 클라이언트에서 제공된 입력이 기록되고 자동화 작업에 액세스할 수 있는 모든 사용자가 사용할 수 있게 된다는 것을 의미합니다. 따라서 webhook 호출에 중요한 정보를 포함할 때는 주의해야 합니다.
 
 ## 보안
 
@@ -85,7 +84,7 @@ $WebhookData 매개 변수의 **WebhookName** 속성을 확인하여 webhook에�
 
 Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절차를 수행합니다.
 
-1. Azure 포털의 **Runbook 블레이드**에서 해당 세부 정보 블레이드를 표시하도록 webhook를 시작할 runbook을 클릭합니다. 
+1. Azure 포털의 **Runbook 블레이드**에서 해당 세부 정보 블레이드를 표시하도록 webhook를 시작할 runbook을 클릭합니다.
 3. 블레이드 맨 위에서 **Webhook**을 클릭하여 **Webhook 추가** 블레이드를 엽니다. <br>
 ![Webhook 단추](media/automation-webhooks/webhooks-button.png)
 4. **새 webhook 만들기**를 클릭하여 **webhook 블레이드 만들기**를 엽니다.
@@ -104,11 +103,11 @@ Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절�
 
 클라이언트는 POST 요청으로부터의 다음 반환 코드 중 하나를 받게 됩니다.
 
-| 코드 | Text | 설명 |
+| 코드 | 텍스트 | 설명 |
 |:---|:----|:---|
 | 202 | 수락됨 | 요청이 수락되었고 runbook에서 대기합니다. |
 | 400 | 잘못된 요청 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook이 만료되었습니다.</li> <li>webhook이 비활성화되었습니다.</li> <li>URL의 토큰이 잘못되었습니다.</li> </ul>|
-| 404 | 찾을 수 없음 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul> <li>webhook을 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li> </ul> |
+| 404 | 찾을 수 없음 | 다음 이유 중 하나로 인해 요청이 수락되지 않았습니다. <ul><li>webhook을 찾을 수 없습니다.</li> <li>runbook을 찾을 수 없습니다.</li> <li>계정을 찾을 수 없습니다.</li> </ul> |
 | 500 | 내부 서버 오류 | URL은 유효했지만 오류가 발생했습니다. 요청을 다시 제출하십시오. |
 
 요청이 성공했다고 가정하면 webhook 응답은 다음과 같은 JSON 형식의 작업 ID를 포함합니다. 단일 작업 ID를 포함하지만 잠재적인 이후 향상 기능에 대해 JSON 형식이 허용됩니다.
@@ -275,4 +274,4 @@ Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대�
 - Runbook 작업의 상태 보기에 대한 내용은 [Azure 자동화에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
 - Azure 자동화를 사용하여 Azure 경고에 대해 조치를 취하는 방법을 알아보려면 [자동화 Runbook으로 Azure VM 경고 수정](automation-azure-vm-alert-integration.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

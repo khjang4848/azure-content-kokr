@@ -34,7 +34,7 @@
 행위자 비활성화되면 다음과 같은 상황이 발생합니다.
 
 - 행위자를 일정 기간 동안 사용하지 않으면 활성 행위자 테이블에서 제거됩니다.
-- `OnDeactivateAsync` 메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다. 그러면 행위자에 대한 모든 타이머가 지워집니다.
+- `OnDeactivateAsync` 메서드(행위자 구현 시 재정의될 수 있음)를 호출합니다. 그러면 행위자에 대한 모든 타이머가 지워집니다. 상태 변경과 같은 행위자 작업은 이 메서드에서 호출되지 않습니다.
 
 > [AZURE.TIP] 패브릭 행위자 런타임에서는 일부 [행위자 활성화 및 비활성화 관련 이벤트](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events)를 내보냅니다. 진단 및 성능 모니터링에 유용합니다.
 
@@ -129,4 +129,4 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

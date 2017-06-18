@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -19,7 +19,7 @@
 
 # 웹 앱 템플릿을 사용한 Azure 기계 학습 웹 서비스 사용
 
->[AZURE.NOTE] 이 항목에서는 기존 웹 서비스에 적용되는 기술을 설명합니다.
+>[AZURE.NOTE] 이 토픽에서는 기존 웹 서비스에 적용되는 기술을 설명합니다.
 
 예측 모델을 개발하고 기계 학습 스튜디오를 사용하거나 R 또는 Python을 사용하여 Azure 웹으로 배포하면 REST API를 사용하여 운영할 수 있게 된 모델에 액세스할 수 있습니다.
 
@@ -127,4 +127,4 @@ Azure 마켓플레이스에서 사용할 수 있는 웹 앱 템플릿은 웹 서
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

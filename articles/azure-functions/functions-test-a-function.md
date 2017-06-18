@@ -172,7 +172,7 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 
 [Microsoft Azure 저장소 탐색기](http://storageexplorer.com/)를 사용하여 Blob 트리거 함수를 테스트할 수 있습니다.
 
-1. 함수 앱에 대한 [Azure 포털]에서 새 C# 또는 노드 Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예:
+1. 함수 앱에 대한 [Azure Portal]에서 새 C#, F# 또는 노드 Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예:
 
 		files
 
@@ -437,6 +437,7 @@ C# 코드 예제:
 
 <!-- URLs. -->
 
+[Azure Portal]: https://portal.azure.com
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

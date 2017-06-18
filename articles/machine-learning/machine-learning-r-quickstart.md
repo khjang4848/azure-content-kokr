@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -358,7 +358,7 @@ R 장치 출력을 보려면 해당 포트를 클릭한 다음 **시각화**를 
 
 이 섹션에서는 캘리포니아 유제품 데이터에 몇 가지 기본 데이터 필터링 및 변환 작업을 수행합니다. 이 섹션의 끝 부분에서 분석 모델을 구축하기에 적합한 형식의 데이터를 얻게 됩니다.
 
-더욱 구체적으로 설명하자면 이 섹션에서 여러 일반적인 데이터 정리 및 변환 작업(형식 변환, 데이터 프레임 필터링, 새 계산 열, 값 변환)을 수행합니다. 이 경험이 실제로 겪게 될 많은 다양한 문제를 해결하는 데 도움이 될 것입니다.
+더욱 구체적으로 설명하자면 이 섹션에서 여러 일반적인 데이터 정리 및 변환 작업(형식 변환, 데이터 프레임 필터링, 새 계산 열 추가, 값 변환)을 수행합니다. 이 경험이 실제로 겪게 될 많은 다양한 문제를 해결하는 데 도움이 될 것입니다.
 
 이 섹션의 전체 R 코드는 앞서 다운로드한 zip 파일에서 사용할 수 있습니다.
 
@@ -1296,13 +1296,13 @@ RStudio는 문서화된 관련 증거가 많으므로 이 부록에서는 시작
 
 이 R 프로그래밍 자습서는 Azure 기계 학습 스튜디오에서 R 언어를 사용해야 하는 기본 사항을 소개합니다. R에 익숙하지 않은 경우 CRAN에서 두 가지 소개 자료를 사용할 수 있습니다.
 
-- R for Beginners by Emmanuel Paradis(http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)는 초보자가 시작하기에 아주 좋은 곳입니다.  
+- R for Beginners by Emmanuel Paradis(http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)는 초보자가 시작하기에 아주 좋은 곳입니다.
 
 - W. N. Venables 등이 http://cran.r-project.org/doc/manuals/R-intro.html에서 R에 대해 좀 더 구체적으로 소개합니다.
 
 R을 시작하는 데 도움을 되는 서적이 많이 있습니다. 몇 가지 유용한 서적은 다음과 같습니다.
 
-- 'The Art of R Programming: A Tour of Statistical Software Design'(저자: Norman Matloff)(영문)은 훌륭한 R 프로그래밍 입문서입니다.  
+- 'The Art of R Programming: A Tour of Statistical Software Design'(저자: Norman Matloff)(영문)은 훌륭한 R 프로그래밍 입문서입니다.
 
 - 'R Cookbook'(저자: Paul Teetor)(영문)은 R을 사용한 문제 및 해결 접근 방식을 제공합니다.
 
@@ -1318,7 +1318,7 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 
 다음은 유용한 인터넷 리소스입니다.
 
-- DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. https://www.datacamp.com/courses/introduction-to-r에서 무료 대화형 R 자습서를 받을 수 있습니다.  
+- DataCamp: 브라우저에서 편안하게 비디오 레슨 및 코드 연습을 배울 수 있습니다. 최신 R 기술 및 패키지에 대한 대화형 자습서가 제공됩니다. https://www.datacamp.com/courses/introduction-to-r에서 무료 대화형 R 자습서를 받을 수 있습니다.
 
 - 클라크슨 대학교의 Kelly Black이 제공하는 빠른 R 자습서 http://www.cyclismo.org/tutorial/R/
 
@@ -1358,4 +1358,4 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

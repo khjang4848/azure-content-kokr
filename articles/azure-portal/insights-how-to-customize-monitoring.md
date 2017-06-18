@@ -68,8 +68,8 @@
 * 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](insights-receive-alert-notifications.md)합니다.
 * [모니터링 및 진단을 사용](insights-how-to-use-diagnostics.md)하여 서비스의 자세한 고빈도 메트릭을 수집합니다.
 * [인스턴스 개수를 자동으로 조정](insights-how-to-scale.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
-* 클라우드에서 코드의 성능을 정확히 파악하려는 경우[응용 프로그램 성능을 모니터링](insights-perf-analytics.md)합니다.
+* 클라우드에서 코드의 성능을 정확히 파악하려는 경우[응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md)합니다.
 * [JavaScript 앱 및 웹 페이지용 Application Insights](../application-insights/app-insights-web-track-usage.md)를 사용하여 웹 페이지를 방문하는 브라우저에 대한 클라이언트 분석을 가져옵니다.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)합니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

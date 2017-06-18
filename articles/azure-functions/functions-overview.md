@@ -21,7 +21,7 @@
    
 # Azure 함수 개요
 
-Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 응용 프로그램 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. 이 경우 개발 생산성을 높일 수 있으며 C#, Node.js, Python, PHP 등의 원하는 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure를 신뢰하여 필요에 따라 크기를 조정합니다.
+Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하기 위한 솔루션입니다. 실행할 전체 응용 프로그램 또는 인프라를 염려하지 않고 당면한 문제에 필요한 코드를 작성할 수 있습니다. 이 경우 개발 생산성을 높일 수 있으며 C#, F#, Node.js, Python, PHP 등의 원하는 개발 언어를 사용할 수 있습니다. 코드를 실행한 시간에 따라 지불하고 Azure를 신뢰하여 필요에 따라 크기를 조정합니다.
 
 이 항목에서는 Azure Functions에 대한 간략한 개요를 제공합니다. Azure Functions를 바로 시작하려면 [첫 번째 Azure 함수 만들기](functions-create-first-azure-function.md)를 시작합니다. Functions에 대한 자세한 기술 정보는 [개발자 참조](functions-reference.md)를 참조하세요.
 
@@ -29,7 +29,7 @@ Azure Functions는 클라우드에서 작은 코드 또는 "함수"를 실행하
 
 Azure Functions의 몇 가지 주요 기능은 다음과 같습니다.
     
-* **원하는 언어 사용** - C#, Node.js, Python, F#, PHP, 배치, bash, Java 또는 실행 파일을 사용하여 함수를 작성합니다.
+* **원하는 언어 사용** - C#, F#, Node.js, Python, PHP, 배치, bash, Java 또는 실행 파일을 사용하여 함수를 작성합니다.
 * **사용량에 따른 가격 책정 모델** - 코드를 실행하는 데 사용한 시간에 대해서만 지불합니다. 아래의 [가격 책정 섹션](#pricing)에서 동적 앱 서비스 계획 옵션을 참조하세요.
 * **고유한 종속성 가져오기** - Functions는 NuGet 및 NPM을 지원하므로 즐겨찾는 라이브러리를 사용할 수 있습니다.
 * **통합 보안** - Azure Active Directory, Facebook, Google, Twitter, Microsoft 계정 등의 OAuth 공급자를 사용하여 HTTP 트리거 함수를 보호합니다.
@@ -87,4 +87,4 @@ Azure Functions에는 두 가지 가격 책정 계획이 있으므로 요구 사
 + [Azure Functions 조정 방법](functions-scale.md) 동적 서비스 계획, 올바른 계획 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 계획에 대해 설명합니다.
 + [Azure 앱 서비스에 대해 자세히 알아보기](../app-service/app-service-value-prop-what-is.md) Azure Functions는 개발, 환경 변수, 진단 등의 주요 함수에 대한 Azure 앱 서비스 플랫폼을 활용합니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -90,4 +90,4 @@
 [프로필 자습서 점수 매기기](search-get-started-scoring-profiles.md)|콘솔 앱을 사용하여 점수 매기기 프로필을 테스트합니다.
 [Azure 검색 관리 REST API 자습서](search-get-started-management-api.md)|관리 REST API를 사용하여 서비스를 프로비전하고 관리 또는 쿼리 api 키를 관리하는 방법입니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

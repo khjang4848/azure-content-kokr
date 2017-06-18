@@ -2,7 +2,7 @@
 	pageTitle="MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB에 대한 개발 지침 미리 보기 | Microsoft Azure" 
 	description="MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB에 대한 개발 지침 미리 보기에 대해 알아봅니다. 지금 미리 보기로 제공됩니다." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.date="09/15/2016" 
+	ms.author="anhoh"/>
 
-# MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB에 대한 개발 지침 미리 보기
+# MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB에 대한 개발 지침
 
-오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers/)를 통해 Azure DocumentDB와 통신할 수 있습니다. MongoDB에 대한 프로토콜 지원에서는 MongoDB 클라이언트 드라이버가 MongoDB 2.6 이상 서버 끝점과 통신하고 있다고 가정합니다. DocumentDB는 MongoDB [네트워크 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) 버전 2.6에 연결하여 지원합니다(프로토콜 버전 3.2는 거의 완벽하게 지원되지만 버전 3.2 MongoDB 셸 세션과 같은 특정 클라이언트 환경은 "'레거시' 모드로 저하되고" 있음을 나타낼 수 있습니다).
+오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers/)를 통해 Azure DocumentDB와 통신할 수 있습니다. MongoDB에 대한 프로토콜 지원에서는 MongoDB 클라이언트 드라이버가 MongoDB 2.6 이상 서버 끝점과 통신하고 있다고 가정합니다. DocumentDB는 MongoDB [프로토콜 연결](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) 버전 2.6에 따라 이를 지원합니다.
 
 DocumentDB는 핵심 MongoDB API 함수가 데이터베이스를 쿼리할 뿐만 아니라 데이터를 만들고 읽고 업데이트하고 삭제(CRUD)할 수 있습니다. 공통 플랫폼, 프레임워크, 도구 및 응용 프로그램 패턴의 요구에 따라 구현된 기능의 우선 순위를 지정했습니다.
 
@@ -26,7 +26,7 @@ DocumentDB는 핵심 MongoDB API 함수가 데이터베이스를 쿼리할 뿐�
 
 > [AZURE.IMPORTANT] DocumentDB는 컬렉션 수준에서 예약된 처리량을 사용하여 보장되고 예측 가능한 성능을 제공합니다. 따라서 DocumentDB의 컬렉션은 청구 가능한 엔터티입니다.
 
-응용 프로그램이 시스템에서 가장 낮은 수준인 데이터 컨테이너로 성능을 조정할 수 있도록 컬렉션 수준에서 성능 예약을 적용합니다. 따라서 컬렉션의 비용은 소비된 총 저장소(기가바이트)와 함께 초당 요청 단위로 측정되는 컬렉션의 프로비전된 처리량에 의해 결정됩니다. 프로비전된 처리량은 변화하는 처리 요구에 맞고 응용 프로그램의 패턴에 액세스하는 컬렉션의 수명 동안 조정할 수 있습니다. 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
+응용 프로그램이 시스템에서 가장 낮은 수준인 데이터 컨테이너로 성능을 조정할 수 있도록 컬렉션 수준에서 성능 예약을 적용합니다. 따라서 컬렉션의 가격은 소비된 총 저장소(기가바이트)와 함께 초당 요청 단위로 측정되는 컬렉션의 프로비전된 처리량에 의해 결정됩니다. 프로비전된 처리량은 변화하는 처리 요구에 맞고 응용 프로그램의 패턴에 액세스하는 컬렉션의 수명 동안 조정할 수 있습니다. 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
 
 MongoDB에 대한 프로토콜 지원을 사용하는 DocumentDB는 기본적으로 프로비전된 처리량이 1,000RU/s인 표준 가격 책정 계층에서 만들어집니다. [Azure 포털을 사용하여 성능 수준 변경](documentdb-performance-levels.md#changing-performance-levels-using-the-azure-portal)에 설명된 대로 각 컬렉션의 프로비전된 처리량을 조정할 수 있습니다.
 
@@ -36,62 +36,54 @@ MongoDB 삽입, 읽기, 업데이트, 바꾸기 및 삭제 작업은 완전히 �
 
 ## 쿼리 작업
 
-DocumentDB는 몇 가지 예외를 포함한 MongoDB 쿼리의 전체 문법을 지원합니다. MongoDB 날짜 시간 형식에 대한 지원에 추가하여 JSON 호환 [BSON 형식](https://docs.mongodb.org/manual/reference/bson-types/) 집합에서 작동되는 쿼리가 지원됩니다. JSON이 아닌 형식 특정 연산자를 요구하는 쿼리의 경우 DocumentDB는 GUID 데이터 형식을 지원합니다. 다음 테이블에서는 MongoDB 쿼리 문법의 지원되는 및 지원되지 않는 측면을 비교합니다.
-
-## 집계
-
-MongoDB는 DocumentDB 집계 파이프라인 또는 MapReduce 작업을 지원하지 않습니다. 집계 파이프라인은 일반적으로 결과를 일치시키고 그룹화하는 등 필터 및 변환의 여러 단계를 통해 문서를 처리하는 데 사용됩니다. DocumentDB는 기본적으로 JavaScript 사용자 정의 함수 및 저장 프로시저를 모두 지원합니다. 또한 DocumentDB는 DocumentDB [Hadoop 커넥터](documentdb-run-hadoop-with-hdinsight.md)를 통해 Azure HDInsight를 사용하여 Hive, Pig 및 MapReduce 작업에 대한 원본 및 싱크의 역할을 담당할 수 있습니다.
+DocumentDB는 몇 가지 예외를 포함한 MongoDB 쿼리의 전체 문법을 지원합니다. MongoDB 날짜 시간 형식에 대한 지원에 추가하여 JSON 호환 [BSON 형식](https://docs.mongodb.org/manual/reference/bson-types/) 집합에서 작동되는 쿼리가 지원됩니다. JSON이 아닌 형식 특정 연산자를 요구하는 쿼리의 경우 DocumentDB는 GUID 데이터 형식을 지원합니다.
 
 ## 포털 환경
-MongoDB 프로토콜에 Azure 포털 환경을 사용한 계정은 표준 DocumentDB 계정에 대한 포털 환경과 약간 다릅니다. 환경을 확장하지만 포털 기능이 가장 많이 사용한 부분에 관한 [피드백](mailto:askdocdb@microsoft.com?subject=DocumentDB%20Protocol%20Support%20for%20MongoDB%20Preview%20Portal%20Experience)이 필요합니다.
+MongoDB 프로토콜이 활성화된 계정에 대한 Azure Portal 환경은 MongoDB 프로토콜이 활성화된 계정에 대해 제공됩니다. 환경을 확장하지만 포털 기능이 가장 많이 사용한 부분에 관한 [피드백](mailto:askdocdb@microsoft.com?subject=DocumentDB%20Protocol%20Support%20for%20MongoDB%20Preview%20Portal%20Experience)이 필요합니다.
 
 ## 지원 매트릭스
 
 
 ### CRUD 및 쿼리 작업
 
-기능|지원됨|지원될 예정임|지원되지 않음 
----|---|---|---
-삽입|InsertOne| | 
- |InsertMany| | 
- |삽입| | 
-업데이트|UpdateOne| | 
- |UpdateMany| | 
- |업데이트| | 
+기능|지원됨|지원될 예정임
+---|---|---
+삽입|InsertOne| 
+ |InsertMany| 
+ |삽입| 
+업데이트|UpdateOne| 
+ |UpdateMany| 
+ |업데이트| 
 필드 업데이트|$inc, $mul, $rename, $set, $unset, $min, $max|$currentDate| 
-배열 업데이트| |-all-| 
-비트| |-all-| 
-격리| |-all-| 
-Replace|ReplaceOne| |
-삭제|DeleteOne | |
- |DeleteMany| | 
- |제거| | 
-BulkWrite| |bulkWrite()| 
-비교|-all-| | 
-논리|-all-| | 
-요소 쿼리| |-all-| 
-평가|$mod, $regex |$text, $where| 
-GeoSpatial|2dsphere, 2d, polygon|기타 등등| 
-Array|$all, $size, $elemMatch|| 
-비트| |-all-| 
-주석|-all-| | 
-프로젝션| |-all-| 
+배열 업데이트| |-all-
+비트| |-all-
+격리| |-all-
+Replace|ReplaceOne| 
+삭제|DeleteOne | 
+ |DeleteMany| 
+ |제거| 
+BulkWrite| |bulkWrite()
+비교|-all-| 
+논리|-all-| 
+요소 쿼리| |-all-
+평가|$mod, $regex |$text, $where
+GeoSpatial|2dsphere, 2d, polygon|기타 등등
+Array|$all, $size, $elemMatch|
+비트| |-all-
+주석|-all-| 
+프로젝션| |-all-
 
 
 ### 데이터베이스 명령
 
-기능|지원됨|지원될 예정임|지원되지 않음 
----|---|---|---
-집계|개수| |집계, 고유, 그룹, MapReduce
-GeoSpatial| |-all-| 
-쿼리 및 쓰기|찾기, 삽입, 업데이트, 삭제, getLastError, getMore, findAndModify| |Eval, parallelCollectionScan, getPrevError, resetError
-QueryPlan 캐시| | |-all-
-인증|getnonce, 로그아웃, 인증| |Copydbgetnone, authschemaUpgrade
-사용자 관리| | |-all-
-역할 관리| | |-all-
-복제| | |-all-
-관리|createIndex, listIndexes, dropIndexes, connectionStatus, reIndex| |다른 명령 인덱스의 경우 Unique, expireAfterSeconds, storageEngine, 가중치, default\_language, textIndexVersion, min, max, bucketSize를 지원하지 않습니다
-진단|listDatabases, collStats, dbStats| |기타 등등
+기능|지원됨|지원될 예정임
+---|---|---
+집계|개수| 
+GeoSpatial| |-all-
+쿼리 및 쓰기|찾기, 삽입, 업데이트, 삭제, getLastError, getMore, findAndModify| 
+인증|getnonce, 로그아웃, 인증| 
+관리|createIndex, listIndexes, dropIndexes, connectionStatus, reIndex| 
+진단|listDatabases, collStats, dbStats| 
 
 ## 다음 단계
 
@@ -100,4 +92,4 @@ QueryPlan 캐시| | |-all-
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # iOS 앱에 Azure AD 통합
@@ -48,7 +48,7 @@ Azure AD는 보호된 리소스에 액세스해야 하는 iOS 클라이언트의
 - 	**aap-scheme** - XCode 프로젝트에 등록됩니다. 다른 응용 프로그램이 사용자를 호출할 수 있는 방법입니다. Info.plist -> URL 형식 -> URL ID에 있을 수 있습니다. 하나 이상이 구성되어 있지 않으면 하나를 만들어야 합니다.
 - 	**bundle-id** - XCode의 프로젝트 설정의 "ID" 아래에 있는 번들 ID입니다.
 
-이 빠른 시작 코드에 대한 예는 다음과 같습니다.******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+이 빠른 시작 코드에 대한 예는 다음과 같습니다.***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. DirectorySearcher 응용 프로그램 등록*
 앱에서 토큰을 가져올 수 있게 하려면 먼저 Azure AD 테넌트에 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다.
@@ -226,8 +226,8 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 이제 추가 시나리오로 이동할 수 있습니다. 다음 작업을 시도할 수 있습니다.
 
 - [Azure AD를 사용하여 Node.js Web API 보안 유지](active-directory-devquickstarts-webapi-nodejs.md)
-- [ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정하는 방법](active-directory-sso-ios.md) 알아보기  
+- [ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정하는 방법](active-directory-sso-ios.md) 알아보기
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: UserVoice와 Azure Active Directory 통합
@@ -101,9 +101,9 @@
     ![사용자 인증 편집](./media/active-directory-saas-uservoice-tutorial/IC777521.png "사용자 인증 편집")
 
     1.  **SSO(Single Sign-On)**를 클릭합니다.
-    2.  Azure 클래식 포털의 **UserVoice에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SSO 원격 로그인** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 클래식 포털의 **UserVoice에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **SSO 원격 로그아웃** 텍스트 상자에 붙여넣습니다.
-    4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **현재 인증서 SHA1 지문** 텍스트 상자에 붙여 넣습니다.  
+    2.  Azure 클래식 포털의 **UserVoice에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **SSO 원격 로그인** 텍스트 상자에 붙여 넣습니다.
+    3.  Azure 클래식 포털의 **UserVoice에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **SSO 원격 로그아웃** 텍스트 상자에 붙여 넣습니다.
+    4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **현재 인증서 SHA1 지문** 텍스트 상자에 붙여 넣습니다.
 
         >[AZURE.TIP] 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
@@ -117,7 +117,7 @@
   
 Azure AD 사용자가 UserVoice에 로그인할 수 있도록 하려면 UserVoice로 프로비전되어야 합니다. UserVoice의 경우 프로비전은 수동 작업입니다.
 
-###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
+###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1.  **UserVoice** 테넌트에 로그인합니다.
 
@@ -152,7 +152,7 @@ Azure AD 사용자가 UserVoice에 로그인할 수 있도록 하려면 UserVoic
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **UserVoice**응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **UserVoice** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-uservoice-tutorial/IC777523.png "사용자 할당")
 
@@ -162,4 +162,4 @@ Azure AD 사용자가 UserVoice에 로그인할 수 있도록 하려면 UserVoic
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

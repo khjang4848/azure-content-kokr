@@ -4,7 +4,7 @@
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
-   manager="paulettem"
+   manager="jhubbard"
    editor="cgronlun"
 />
 
@@ -410,4 +410,4 @@ Azure Resource Manager 템플릿을 사용하여 HDInsight에서 R 서버를 자
 
 Azure Resource Manager 템플릿을 사용하는 일반적인 정보는 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

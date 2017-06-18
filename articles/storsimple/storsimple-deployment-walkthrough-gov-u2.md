@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/16/2016"
    ms.author="v-sharos" />
 
 # 정부 포털에서 온-프레미스 StorSimple 장치 배포(업데이트 2)
@@ -79,7 +79,7 @@ StorSimple 장치를 배포하기 전에 정보를 수집하여 장치에 소프
 
 - 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
 
-- 사용자의 Microsoft Azure 구독을 StorSimple 관리자 서비스에 사용할 수 있습니다. 구독은 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 통해 구매해야 합니다.
+- 사용자의 Microsoft Azure 구독을 StorSimple Manager 서비스에 사용할 수 있습니다. 구독은 [기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 통해 구매해야 합니다.
 
 - PuTTY와 같은 터미널 에뮬레이션 소프트웨어에 액세스할 수 있습니다.
 
@@ -111,7 +111,7 @@ StorSimple 관리자 서비스는 여러 StorSimple 장치를 관리할 수 있�
 
 > [AZURE.IMPORTANT] 서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
-> * 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요. 
+> * 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#configure-a-new-storage-account-for-the-service)을 참조하세요.
 > * 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2-get-the-service-registration-key)로 이동합니다.
 
 ## 2단계: 서비스 등록 키 받기
@@ -208,8 +208,8 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 
 #### 장치를 업데이트하려면
 
-1.	장치 **빠른 시작** 페이지에서 **장치**를 클릭합니다. 물리적 장치를 선택하고 **유지 관리**를 클릭한 다음 **업데이트 검색**을 클릭합니다.  
-2.	사용 가능한 업데이트를 검색하는 작업이 만들어집니다. 업데이트를 사용할 수 있는 경우 **업데이트 검색**이 **업데이트 설치**로 변경됩니다. **업데이트 설치**를 클릭합니다. 
+1.	장치 **빠른 시작** 페이지에서 **장치**를 클릭합니다. 물리적 장치를 선택하고 **유지 관리**를 클릭한 다음 **업데이트 검색**을 클릭합니다.
+2.	사용 가능한 업데이트를 검색하는 작업이 만들어집니다. 업데이트를 사용할 수 있는 경우 **업데이트 검색**이 **업데이트 설치**로 변경됩니다. **업데이트 설치**를 클릭합니다.
 3.	업데이트 작업이 만들어집니다. **작업**으로 이동하여 업데이트 상태를 모니터링합니다.
 
 	> [AZURE.NOTE] 업데이트 작업이 시작되면 50%로 상태를 즉시 표시합니다. 업데이트 작업이 완료된 후에 상태를 100%로 변경합니다. 업데이트 프로세스에 대한 실시간 상태가 없습니다.
@@ -243,4 +243,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 - [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="미디어 서비스 릴리스 정보" 
+	pageTitle="미디어 서비스 릴리스 정보 | Microsoft Azure" 
 	description="미디어 서비스 릴리스 정보" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/14/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 # Azure 미디어 서비스 릴리스 정보
@@ -36,7 +36,7 @@ Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류�
 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수는 최대 1000개입니다. 공용 REST v2에서는 쿼리 결과를 1000개로 제한하기 때문입니다. | [이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 **Skip** 및 **Take**(.NET)/**top**(REST)을 사용해야 합니다. 
 일부 클라이언트에 부드러운 스트리밍 매니페스트의 반복 태그 문제가 발생할 수 있습니다.|자세한 내용은 [이](media-services-deliver-content-overview.md#known-issues) 섹션을 참조하세요.
 Azure 미디어 서비스 .NET SDK 개체는 직렬화할 수 없으며 따라서 Azure 캐싱에서 작동하지 않습니다.|SDK AssetCollection 개체를 직렬화하여 Azure 캐싱에 추가하려는 경우 예외가 Throw됩니다.
-메시지 문자열 "Stage: DownloadFile. Code: System.NullReferenceException"으로 인코딩 작업이 실패합니다.|일반적인 인코딩 워크플로는 입력 자산에 입력 비디오 파일을 업로드하고 해당 입력 자산을 추가로 수정하지 않고 해당 입력 자산에 대한 하나 이상의 인코딩 작업을 제출하는 것입니다. 그러나 입력 자산을 수정하는 경우(예: 자산 내에서 파일 추가/삭제/이름 바꾸기) 후속 작업은 DownloadFile 오류로 실패할 수 있습니다. 해결 방법은 입력 자산을 삭제하고 입력 파일을 새 자산에 다시 업로드하는 것입니다. 
+메시지 문자열 "Stage: DownloadFile. Code: System.NullReferenceException"을 나타내며 인코딩 작업이 실패합니다.|일반적인 인코딩 워크플로는 입력 자산에 입력 비디오 파일을 업로드하고 해당 입력 자산을 추가로 수정하지 않고 해당 입력 자산에 대한 하나 이상의 인코딩 작업을 제출하는 것입니다. 그러나 입력 자산을 수정하는 경우(예: 자산 내에서 파일 추가/삭제/이름 바꾸기) 후속 작업은 DownloadFile 오류로 실패할 수 있습니다. 해결 방법은 입력 자산을 삭제하고 입력 파일을 새 자산에 다시 업로드하는 것입니다. 
 
 ##<a id="rest_version_history"></a>REST API 버전 기록
 
@@ -150,7 +150,7 @@ AMS(Azure 미디어 서비스)는 이제 브라질 남부, 인도 서부, 인도
 
 - 미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)을 참조하세요.
 
-	미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
+	미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-scale-media-processing-overview.md)을 참조하세요.
 - Azure 미디어 서비스 및 플레이어의 라이브 실시간 캡션. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)을 참조하세요.
 
 ###미디어 서비스 .NET SDK 업데이트
@@ -261,12 +261,12 @@ Azure 미디어 서비스 .NET SDK의 현재 버전은 3.2.0.0입니다.
 
 ##<a id="november_changes_14"></a>2014년 11월 릴리스
 
-- 이제 미디어 서비스에서 라이브 부드러운 스트리밍(FMP4) 콘텐츠를 SSL 연결을 통해 수집할 수 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다. 라이브 스트리밍에 대한 자세한 내용은 [Azure 미디어 서비스 라이브 스트리밍 사용]을 참조하세요.
-- 현재, SSL 연결을 통해 RTMP 라이브 스트림을 수집할 수 없습니다.
-- SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다.
-- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍할 수 있도록 하려면 [새 스트리밍 끝점을 만듭니다](media-services-manage-origins.md). 새 스트리밍 끝점을 기반으로 만들어진 URL을 사용하여 SSL을 통해 콘텐츠를 스트리밍합니다.
-   
-##<a id="october_changes_14"></a>2014년 10월 릴리스
+        - Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
+        - Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
+        - You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
+        - Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
+
+        ##<a id="october_changes_14"></a>October 2014 Release
 
 ### <a id="new_encoder_release"></a>미디어 서비스 인코더 릴리스
 
@@ -646,4 +646,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

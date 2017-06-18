@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="rastala"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -95,4 +95,4 @@ N-Gram 특성 추출을 사용하는 대신, 특성 해시 모듈을 사용할 �
 
 [MSDN 설명서](https://msdn.microsoft.com/library/azure/dn905886.aspx)에서 텍스트 분석 모듈에 대해 자세히 알아봅니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

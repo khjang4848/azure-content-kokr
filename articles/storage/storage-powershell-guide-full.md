@@ -224,7 +224,7 @@ Azure 저장소 컨텍스트는 저장소 자격 증명을 캡슐화하는 Power
     	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
     	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
 
-	자세한 내용은 [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) 및 [공유 액세스 서명, 1부: SAS 모델 이해하기](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+	자세한 내용은 [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) 및 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 - 일부 경우에는 새 저장소 컨텍스트를 만들 때 서비스 끝점을 지정하는 것이 좋습니다. 이런 작업은 Blob 서비스를 통해 저장소 계정에 대한 사용자 지정 도메인 이름을 등록하거나 저장소 리소스에 액세스하는 데 공유 액세스 서명을 사용 하려는 경우에 필요할 수 있습니다. 연결 문자열에 서비스 끝점을 설정하고 아래와 같이 새 저장소 컨텍스트를 만드는 데 사용합니다.
 
@@ -262,7 +262,7 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. New-Azure
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob**, 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
+> [AZURE.NOTE] 익명 읽기 액세스의 세가지 수준은 **해제**, **Blob** 및 **컨테이너**입니다. Blob에 대한 익명 액세스를 방지하려면 권한 매개 변수를 **해제**로 설정합니다. 기본적으로 새 컨테이너는 전용이며 계정 소유자만 액세스할 수 있습니다. 익명 공용 읽기 권한을 Blob 리소스에 대해 허용하지만 컨테이너 메타데이터나 컨테이너의 Blob 목록에 대해서는 허용하지 않으려면, 사용 권한 매개 변수를 **Blob**으로 설정하세요. Blob 리소스, 컨테이너 메타데이터 및 컨테이너의 Blob 목록에 대한 전체 공용 읽기 권한을 허용하려면, 권한 매개 변수를 **컨테이너**로 설정하세요. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 ### 컨테이너에 Blob을 업로드하는 방법
 Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob,추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
@@ -535,7 +535,7 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
 ## Azure 큐 및 큐 메시지를 관리하는 방법
 Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 이 섹션에서는 Azure 큐 저장소 서비스 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure 큐 저장소 시작](storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
-이 섹션에서는 Azure PowerShell을 사용하여 Azure 큐 저장소 서비스를 관리하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입** 및 **삭제**뿐만 아니라 큐 **생성**, **삭제**, 및 **검색**도 포함됩니다.
+이 섹션에서는 Azure PowerShell을 사용하여 Azure 큐 저장소 서비스를 관리하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입** 및 **삭제**뿐만 아니라 큐 **생성**, **삭제** 및 **검색**도 포함됩니다.
 
 ### 큐를 만드는 방법
 다음 예제는 먼저 저장소 계정 이름 및 해당 액세스 키를 포함하는 저장소 계정 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [New-AzureStorageQueue](http://msdn.microsoft.com/library/azure/dn806382.aspx) cmdlet을 호출하여 'queuename'이라는 큐를 만듭니다.
@@ -632,7 +632,7 @@ PowerShell을 사용하여 로깅 데이터 저장소 사용 및 검색하는 �
 - **Ad hoc SAS**: 애드혹 SAS를 만들 때 SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다. 이 유형의 SAS는 컨테이너, Blob, 테이블 또는 큐에서 만들 수 있으며, 취소할 수 없습니다.
 - **저장된 액세스 정책 사용 SAS:** 저장된 액세스 정책은 리소스 컨테이너(Blob 컨테이너, 테이블 또는 큐)에서 정의되며, 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용할 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다. 이 유형의 SAS는 취소할 수 있습니다.
 
-자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
+자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md) 및 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)를 참조하세요.
 
 다음 섹션에서는 Azure 테이블에 대한 공유 액세스 서명 토큰 및 저장된 액세스 정책을 만드는 방법을 배웁니다. Azure PowerShell은 컨테이너, Blob, 큐에 대해 유사한 cmdlet을 제공합니다. 이 섹션의 스크립트를 실행하려면 [Azure PowerShell 버전 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) 이상을 다운로드하세요.
 
@@ -752,4 +752,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

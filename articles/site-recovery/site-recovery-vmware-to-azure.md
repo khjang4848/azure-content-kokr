@@ -116,10 +116,11 @@ Azure 포털의 Site Recovery는 여러 새 기능을 제공합니다.
 
 **필수 요소** | **세부 정보**
 --- | ---
-**온-프레미스 VMware VM** | 보호하려는 VMware VM에는 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/> 보호하려는 컴퓨터가 Azure VM을 만들기 위한 [Azure 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 준수해야 합니다.<br/><br/>보호된 컴퓨터의 개별 디스크 용량은 1023GB를 초과해서는 안 됩니다. VM은 최대 64개의 디스크(따라서 최대 64TB)를 포함할 수 있습니다. <br/><br/>공유 디스크 게스트 클러스터는 지원되지 않습니다.<br/><br/>UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.<br/><br/>컴퓨터 이름은 1자에서 63자(문자, 숫자 및 하이픈) 사이여야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터에 대한 복제를 사용하도록 설정한 후 Azure 이름을 수정할 수 있습니다.<br/><br/>원본 VM에 NIC 팀이 있으면 Azure로 장애 조치(failover) 후 단일 NIC로 변환됩니다.<br/><br/>보호된 VM에 iSCSI 디스크가 있으면 VM이 Azure로 장애 조치(failover)될 때 사이트 복구가 보호된 VM iSCSI 디스크를 VHD 파일로 변환합니다. Azure VM에서 iSCSI 대상에 연결할 수 있는 경우 이 대상에 연결되며 기본적으로 두 개의 디스크(Azure VM의 VHD 디스크 및 원본 iSCSI 디스크)가 표시됩니다. 이 경우 Azure VM에 표시되는 iSCSI 대상의 연결을 끊어야 합니다.
-**Windows 컴퓨터(물리적 또는 VMware)** | 컴퓨터에서 지원되는 64비트 운영 체제(Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1 이상)를 실행해야 합니다.<br/><br/> 운영 체제는 C:\\ 드라이브에 설치해야 합니다. OS 디스크는 동적이 아닌 Windows 기본 디스크여야 합니다. 데이터 디스크는 동적일 수 있습니다.<br/><br/>사이트 복구는 RDM 디스크를 사용한 VM을 지원합니다. 원래 원본 VM과 RDM 디스크를 사용할 수 있는 경우 Site Recovery에서는 장애 복구(failback) 중에 RDM 디스크를 다시 사용합니다. 사용할 수 없는 경우 장애 복구(failback) 동안 Site Recovery가 각 디스크에 대한 새 VMDK 파일을 만듭니다.
-**Linux 컴퓨터** | 지원되는 64비트 운영 체제(Red Hat Enterprise Linux 6.7,7.1,7.2/Centos 6.5, 6.6,6.7,7.0,7.1,7.2/Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5/SUSE Linux Enterprise Server 11 SP3)가 필요합니다. <br/><br/>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소로 매핑하는 항목이 포함되어 있어야 합니다.<br/><br/>장애 조치(failover) 후 SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려면 보호된 컴퓨터의 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작하도록 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하지를 확인해야 합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름, Linux 시스템 경로와 파일 이름(예: /etc/; /usr)은 영어로만 입력해야 합니다.<br/><br/>다음 저장소를 사용하여 Linux 컴퓨터에 보호를 사용하도록 설정할 수 있습니다. 파일 시스템: EXT3, ETX4, ReiserFS, XFS/다중 경로 소프트웨어-장치 매퍼(다중 경로)/볼륨 관리자: (LVM2). HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다. ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.<br/><br/>사이트 복구에서는 RDM 디스크를 사용한 VM을 지원합니다. Linux에 대한 장애 복구(failback) 중에는 사이트 복구에서 RDM 디스크를 다시 사용하지 않습니다. 대신 각 해당 RDM 디스크에 대한 새 VMDK 파일을 만듭니다.<br/><br/>VMware에서 VM의 구성 매개 변수에 disk.enableUUID=true를 설정해야 합니다. 없는 경우 항목을 만듭니다. 올바르게 탑재할 수 있도록 VMDK에 일관성 있는 UUID를 제공해야 합니다. 이 설정을 추가하면 장애 복구(failback) 동안 전체 복제가 아닌 델타 변경 내용만 온-프레미스로 다시 전송됩니다.
-**모바일 서비스** | **Windows**: Windows를 실행하는 VM에 모바일 서비스를 자동으로 푸시하려면 프로세스 서버가 푸시 설치를 수행할 수 있도록 관리자 계정(Windows 컴퓨터의 로컬 관리자)을 제공해야 합니다.<br/><br/> **Linux**: Linux를 실행하는 VM에 모바일 서비스를 자동으로 푸시하려면 프로세스 서버에서 푸시 설치를 수행하는 데 사용할 수 있는 계정을 만들어야 합니다.<br/><br/> 기본적으로 컴퓨터의 모든 디스크는 복제됩니다. [복제에서 디스크를 제외하려면](#exclude-disks-from-replication) 복제를 사용하도록 설정하기 전에 컴퓨터에 모바일 서비스를 수동으로 설치해야 합니다.
+**온-프레미스 VMware VM** | 보호하려는 VMware VM에는 VMware 도구가 설치되어 있고 실행 중이어야 합니다.<br/><br/> 보호하려는 컴퓨터가 Azure VM을 만들기 위한 [Azure 필수 조건](site-recovery-best-practices.md#azure-virtual-machine-requirements)을 준수해야 합니다.<br/><br/>보호된 컴퓨터의 개별 디스크 용량은 1023GB를 초과해서는 안 됩니다. VM은 최대 64개의 디스크(따라서 최대 64TB)를 포함할 수 있습니다. <br/><br/>암호화된 디스크(데이터 디스크와 루트)로 VM을 보호하는 것은 지원되지 않습니다.
+
+공유 디스크 게스트 클러스터는 지원되지 않습니다.<br/><br/>**응용 프로그램 일관성**을 사용하도록 설정하려면 보호된 VM에서 **포트 20004**를 열어 두어야 합니다.
+
+UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.<br/><br/>컴퓨터 이름은 1자에서 63자(문자, 숫자 및 하이픈) 사이여야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터에 대한 복제를 사용하도록 설정한 후 Azure 이름을 수정할 수 있습니다.<br/><br/>원본 VM에 NIC 팀이 있으면 Azure로 장애 조치(failover) 후 단일 NIC로 변환됩니다.<br/><br/>보호된 VM에 iSCSI 디스크가 있으면 VM이 Azure로 장애 조치(failover)될 때 사이트 복구가 보호된 VM iSCSI 디스크를 VHD 파일로 변환합니다. Azure VM에서 iSCSI 대상에 연결할 수 있는 경우 이 대상에 연결되며 기본적으로 두 개의 디스크(Azure VM의 VHD 디스크 및 원본 iSCSI 디스크)가 표시됩니다. 이 경우 Azure VM에 표시되는 iSCSI 대상의 연결을 끊어야 합니다. **Windows 컴퓨터(실제 또는 VMware)** | 컴퓨터에서 지원되는 64비트 운영 체제(Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 SP1 이상)를 실행해야 합니다.<br/><br/> 운영 체제는 C:\\ 드라이브에 설치해야 합니다. OS 디스크는 동적이 아닌 Windows 기본 디스크여야 합니다. 데이터 디스크는 동적일 수 있습니다.<br/><br/>사이트 복구는 RDM 디스크를 사용한 VM을 지원합니다. 원래 원본 VM과 RDM 디스크를 사용할 수 있는 경우 Site Recovery에서는 장애 복구(failback) 중에 RDM 디스크를 다시 사용합니다. 사용할 수 없는 경우 장애 복구(failback) 동안 Site Recovery가 각 디스크에 대한 새 VMDK 파일을 만듭니다. **Linux machines** | 지원되는 64비트 운영 체제(Red Hat Enterprise Linux 6.7,7.1,7.2/Centos 6.5, 6.6,6.7,7.0,7.1,7.2/Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)을 실행하는 Oracle Enterprise Linux 6.4, 6.5/SUSE Linux Enterprise Server 11 SP3)가 필요합니다.<br/><br/>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 네트워크 어댑터와 연결된 IP 주소로 매핑하는 항목이 포함되어 있어야 합니다.<br/><br/>장애 조치(failover) 후 SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려면 보호된 컴퓨터의 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작하도록 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하지를 확인해야 합니다.<br/><br/>호스트 이름, 마운트 지점, 장치 이름, Linux 시스템 경로와 파일 이름(예: /etc/; /usr)은 영어로만 입력해야 합니다.<br/><br/>다음 저장소를 사용하여 Linux 컴퓨터에 보호를 사용하도록 설정할 수 있습니다. 파일 시스템: EXT3, ETX4, ReiserFS, XFS/다중 경로 소프트웨어-장치 매퍼(다중 경로)/볼륨 관리자: (LVM2). HP CCISS 컨트롤러 저장소가 있는 물리적 서버는 지원되지 않습니다. ReiserFS 파일 시스템은 SUSE Linux Enterprise Server 11 SP3에서만 지원됩니다.<br/><br/>사이트 복구에서는 RDM 디스크를 사용한 VM을 지원합니다. Linux에 대한 장애 복구(failback) 중에는 사이트 복구에서 RDM 디스크를 다시 사용하지 않습니다. 대신 각 해당 RDM 디스크에 대한 새 VMDK 파일을 만듭니다.<br/><br/>VMware에서 VM의 구성 매개 변수에 disk.enableUUID=true를 설정해야 합니다. 없는 경우 항목을 만듭니다. 올바르게 탑재할 수 있도록 VMDK에 일관성 있는 UUID를 제공해야 합니다. 이 설정을 추가하면 장애 복구(failback) 동안 전체 복제가 아닌 델타 변경 내용만 온-프레미스로 다시 전송됩니다. **모바일 서비스** | **Windows**: Windows를 실행하는 VM에 모바일 서비스를 자동으로 푸시하려면 프로세스 서버가 푸시 설치를 수행할 수 있도록 관리자 계정(Windows 컴퓨터의 로컬 관리자)을 제공해야 합니다.<br/><br/> **Linux**: Linux를 실행하는 VM에 모바일 서비스를 자동으로 푸시하려면 프로세스 서버에서 푸시 설치를 수행하는 데 사용할 수 있는 계정을 만들어야 합니다.<br/><br/> 기본적으로 컴퓨터의 모든 디스크는 복제됩니다. [복제에서 디스크를 제외하려면](#exclude-disks-from-replication) 복제를 사용하도록 설정하기 전에 컴퓨터에 모바일 서비스를 수동으로 설치해야 합니다.
 
 ## 배포 준비
 
@@ -642,7 +643,7 @@ VMware 가상 컴퓨터를 복제하는 경우 다음 사항에 유의하세요.
 
 1. **2단계: 응용 프로그램 복제** > **소스**를 클릭합니다. 처음으로 복제를 활성화한 후 자격 증명 모음에서 **+복제**를 클릭하여 추가 컴퓨터에 대해 복제를 활성화합니다.
 2. **소스** 블레이드 > **소스**에서 구성 서버를 선택합니다.
-3. **컴퓨터 형식**에서 **가상 컴퓨터** 또는 **실제 컴퓨터**를 선택합니다.
+3. **컴퓨터 형식** 에서 **가상 컴퓨터** 또는 **실제 컴퓨터** 를 선택합니다.
 4. **vCenter/vSphere 하이퍼바이저**에서 vSphere 호스트를 관리하는 vCenter Server를 선택하거나 해당 호스트를 선택합니다. 이 설정은 물리적 컴퓨터를 복제하는 경우에는 관련이 없습니다.
 5. 프로세스 서버를 선택합니다. 추가 프로세스 서버를 만들지 않은 경우 이 프로세스 서버가 구성 서버의 이름이 됩니다. 그런 후 **OK**를 클릭합니다.
 
@@ -767,7 +768,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 2. 복구 계획을 장애 조치(Failover)하려면 **설정** > **복구 계획**에서 계획을 마우스 오른쪽 버튼으로 클릭하고 **테스트 장애 조치(Failover)**를 클릭합니다. 복구 계획을 만들려면 [다음 지침을 따릅니다](site-recovery-create-recovery-plans.md).
 
 3. **테스트 장애 조치(Failover)**에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 Azure 네트워크를 선택합니다.
-4. **확인**을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > **설정** > **작업** > **사이트 복구 작업**의 **테스트 장애 조치(failover)**에서 진행률을 추적할 수 있습니다.
+4. **확인** 을 클릭하여 장애 조치(Failover)를 시작합니다. VM을 클릭하여 속성을 열거나 자격 증명 모음 이름 > **설정** > **작업** > **사이트 복구 작업** 의 **테스트 장애 조치(failover)** 에서 진행률을 추적할 수 있습니다.
 5. 장애 조치(failover)가 **테스트 완료** 상태에 도달하면 다음 작업을 수행합니다.
 
 	1. Azure 포털에서 복제본 가상 컴퓨터를 봅니다. 가상 컴퓨터가 성공적으로 시작되는지 확인합니다.
@@ -792,7 +793,7 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 다음과 같이 Site Recovery 배포의 구성 설정 및 상태를 모니터링할 수 있습니다.
 
 1. 자격 증명 모음 이름을 클릭하여 **Essentials** 대시보드에 액세스합니다. 이 대시보드에서 Site Recovery 작업, 복제 상태, 복구 계획, 서버 상태 및 이벤트를 모니터링할 수 있습니다. 다른 Site Recovery 및 백업 자격 증명 모음의 상태를 포함하여 가장 유용한 타일과 레이아웃을 표시하도록 Essentials를 사용자 지정할 수 있습니다.
-
+<br>
 ![Essentials](./media/site-recovery-vmware-to-azure/essentials.png)
 
 2. **상태** 타일에서 문제가 있는 사이트 서버(VMM 또는 구성 서버)와 지난 24시간 동안 사이트 복구에 의해 발생한 이벤트를 모니터링할 수 있습니다.
@@ -863,4 +864,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

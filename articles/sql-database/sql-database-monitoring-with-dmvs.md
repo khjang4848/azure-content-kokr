@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="carlrab"/>
 
 # 동적 관리 뷰를 사용하여 Azure SQL 데이터베이스 모니터링
@@ -42,7 +42,7 @@ SQL 데이터베이스에서 동적 관리 뷰를 쿼리하려면 **VIEW DATABAS
 다음 쿼리는 데이터베이스 크기(MB)를 반환합니다.
 
 ```
--- 데이터베이스의 크기를 계산합니다. 
+-- Calculates the size of the database.
 SELECT SUM(reserved_page_count)*8.0/1024
 FROM sys.dm_db_partition_stats;
 GO
@@ -76,7 +76,7 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] **sys.dm\_exec\_requests** 및 **sys.dm\_exec\_sessions views**를 실행하는 경우, 사용자가 데이터베이스에 대한 **VIEW DATABASE STATE** 권한을 가지고 있으면 사용자에게 데이터베이스에 대한 모든 실행 세션이 표시되며, 그렇지 않으면 현재 세션만 표시됩니다.
+> [AZURE.NOTE] **sys.dm\_exec\_requests** 및 **sys.dm\_exec\_sessions views**를 실행하는 경우, 데이터베이스에 대한 **VIEW DATABASE STATE** 권한을 가지고 있으면 데이터베이스에 대한 모든 실행 세션이 표시되며, 그렇지 않으면 현재 세션만 표시됩니다.
 
 ## 쿼리 성능 모니터링
 
@@ -135,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL 데이터베이스 소개](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

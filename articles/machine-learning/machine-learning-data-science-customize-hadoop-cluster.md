@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="hangzh;bradsev" />
 
 # 팀 데이터 과학 프로세스용 Azure HDInsight Hadoop 클러스터 사용자 지정 
 
 이 문서에서는 HDInsight 서비스로 클러스터를 프로비전할 때 64비트 Anaconda(Python 2.7)를 각 노드에 설치하여 HDInsight Hadoop 클러스터를 사용자 지정하는 방법에 대해 설명합니다. 또한 헤드 노드에 액세스하여 사용자 지정 작업을 클러스터에 제출하는 방법을 보여 줍니다. 이 사용자 지정을 통해 클러스터에서 Hive 레코드를 처리하도록 설계된 UDF(사용자 정의 함수)에서 Anaconda에 포함된 널리 사용되는 많은 Python 모듈을 편리하게 사용할 수 있습니다. 이 시나리오에 사용되는 프로시저에 대한 지침은 [Hive 쿼리를 제출하는 방법](machine-learning-data-science-move-hive-tables.md#submit)을 참조하세요.
 
-다음 메뉴는 TDSP(Team Data Science Process)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
+다음 메뉴는 [TDSP(팀 데이터 과학 프로세스)](data-science-process-overview.md)에서 사용되는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -51,11 +51,11 @@
 
 마지막 **스크립트 동작** 구성 페이지에서 **스크립트 동작 추가** 단추를 클릭하고 텍스트 필드를 다음 값으로 채웁니다.
  
-* **이름** - 이 스크립트 동작의 이름인 모든 문자열입니다. 
-* **노드 유형** - **모든 노드**를 선택합니다. 
-* **스크립트 URI** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
-	* *publicscripts*는 저장소 계정의 공용 컨테이너입니다. 
-	* *getgoing*은 Azure에서 사용자의 작업을 용이하게 하기 위해 PowerShell 스크립트 파일을 공유하는 데 사용됩니다. 
+* **이름** - 이 스크립트 동작의 이름인 모든 문자열입니다.
+* **노드 유형** - **모든 노드**를 선택합니다.
+* **스크립트 URI** - *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+	* *publicscripts*는 저장소 계정의 공용 컨테이너입니다.
+	* *getgoing*은 Azure에서 사용자의 작업을 용이하게 하기 위해 PowerShell 스크립트 파일을 공유하는 데 사용됩니다.
 * **매개 변수** - 비어 있는 상태로 둡니다.
 
 마지막으로 확인 표시를 클릭하여 사용자 지정 HDInsight Hadoop 클러스터 만들기를 시작합니다.
@@ -86,4 +86,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드" 
-	description="이 문서에서는 Azure MFA 서버를 시작하는 방법 및 이전 phonefactor agent에서 업그레이드하는 방법을 설명합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드"
+	description="이 문서에서는 Azure MFA 서버를 시작하는 방법 및 이전 phonefactor agent에서 업그레이드하는 방법을 설명합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
 
@@ -63,10 +63,4 @@ PhoneFactor Agent v5.x 및 이전 버전을 Azure Multi-Factor Authentication �
 <li>웹 서버에 모바일 앱 웹 서비스를 설치하려면 관리자 권한으로 명령 프롬프트를 열고 MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi를 실행합니다. 기본 가상 디렉터리 이름은 이제 "PhoneFactorPhoneAppWebService" 대신 "MultiFactorAuthMobileAppWebService"가 됩니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 최종 사용자가 자신의 모바일 장치에서 좀 더 쉽게 입력할 수 있도록 짧은 이름을 선택하는 것이 좋습니다. 그렇지 않은 경우 설치 중에 새 기본 이름이 사용되도록 허용하면 Multi-Factor Authentication 서버에서 모바일 앱 아이콘을 클릭하고 모바일 앱 웹 서비스 URL을 업데이트해야 합니다.</li>
 <li>모바일 앱 웹 서비스 설치 위치(예: C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService)로 이동한 후 web.config 파일을 편집합니다. 새 web.config 파일로 업그레이드하기 전에 백업했던 원본 web.config 파일에서 appSettings 및 applicationSettings 섹션의 값을 복사합니다. 웹 서비스 SDK를 설치할 때 새 기본 가상 디렉터리 이름을 유지한 경우 applicationSettings 섹션의 URL이 올바른 위치를 가리키도록 변경합니다. 이전 web.config 파일에서 기타 기본값을 변경한 경우 새 web.config 파일에 같은 변경 내용을 적용합니다.</li></ol>
 
-
- 
-
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

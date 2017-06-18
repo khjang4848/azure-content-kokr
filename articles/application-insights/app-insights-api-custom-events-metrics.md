@@ -12,16 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="09/11/2016" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
 
 *Application Insights는 미리 보기 상태입니다.*
 
-응용 프로그램에 몇 줄의 코드를 삽입하여 사용자가 해당 응용 프로그램으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 장치 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다.
-
-Application Insights 데이터 수집기는 이 API를 사용하여 페이지 보기 및 예외 보고서 같은 표준 원격 분석을 보냅니다. 하지만 이 API를 사용하여 사용자 지정 원격 분석을 보낼 수도 있습니다.
+응용 프로그램에 몇 줄의 코드를 삽입하여 사용자가 해당 응용 프로그램으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 장치 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다. [Visual Studio Application Insights](app-insights-overview.md) 코어 원격 분석 API를 사용하면 사용자 지정 이벤트 및 메트릭 그리고 고유한 버전의 표준 원격 분석을 보낼 수 있습니다. 이 API는 표준 Application Insights 데이터 수집기에서 사용되는 동일한 API입니다.
 
 ## API 요약
 
@@ -103,7 +101,8 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 
     telemetry.trackEvent("WinGame");
 
-여기서 "WinGame"은 Application Insights 포털에 표시되는 이름입니다.
+
+### Azure 포털에서 이벤트 보기
 
 이벤트의 수를 보려면 [메트릭 탐색기](app-insights-metrics-explorer.md) 블레이드를 열고 새 차트를 추가한 다음 이벤트를 선택합니다.
 
@@ -243,6 +242,36 @@ TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
+
+
+## 작업 컨텍스트
+
+원격 분석 항목은 일반 작업 ID에 연결하여 함께 연결될 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청을 처리하는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [검색](app-insights-diagnostic-search.md) 및 [분석](app-insights-analytics.md)에서 ID를 사용하여 요청과 관련된 모든 이벤트를 쉽게 찾을 수 있습니다.
+
+ID를 설정하는 가장 쉬운 방법은 이 패턴을 사용하여 작업 컨텍스트를 설정하는 것입니다.
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+`StartOperation`에서는 작업 컨텍스트를 설정할 뿐 아니라 사용자가 지정하는 형식의 원격 분석 항목을 만든 후, 사용자가 작업을 삭제할 때나 `StopOperation`을(를) 명시적으로 호출하는 경우에 전송합니다. 원격 분석 형식으로 `RequestTelemetry`을(를) 사용하는 경우 해당 기간은 시작 및 중지 사이의 시간 제한 간격으로 설정됩니다.
+
+작업 컨텍스트는 중첩할 수 없습니다. 작업 컨텍스트가 이미 있는 경우 해당 ID가 StartOperation을 사용하여 만든 항목을 비롯한 모든 포함된 항목에 연결됩니다.
+
+검색에서 작업 컨텍스트는 관련 항목 목록을 만드는 데 사용됩니다.
+
+![관련 항목](./media/app-insights-api-custom-events-metrics/21.png)
 
 
 ## 예외 추적
@@ -517,32 +546,6 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 > [AZURE.WARNING] Track*()을 여러 번 호출하기 위해 같은 원격 분석 항목 인스턴스(이 예에서 `event`)를 다시 사용하지 않습니다. 그러면 원격 분석을 잘못된 구성과 함께 보낼 수 있습니다.
 
-## 작업 컨텍스트
-
-웹앱이 HTTP 요청을 받으면 Application Insights 요청 추적 모듈은 요청에 ID를 할당하고 현재 작업 ID와 동일한 값을 설정합니다. 작업 ID는 요청에 대한 응답을 전송할 때 삭제됩니다. 해당 작업 중에 수행되는 모든 추적 호출에는 동일한 작업 ID가 할당됩니다(기본 TelemetryContext를 사용하는 경우). 따라서 포털에서 이러한 호출을 검사할 때 특정 요청에 관련된 이벤트에 상관 관계를 설정할 수 있습니다.
-
-![관련 항목](./media/app-insights-api-custom-events-metrics/21.png)
-
-HTTP 요청과 연결되지 않은 이벤트를 모니터링하거나 요청 추적 모듈을 사용하지 않는 경우(예를 들어 백 엔드 프로세스를 모니터링하는 경우) 다음 패턴을 사용하여 사용자 고유의 작업 컨텍스트를 설정할 수 있습니다.
-
-    // Establish an operation context and associated telemetry item:
-    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
-    {
-        // Telemetry sent in here will use the same operation ID.
-        ...
-        telemetry.TrackEvent(...); // or other Track* calls
-        ...
-        // Set properties of containing telemetry item - for example:
-        operation.Telemetry.ResponseCode = "200";
-        
-        // Optional: explicitly send telemetry item:
-        telemetry.StopOperation(operation);
-
-    } // When operation is disposed, telemetry item is sent.
-
-`StartOperation`에서는 작업 컨텍스트를 설정할 뿐 아니라 사용자가 지정하는 형식의 원격 분석 항목을 만든 후, 사용자가 작업을 삭제할 때나 `StopOperation`을(를) 명시적으로 호출하는 경우에 전송합니다. 원격 분석 형식으로 `RequestTelemetry`을(를) 사용하는 경우 해당 기간은 시작 및 중지 사이의 시간 제한 간격으로 설정됩니다.
-
-작업 컨텍스트는 중첩할 수 없습니다. 작업 컨텍스트가 이미 있는 경우 해당 ID가 StartOperation을 사용하여 만든 항목을 비롯한 모든 포함된 항목에 연결됩니다.
 
 
 ## <a name="timed"></a> 타이밍 이벤트
@@ -788,4 +791,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

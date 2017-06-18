@@ -19,7 +19,7 @@
 
 # Azure에 PHP 웹앱 만들기, 구성 및 배포
 
-[AZURE.INCLUDE [탭](../../includes/app-service-web-get-started-nav-tabs.md)]
+[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 이 자습서에서는 Azure용 PHP 웹앱을 생성, 구성 및 배포하는 방법 및 Azure 앱 서비스를 구성하여 PHP 웹앱의 요구 사항을 충족하는 방법을 보여 줍니다. 자습서를 완료하면 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)에 라이브로 실행 중인 [Laravel](https://www.laravel.com/) 웹앱을 만들게 됩니다.
 
@@ -45,7 +45,7 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
 
 ## 개발 컴퓨터에 PHP (Laravel) 앱 만들기
 
-1. 새 Windows 명령 프롬프트, PowerShell 창, Linux 셸 또는 OS X 터미널을 엽니다. 다음 명령을 실행하여 필요한 도구가 컴퓨터에 제대로 설치되어 있는지를 확인합니다. 
+1. 새 Windows 명령 프롬프트, PowerShell 창, Linux 셸 또는 OS X 터미널을 엽니다. 다음 명령을 실행하여 필요한 도구가 컴퓨터에 제대로 설치되어 있는지를 확인합니다.
 
         php --version
         composer --version
@@ -82,8 +82,9 @@ PHP 개발자로서 Azure에 즐겨 찾는 PHP 프레임워크를 가져올 수 
 
 Azure CLI를 사용하여 Azure 앱 서비스에서 웹앱을 만들고 명령의 한 줄을 사용하여 Git 배포에 대해 등록할 수 있습니다. 수행해보겠습니다.
 
-3. 다음과 같이 Azure에 로그인합니다.
+1. ASM 모드로 변경하고 Azure에 로그인합니다.
 
+        azure config mode asm
         azure login
     
     로그인 프로세스를 계속하려면 도움말 메시지를 따릅니다.
@@ -105,7 +106,7 @@ Azure CLI를 사용하여 Azure 앱 서비스에서 웹앱을 만들고 명령�
 
 Azure에서 작업할 Laravel 앱의 경우 몇 가지 사항에 주의해야 합니다. 선택한 PHP 프레임워크와 비슷한 이 연습을 수행합니다.
 
-- PHP 5.5.9 이상을 구성합니다. 서버 요구 사항의 전체 목록은 [최신 Laravel 5.2 서버 요구 사항](https://laravel.com/docs/5.2#server-requirements)을 참조하세요. 목록의 나머지는 Azure에서 PHP를 설치할 경우 이미 사용하는 확장입니다. 
+- PHP 5.5.9 이상을 구성합니다. 서버 요구 사항의 전체 목록은 [최신 Laravel 5.2 서버 요구 사항](https://laravel.com/docs/5.2#server-requirements)을 참조하세요. 목록의 나머지는 Azure에서 PHP를 설치할 경우 이미 사용하는 확장입니다.
 - 앱에 필요한 환경 변수를 설정합니다. Laravel는 환경 변수를 쉽게 설정하기 위해 `.env` 파일을 사용합니다. 그러나 원본 제어로 커밋할 수 없기 때문에([Laravel 환경 구성](https://laravel.com/docs/5.2/configuration#environment-configuration) 참조) 대신 Azure 웹앱의 앱 설정을 설정합니다.
 - Laravel 앱의 항목 지점인 `public/index.php`이 먼저 로드되는지 확인합니다. [Laravel 수명 주기 개요](https://laravel.com/docs/5.2/lifecycle#lifecycle-overview)를 참조하세요. 즉, 웹앱의 루트 URL을 설정하여 `public` 디렉터리를 가리켜야 합니다.
 - composer.json이 있으므로 Azure에서 작성기 확장을 사용합니다. 이런 방식으로는 `git push`을 배포하는 경우에 필요한 패키지를 가져오는 방법에 대해 작성자가 우려할 수 있습니다. 편의와 관련됩니다. 작성기 자동화를 사용하지 않는 경우 Git가 코드를 커밋 및 배포할 때 `vendor` 디렉터리에 모든 항목을 포함하도록("무시하지 않도록") `.gitignore` 파일에서 `/vendor`를 제거해야 합니다.
@@ -248,4 +249,4 @@ Azure에 웹앱을 성공적으로 배포했지만 Azure 웹앱으로 이동한 
 - [Azure 앱 서비스에서 멀티사이트로 WordPress 변환](web-sites-php-convert-wordpress-multisite.md)
 - [Azure 앱 서비스의 엔터프라이즈급 WordPress](web-sites-php-enterprise-wordpress.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

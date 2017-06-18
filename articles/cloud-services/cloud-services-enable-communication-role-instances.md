@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/22/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Azure에서 역할 인스턴스에 통신 사용
@@ -101,7 +101,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 **인스턴스** 속성은 **RoleInstance** 개체의 컬렉션을 반환합니다. 이 컬렉션은 항상 현재 인스턴스를 포함합니다. 역할이 내부 끝점을 정의하지 않으면 컬렉션에 현재 인스턴스를 포함하지만 다른 인스턴스는 포함하지 않습니다. 내부 끝점이 역할에 대해 정의되지 않는 경우 컬렉션에 있는 역할 인스턴스 수는 항상 1입니다. 역할이 내부 끝점을 정의하는 경우 해당 인스턴스는 런타임 시 검색 가능하고 컬렉션의 인스턴스 수는 서비스 구성 파일의 역할에 지정된 인스턴스 수에 해당합니다.
 
-> [AZURE.NOTE] Azure Managed Library는 다른 역할 인스턴스의 상태를 결정하는 수단을 제공하지는 않지만 서비스가 이 기능을 필요로 하는 경우 그러한 상태 평가를 직접 구현할 수 있습니다. [Azure 진단](https://msdn.microsoft.com/library/azure/gg433048.aspx)을 사용하여 역할 인스턴스를 실행하는 방법에 대한 정보를 얻을 수 있습니다.
+> [AZURE.NOTE] Azure Managed Library는 다른 역할 인스턴스의 상태를 결정하는 수단을 제공하지는 않지만 서비스가 이 기능을 필요로 하는 경우 그러한 상태 평가를 직접 구현할 수 있습니다. [Azure 진단](cloud-services-dotnet-diagnostics.md)을 사용하여 역할 인스턴스를 실행하는 방법에 대한 정보를 얻을 수 있습니다.
 
 역할 인스턴스의 내부 끝점에서 포트 번호를 확인하려면 [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) 속성을 사용하여 끝점 이름과 해당 IP 주소 및 포트를 포함하는 Dictionary 개체를 반환합니다. [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) 속성은 끝점을 지정한 IP 주소 및 포트를 반환합니다. **PublicIPEndpoint** 속성은 끝점을 분산한 부하에 포트를 반환합니다. **PublicIPEndpoint** 속성의 IP 주소 부분을 사용하지 않습니다.
 
@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## 다음 단계
 클라우드 서비스 [모델](cloud-services-model-and-package.md)에 대해 더 읽습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

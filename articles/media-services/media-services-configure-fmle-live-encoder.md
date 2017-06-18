@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="FMLE 인코더를 구성하여 단일 비트 전송률 라이브 스트림 보내기" 
+	pageTitle="FMLE 인코더를 구성하여 단일 비트 전송률 라이브 스트림 보내기 | Microsoft Azure" 
 	description="이 항목에서는 FMLE(Flash Media Live Encoder) 인코더를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;cenkdin;anilmur"/>
 
 #FMLE 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
@@ -24,7 +24,7 @@
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
-이 항목에서는 [FMLE(Flash Media Live Encoder)](http://www.adobe.com/products/flash-media-encoder.html) 인코더를 구성하여 단일 비트 전송률 스트림을 라이브 인코딩에 대해 사용할 수 있는 AMS 채널에 보내는 방법을 보여 줍니다. 자세한 내용은 [Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+이 항목에서는 FMLE[(Flash Media Live Encoder)](http://www.adobe.com/products/flash-media-encoder.html) 인코더를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다. 자세한 내용은 [Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 
 이 자습서에서는 AMSE(Azure 미디어 서비스 탐색기) 도구를 사용하여 AMS(Azure 미디어 서비스)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure 클래식 포털을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program)을 만듭니다.
 
@@ -33,7 +33,7 @@
 ##필수 조건
 
 - [Azure 미디어 서비스 계정 만들기](media-services-create-account.md)
-- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-manage-origins.md)를 참조하세요.
+- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
 - 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
 - 이 도구를 시작하고 AMS 계정에 연결합니다.
 
@@ -137,7 +137,7 @@
 
 스트림이 플레이어에 나타나면 인코더가 AMS에 연결되도록 제대로 구성된 것입니다.
 
-오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
+오류가 수신되면 채널을 다시 설정해서 인코더 설정을 조정해야 합니다. 지침을 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
 
 ##프로그램 만들기
 
@@ -159,7 +159,7 @@
 
 ## 문제 해결
 
-참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
+지침을 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
 
 
 ##미디어 서비스 학습 경로
@@ -170,4 +170,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

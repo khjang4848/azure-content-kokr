@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
-   ms.author="ganesr"/>
+   ms.date="09/14/2016"
+   ms.author="ganesr;cherylmc"/>
 
 # Express 경로 회로 만들기 및 수정
 
@@ -32,15 +32,34 @@
 
 ## 시작하기 전에
 
-- Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](https://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)의 지침을 따르세요.
+### 1\. 필수 조건 및 워크플로 문서에 대한 검토
 
-- 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.
+구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.
+
+
+### 2\. 최신 버전의 Azure PowerShell 모듈 설치 
+
+Azure PowerShell 모듈을 사용하도록 컴퓨터를 구성하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)의 지침을 따르세요.
+
+### 3\. Azure 계정에 로그인 및 구독 선택
+
+1. Windows PowerShell 프롬프트에서 다음 cmdlet 명령을 실행합니다.
+
+		Add-AzureAccount
+2. 표시된 로그인 화면에서 계정에 로그인합니다.
+
+3. 구독 목록을 가져옵니다.
+
+		Get-AzureSubscription
+4. 사용할 구독을 선택합니다.
+	
+		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## Express 경로 회로 만들기 및 프로비전
 
 ### 1\. Express 경로에 대한 PowerShell 모듈을 가져옵니다.
 
- Express 경로 cmdlet을 사용하려면 Azure와 Express 경로 모듈을 PowerShell 세션으로 가져와야 합니다. 이렇게 하려면 다음 명령을 실행합니다.
+ 먼저 ExpressRoute cmdlet을 사용할 수 있도록 Azure와 ExpressRoute 모듈을 PowerShell 세션으로 가져와야 합니다. 로컬 컴퓨터에 설치된 위치에 있는 모듈을 가져옵니다. 이 위치는 모듈 설치에 사용한 방법에 따라 다음 예제와 다를 수 있습니다. 따라서 필요한 경우 예제를 수정합니다.
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -313,4 +332,4 @@ Express 경로 회로를 사용하려면 다음 상태여야 합니다.
 - [Express 경로 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md)
 - [가상 네트워크를 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

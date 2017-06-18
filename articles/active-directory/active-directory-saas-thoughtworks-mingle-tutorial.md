@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Thoughtworks Mingle과 Azure Active Directory 통합
@@ -76,7 +76,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **Thoughtworks Mingle 테넌트 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력한 다음 "**http://company.mingle.thoughtworks.com*"을 사용하여 URL을 입력하고 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Thoughtworks Mingle 테넌트 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력한 다음 "*http://company.mingle.thoughtworks.com*"을(를) 사용하여 URL을 입력하고 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "앱 URL 구성")
 
@@ -105,13 +105,13 @@
   
 AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 이름을 사용하여 Thoughtworks Mingle 응용 프로그램에 프로비전되어야 합니다. Thoughtworks Mingle의 경우 프로비전은 수동 작업입니다.
 
-###사용자 프로비전을 구성하려면
+###사용자 프로비저닝을 구성하려면
 
 1.  Thoughtworks Mingle 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2.  **프로필**을 클릭합니다.
 
-    ![첫번째 프로젝트](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785160.png "첫번째 프로젝트")
+    ![첫 번째 프로젝트](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785160.png "첫 번째 프로젝트")
 
 3.  **관리자** 탭을 클릭하고 **사용자**를 클릭합니다.
 
@@ -149,4 +149,4 @@ AAD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용자 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

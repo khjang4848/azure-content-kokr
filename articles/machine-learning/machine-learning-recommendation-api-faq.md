@@ -3,8 +3,8 @@
 	description="Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
-	manager="paulettm" 
+	authors="LuisCabrer" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 #기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ
@@ -21,9 +21,7 @@
 
 **권장 사항이란 무엇입니까?**
 
-> 데이터 마켓에서 기존 Recommendations API에 대한 문서이며 2016년 12월 31일에 중단됩니다. 이제 [Recommendations API Cognitive 서비스](https://www.microsoft.com/cognitive-services/ko-KR/recommendations-api)를 사용하여 이동해야 합니다.
-
-
+>[AZURE.NOTE] 이 버전 대신 Recommendations API Cognitive 서비스를 사용하기 시작해야 합니다. Recommendations Cognitive 서비스가 이 서비스를 대체하게 되며, 모든 새로운 기능이 여기에서 개발됩니다. 일괄 처리 지원, 개선된 API 탐색기, 보다 깔끔한 API 노출 영역, 보다 일관적인 등록/청구 경험 등의 새로운 기능이 있습니다. [새로운 Cognitive 서비스로 마이그레이션](http://aka.ms/recomigrate)에 대해 자세히 알아보세요.
 
 고객에 대한 교차 판매 및 상향 판매의 권장 사항에 의존하는 조직과 비즈니스를 위한 Azure 기계 학습 권장 사항은 셀프 서비스 권장 사항 엔진을 제공합니다. 이는 행렬 인수분해를 핵심 알고리즘으로 사용한 공동 작업 필터링 구현입니다. 응용 프로그램 개발자는 REST API를 사용하여 RECOMMENDATIONS에 액세스할 수 있습니다.
 
@@ -139,4 +137,4 @@ API 설명서는 [Azure 기계 학습 권장 사항 - 빠른 시작 가이드](m
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

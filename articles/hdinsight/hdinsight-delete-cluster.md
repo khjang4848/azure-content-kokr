@@ -4,7 +4,7 @@ description="HDInsight 클러스터를 삭제할 수 있는 다양한 방법에 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -48,4 +48,4 @@ __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
     
 __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

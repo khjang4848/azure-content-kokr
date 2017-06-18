@@ -3,7 +3,7 @@
    description="로컬 Docker 컨테이너에서 실행 중인 앱을 수정하고, 편집 및 새로 고침을 통해 컨테이너를 새로 고치고, 디버깅 중단점을 설정하는 방법을 알아봅니다."
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="07/22/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # 로컬 Docker 컨테이너에서 앱 디버깅
 
@@ -26,8 +26,8 @@ Visual Studio Tools for Docker는 Linux Docker 컨테이너에서 로컬로 응�
 다음과 같은 도구를 설치해야 합니다.
 
 - [Visual Studio 2015 업데이트 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-- [Microsoft ASP.NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
-- [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
+- [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 설치
+- [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 로컬에서 Docker 컨테이너를 실행하려면 로컬 Docker 클라이언트가 필요합니다. 릴리스된 [Docker 도구 상자](https://www.docker.com/products/overview#/docker_toolbox)는 Hyper-V를 비활성화한 후 사용할 수 있습니다. 또는 [윈도우용 Docke 베타](https://beta.docker.com)(Hyper-v를 사용하고 Windows 10을 필요로 함)를 사용할 수 있습니다.
 
@@ -125,4 +125,4 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트 구성](./vs
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

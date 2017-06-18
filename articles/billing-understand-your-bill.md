@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/23/2016"
+   ms.date="09/13/2016"
    ms.author="erihur;genli"/>
 
 
@@ -161,8 +161,8 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 
  이름 | 다운로드 |
  :----------:| :-------: |
- 자세한 사용 현황 .csv 버전 1| [샘플 파일](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
- 자세한 사용 현황 .csv 버전 2 | [샘플 파일](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
+ 자세한 사용 현황 .csv 버전 1| [샘플 파일](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+ 자세한 사용 현황 .csv 버전 2 | [샘플 파일](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
 
 
@@ -206,11 +206,11 @@ SKU | SKU | 각 Azure 리소스에 대한 고유한 시스템 식별자를 식�
 ![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **태그**:이 열은 사용자 특정 리소스 태그를 포함합니다. 청구 레코드를 그룹화하는 데 태그를 사용할 수 있습니다. 예를 들어 서비스를 사용하는 부서는 비용을 배분하는데 태그를 사용할 수 있습니다. [태그를 사용하여 Azure 리소스 구성](./resource-group-using-tags.md)에 대한 자세한 내용을 알아봅니다. 태그를 내보내도록 지원하는 서비스는 다음과 같습니다.
-    
+
     - 가상 컴퓨터
-    
+
     - 저장소 및
-   
+
     - [Azure 리소스 관리자 API](https://msdn.microsoft.com/library/azure/dn790567.aspx)를 사용하여 프로비전된 네트워킹 서비스
 
 ![tags](./media/billing-understand-your-bill/tags.png)
@@ -241,4 +241,4 @@ OLD MSDN Articles
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

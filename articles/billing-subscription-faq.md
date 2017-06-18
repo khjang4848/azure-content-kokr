@@ -61,6 +61,7 @@
 - [Azure 지불 방법으로 더 이상 사용하지 않는 신용 카드는 어떻게 제거하나요?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
 - [내 신용 카드 정보를 업데이트하거나 변경하려면 어떻게 해야 하나요?](#how-can-i-update-or-change-my-credit-card-information)
 - [Azure 구독을 위한 지불 정보를 어떻게 수정하나요?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
+- [국제 신용 카드를 사용해야 한다는 메시지가 표시되는 이유는 무엇인가요?](#why-am-i-seeing-a-message-that-i-need-to-use-an-international-credit-card)
 
 ## Azure 가격 책정
 
@@ -74,7 +75,7 @@
 - [Azure SLA 크레딧이란 무엇인가요?](#what-are-the-azure-sla-credits)
 - [Azure 서비스 수준 계약은 현재 온-프레미스 Microsoft 라이선스 계약과 함께 어떻게 적용되나요?](#how-will-azure-service-level-agreements-work-with-current-on-premises-microsoft-licensing-agreements)
 
-## Azure 지출 한도
+## 지출 한도
 
 - [지출 한도 기능을 해제한 경우 다시 설정할 수 있나요?](#can-i-turn-the-spending-limit-back-on-if-i-turn-off-it)
 - [지출 한도 금액을 조정할 수 있나요?](#can-i-adjust-the-amount-of-the-spending-limit)
@@ -251,6 +252,10 @@ Azure 계정 정보를 보고 편집하려면 계정 관리자로 Azure 계정 �
 
 >[AZURE.NOTE] 현재 지불 방법 변경 도구에서는 지불 방법으로 등록된 기존 카드를 제거할 수 없습니다. 신용 카드를 제거하는 방법에 대한 내용은 이 문서의 [Azure 지불 방법으로 더 이상 사용하지 않는 신용 카드는 어떻게 제거하나요?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)를 참조하세요.
 
+### 국제 신용 카드를 사용해야 한다는 메시지가 표시되는 이유는 무엇인가요?
+
+일부 경우에는 로컬/기본 통화로 Azure 서비스에 대해 지불하더라도 로컬이 아닌 Microsoft 엔터티를 통해 서비스를 구입하고 신용 카드가 로컬이 아닌 은행에서 처리됩니다. 이러한 경우 로컬 은행에서 발급된 카드는 Azure 서비스에 부정적인 영향을 줄 수 있어 실패할 수 있습니다. 본인의 신용 카드를 국제 거래에 사용할 수 있는지 잘 모르는 경우 해당 은행 또는 카드 발급자에게 문의하여 확인하세요. [지원되는 국가 및 통화](billing-countries-and-currencies.md)를 참조하세요.
+
 ### 내 구독에 대해 세부 정보를 편집 또는 추가할 수 없는 이유는 무엇인가요?
 
 Azure 계정 정보를 보고 편집하려면 계정 관리자로 Azure 계정 센터에 로그인해야 합니다. AA지만 구독을 편집할 수 없는 경우 지원 티켓을 제출하여 지원을 요청하세요. 지원 티켓을 만들려면 [Azure 청구 및 구독 문제에 대한 지원 티켓을 만드는 방법](billing-how-to-create-billing-support-ticket.md) 문서를 참조하세요.
@@ -321,4 +326,4 @@ Azure는 전 세계 140여 개 국가에서 구매할 수 있으며 여러 가�
 
 [지불 방법으로 송장](https://azure.microsoft.com/pricing/invoicing/)을 사용하도록 설정했다면 송장 밑에 나열된 위치로 지불액을 보내세요. 자세한 도움말은 [지원에 문의](billing-how-to-create-billing-support-ticket.md)합니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

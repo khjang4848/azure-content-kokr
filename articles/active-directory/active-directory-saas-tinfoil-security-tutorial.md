@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Tinfoil Security와 Azure Active Directory 통합
@@ -78,7 +78,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지에 있는 **Tinfoil Security 회신 URL** 텍스트 상자에 자신의 Tinfoil Security 어설션 소비자 서비스(ACS) URL(예: "**https://www.tinfoilsecurity.com/saml/consume*"을 입력하고 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지에 있는 **Tinfoil Security 회신 URL** 텍스트 상자에 자신의 Tinfoil Security 어설션 소비자 서비스(ACS) URL(예: "*https://www.tinfoilsecurity.com/saml/consume*")을 입력하고 **다음**을 클릭합니다.
 
     >[AZURE.NOTE] Tinfoil Security 메타데이터(https://www.tinfoilsecurity.com/saml/metadata)에서 ACS URL을 가져올 수 있어야 합니다.
 
@@ -104,8 +104,8 @@
 
     1.  **SAML 사용**을 선택합니다.
     2.  **수동 구성**을 클릭합니다.
-    3.  Azure 클래식 포털의 **Tinfoil Security에 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **SAML 게시 URL** 텍스트 상자에 붙여넣습니다.
-    4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **SAML 인증서 지문** 텍스트 상자에 붙여 넣습니다.  
+    3.  Azure 클래식 포털의 **Tinfoil Security에 Single Sign-On 구성** 대화 상자 페이지에서 **SAML SSO URL** 값을 복사한 다음 **SAML 게시 URL** 텍스트 상자에 붙여 넣습니다.
+    4.  내보낸 인증서에서 **지문** 값을 복사한 다음 **SAML 인증서 지문** 텍스트 상자에 붙여 넣습니다.
 
         >[AZURE.TIP] 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
@@ -126,7 +126,7 @@
 
     1.  **사용자 특성 추가**를 클릭합니다.
     2.  **특성 이름** 텍스트 상자에 **accountid**를 입력합니다.
-    3.  **특성 값** 텍스트 상자에 이전 섹션에서 복사한 계정 ID 값을 붙여넣습니다.
+    3.  **특성 값** 텍스트 상자에 이전 섹션에서 복사한 계정 ID 값을 붙여 넣습니다.
     4.  **완료**를 클릭합니다.
 
 12. **변경 내용 적용**을 클릭합니다.
@@ -161,4 +161,4 @@ Azure AD 사용자가 Tinfoil Security에 로그인할 수 있게 하려면 Tinf
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -22,7 +22,7 @@
 ## 필요한 도구 및 응용 프로그램 다운로드
 프로세스를 시작하기 전에 다음 항목이 준비되어 있어야 합니다.
 
-- 대상으로 하는 운영 체제에 따라 Azure 다운로드 페이지에서 Azure PowerShell cmdlet 또는 Linux 명령줄 인터페이스 도구를 설치합니다.
+- 대상으로 하는 운영 체제에 따라 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 [Azure PowerShell cmdlet](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) 또는 [Linux 명령줄 인터페이스 도구](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409)를 설치합니다.
 - CodePlex에서 Azure 저장소 탐색기를 설치합니다.
 - Azure Certified용 인증 테스트 도구를 다운로드하여 설치합니다.
   - [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). 인증 도구를 실행하려면 Windows 기반 컴퓨터가 필요합니다. Windows 기반 컴퓨터를 사용할 수 없는 경우 Azure의 Windows 기반 VM을 사용하여 도구를 실행할 수 있습니다.
@@ -48,9 +48,9 @@ Windows 또는 Linux에서 Azure 기반 VM을 개발할 수 있습니다. Azure 
 
 ## 참고 항목
 - [시작: Azure 마켓플레이스에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
-- [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-hero-tutorial/)
+- [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

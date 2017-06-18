@@ -4,8 +4,8 @@ pageTitle="SCP.NET 프로그래밍 가이드 | Azure"
 description="HDInsight의 Storm 사용을 위해 SCP.NET을 사용하여 .NET 기반 Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
 services="hdinsight"
 documentationCenter=""
-authors="rperi"
-manager="paulettm"
+authors="raviperi"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -688,4 +688,4 @@ SCP를 사용하여 만든 Storm 토폴로지 예제는 다음을 참조하세�
 * [Azure 이벤트 허브에서 HBase로 ETL(추출, 변환 및 로드)](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
 * [HDInsight에서 Storm 및 HBase를 사용하여 이벤트의 상관 관계 지정](hdinsight-storm-correlation-topology.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bharaths" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="09/11/2016" 
 	ms.author="bharaths"/>
 
 #Azure 마켓플레이스에서 기계 학습 앱 게시 및 사용: FAQ
@@ -77,4 +77,4 @@ Azure 기계 학습 웹 서비스에 직접 연결하는 경우와 마켓플레�
 
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

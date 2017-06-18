@@ -4,7 +4,7 @@
 	services="data-catalog"
 	documentationCenter=""
 	authors="spelluru"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
 	tags=""/>
 <tags 
@@ -353,4 +353,4 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
 
 # Azure 포털을 사용하여 가상 네트워크 피어링 만들기
 
@@ -60,7 +60,7 @@ Azure 포털을 사용하여 위의 시나리오에 따라 VNet 피어링을 만
 
 	![마지막 링크 상태 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-10. 참고: 링크를 모두 연결해야만 VNET 피어링이 설정됩니다.
+    > [AZURE.NOTE] 링크를 모두 연결해야만 VNET 피어링이 설정됩니다.
 
 각 링크에 대한 몇 가지 구성 가능한 속성이 있습니다.
 
@@ -91,7 +91,7 @@ VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 포�
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    참고: 브라우저에서 두 사용자 세션에 로그오프하고 로그온하여 권한 부여가 성공적으로 사용되었는지 확인할 수 있습니다.
+    > [AZURE.NOTE] 브라우저에서 두 사용자 세션에 로그오프하고 로그온하여 권한 부여가 성공적으로 사용되었는지 확인할 수 있습니다.
 
 6. 포털에 사용자A로 로그인하고 VNET3 블레이드로 이동하여 피어링을 클릭한 다음 ‘내 리소스 ID를 알고 있습니다” 확인란을 선택하고 아래 서식에서 VNET5에 대한 리소스 ID를 입력합니다.
 
@@ -111,11 +111,33 @@ VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 포�
 
     ![기본 피어링](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
 
-2. 다음 단계로 VNET1에서 HubVnet으로 피어링 링크를 만들 수 있습니다. ‘전달 트래픽 허용’ 옵션을 선택하지 않았습니다.
+2. 다음 단계로 VNET1에서 HubVnet으로 피어링 링크를 만들 수 있습니다. 전달 트래픽 허용 옵션을 선택하지 않았습니다.
 
     ![기본 피어링](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
 
 3. 피어링을 설정하면 이 [문서](virtual-network-create-udr-arm-ps.md)를 참조하고 UDR(사용자 정의 경로)를 정의하여 그 기능을 사용하는 가상 어플라이언스를 통해 VNet1 트래픽을 리디렉션할 수 있습니다. 경로에 다음 홉 주소를 지정하면 피어링된 VNet HubVNet에서 가상 어플라이언스의 IP 주소를 설정할 수 있습니다.
+
+
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+
+
+1. 브라우저에서 http://portal.azure.com으로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+
+2. 이 시나리오에서 VNET 피어링을 설정하려면 Azure Resource Manager에서 가상 네트워크에서 클래식의 가상 네트워크에 하나의 링크를 만들어야 합니다. 즉, **VNET1**에서 **VNET2**입니다. 포털에서 **찾아보기**를 클릭하고 **가상 네트워크**를 선택합니다.
+
+3. 가상 네트워크 블레이드에서 **VNET1**을 선택합니다. **피어링**을 클릭한 다음 **추가**를 클릭합니다.
+
+4. 피어링 추가 블레이드에서 링크의 이름을 지정합니다. 여기에서는 **LinkToVNet2**라고 합니다. 피어 세부 정보에서 **클래식**을 선택합니다.
+
+5. 구독 및 피어 Virtual Network **VNET2**를 선택합니다. 그런 후 확인을 클릭합니다.
+
+    ![Vnet1-VNet2 연결](./media/virtual-networks-create-vnetpeering-arm-portal/figure18.png)
+
+6. 이 VNet 피어링 링크가 만들어지면 두 가상 네트워크는 피어링되며 다음을 볼 수 있습니다.
+
+    ![피어링 연결 확인](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
+
 
 ## VNet 피어링 제거
 
@@ -130,4 +152,4 @@ VNet 피어링의 링크 각각에는 위의 속성 집합이 있습니다. 포�
 
 4. 이 상태에서는 피어링 링크 상태가 시작됨으로 변경될 때까지 링크를 다시 만들 수 없습니다. VNET 피어링을 다시 만들기 전에 링크를 모두 제거하는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

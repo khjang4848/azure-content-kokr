@@ -4,7 +4,7 @@ description="PowerShell을 사용하여 알고리즘은 동일하지만 다른 �
 services="machine-learning"
 documentationCenter=""
 authors="hning86"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -161,4 +161,4 @@ Blob 저장소 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountN
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

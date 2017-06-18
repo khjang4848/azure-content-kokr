@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/21/2016"
+   ms.date="09/06/2016"
    ms.author="rclaus" />
 
 # Azure의 Linux VM에 대한 DNS 이름 확인 옵션
@@ -43,7 +43,7 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 
 **기능:**
 
-- 사용 편의성: Azure에서 제공하는 이름 확인을 사용하면 별도로 구성할 필요가 없습니다.
+- 사용 편의성: Azure에서 제공하는 이름 확인을 사용하기 위해 별도로 구성할 필요가 없습니다.
 
 - Azure에서 제공하는 이름 확인 서비스는 항상 사용 가능하며 사용자 고유 DNS 서버의 클러스터를 만들고 관리해야 하는 필요성을 줄여줍니다.
 
@@ -71,9 +71,9 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 
 모든 DNS 쿼리를 네트워크를 통해 전송해야 하는 것은 아닙니다. 클라이언트쪽 캐싱을 사용하면 대기 시간을 줄이고 로컬 캐시에서 되풀이되는 DNS 쿼리를 확인하여 네트워크 블립에 대한 복원력을 개선하는 데 도움이 됩니다. DNS 레코드는 레코드 새로 고침에 영향을 주지 않으면서 캐시가 가능한 오랫동안 레코드를 저장할 수 있도록 하는 TTL(Time-To-Live)을 포함하므로 클라이언트쪽 캐싱은 대부분의 상황에 적합합니다.
 
-일부 Linux 배포판은 기본적으로 캐싱을 포함하지 않으므로 각 Linux VM에 캐싱을 추가하는 것이 좋습니다(로컬 캐시가 아직 없다는 것을 확인한 후).
+일부 Linux 배포판은 기본적으로 캐싱을 포함하지 않습니다. 각 Linux VM에 캐싱을 추가하는 것이 좋습니다(로컬 캐시가 아직 없다는 것을 확인한 후).
 
-dnsmasq와 같은 다양한 여러 DNS 캐싱이 제공되며 여기서는 가장 일반적인 배포판에 dnsmasq를 설치하는 단계를 설명합니다.
+dnsmasq와 같은 다양한 여러 다양한 DNS 캐싱이 제공되며 여기서는 가장 일반적인 배포판에 dnsmasq를 설치하는 단계를 설명합니다.
 
 - **Ubuntu(resolvconf 사용)**:
 	- dnsmasq 패키지를 설치합니다("sudo apt-get install dnsmasq").
@@ -103,7 +103,7 @@ Linux VM에서 현재 설정을 확인하려면 'cat /etc/resolv.conf'에서 'op
 
 	options timeout:1 attempts:5
 
-resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 없습니다. 'options' 줄을 추가하는 구체적인 단계는 배포판마다 다릅니다.
+resolv.conf 파일은 자동으로 생성되며 편집할 수 없습니다. 'options' 줄을 추가하는 구체적인 단계는 배포판마다 다릅니다.
 
 - **Ubuntu**(resolvconf 사용):
 	- options 줄을 '/etc/resolveconf/resolv.conf.d/head'에 추가합니다.
@@ -138,4 +138,4 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 
 > [AZURE.NOTE] 최상의 성능을 위해 DNS 서버로 Azure VM을 사용할 때는 IPv6을 사용하지 않도록 설정하고 [인스턴스 수준 공용 IP](../virtual-network/virtual-networks-instance-level-public-ip.md)를 각 DNS 서버 VM에 할당해야 합니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

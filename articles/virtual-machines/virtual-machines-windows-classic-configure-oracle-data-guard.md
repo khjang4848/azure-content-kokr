@@ -12,13 +12,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/17/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus" />
 
 #Azure용 Oracle Data Guard 구성하기
 
 
-이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle Data Guard를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서에서는 비 RAC Oracle 데이터베이스에 대한 단방향 복제에 초점을 맞춥니다.
+이 자습서에서는 고가용성 및 재해 복구를 위해 Azure Virtual Machines 환경에서 Oracle Data Guard를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서에서는 비 RAC Oracle 데이터베이스에 대한 단방향 복제에 초점을 맞춥니다.
 
 Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 재해 복구를 지원합니다. 재해 복구, 데이터 보호 및 전체 Oracle 데이터베이스에 대한 고가용성을 위한 간편하고 성능이 뛰어난 드롭인 솔루션입니다.
 
@@ -29,7 +29,7 @@ Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 �
 - [Oracle 가상 컴퓨터 이미지 - 기타 고려 사항](virtual-machines-windows-classic-oracle-considerations.md) 항목에서 고가용성 및 재해 복구 고려 사항 섹션을 이미 검토했을 것입니다. Azure는 독립 실행형 Oracle 데이터베이스 인스턴스를 지원하지만 Oracle RAC(Oracle Real Application Clusters)는 현재 지원하지 않습니다.
 
 
-- Oracle Enterprise Edition 이미지를 제공하는 동일한 플랫폼을 사용하여 Azure에서 두 VM(가상 컴퓨터)을 만들었습니다. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 하려면 [동일한 클라우드 서비스](virtual-machines-windows-load-balance.md) 및 동일한 [가상 네트워크](azure.microsoft.com/documentation/services/virtual-network/)에 가상 컴퓨터가 있어야 합니다. 또한 Azure이 개별 장애 도메인 및 업그레이드 도메인에 VM을 배치할 수 있도록 동일한 [가용성 집합](virtual-machines-windows-manage-availability.md)에 VM을 배치하는 것이 좋습니다. Oracle Data Guard는 Oracle Database Enterprise Edition으로만 사용할 수 있습니다. 각 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다. 플랫폼에서 제공되는 VM 크기에 대한 최신 정보는 [Azure용 가상 컴퓨터 크기](virtual-machines-windows-sizes.md)를 참조하세요. VM에 대한 추가 디스크 볼륨이 필요한 경우 추가 디스크를 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)을 참조하세요.
+- Oracle Enterprise Edition 이미지를 제공하는 동일한 플랫폼을 사용하여 Azure에서 두 VM(가상 컴퓨터)을 만들었습니다. 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 하려면 [동일한 클라우드 서비스](virtual-machines-windows-load-balance.md) 및 동일한 가상 네트워크에 Virtual Machines가 있어야 합니다. 또한 Azure이 개별 장애 도메인 및 업그레이드 도메인에 VM을 배치할 수 있도록 동일한 [가용성 집합](virtual-machines-windows-manage-availability.md)에 VM을 배치하는 것이 좋습니다. Oracle Data Guard는 Oracle Database Enterprise Edition으로만 사용할 수 있습니다. 각 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다. 플랫폼에서 제공되는 VM 크기에 대한 최신 정보는 [Azure용 가상 컴퓨터 크기](virtual-machines-windows-sizes.md)를 참조하세요. VM에 대한 추가 디스크 볼륨이 필요한 경우 추가 디스크를 연결할 수 있습니다. 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-windows-classic-attach-disk.md)을 참조하세요.
 
 
 
@@ -53,7 +53,7 @@ Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 �
 
 	3. 대기 다시 실행 로그 구성
 
-	4. 보관 사용
+	4. Enable Archiving
 
 	5. 주 데이터베이스 초기화 매개 변수 설정
 
@@ -65,7 +65,7 @@ Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 �
 
 	1. 두 데이터베이스 모두에 대한 항목을 보유하도록 두 서버에 모두 listener.ora 구성
 
-	2. 주 및 대기 데이터베이스에 대한 항목을 보유하는 주 및 대기 가상 컴퓨터에서 tnsnames.ora 구성
+	2. 주 및 대기 데이터베이스에 대한 항목을 보유하기 위해 주 및 대기 Virtual Machines에서 tnsnames.ora를 구성합니다.
 
 	3. 수신기를 시작하고 두 서비스에 대해 두 가상 컴퓨터 모두의 tnsping를 확인합니다.
 
@@ -94,7 +94,7 @@ Oracle 데이터베이스 및 Oracle Data Guard의 후속 릴리스에서 구현
 ### 1\. 주 데이터베이스 만들기
 
 - 기본 가상 컴퓨터에서 주 데이터베이스 “테스트”를 만듭니다. 자세한 내용은 Oracle 데이터베이스 만들기 및 구성을 참조하세요.
-- SQL*Plus 명령 프롬프트에서 SYSDBA 역할이 있는 SYS 사용자로 데이터베이스에 연결하고 다음 문을 실행하여 데이터베이스의 이름을 봅니다.
+- 데이터베이스의 이름을 보려면 SQL*Plus 명령 프롬프트에서 SYSDBA 역할이 있는 SYS 사용자로 데이터베이스에 연결하고 다음 문을 실행합니다.
 
 		SQL> select name from v$database;
 
@@ -121,7 +121,7 @@ Oracle 데이터베이스 및 Oracle Data Guard의 후속 릴리스에서 구현
 1. 강제 로깅을 사용하도록 설정
 2. 암호 파일 만들기
 3. 대기 다시 실행 로그 구성
-4. 보관 사용
+4. Enable Archiving
 5. 주 데이터베이스 초기화 매개 변수 설정
 
 #### 강제 로깅을 사용하도록 설정
@@ -138,7 +138,7 @@ Oracle 데이터베이스 및 Oracle Data Guard의 후속 릴리스에서 구현
 
 >[AZURE.IMPORTANT] Oracle 데이터베이스 12c 사용 시 Oracle Data Guard를 관리하는 데 사용할 수 있는 새 사용자 **SYSDG**가 있습니다. 자세한 내용은 [Oracle 데이터베이스 12c 릴리스의 변경 내용](http://docs.oracle.com/database/121/UNXAR/release_changes.htm#UNXAR404)을 참조하세요.
 
-또한 ORACLE\_HOME 환경이 Machine1에 이미 정의되어 있어야 합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 환경 변수로 이를 정의해야 합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. **시스템 변수**에서 **새로 만들기** 단추를 클릭하여 환경 변수를 설정합니다. 환경 변수를 설정한 후 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 엽니다.
+또한 ORACLE\_HOME 환경이 Machine1에 이미 정의되어 있어야 합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 환경 변수로 이를 정의해야 합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. 환경 변수를 설정하려면 **시스템 변수**에서 **새로 만들기** 단추를 클릭합니다. 환경 변수를 설정한 후 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 엽니다.
 
 C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\database 같은 Oracle\_Home 디렉터리로 전환하려면 다음 문을 실행합니다.
 
@@ -320,7 +320,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 
 먼저, Azure 클래식 포털을 통해 Machine2에 원격 데스크톱을 연결해야 합니다.
 
-그런 다음 대기 서버(Machine2)에서 C:\\<YourLocalFolder>\\TEST와 같이 대기 데이터베이스에 필요한 모든 폴더를 만듭니다. 이 자습서를 수행하는 동안 controlfile, datafiles, redologfiles, udump, bdump 및 cdump 파일과 같이 필요한 모든 파일을 유지하기 위해 해당 폴더 구조와 Machine1의 폴더 구조가 일치해야 합니다. 또한 Machine2에서 ORACLE\_HOME 및 ORACLE\_BASE 환경 변수를 정의합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 이를 환경 변수로 정의합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. **시스템 변수**에서 **새로 만들기** 단추를 클릭하여 환경 변수를 설정합니다. 환경 변수를 설정한 후 변경 내용을 보기 위해 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 열어야 합니다.
+그런 다음 대기 서버(Machine2)에서 C:\\<YourLocalFolder>\\TEST와 같이 대기 데이터베이스에 필요한 모든 폴더를 만듭니다. 이 자습서를 수행하는 동안 controlfile, datafiles, redologfiles, udump, bdump 및 cdump 파일과 같이 필요한 모든 파일을 유지하기 위해 해당 폴더 구조와 Machine1의 폴더 구조가 일치해야 합니다. 또한 Machine2에서 ORACLE\_HOME 및 ORACLE\_BASE 환경 변수를 정의합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 이를 환경 변수로 정의합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. 환경 변수를 설정하려면 **시스템 변수**에서 **새로 만들기** 단추를 클릭합니다. 환경 변수를 설정한 후 변경 내용을 보기 위해 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 열어야 합니다.
 
 이어서 다음 단계를 수행합니다.
 
@@ -368,7 +368,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 -	***.LOG\_ARCHIVE\_DEST\_1:** Machine2에 c:\\OracleDatabase\\TEST\_STBY\\archives 폴더를 수동으로 만들어야 합니다.
 -	***.LOG\_ARCHIVE\_DEST\_2:** 이 단계는 선택 사항입니다. 주 컴퓨터가 유지 관리 중이고 대기 컴퓨터가 주 데이터베이스가 될 때 필요할 수 있기 때문에 이 단계를 설정합니다.
 
-그런 다음 대기 인스턴스를 시작해야 합니다. 대기 데이터베이스 서버에서 새 Windows 서비스를 만들어 Oracle 인스턴스를 만들기 위해 Windows 명령 프롬프트에서 다음 명령을 입력합니다.
+그런 다음 대기 인스턴스를 시작해야 합니다. 대기 데이터베이스 서버에서 Windows 서비스를 만들어 Oracle 인스턴스를 만들기 위해 Windows 명령 프롬프트에서 다음 명령을 입력합니다.
 
 	oradim -NEW -SID TEST\_STBY -STARTMODE MANUAL
 
@@ -502,7 +502,7 @@ Machine2에 원격 데스크톱을 설정하고 다음과 같이 tnsnames.ora �
 
 
 ##nomount 상태의 대기 인스턴스 시작
-대기 가상 컴퓨터(MACHINE2)에서 대기 데이터베이스를 지원하도록 환경을 설정해야 합니다.
+대기 Virtual Machine(MACHINE2)에서 대기 데이터베이스를 지원하도록 환경을 설정합니다.
 
 먼저 기본 컴퓨터(Machine1)에서 대기 컴퓨터(Machine2)로 암호 파일을 수동으로 복사합니다. 이는 **sys** 암호가 두 컴퓨터에서 동일해야 하기 때문에 필요합니다.
 
@@ -630,4 +630,4 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-windows-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

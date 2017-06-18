@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -64,4 +64,4 @@ Cognitive Services Recommendations API로 마이그레이션하려면 다음을 
 
 이러한 전환이 사용자에게 최대한 쉽도록 하려고 합니다. DataMarket 계정의 이전 모델을 새로운 Azure Cognitive Services Recommendations API 구독으로 이동하도록 지원해드릴 수 있습니다. [mlapi@microsoft.com](mailto://mlapi@microsoft.com)으로 문의하시기 바랍니다. 모델을 귀하의 새 계정과 연결하기 전에 DataMarket 구독 ID와 Cognitive Services 구독 ID를 제공하도록 요청합니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

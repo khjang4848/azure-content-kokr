@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # node.js를 사용하여 Web API 보안 유지
@@ -33,7 +33,7 @@ Azure Active Directory v2.0 끝점을 사용하면 [OAuth 2.0](active-directory-
 전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
 
-## 1\. 앱 등록
+## 1. 앱 등록
 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르십시오. 다음을 수행해야 합니다.
 
 - 곧 필요하게 되므로 앱에 할당된 **응용 프로그램 ID**를 적어둡니다.
@@ -99,7 +99,7 @@ npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 Restify는 DTrace를 사용하여 REST 호출을 추적하는 강력한 메커니즘을 제공합니다. 그러나 대부분의 운영 체제에서는 DTrace를 사용할 수 없습니다. 이러한 오류는 무시해도 됩니다.
 
 
-이 명령의 출력은 다음과 유사하게 표시됩니다.
+이 명령의 출력은 다음과 유사합니다.
 
 
 	restify@2.6.1 node_modules/restify
@@ -284,7 +284,7 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 ```Javascript
 var config = require('./config');
 ```
-그다음에 다음 코드를 사용하여 `server.js`에 새 섹션을 추가합니다.
+그 다음에 다음 코드를 사용하여 `server.js`에 새 섹션을 추가합니다.
 
 ```Javascript
 // We pass these options in to the ODICBearerStrategy.
@@ -645,8 +645,7 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
 그런 다음 해당 디렉터리로 변경하고 curl을 시작합니다.
 
-`$ cd azuread` 
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -715,7 +714,7 @@ server.use(passport.session()); // Provides session support
 > [AZURE.TIP]
 API를 작성하는 경우 항상 사용자가 스푸핑할 수 없는 토큰의 고유한 항목에 데이터를 연결해야 합니다. 이 서버는 TODO 항목을 저장할 때 "owner" 필드에 넣은 토큰의 사용자 구독 ID(token.sub라고 함)를 기준으로 항목을 저장합니다. 이렇게 하면 해당 사용자만 자신의 TODO에 액세스할 수 있고 다른 사용자는 입력된 TODO에 액세스할 수 없습니다. API에 "owner"가 노출되지 않으므로 외부 사용자가 인증된 경우에도 다른 사용자의 TODO를 요청할 수 있습니다.
 
-다음에는 passport-azure-ad에 포함된 Open ID Connect 전달자 전략을 사용하겠습니다. 지금은 코드만 살펴보고 곧 설명하겠습니다. 위에서 붙여넣은 코드 뒤에 이 코드를 넣습니다.
+다음에는 passport-azure-ad에 포함된 Open ID Connect 전달자 전략을 사용하겠습니다. 지금은 코드만 살펴보고 곧 설명하겠습니다. 위에서 붙여 넣은 코드 뒤에 이 코드를 넣습니다.
 
 ```Javascript
 /**
@@ -765,7 +764,7 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
 > [AZURE.IMPORTANT]
 위 코드는 서버에 인증하는 모든 사용자를 사용합니다. 이를 자동 등록이라고 합니다. 프로덕션 서버에서는 결정한 등록 프로세스를 먼저 통과해야만 사용자 액세스를 허용하려 합니다. 일반적으로 이는 Facebook으로 등록할 수 있도록 하지만 추가 정보를 입력하도록 요구하는 소비자 앱에서 나타나는 패턴입니다. 명령줄 프로그램이 아니라면 반환된 토큰 개체에서 메일을 추출하고 추가 정보를 입력하도록 요구할 수 있습니다. 테스트 서버이므로 메모리 내 데이터베이스에 추가합니다.
 
-### 2\. 마지막으로 일부 끝점 보호
+### 2. 마지막으로 일부 끝점 보호
 
 사용하려는 프로토콜을 통해 passport.authenticate() 호출을 지정하여 끝점을 보호합니다.
 
@@ -859,4 +858,4 @@ Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정
 
 [이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

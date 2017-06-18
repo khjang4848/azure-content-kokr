@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 # SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
@@ -23,9 +23,10 @@
 
 ## 새 데이터베이스 및 파일 그룹 만들기
 
-- [새 데이터베이스 만들기](https://technet.microsoft.com/library/ms176061.aspx)(없는 경우)
+- [새 데이터베이스 만들기](https://technet.microsoft.com/library/ms176061.aspx)(존재하지 않는 경우)
 - 분할된 실제 파일을 보유할 데이터베이스에 데이터베이스 파일 그룹 추가
-- 참고: 새 데이터베이스를 만드는 경우 [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx)를 사용하여, 기존 데이터베이스가 있는 경우 [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx)를 사용하여 이 작업을 수행할 수 있음
+
+  참고: 새 데이터베이스를 만드는 경우 [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx)를 사용하여, 기존 데이터베이스가 있는 경우 [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx)를 사용하여 이 작업을 수행할 수 있음
 
 - 각 데이터베이스 파일 그룹에 파일을 하나 이상(필요한 만큼) 추가
 
@@ -74,7 +75,7 @@
 	    <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
 	    <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
 
-- 팁: 함수/스키마에 따라 각 파티션에 적용되는 범위를 확인하려면 다음 쿼리를 실행합니다.
+  팁: 함수/스키마에 따라 각 파티션에 적용되는 범위를 확인하려면 다음 쿼리를 실행합니다.
 
 	    SELECT psch.name as PartitionScheme,
 	    	prng.value AS ParitionValue,
@@ -89,7 +90,7 @@
 	    CREATE TABLE <table_name> ( [include schema definition here] )
 	    ON <TablePScheme>(<partition_field>)
 
-- 자세한 내용은 [분할된 테이블 및 인덱스 만들기](https://msdn.microsoft.com/library/ms188730.aspx)를 참조하세요.
+자세한 내용은 [분할된 테이블 및 인덱스 만들기](https://msdn.microsoft.com/library/ms188730.aspx)를 참조하세요.
 
 
 ## 각 파티션 테이블의 데이터를 대량으로 가져오기
@@ -187,4 +188,4 @@
 공용 데이터 집합과 Cortana 분석 프로세스를 사용하여 종단간 연습 예제는 [실행 중인 Cortana 분석 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

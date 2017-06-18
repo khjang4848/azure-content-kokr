@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2016"
+   ms.date="09/20/2016"
    ms.author="dkshir;chackdan"/>
 
 
@@ -32,7 +32,7 @@
 6. 추가할 새 노드를 설명하는 매개 변수를 사용하여 *AddNode.ps1* Powershell을 실행합니다. 아래 예제에서는 NodeType0 유형, IP 주소 182.17.34.52를 사용하여 VM5라는 새 노드를 UD1 및 FD1에 추가합니다. *ExistingClusterConnectionEndPoint*는 기존 클러스터에 이미 있는 노드에 대한 연결 끝점입니다. 이 끝점의 경우 클러스터에서 *모든* 노드의 IP 주소를 선택할 수 있습니다.
 
 ```
-.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1
+.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA true
 ```
 
 ## 클러스터에서 노드 제거
@@ -43,7 +43,7 @@
 4. *RemoveNode.ps1* Powershell을 실행합니다. 아래 예제에서는 클러스터에서 현재 노드를 제거합니다. *ExistingClusterConnectionEndPoint*는 기존 클러스터에 이미 있는 노드에 대한 연결 끝점입니다. 이 끝점의 경우 클러스터에서 *모든* 노드의 IP 주소를 선택할 수 있습니다.
 
 ```
-.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
 ```
 
 
@@ -53,4 +53,4 @@
 - [X509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호](service-fabric-windows-cluster-x509-security.md)
 - [Windows를 실행하는 Azure VM에서 독립 실행형 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

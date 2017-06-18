@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 보고서" 
-	description="Azure Multi-Factor Authentication 기능 - 보고서를 사용하는 방법을 설명합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure Multi-Factor Authentication 보고서"
+	description="Azure Multi-Factor Authentication 기능 - 보고서를 사용하는 방법을 설명합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication에서 보고서
 
@@ -23,7 +23,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 사
 Azure 관리 포털을 통해 보고서에 액세스할 수 있습니다.
 
 Name| 설명
-:------------- | :------------- | 
+:------------- | :------------- |
 사용 | 사용 현황 보고서는 전반적인 사용 현황, 사용자 요약 및 사용자 세부 내용에 대한 정보를 표시합니다.
 서버 상태|이 보고서는 계정에 연결된 Multi-Factor Authentication 서버의 상태를 표시합니다.
 차단된 사용자 기록|이러한 보고서는 사용자 차단 또는 차단 해제 요청 기록을 보여 줍니다.
@@ -47,6 +47,5 @@ Queued|처리 및 해당 상태에 대해 대기 중인 보고서가 나열되�
 
 * [사용자](multi-factor-authentication-end-user.md)
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx)
- 
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

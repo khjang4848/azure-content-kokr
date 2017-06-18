@@ -43,7 +43,7 @@ Azure AD에 대한 인증은 login.microsoftonline.com에 있는 Azure AD를 호
 **일반 HTTP 요청:**
 
 ```HTTP
-POST /<Azure AD Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
+POST /<Azure AD Tenant ID>/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
 Host: login.microsoftonline.com
 Cache-Control: no-cache
 Content-Type: application/x-www-form-urlencoded
@@ -68,13 +68,13 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
 **Bash를 사용하여 액세스 토큰 생성하기:**
 
 ```console
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
 ```
 
 **Powershell을 사용하여 액세스 토큰 생성:**
 
 ```powershell
-Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
+Invoke-RestMethod -Uri https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
 
@@ -247,4 +247,4 @@ Content-Type: application/json
 
 이 요청에 대한 매우 긴 JSON 응답은 이 설명서의 가독성을 높이기 위해 생략되었습니다. 응답에는 방금 만든 템플릿 기반 배포에 대한 정보가 포함됩니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight,notification hubs"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -443,7 +443,7 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 /devicedata 위치에 저장되지 않은 파일이 표시되지 않으면(`hadoop fs -ls /devicedata` 명령 또는 쿼리 콘솔에서 Hive 명령을 사용하여) Storm UI를 사용하여 토폴로지에서 반환된 오류를 찾습니다.
 
-Storm UI를 사용하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
+Storm UI 사용에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 * HDInsight 클러스터에서 __Linux 기반__ Storm을 사용하고 있다면 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요
 
@@ -453,4 +453,4 @@ Storm UI를 사용하는 방법에 대한 자세한 내용은 다음 항목을 �
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

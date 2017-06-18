@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원
@@ -169,7 +169,7 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 
 요청|계정 설정 및 규칙 평가 결과|||응답|||
 ---|---|---|---|---|---|---|---|---
-**요청한 Origin 헤더 유무** | **이 서비스에 대한 CORS 규칙 지정 여부** | **모든 원본(*)을 허용하는 일치 규칙 유무** | **원본이 정확하게 일치하는지 확인하는 일치 규칙 유무** | **응답의 Vary 헤더가 Origin으로 설정되어 있는지 여부** | **응답의 Access-Control-Allowed-Origin 유무:** | **응답의 Access-Control-Exposed-Headers 유무**
+**요청한 Origin 헤더 유무** | **이 서비스에 대한 CORS 규칙 지정 여부** | **모든 원본(*)을 허용하는 일치 규칙 유무** | **원본이 정확하게 일치하는지 확인하는 일치 규칙 유무** | **응답의 Vary 헤더가 Origin으로 설정되어 있는지 여부** | *응답의 Access-Control-Allowed-Origin 유무:"*"** | **응답의 Access-Control-Exposed-Headers 유무**
 아니요|아니요|아니요|아니요|아니요|아니요|아니요
 아니요|예|아니요|아니요|예|아니요|아니요
 아니요|예|예|아니요|아니요|예|예
@@ -195,4 +195,4 @@ GET/HEAD가 아닌 메서드를 사용하는 요청의 경우 저장소 서비�
 
 [W3C 교차 원본 자원 공유 사양](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

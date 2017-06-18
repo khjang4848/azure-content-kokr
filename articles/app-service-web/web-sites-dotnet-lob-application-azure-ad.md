@@ -58,7 +58,7 @@ Azure에서 LOB(기간 업무) 앱에 대한 RBAC(역할 기반 액세스 제어
 
 4. **App Service 만들기** 대화 상자에서 **계정 추가**(그런 다음 드롭다운에서 **계정 추가**)를 클릭하여 Azure 계정에 로그인합니다.
 
-5. 로그인하면 웹앱을 구성합니다. **새로 만들기** 단추를 각각 클릭하여 리소스 그룹 및 새 App Service 계획을 만듭니다. **추가 서비스 탐색**을 클릭하여 계속합니다.
+5. 로그인하면 웹앱을 구성합니다. **새로 만들기** 단추를 각각 클릭하여 리소스 그룹 및 새 App Service 계획을 만듭니다. **추가 Azure 서비스 탐색**을 클릭하여 계속합니다.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
 
@@ -382,4 +382,4 @@ LOB(기간 업무)가 온-프레미스 데이터에 대한 액세스 권한이 �
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

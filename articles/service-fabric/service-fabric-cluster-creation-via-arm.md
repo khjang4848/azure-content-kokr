@@ -32,7 +32,7 @@ Azure Resource Manager를 사용하여 Azure에 보안 Azure 서비스 패브릭
 보안 클러스터란 응용 프로그램, 서비스 및 포함된 데이터를 배포, 업그레이드 및 삭제하는 관리 작업에 무단 액세스하는 것을 방지하는 클러스터입니다. 비보안 클러스터란 언제라도 누구든지 연결하여 관리 작업을 수행할 수 있는 클러스터입니다. 비보안 클러스터를 만드는 것이 가능하지만 **보안 클러스터를 만드는 것이 좋습니다**. 비보안 클러스터는 **나중를 보안될 수 없습니다** -새 클러스터를 만들어야 합니다.
 
 ## Azure에 로그인
-이 가이드는 [Azure PowerShell][azure-powershell]를 사용합니다. 새로 PowerShell 세션을 시작하려면 Azure 계정에 로그인한 후 Azure 명령을 실행하기 전에 구독을 선택합니다.
+이 가이드에서는 [Azure PowerShell][azure-powershell]을 사용합니다. 새로 PowerShell 세션을 시작하려면 Azure 계정에 로그인한 후 Azure 명령을 실행하기 전에 구독을 선택합니다.
 
 Azure 계정에 로그인합니다.
 
@@ -47,23 +47,23 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## 키 자격 증명 모음 설정
+## 주요 자격 증명 모음 설정
 
-가이드의 이 부분에서는 Azure에서 서비스 패브릭 클러스터에 대해서와 서비스 패브릭 응용 프로그램에 대해서 키 자격 증명 모음을 만드는 단계를 단계별로 안내합니다. 키 자격 증명 모음에 대한 완전한 가이드는 [키 자격 증명 모음 시작 가이드][key-vault-get-started]를 참조하세요.
+가이드의 이 부분에서는 Azure에서 서비스 패브릭 클러스터에 대해서와 서비스 패브릭 응용 프로그램에 대해서 주요 자격 증명 모음을 만드는 단계를 안내합니다. 키 자격 증명 모음에 대한 완전한 가이드는 [키 자격 증명 모음 시작 가이드][key-vault-get-started]를 참조하세요.
 
-서비스 패브릭은 클러스터에 보안 적용을 하고 응용 프로그램 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. Azure 키 자격 증명 모음은 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다. 클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 키 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다.
+서비스 패브릭은 클러스터에 보안 적용을 하고 응용 프로그램 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. Azure 키 자격 증명 모음은 Azure에서 서비스 패브릭 클러스터에 대한 인증서를 관리하는 데 사용됩니다. 클러스터를 Azure에 배포할 때 서비스 패브릭 클러스터 생성을 담당하는 Azure 리소스 공급자는 주요 자격 증명 모음에서 인증서를 가져와 클러스터 VM에 설치합니다.
 
-다음 다이어그램은 키 자격 증명 모음, 서비스 패브릭 클러스터 및 클러스터를 만들 때 키 자격 증명 모음에 저장된 인증서를 사용하는 Azure 리소스 공급자 간의 관계를 보여 줍니다.
+다음 다이어그램은 주요 자격 증명 모음, 서비스 패브릭 클러스터 및 클러스터를 만들 때 주요 자격 증명 모음에 저장된 인증서를 사용하는 Azure 리소스 공급자 간의 관계를 보여 줍니다.
 
 ![인증서 설치][cluster-security-cert-installation]
 
 ### 리소스 그룹 만들기
 
-첫 번째 단계는 특히 키 자격 증명 모음에 대한 새로운 리소스 그룹을 생성하는 것입니다. 키 자격 증명 모음을 자체 리소스 그룹에 두어 키와 비밀을 잃지 않고도 서비스 패브릭 클러스터가 든 리소스 그룹과 같은 리소스 그룹을 제거, 계산, 저장할 수 있도록 하는 것이 좋습니다. 사용자 키 자격 증명 모음을 가진 리소스 그룹은 그것을 사용 중인 클러스터와 동일한 영역에 있어야 합니다.
+첫 번째 단계는 특히 주요 자격 증명 모음에 대한 새로운 리소스 그룹을 생성하는 것입니다. 주요 자격 증명 모음을 자체 리소스 그룹에 두어 키 및 암호는 유실하지 않고 서비스 패브릭 클러스터가 있는 리소스 그룹과 같은 계산 및 저장소 리소스 그룹을 제거하도록 하는 것이 좋습니다. 사용자의 주요 자격 증명 모음을 가진 리소스 그룹은 그것을 사용 중인 클러스터와 동일한 지역에 있어야 합니다.
 
 ```powershell
 
-	PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
+	New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
 	WARNING: The output object type of this cmdlet will be modified in a future release.
 	
 	ResourceGroupName : mycluster-keyvault
@@ -76,11 +76,11 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ### 주요 자격 증명 모음 만들기 
 
-새 리소스 그룹에 키 자격 증명 모음을 만듭니다. 서비스 패브릭 리소스 공급자가 그것에서 인증서를 가져와 클러스터 노드에 설치하도록 허용하기 위해 키 자격 증명 모음을 **배포에 대해 사용하도록 설정해야 합니다**.
+새 리소스 그룹에 주요 자격 증명 모음을 만듭니다. 서비스 패브릭 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치하도록 허용하기 위해 주요 자격 증명 모음을 **배포에 대해 사용하도록 설정해야 합니다**.
 
 ```powershell
 
-	PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
+	New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
 	
 	
 	Vault Name                       : myvault
@@ -105,7 +105,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 	Tags                             :
 ```
 
-기존 키 자격 증명 모음이 있는 경우라면 Azure CLI를 사용하여 배포에 대해 사용하도록 설정할 수 있습니다.
+기존 주요 자격 증명 모음이 있는 경우라면 Azure CLI를 사용하여 배포에 대해 사용하도록 설정할 수 있습니다.
 
 ```cli
 > azure login
@@ -116,7 +116,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 
-## 키 자격 증명 모음에 인증서 추가
+## 주요 자격 증명 모음에 인증서 추가
 
 인증서는 서비스 패브릭에서 클러스터 및 해당 응용 프로그램의 다양한 측면을 보호하기 위해 인증 및 암호화를 제공하는 데 사용됩니다. 서비스 패브릭에서 인증서가 사용되는 방식에 대한 자세한 내용은 [서비스 패브릭 클러스터 보안 시나리오][service-fabric-cluster-security]를 참조하세요.
 
@@ -142,7 +142,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ### Azure 리소스 공급자 사용을 위한 인증서 서식 지정
 
-개인 키 파일(.pfx)을 추가하 주요 자격 증명 모음을 통해 직접 사용할 수 있습니다. 그렇지만 Azure 리소스 공급자에서는 .pfx를 base-64로 인코딩된 문자열 상태로 포함하고 개인 키 암호를 포함하는 특수한 JSON 형식으로 키를 저장해야 합니다. 이러한 요구를 수용하기 위해 키를 JSON 문자열로 배치한 후 주요 자격 증명 모음에 *암호*로 저장해야 합니다.
+개인 키 파일(.pfx)을 추가하고 주요 자격 증명 모음을 통해 직접 사용할 수 있습니다. 그렇지만 Azure 리소스 공급자에서는 .pfx를 base-64로 인코딩된 문자열 상태로 포함하고 개인 키 암호를 포함하는 특수한 JSON 형식으로 키를 저장해야 합니다. 이러한 요구를 수용하기 위해 키를 JSON 문자열에 배치한 후 주요 자격 증명 모음에 *암호*로 저장해야 합니다.
 
 이 프로세스를 보다 쉽게 수행할 수 있도록 하기 위해 PowerShell 모듈이 [GitHub에서 사용할 수 있게 제공됩니다][service-fabric-rp-helpers]. 모듈을 사용하려면 다음 단계를 수행합니다.
 
@@ -153,10 +153,10 @@ Set-AzureRmContext -SubscriptionId <guid>
   PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
   ```
      
-이 PowerShell 모듈의 `Invoke-AddCertToKeyVault` 명령은 자동으로 인증서 개인 키 서식을 JSON 문자열로 지정하고 주요 자격 증명 모음에 업로드합니다. 이를 사용하여 클러스터 인증서 및 추가 응용 프로그램 인증서를 주요 자격 증명 모음에 추가합니다. 클러스터에 설치하려는 모든 추가 인증서에 대해 이 단계를 반복하면 됩니다.
+이 PowerShell 모듈의 `Invoke-AddCertToKeyVault` 명령은 자동으로 인증서 개인 키 서식을 JSON 문자열에 지정하고 주요 자격 증명 모음에 업로드합니다. 이를 사용하여 클러스터 인증서 및 추가 응용 프로그램 인증서를 주요 자격 증명 모음에 추가합니다. 클러스터에 설치하려는 모든 추가 인증서에 대해 이 단계를 반복합니다.
 
 ```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 	
 	Switching context to SubscriptionId <guid>
 	Ensuring ResourceGroup mycluster-keyvault in West US
@@ -178,7 +178,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 ```
 
 
-노드 인증, 관리 끝점 보안 및 인증, X.509 인증서를 사용하는 모든 추가 응용 프로그램 보안 기능을 위해 인증서를 설치하는 서비스 패브릭 클러스터 Resource Manager 템플릿을 구성하기 위해 주요 자격 증명 모음에 대해 이러한 작업이 선행되어야 합니다. 이제 Azure에는 다음과 같은 설정이 구성되었을 것입니다.
+노드 인증, 관리 끝점 보안 및 인증, X.509 인증서를 사용하는 모든 추가 응용 프로그램 보안 기능에 대한 인증서를 설치하는 서비스 패브릭 클러스터 Resource Manager 템플릿을 구성하기 위해 주요 자격 증명 모음에 대해 이러한 작업이 선행되어야 합니다. 이제 Azure에는 다음과 같은 설정이 구성됩니다.
 
  - 주요 자격 증명 모음 리소스 그룹
    - 키 자격 증명 모음
@@ -488,4 +488,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
 [assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

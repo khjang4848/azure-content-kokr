@@ -45,11 +45,17 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 
 ## 서비스 계층 및 성능 수준
 
-단일 데이터베이스에 대한 데이터베이스 제한은 데이터베이스 서비스 계층 및 성능 수준에 의해 정의됩니다. 다음 표에서는 다양한 성능 수준에서 Basic, Standard 및 Premium 데이터베이스의 특징을 설명합니다.
+독립 실행형 데이터베이스 및 탄력적 풀 모두에 대한 서비스 계층과 성능 수준이 있습니다.
+
+### 독립 실행형 데이터베이스
+
+독립 실행형 데이터베이스에 대한 데이터베이스 제한은 데이터베이스 서비스 계층 및 성능 수준에 의해 정의됩니다. 다음 표에서는 다양한 성능 수준에서 Basic, Standard 및 Premium 데이터베이스의 특징을 설명합니다.
 
 [AZURE.INCLUDE [SQL DB 서비스 계층 테이블](../../includes/sql-database-service-tiers-table.md)]
 
-[탄력적 데이터베이스 풀](sql-database-elastic-pool.md)은 풀의 데이터베이스에서 리소스를 공유합니다. 다음 표에서는 Basic, Standard 및 Premium 탄력적 데이터베이스 풀의 특징을 설명합니다.
+### 탄력적 풀
+
+[탄력적 풀](sql-database-elastic-pool.md)은 풀의 데이터베이스에서 리소스를 공유합니다. 다음 표에서는 Basic, Standard 및 Premium 탄력적 데이터베이스 풀의 특징을 설명합니다.
 
 [AZURE.INCLUDE [탄력적 데이터베이스에 대한 SQL DB 서비스 계층 표](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -73,4 +79,4 @@ CPU, 메모리, 로그 I/O 및 데이터 I/O 이외의 리소스는 제한에 �
 
 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

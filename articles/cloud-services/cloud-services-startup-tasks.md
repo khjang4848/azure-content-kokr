@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 
@@ -44,7 +44,7 @@ ms.author="adegeo"/>
 
 2. 모든 시작 작업은 해당 **taskType** 특성에 따라 실행됩니다.
     - **간단한** 작업이 한 번에 하나씩 동기적으로 실행됩니다.
-    - **백그라운드** 및 **포그라운드** 작업은 비동기적으로 시작 작업에 병렬로 시작됩니다.  
+    - **백그라운드** 및 **포그라운드** 작업은 비동기적으로 시작 작업에 병렬로 시작됩니다.
        
     > [AZURE.WARNING] IIS는 시작 프로세스에서 시작 작업 단계 중 완전하게 구성되지 않을 수도 있으므로 역할 지정 데이터를 사용할 수도 없습니다. 역할 지정 데이터가 필요한 시작 작업은 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx)를 사용해야 합니다.
 
@@ -105,7 +105,7 @@ EXIT /B 0
 
 **taskType** -시작 작업이 실행되는 방식을 지정합니다.
 
-- **간단** 작업이 동기적으로 한 번에 하나씩 [ServiceDefinition.csdef] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.   
+- **간단** 작업이 동기적으로 한 번에 하나씩 [ServiceDefinition.csdef] 파일에 지정된 순서로 실행됩니다. 하나의 **간단** 시작 작업이 0의 **errorlevel**로 끝나는 경우 다음 **간단** 시작 작업이 실행됩니다. 더 이상 실행할 **간단** 시작 작업이 없는 경우 역할 자체가 시작됩니다.
 
     > [AZURE.NOTE] **간단** 작업이 0이 아닌 **errorlevel**로 끝나는 경우 인스턴스가 차단됩니다. 후속 **간단** 시작 작업과 역할 자체는 시작되지 않습니다.
 
@@ -163,4 +163,4 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 [변수
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

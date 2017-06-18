@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/23/2016"
+     ms.date="09/13/2016"
      ms.author="dobett"/>
 
 # 자습서: IoT Hub 및 Java를 사용하여 클라우드-장치 메시지를 보내는 방법
@@ -81,9 +81,9 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 ## 클라우드-장치 메시지 보내기
 
-이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Java 콘솔 응용 프로그램을 만듭니다. [IoT Hub 시작] 자습서에서 추가된 장치의 장치 ID 및 [Azure portal]에서 찾을 수 있는 IoT Hub에 대한 연결 문자열이 필요합니다.
+이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Java 콘솔 응용 프로그램을 만듭니다. [IoT Hub] 자습서에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal]에서 찾을 수 있는 IoT Hub에 대한 연결 문자열도 필요합니다.
 
-1. 명령 프롬프트에서 다음 명령을 사용하여 **send-c2d-messages**라는 새 Maven 프로젝트를 만듭니다. 이것은 하나의 긴 명령입니다.
+1. 명령 프롬프트에서 다음 명령을 사용하여 **send-c2d-messages**라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -91,7 +91,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 2. 명령 프롬프트에서 새 send-c2d-messages 폴더로 이동합니다.
 
-3. 텍스트 편집기를 사용하여 send-c2d-messages 폴더에서 pom.xml 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이 옵션을 사용하면 IoT Hub 서비스와 통신하기 위해 응용 프로그램에서 **iothub-java-service-client** 패키지를 사용할 수 있습니다.
+3. 텍스트 편집기를 사용하여 send-c2d-messages 폴더에서 pom.xml 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 의존성을 추가하면 IoT Hub 서비스와 통신하기 위해 응용 프로그램에서 **iothub-java-service-client** 패키지를 사용할 수 있습니다.
 
     ```
     <dependency>
@@ -159,7 +159,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 이제 응용 프로그램을 실행할 준비가 되었습니다.
 
-1. simulated-device 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub에 원격 분석 데이터 전송을 시작하고 IoT hub에서 보낸 클라우드-장치 메시지를 수신합니다.
+1. simulated-device 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub에 원격 분석 데이터 전송을 시작하고 사용자의 허브에서 보낸 클라우드-장치 메시지를 수신 대기합니다.
 
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
@@ -173,7 +173,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![명령을 실행하여 c2d 메시지 보내기][img-send-command]
+    ![명령을 실행하여 클라우드-장치 메시지 보내기][img-send-command]
 
 ## 다음 단계
 
@@ -189,6 +189,7 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [img-send-command]: media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
+[IoT Hub]: iot-hub-java-java-getstarted.md
 [IoT Hub 시작]: iot-hub-java-java-getstarted.md
 [IoT Hub 시작하기]: iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
@@ -200,4 +201,4 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [Azure portal]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -184,7 +184,7 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 | `{iot hub host name}/servicebound/feedback` | 클라우드-장치 메시지에 대한 피드백을 받습니다. |
 | `{iot hub host name}/devicebound` | 클라우드-장치 메시지를 보냅니다. |
 
-예를 들어 **registryRead**라는 미리 생성된 공유 액세스 정책을 사용하여 생성된 서비스는 다음 매개 변수로 토큰을 만듭니다.
+예를 들어 **registryRead**라는 미리 생성된 공유 액세스 정책을 사용하여 생성하는 서비스는 다음 매개 변수로 토큰을 만듭니다.
 
 * 리소스 URI: `{IoT hub name}.azure-devices.net/devices`,
 * 서명 키: `registryRead` 정책의 키 중 하나,
@@ -265,4 +265,4 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

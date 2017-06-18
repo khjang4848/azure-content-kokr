@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2016"
+	ms.date="09/06/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Microsoft Cortana Intelligence 대회 관련 FAQ
@@ -115,4 +115,4 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 사용자의 응모작은 우승 솔루션을 선발하기 위한 평가 용도로만 보관됩니다. 자세한 내용은 [약관](http://aka.ms/comptermsandconditions)을 참조하세요.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -219,7 +219,7 @@ The Funding Portal 응용 프로그램은 SAML 어셜선이 "externalId1"이라�
 
 ### The Funding Portal 테스트 사용자 만들기
 
-이 섹션에서는 The Funding Portal에서 Britta Simon이라는 사용자를 만듭니다. 이 섹션에서는 The Funding Portal에서 Britta Simon이라는 사용자를 만듭니다. The Funding Portal에서 Britta Simon를 추가하는 방법을 모를 경우 테스트 사용자를 추가하고 SSO를 사용 설정하도록 The Funding Portal 지원 팀에 문의하세요. 지원 팀에 info@regenteducation.com로 문의하세요.
+이 섹션에서는 The Funding Portal에서 Britta Simon이라는 사용자를 만듭니다. The Funding Portal에서 Britta Simon를 추가하는 방법을 모를 경우 테스트 사용자를 추가하고 SSO를 사용 설정하도록 The Funding Portal 지원 팀에 문의하세요. 지원 팀에 info@regenteducation.com로 문의하세요.
 
 ### Azure AD 테스트 사용자 할당
 
@@ -282,4 +282,4 @@ The Funding Portal 응용 프로그램은 SAML 어셜선이 "externalId1"이라�
 [204]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

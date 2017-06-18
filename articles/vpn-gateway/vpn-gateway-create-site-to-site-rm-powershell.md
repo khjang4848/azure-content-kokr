@@ -20,9 +20,9 @@
 # PowerShell을 사용하여 사이트 간 연결로 VNet 만들기
 
 > [AZURE.SELECTOR]
-- [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure 클래식 포털](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [클래식 - 클래식 포털](vpn-gateway-site-to-site-create.md)
 
 이 문서에서는 **Azure Resource Manager 배포 모델**을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
 
@@ -177,7 +177,7 @@ PowerShell 예제를 사용할 때는 다음 사항에 유의하세요.
 
 ## 7\. VPN 장치 구성
 
-이제 온-프레미스 VPN 장치를 구성하기 위한 가상 네트워크 게이트웨이의 공용 IP 주소가 필요합니다. 특정 구성 정보는 장치 제조업체에 문의하세요. 또한 자세한 내용은 [VPN 장치](vpn-gateway-about-vpn-devices.md)를 참조하세요.
+이제 온-프레미스 VPN 장치를 구성하기 위한 가상 네트워크 게이트웨이의 공용 IP 주소가 필요합니다. 특정 구성 정보는 장치 제조업체에 문의하세요. 자세한 내용은 [VPN 장치](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
 가상 네트워크 게이트웨이의 공용 IP 주소를 찾으려면 다음 샘플을 사용합니다.
 
@@ -222,4 +222,4 @@ VPN 연결을 확인하는 몇 가지 방법이 있습니다.
 
 - BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

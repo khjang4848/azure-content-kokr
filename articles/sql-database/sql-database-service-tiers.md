@@ -62,7 +62,7 @@
 
 독립 실행형 데이터베이스에 대한 서비스 계층을 결정하려면, SQL 데이터베이스 버전을 선택해야 하는 데이터베이스 기능을 확인함으로써 시작합니다.
 
-- 데이터베이스 크기(성능 수준에 따라 기본 5GB, 표준 250GB 및 프리미엄 500GB-1TB)
+- 데이터베이스 크기(성능 수준에 따라 기본 2GB, 표준 250GB 및 프리미엄 500GB-1TB)
 - 데이터베이스 백업 보존 기간(기본 7일, 표준 35일 및 프리미엄 35일)
 
 SQL 데이터베이스 버전을 결정하면 데이터베이스에 대한 성능 수준을 결정할 준비가 되었습니다(DTU의 수). 실제 경험을 토대로 추측한 다음 [동적으로 확장 또는 축소](sql-database-scale-up.md)할 수 있습니다. [DTU 계산기](http://dtucalculator.azurewebsites.net/)를 사용하여 필요한 DTU의 수를 대략적으로 예상할 수 있습니다.
@@ -88,4 +88,4 @@ SQL 데이터베이스 버전을 결정하면 데이터베이스에 대한 성�
 
 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL 데이터베이스를 사용한 다중 테넌트 SaaS 응용 프로그램 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!-----HONumber=AcomDC_0921_2016-->

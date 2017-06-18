@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/23/2016"
-	ms.author="tamram"/>
+	ms.date="09/20/2016"
+	ms.author="gusapost;tamram"/>
 
 
 # .NET을 사용하여 Azure 테이블 저장소 시작
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## 개요
 
@@ -57,7 +59,7 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
 
 `program.cs` 파일 맨 위에 다음 `using` 문을 추가합니다.
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
@@ -81,13 +83,13 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
 	// Retrieve the storage account from the connection string.
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
+
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 	// Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
-		
+
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
@@ -447,7 +449,7 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
     - [Storage Client Library for .NET 참조](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
 - [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.
-- Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
+- Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
     - [.NET을 사용하여 Azure Blob 저장소를 시작](storage-dotnet-how-to-use-blobs.md)하여 구조화되지 않은 데이터를 저장합니다.
     - [.NET 응용 프로그램에서 Azure SQL 데이터베이스를 사용하는 방법](sql-database-dotnet-how-to-use.md)으로 관계형 데이터를 저장합니다.
 
@@ -469,4 +471,4 @@ Azure 테이블 저장소는 클라우드에 구조화된 NoSQL 데이터를 저
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0921_2016-->

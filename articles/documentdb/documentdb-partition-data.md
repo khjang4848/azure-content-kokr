@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/20/2016" 
 	ms.author="arramac"/>
 
 # Azure DocumentDB의 분할 및 크기 조정
@@ -261,7 +261,7 @@ DocumentDB SDK 1.9.0 이상에서는 많은 수의 파티션에 연결해야 할
 
 다음 매개 변수를 조정하여 병렬 쿼리 실행을 관리할 수 있습니다.
 
-- `MaxDegreeOfParallelism`을 설정하여 컬렉션의 파티션에 대한 최대 동시 네트워크 연결 수를 나타내는 병렬 처리 수준을 제어할 수 있습니다. 이 값을 -1로 설정하는 경우 병렬 처리 수준이 SDK에서 관리됩니다.
+- `MaxDegreeOfParallelism`을 설정하여 컬렉션의 파티션에 대한 최대 동시 네트워크 연결 수를 나타내는 병렬 처리 수준을 제어할 수 있습니다. 이 값을 -1로 설정하는 경우 병렬 처리 수준이 SDK에서 관리됩니다. `MaxDegreeOfParallelism` 값이 지정되지 않거나 기본값인 0으로 설정된 경우 컬렉션의 파티션에 단일 네트워크 연결이 생성됩니다.
 - `MaxBufferedItemCount`를 설정하여 쿼리 대기 시간과 클라이언트 쪽 메모리 사용률 간에 균형을 유지할 수 있습니다. 이 매개 변수를 생략하거나 -1로 설정하는 경우 병렬 쿼리 실행 중에 버퍼링되는 항목의 수가 SDK에서 관리됩니다.
 
 컬렉션에 동일한 상태를 지정할 경우, 병렬 쿼리는 직렬 실행의 경우와 동일한 순서로 결과를 반환합니다. 정렬(ORDER BY 및/또는 TOP)을 포함하는 파티션 간 쿼리를 수행할 경우 DocumentDB SDK는 파티션에 걸쳐 병렬로 쿼리를 실행하고, 클라이언트 쪽에서 부분적으로 정렬된 결과를 병합하여 전역으로 정렬된 결과를 생성합니다.
@@ -279,7 +279,7 @@ DocumentDB SDK 1.9.0 이상에서는 많은 수의 파티션에 연결해야 할
 
 <a name="migrating-from-single-partition"></a>
 ### 단일 파티션에서 분할된 컬렉션으로 마이그레이션
-단일 파티션 컬렉션을 사용한 응용 프로그램이 더 높은 처리량(>10,000RU/s) 또는 더 큰 데이터 저장소(>10GB)가 필요한 경우 [DocumentDB 데이터 마이그레이션 도구](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)를 사용하여 단일 파티션 컬렉션에서 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다.
+단일 파티션 컬렉션을 사용한 응용 프로그램에 더 높은 처리량(>10,000RU/s) 또는 더 큰 데이터 저장소(>10GB)가 필요한 경우 [DocumentDB 데이터 마이그레이션 도구](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)를 사용하여 단일 파티션 컬렉션에서 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다.
 
 단일 파티션 컬렉션에서 분할된 컬렉션으로 마이그레이션하려면
 
@@ -340,4 +340,4 @@ DocumentDB를 사용하여 다중 테넌트 응용 프로그램을 구현하는 
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

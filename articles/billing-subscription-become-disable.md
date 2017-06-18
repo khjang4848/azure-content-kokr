@@ -60,9 +60,20 @@ Azure 구독이 사용하지 않도록 설정되면 이 문서의 단계를 사�
 - [다른 신용 카드로 전환](billing-how-to-change-credit-card.md)합니다.
 - 비즈니스와 관련된 경우 [지불의 송장 방법으로 전환할](https://azure.microsoft.com/pricing/invoicing/) 수 있습니다.
 
-## 구독을 다시 사용하도록 설정하는 방법
+## 구독이 계정 관리자에 의해 취소됨
 
-사용하지 않도록 설정된 구독을 다시 사용하도록 설정하려면 지원 티켓을 만들어야 합니다. [Azure 포털](https://portal.azure.com/)에 로그인하여 **도움말 + 지원**>**새 지원 요청**을 선택합니다.
+>[AZURE.NOTE] 현재 이 방법은 종량제 구독에만 적용됩니다. 다른 구독 유형인 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)해야 합니다.
+
+계정 관리자인 경우 다음 단계를 수행하여 종량제 구독을 다시 활성화할 수 있습니다.
+
+- 취소된 구독을 선택합니다.
+- 구독 세부 정보 페이지에서 **다시 활성화** 링크 중 하나를 클릭합니다.
+
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+
+## 비종량제 구독을 다시 활성화하는 방법
+
+사용하지 않도록 설정된 구독을 다시 활성화하려면 지원 티켓을 만들어야 합니다. [Azure 포털](https://portal.azure.com/)에 로그인하여 **도움말 + 지원**>**새 지원 요청**을 선택합니다.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
@@ -75,4 +86,4 @@ Azure 구독이 사용하지 않도록 설정되면 이 문서의 단계를 사�
 
 > [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

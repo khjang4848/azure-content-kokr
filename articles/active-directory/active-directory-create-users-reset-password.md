@@ -18,6 +18,10 @@
 
 # 사용자 암호 다시 설정
 
+> [AZURE.SELECTOR]
+- [Azure 포털](active-directory-users-reset-password-azure-portal.md)
+- [Azure 클래식 포털](active-directory-create-users-reset-password.md)
+
 잠금 이후 암호 재설정을 요청하는 사용자에게 응답하든 또는 일상적인 보안 유지 관리에만 참석하든, 사용자 암호를 다시 설정해야 할 때가 있습니다. Azure AD(Azure Active Directory)를 사용하면 방법이 아주 간단합니다.
 
   1. 디렉터리를 엽니다.
@@ -35,4 +39,4 @@
 - [Azure AD에서 암호 관리](active-directory-manage-passwords.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

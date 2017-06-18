@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # 온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -30,13 +30,13 @@
 ## 데이터 팩터리 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다. 또한 Azure Data Factory cmdlet을 사용하여 데이터 팩터리를 만들 수도 있습니다.
 
-1.	[Azure 포털](https://portal.azure.com)에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **Data Factory**를 클릭합니다.
+1.	[Azure 포털](https://portal.azure.com)에 로그인한 후에 왼쪽 아래 모서리에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 선택한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다.
 
 	![새로 만들기->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)
   
 6. **새 데이터 팩터리** 블레이드에서 다음을 수행합니다.
 	1. **ADFTutorialOnPremDF**를 **이름**으로 입력합니다.
-	2. **리소스 그룹 이름**을 클릭하고 **ADFTutorialResourceGroup**을 선택합니다. 기존 리소스 그룹을 선택하거나 리소스 그룹을 새로 만들 수 있습니다. 새 리소스 그룹을 만들려면 다음을 수행합니다.
+	2. **리소스 그룹 이름**을 클릭하고 **ADFTutorialResourceGroup**을 선택합니다. 기존 리소스 그룹을 선택하거나 리소스 그룹을 만들 수 있습니다. 리소스 그룹을 만들려면
 		1. **새 리소스 그룹 만들기**를 클릭합니다.
 		2. **리소스 그룹 만들기 블레이드**에서 리소스 그룹의 **이름**을 입력하고 **확인**을 클릭합니다.
 
@@ -52,7 +52,7 @@
 
 	![알림 허브](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNotificationsHub.png)
 
-11. 만들기가 완료되면 아래와 같이 **데이터 팩터리** 블레이드가 표시됩니다.
+11. 만들기가 완료되면 다음 이미지에서 보여준 대로 **데이터 팩터리** 블레이드가 표시됩니다.
 
 	![데이터 팩터리 홈 페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
@@ -70,15 +70,15 @@
 3. 블레이드 **구성**에서 **이 컴퓨터에 직접 설치**를 클릭합니다. 이렇게 하면 컴퓨터에 게이트웨이의 설치 패키지가 다운로드되고 게이트웨이가 설치, 구성 및 등록됩니다.
 
 	> [AZURE.NOTE] 
-	Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저를 사용하세요.
+	Internet Explorer 또는 Microsoft ClickOnce 호환 웹 브라우저를 사용합니다.
 	> 
 	> Chrome을 사용하는 경우 [Chrome 웹 스토어](https://chrome.google.com/webstore/)로 이동하여 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택해 설치합니다.
 	>  
-	> Firefox의 경우 동일한 작업을 수행해야 합니다(추가 기능 설치). 도구 모음(상단 오른쪽 모서리의 **가로 줄 세 개**)의 **열기 메뉴** 단추를 클릭하고 **추가 기능**을 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.
+	> Firefox의 경우에도 동일한 작업을 수행합니다(추가 기능 설치). 도구 모음(상단 오른쪽 모서리의 **가로 줄 세 개**)의 **열기 메뉴** 단추를 클릭하고 **추가 기능**을 클릭하고 "ClickOnce" 키워드로 검색하고 ClickOnce 확장 중 하나를 선택하고 설치합니다.
 
 	![게이트웨이 - 구성 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-	이는 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 컴퓨터에 설치된 것을 확인할 수 있습니다. 실행 파일 **ConfigManager.exe**를 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 폴더에서 찾을 수도 있습니다.
+	이 방법은 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 컴퓨터에 설치된 것을 확인할 수 있습니다. **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
 
 	또한 이 블레이드에서 링크를 사용하여 게이트웨이를 수동으로 다운로드하여 설치하고 **새 키** 텍스트 상자에 표시된 키를 사용하여 등록할 수도 있습니다.
 	
@@ -86,17 +86,17 @@
 
 	>[AZURE.NOTE] 데이터 관리 게이트웨이를 성공적으로 설치 및 구성하려면 로컬 컴퓨터의 관리자여야 합니다. 데이터 관리 게이트웨이 사용자 로컬 Windows 그룹에 사용자를 더 추가할 수 있습니다. 이 그룹의 구성원은 데이터 관리 게이트웨이 구성 관리자 도구를 사용하여 게이트웨이를 구성할 수 있습니다.
 
-5. 몇 분 정도 기다리면 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 응용 프로그램이 시작됩니다. **검색** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
+5. 몇 분 정도 기다리면 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 응용 프로그램이 시작됩니다. **검색** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
 
 	![게이트웨이 구성 관리자](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
-6. 값이 다음과 같이 설정될 때까지 기다립니다.
+6. 될 때까지 기다립니다.
 	2. **게이트웨이 이름**이 **adftutorialgateway**로 설정됩니다.
 	4. 맨 아래 상태 표시줄에 **녹색 확인 표시**와 함께 **클라우드 서비스에 연결됨**이 표시됩니다.
 
 	**홈** 탭에서 다음을 수행할 수 있습니다. - 등록 단추를 사용하여 Azure 포털에서 키가 있는 게이트웨이 **등록**.- 게이트웨이 컴퓨터에서 실행 중인 데이터 관리 게이트웨이 호스트 서비스 **중지** - 특정 시간에 설치되도록 **업데이트 예약** - 게이트웨이가 **마지막으로 업데이트**된 시기 보기.
 
-8. **설정** 탭으로 전환합니다. 인증서 섹션에 지정된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대한 자격 증명을 암호화/해독하는 데 사용됩니다. (이 자습서에서는 선택 사항) **변경**을 클릭하여 고유한 인증서를 대신 사용합니다. 기본적으로 게이트웨이는 데이터 팩터리 서비스에서 자동으로 생성되는 인증서를 사용합니다.
+8. **설정** 탭으로 전환합니다. **인증서** 섹션에 지정된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대한 자격 증명을 암호화/해독하는 데 사용됩니다. (선택 사항) **변경**을 클릭하여 고유한 인증서를 대신 사용합니다. 기본적으로 게이트웨이는 데이터 팩터리 서비스에서 자동으로 생성되는 인증서를 사용합니다.
 
 	![게이트웨이 인증서 구성](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
@@ -124,10 +124,7 @@
 3.	**JSON 편집기**에서 다음을 수행합니다.
 	1. **gatewayName**에 **adftutorialgateway**를 지정합니다.
 	2. Windows 인증을 사용하는 경우
-		1. **connectionString**에서
-			1. **Integrated Security**를 **true**로 설정합니다.
-			2. 데이터베이스 **server name**과 **database name**을 지정합니다.
-			2. **User ID** 및 **Password**를 제거합니다.
+		1. **connectionString**에서 **Integrated Security**를 **true**로 설정하고, 데이터베이스 **서버 이름**과 **데이터베이스 이름**을 지정하고, **사용자 ID**과 **암호**를 제거합니다.
 		3. **userName** 및 **password** 속성에 사용자 이름과 암호를 지정합니다.
 		
 				"typeProperties": {
@@ -140,7 +137,7 @@
 	4. SQL 인증을 사용하는 경우
 		1. **connectionString**에서 데이터베이스 **server name**, **database name**, **User ID** 및**Password**를 지정합니다.
 		2. 마지막 두 JSON 속성, 즉 **userName** 및 **password**를 JSON에서 제거합니다.
-		3. **gatewayName** 속성 값을 지정하는 행의 마지막에서 **,(쉼표)**를 제거합니다.
+		3. gatewayName** 속성 **값을 지정하는 행의 마지막에서** `,` (쉼표)를 제거합니다.
 
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
@@ -256,14 +253,14 @@
 	
 	- **type**을 **AzureBlob**으로 설정합니다.
 	- **linkedServiceName**을 **AzureStorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
-	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
+	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. 아직 없는 경우 **adftutorial** 컨테이너를 만듭니다.
 	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다.
 
 	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
  
 	**출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
-	**SliceStart** 시간을 기준으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 partitionedBy 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 Year, Month 및 Day를 사용하고 fileName은 SliceStart의 Hour를 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
+	**SliceStart** 시간을 기준으로 **folderPath** 및 **fileName**을 동적으로 설정하려면 partitionedBy 속성을 사용합니다. 다음 예제에서 folderPath는 SliceStart(처리 중인 조각의 시작 시간)의 연도, 월 및 일을 사용하고 fileName은 SliceStart의 시간을 사용합니다. 예를 들어 조각이 2014-10-20T08:00:00에 생성되는 경우 folderName은 wikidatagateway/wikisampledataout/2014/10/20으로 설정되고 fileName은 08.csv로 설정됩니다.
 
 	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
         "fileName": "{Hour}.csv",
@@ -290,65 +287,65 @@
 	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2.	명령 모음에서 **새 파이프라인**을 클릭합니다. 단추가 표시되지 않는 경우 **...(줄임표)**를 클릭하여 명령 모음을 확장합니다.
 2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
-
-
-		{
-		  "name": "ADFTutorialPipelineOnPrem",
-		  "properties": {
-		    "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-		    "activities": [
-		      {
-		        "name": "CopyFromSQLtoBlob",
-		        "description": "Copy data from on-prem SQL server to blob",
-		        "type": "Copy",
-		        "inputs": [
-		          {
-		            "name": "EmpOnPremSQLTable"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "OutputBlobTable"
-		          }
-		        ],
-		        "typeProperties": {
-		          "source": {
-		            "type": "SqlSource",
-		            "sqlReaderQuery": "select * from emp"
-		          },
-		          "sink": {
-		            "type": "BlobSink"
-		          }
-		        },
-		        "Policy": {
-		          "concurrency": 1,
-		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
-		          "retry": 0,
-		          "timeout": "01:00:00"
-		        }
-		      }
-		    ],
-		    "start": "2016-07-05T00:00:00Z",
-		    "end": "2016-07-06T00:00:00Z",
-		    "isPaused": false
-		  }
-		}
+	
+			{
+				"name": "ADFTutorialPipelineOnPrem",
+				"properties": {
+		    	"description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+		    	"activities": [
+		      	{
+		        	"name": "CopyFromSQLtoBlob",
+			        "description": "Copy data from on-prem SQL server to blob",
+		        	"type": "Copy",
+		        	"inputs": [
+		          	{
+		            	"name": "EmpOnPremSQLTable"
+		          	}
+		        	],
+		        	"outputs": [
+		          	{
+			            "name": "OutputBlobTable"
+			          }
+			        ],
+			        "typeProperties": {
+			          "source": {
+			            "type": "SqlSource",
+			            "sqlReaderQuery": "select * from emp"
+			          },
+			          "sink": {
+			            "type": "BlobSink"
+			          }
+			        },
+			        "Policy": {
+			          "concurrency": 1,
+			          "executionPriorityOrder": "NewestFirst",
+			          "style": "StartOfInterval",
+			          "retry": 0,
+			          "timeout": "01:00:00"
+			        }
+			      }
+			    ],
+			    "start": "2016-07-05T00:00:00Z",
+			    "end": "2016-07-06T00:00:00Z",
+			    "isPaused": false
+			  }
+			}
 
 	다음 사항에 유의하세요.
  
 	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **변형** 섹션에서 **SqlSource**를 **원본 형식**으로 지정하고 **BlobSink**를 **싱크 형식**으로 지정합니다.
-	- **SqlSource**의 sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.**
+	- **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 `select * from emp`을 지정합니다.
 
-	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
+	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
 	**end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9/9/9999**를 지정합니다.
 	
 	각 Azure 데이터 팩터리 테이블에 대해 정의된 **가용성** 속성을 기준으로 데이터 조각이 처리되는 기간이 정의됩니다.
 	
-	위의 예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
+	예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
+
 	
 2. 명령 모음에서 **배포**를 클릭하여 데이터 집합을 배포합니다(테이블은 사각형 데이터 집합임). 제목 표시줄에 **파이프라인이 성공적으로 배포됨** 메시지가 표시되는지 확인합니다.
 5. 이제 **X**를 클릭하여 **편집기** 블레이드를 닫습니다. **X**를 다시 클릭하여 도구 모음 및 트리 뷰가 있는 ADFTutorialDataFactory 블레이드를 닫습니다. **저장하지 않은 편집 내용이 삭제됩니다** 메시지가 표시되면 **확인**을 클릭합니다.
@@ -381,22 +378,20 @@
 	![EmpOnPremSQLTable 조각](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 
 6. 현재 시간까지의 데이터 조각이 이미 생성되어 **Ready** 상태입니다. SQL Server 데이터베이스에 데이터를 삽입했기 때문이며 데이터가 데이터베이스에 항상 있습니다. 맨 아래의 **Problem slices(문제 조각)** 섹션에 표시되는 조각이 없는지 확인합니다.
-
-
-	**Recently updated slices(최근에 업데이트된 조각)** 및 **Recently failed slices(최근에 실패한 조각)** 목록은 둘 다 **마지막 업데이트 시간**을 기준으로 정렬됩니다. 조각의 업데이트 시간은 다음과 같은 상황에서 변경됩니다.
-    
-
-	-  **Set-AzureRmDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
-	-  실행(예: 실행 시작, 실행 종료 및 실패, 실행 종료 및 성공 등)으로 인해 조각 상태가 변경됩니다.
- 
-	목록의 제목 또는 **...(줄임표)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
 	
-	조각 시작/종료 시간을 기준으로 정렬된 데이터 조각을 보려면 **데이터 조각(조각 시간별)** 타일을 클릭합니다.
+	**Recently updated slices(최근에 업데이트된 조각)** 및 **Recently failed slices(최근에 실패한 조각)** 목록은 둘 다 **마지막 업데이트 시간**을 기준으로 정렬됩니다. 조각의 업데이트 시간은 다음과 같은 상황에서 변경됩니다.
 
+	**Set-AzureRmDataFactorySliceStatus**를 사용하거나 조각의 **조각** 블레이드에서 **실행**을 클릭하여 수동으로 조각 상태를 업데이트합니다.
+	
+	실행(예: 실행 시작, 실행 종료 및 실패, 실행 종료 및 성공 등)으로 인해 조각 상태가 변경됩니다.
+
+	목록의 제목 또는 **...(줄임표)**을 클릭하여 더 큰 조각 목록을 표시합니다. 도구 모음의 **필터**를 클릭하여 조각을 필터링합니다.
+
+	조각 시작/종료 시간을 기준으로 정렬된 데이터 조각을 보려면 **데이터 조각(조각 시간별)** 타일을 클릭합니다.
 7. 이제 **데이터 집합** 블레이드에서 **OutputBlobTable**을 클릭합니다.
 
-	![OputputBlobTable slices][image-data-factory-output-blobtable-slices]
-8. 현재 시간까지 조각이 생성되었고 **Ready** 상태인지 확인합니다. 현재 시간까지 조각의 상태가 **Ready**로 설정될 때까지 기다립니다.
+	![OputputBlobTable 조각](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
+8. 현재 시간까지 조각이 생성되었고 **Ready** 상태인지 보고 확인합니다. 현재 시간까지 조각의 상태가 **Ready**로 설정될 때까지 기다립니다.
 9. 목록에서 아무 데이터 조각이나 클릭하면 **데이터 조각** 블레이드가 표시됩니다.
 
 	![데이터 조각 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
@@ -405,7 +400,7 @@
 
 10. 맨 아래 목록에서 **작업 실행**을 클릭하여 **작업 실행 세부 정보**를 표시합니다.
 
-	![활동 실행 세부 정보 블레이드][image-data-factory-activity-run-details]
+	![작업 실행 세부 정보 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
 11. **X**를 클릭하여 모든 블레이드를 닫아
 12. **ADFTutorialOnPremDF**의 홈 블레이드로 돌아갑니다.
@@ -417,6 +412,6 @@
 ## 다음 단계
 
 - 데이터 관리 게이트웨이에 대한 모든 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
-- 일반적으로 복사 작업을 사용하여 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터를 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+- 복사 작업을 사용하여 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터로 이동하는 방법에 대해 자세히 알아보려면 [Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

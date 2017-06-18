@@ -13,7 +13,7 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/14/2016" 
+ms.date="09/07/2016" 
 ms.author="eugenesh" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)#
@@ -39,6 +39,7 @@ ms.author="eugenesh" />
 - **Azure SQL 데이터베이스** 및 **Azure VM의 SQL Server** 대상 연습은 [이 문서](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)를 참조하세요.
 - **Azure DocumentDB** 대상 연습은 [이 문서](../documentdb/documentdb-search-indexer.md)를 참조하세요.
 - **Azure Blob 저장소** - PDF, Microsoft Office(DOCX/DOC, XSLX/XLS, PPTX/PPT, MSG), HTML, XML, ZIP 및 일반 텍스트 파일(JSON 포함) 문서 형식을 포함합니다. 대상 연습은 [이 문서](search-howto-indexing-azure-blob-storage.md)를 참조하세요.
+- **Azure Table Storage**. 대상 연습은 [이 문서](search-howto-indexing-azure-tables.md)를 참조하세요.
 	 
 향후 추가 데이터 원본에 대한 지원을 추가할 예정입니다. 이러한 의사 결정의 우선 순위를 지정하는 데 도움이 되도록 [Azure 검색 사용자 의견 포럼](http://feedback.azure.com/forums/263029-azure-search)에서 사용자 의견을 제공해 주시기 바랍니다.
 
@@ -91,10 +92,10 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
-- `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
+- `Content-Type`: 필수 `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **데이터 원본 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 [Azure 포털](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 [Azure Portal](https://portal.azure.com/)의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 <a name="CreateDataSourceRequestSyntax"></a> **요청 본문 구문**
 
@@ -105,7 +106,7 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
     { 
 		"name" : "Required for POST, optional for PUT. The name of the data source",
     	"description" : "Optional. Anything you want, or nothing at all",
-    	"type" : "Required. Must be one of 'azuresql', 'documentdb', or 'azureblob'",
+    	"type" : "Required. Must be one of 'azuresql', 'documentdb', 'azureblob', or 'azuretable'",
     	"credentials" : { "connectionString" : "Required. Connection string for your data source" },
     	"container" : { "name" : "Required. The name of the table, collection, or blob container you wish to index" },
     	"dataChangeDetectionPolicy" : { Optional. See below for details }, 
@@ -114,28 +115,29 @@ Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 �
 
 요청에는 다음 속성이 포함됩니다.
 
-- `name`: 필수 사항입니다. 데이터 소스의 이름입니다. 데이터 원본 이름은 소문자, 숫자 또는 대시만 포함할 수 있고 대시로 시작하거나 끝날 수 없으며 128자로 제한됩니다.
+- `name`: 필수 데이터 소스의 이름입니다. 데이터 원본 이름은 소문자, 숫자 또는 대시만 포함할 수 있고 대시로 시작하거나 끝날 수 없으며 128자로 제한됩니다.
 - `description`: 선택적 설명입니다.
-- `type`: 필수 사항입니다. 다음과 같은 지원되는 데이터 원본 유형 중 하나여야 합니다.
+- `type`: 필수 다음과 같은 지원되는 데이터 원본 유형 중 하나여야 합니다.
 	- `azuresql` - Azure SQL 데이터베이스 또는 Azure VM의 SQL Server
 	- `documentdb` - Azure DocumentDB
-	- `azureblob` - Azure Blob 저장소
+	- `azureblob` - Azure Blob Storage
+	- `azuretable` - Azure Table Storage
 - `credentials`:
 	- 필수 `connectionString` 속성은 데이터 원본의 연결 문자열을 지정합니다. 연결 문자열의 형식은 데이터 원본 유형에 따라 달라 집니다.
-		- Azure SQL의 경우 일반적인 SQL Server 연결 문자열입니다. Azure 포털을 사용하여 연결 문자열을 검색하는 경우 `ADO.NET connection string` 옵션을 사용합니다.
-		- DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure 포털](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.
-		- Azure Blob 저장소의 경우 저장소 계정 연결 문자열입니다. 형식은 [여기](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/)에서 설명합니다. HTTPS 끝점 프로토콜이 필요합니다.
-		
+		- Azure SQL의 경우 일반적인 SQL Server 연결 문자열입니다. Azure Portal을 사용하여 연결 문자열을 검색하는 경우 `ADO.NET connection string` 옵션을 사용합니다.
+		- DocumentDB의 경우 연결 문자열은 `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"` 형식이어야 합니다. 모든 값이 필요합니다. [Azure Portal](https://portal.azure.com/)에서 이러한 값을 확인할 수 있습니다.
+		- Azure Blob 및 Table Storage의 경우 저장소 계정 연결 문자열입니다. 형식은 [여기](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/)에서 설명합니다. HTTPS 끝점 프로토콜이 필요합니다.
 - `container`, 필수: `name` 및 `query` 속성을 사용하여 인덱스에 데이터를 지정합니다:
 	- `name`, 필수:
 		- Azure SQL: 테이블 또는 뷰를 지정합니다. `[dbo].[mytable]`과 같은 스키마로 한정된 이름을 사용할 수 있습니다.
 		- DocumentDB: 컬렉션을 지정합니다.
-		- Azure Blob 저장소: 저장소 컨테이너를 지정합니다.
+		- Azure Blob Storage: 저장소 컨테이너를 지정합니다.
+		- Azure Table Storage: 테이블의 이름을 지정합니다.
 	- `query`, 선택 사항:
 		- DocumentDB: Azure 검색에서 인덱싱할 수 있는 플랫 스키마로 임의 JSON 문서 레이아웃을 평면화하는 쿼리를 지정할 수 있습니다.
-		- Azure Blob 저장소: Blob 컨테이너 내에 가상 폴더를 지정할 수 있습니다. 예를 들어 Blob 경로 `mycontainer/documents/blob.pdf`, `documents`의 경우 가상 폴더로 사용할 수 있습니다.
-		- Azure SQL: 쿼리는 지원되지 않습니다. 이 기능이 필요하면 [이 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)에 응답해 주세요.
-   
+		- Azure Blob 저장소: Blob 컨테이너 내에 가상 폴더를 지정할 수 있습니다. 예를 들어 BLOB 경로 `mycontainer/documents/blob.pdf`, `documents`의 경우 가상 폴더로 사용할 수 있습니다.
+		- Azure Table Storage: 가져올 행 집합을 필터링하는 쿼리를 지정할 수 있습니다.
+		- Azure SQL: 쿼리는 지원되지 않습니다. 이 기능이 필요하면 [이 제안](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)에 투표해 주세요.
 - 선택적 `dataChangeDetectionPolicy` 및 `dataDeletionDetectionPolicy` 속성은 아래에서 설명합니다.
 
 <a name="DataChangeDetectionPolicies"></a> **데이터 변경 검색 정책**
@@ -239,11 +241,9 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 
 요청 본문 구문은 [데이터 원본 만들기 요청](#CreateDataSourceRequestSyntax)의 본문 구문과 같습니다.
 
-> [AZURE.NOTE]
-기존 데이터 원본의 경우 일부 속성을 업데이트할 수 없습니다. 예를 들어 기존 데이터 원본의 형식은 변경할 수 없습니다.
+> [AZURE.NOTE] 기존 데이터 원본의 경우 일부 속성을 업데이트할 수 없습니다. 예를 들어 기존 데이터 원본의 형식은 변경할 수 없습니다.
 
-> [AZURE.NOTE]
-기존 데이터 원본에 대한 연결 문자열을 변경하지 않으려면 연결 문자열에 대해 `<unchanged>` 리터럴을 지정할 수 있습니다. 데이터 원본을 업데이트해야 하지만 보안에 민감한 데이터라서 연결 문자열에 액세스하는 것이 힘든 경우에 유용합니다.
+> [AZURE.NOTE] 기존 데이터 원본에 대한 연결 문자열을 변경하지 않으려면 연결 문자열에 대해 `<unchanged>` 리터럴을 지정합니다. 데이터 원본을 업데이트해야 하지만 보안에 민감한 데이터라서 연결 문자열에 액세스하는 것이 힘든 경우에 유용합니다.
 
 **응답**
 
@@ -383,9 +383,9 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
 인덱서는 선택적으로 일정을 지정할 수 있습니다. 일정이 제공된 경우, 인덱서가 일정에 따라 주기적으로 실행됩니다. 일정은 다음과 같은 특성을 갖습니다.
 
-- `interval`: 필수 사항입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `"P[nD][T[nH][nM]]"`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
+- `interval`: 필수 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `"P[nD][T[nH][nM]]"`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다.
 
-- `startTime`: 필수 사항입니다. 인덱서 실행을 시작해야 하는 UTC 날짜/시간입니다.
+- `startTime`: 필수 인덱서 실행을 시작해야 하는 UTC 날짜/시간입니다.
 
 **인덱서 매개 변수**
 
@@ -398,7 +398,6 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 - `base64EncodeKeys`: 문서 키를 base-64로 인코딩할지 여부를 지정합니다. Azure 검색에서는 문서 키에 포함할 수 있는 문자에 제한이 적용됩니다. 그러나 원본 데이터의 값은 유효하지 않은 문자를 포함할 수 있습니다. 이러한 값을 문서 키로 인덱싱해야 하는 경우에는 이 플래그를 true로 설정할 수 있습니다. 기본값은 `false`입니다.
 
 - `batchSize`: 성능을 향상시키기 위해 단일 배치로 인덱싱되고 데이터 원본에서 읽는 항목 수를 지정합니다. 기본값은 데이터 원본 형식에 따라 달라 집니다. Azure SQL 및 DocumentDB의 경우 1000, Azure Blob 저장소의 경우 10입니다.
-
 
 **필드 매핑**
 
@@ -641,7 +640,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 - `endTime`: 이 실행이 종료된 시간(UTC)입니다. 계속 실행 중인 경우에는 이 값이 설정되지 않은 것입니다.
 
-- `errors`: 항목 수준 오류(있는 경우)의 목록입니다. 각 항목은 문서 키(`key` 속성) 및 오류 메시지(`errorMessage` 속성)를 포함하고 있습니다.
+- `errors`: 항목 수준 오류(있는 경우)의 배열입니다. 각 항목은 문서 키(`key` 속성) 및 오류 메시지(`errorMessage` 속성)를 포함하고 있습니다.
 
 - `itemsProcessed`: 이 실행 중에 인덱서에서 인덱싱하려고 한 데이터 원본 항목(예: 테이블 행)의 수입니다.
 
@@ -798,4 +797,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

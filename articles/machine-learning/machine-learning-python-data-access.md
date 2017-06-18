@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="python" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -23,7 +23,7 @@ Microsoft Azure 기계 학습 Python 클라이언트 라이브러리 미리보�
 
 이 항목에서는 다음 수행 방법에 대한 지침을 제공합니다.
 
-* 기계 학습 Python 클라이언트 라이브러리 설치 
+* 기계 학습 Python 클라이언트 라이브러리 설치
 * 로컬 Python 환경에서 Azure 기계 학습 데이터 집합에 액세스하는 권한을 얻는 방법에 대한 지침을 비롯하여 데이터 집합에 액세스 및 업로드
 *  실험에서 중간 데이터 집합에 액세스
 *  Python 클라이언트 라이브러리를 사용하여 데이터 집합 열거, 메타 데이터에 액세스, 데이터 집합의 내용 읽기, 새 데이터 집합 만들기 및 기존 데이터 집합 업데이트
@@ -49,7 +49,7 @@ Python, IPython 및 설치된 것으로 위에 나열된 세 가지 패키지와
 
 ###<a name="installation"></a>Azure 기계 학습 Python 클라이언트 라이브러리를 설치하는 방법
 
-이 항목에 개요된 작업을 완료하려면 Azure 기계 학습 Python 클라이언트 라이브러리도 설치해야 합니다. [Python 패키지 인덱스](https://pypi.python.org/pypi/azureml)에서 사용할 수 있습니다. Python 환경에 설치하려면 로컬 Python 환경에서 다음 명령을 실행합니다.
+이 항목에 설명된 작업을 완료하려면 Azure Machine Learning Python 클라이언트 라이브러리도 설치해야 합니다. [Python 패키지 인덱스](https://pypi.python.org/pypi/azureml)에서 사용할 수 있습니다. Python 환경에 설치하려면 로컬 Python 환경에서 다음 명령을 실행합니다.
 
     pip install azureml
 
@@ -80,11 +80,13 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
 
 권한 부여 토큰을 가져오기 위해 다음 중 하나를 수행할 수 있습니다.
 
-1. 소유자에서 토큰을 요청합니다. 소유자가 스튜디오의 작업 영역에 있는 설정 페이지에서 권한 부여 토큰에 액세스할 수 있습니다. 왼쪽 창에서 **설정**을 선택하고 **권한 부여 토큰**을 클릭하여 기본 및 보조 토큰을 확인할 수 있습니다. 기본 또는 보조 권한 부여 토큰을 코드 조각에서 사용할 수 있지만, 소유자가 보조 권한 부여 토크만 공유하는 것이 좋습니다.
+
+
+- 소유자에서 토큰을 요청합니다. 소유자가 스튜디오의 작업 영역에 있는 설정 페이지에서 권한 부여 토큰에 액세스할 수 있습니다. 왼쪽 창에서 **설정**을 선택하고 **권한 부여 토큰**을 클릭하여 기본 및 보조 토큰을 확인할 수 있습니다. 기본 또는 보조 권한 부여 토큰을 코드 조각에서 사용할 수 있지만, 소유자가 보조 권한 부여 토크만 공유하는 것이 좋습니다.
 
 ![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
-2. 소유자의 역할로 승격하도록 요청합니다. 그러려면 작업 영역의 현재 소유자가 먼저 작업 영역에서 사용자를 제거한 다음 소유자로 다시 초대해야 합니다.
+- 소유자의 역할로 승격하도록 요청합니다. 그러려면 작업 영역의 현재 소유자가 먼저 작업 영역에서 사용자를 제거한 다음 소유자로 다시 초대해야 합니다.
 
 개발자가 작업 영역 ID와 권한 부여 토큰을 얻고 나면 역할에 상관 없이 코드 조각을 사용하여 작업 영역에 액세스할 수 있습니다.
 
@@ -92,7 +94,7 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
 
 ### <a name="accessingDatasets"></a>로컬 Python 응용 프로그램에서 데이터 집합에 액세스
 
-1. 기계 학습 스튜디오의 왼쪽에 있는 탐색 모음에서 **데이터 집합**을 클릭합니다.
+1. Machine Learning Studio의 왼쪽에 있는 탐색 모음에서 **데이터 집합**을 클릭합니다.
 
 2. 액세스하려는 데이터 집합을 선택합니다. **내 데이터 집합** 목록 또는 **샘플** 목록에서 데이터 집합을 선택할 수 있습니다.
 
@@ -104,7 +106,7 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
 
 	![액세스 코드][dataset-access-code]
 
-5. 코드를 로컬 Python 응용 프로그램의 노트북에 붙여넣습니다.
+5. 코드를 로컬 Python 응용 프로그램의 Notebook에 붙여넣습니다.
 
 	![노트북][ipython-dataset]
 
@@ -146,11 +148,12 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
 
 6. [CSV로 변환][convert-to-csv] 모듈에서 출력 노드를 클릭합니다.
 
-7. 상황에 맞는 메뉴가 표시되면 **데이터 액세스 코드 생성**을 선택합니다.
+7. 상황에 맞는 메뉴가
+8.  표시되면 **데이터 액세스 코드 생성**을 선택합니다.
 
 	![상황에 맞는 메뉴][experiment]
 
-8. 창이 나타납니다. 코드 조각을 선택하고 클립보드에 복사합니다.
+8. 표시되는 창에서 코드 조각을 선택하여 클립보드에 복사합니다.
 
 	![액세스 코드][intermediate-dataset-access-code]
 
@@ -267,7 +270,7 @@ Pandas DataFrame에 데이터가 있는 경우 다음 코드를 사용합니다.
         description='my description'
     )
 
-Python 클라이언트 라이브러리에서 Pandas DataFrame을 다은 형식으로 직렬화할 수 있습니다(해당 상수는 `azureml.DataTypeIds` 클래스에 있음).
+Python 클라이언트 라이브러리에서 Pandas DataFrame을 다음 형식으로 직렬화할 수 있습니다(해당 상수는 `azureml.DataTypeIds` 클래스에 있음).
 
  - 일반 텍스트
  - GenericCSV
@@ -343,9 +346,9 @@ Python 클라이언트 라이브러리에서 Pandas DataFrame을 다은 형식�
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-`data_type_id`, `name` 및 `description` 매개 변수는 모두 선택 사항이고 기본적으로 이전 값이 됩니다. `dataframe` 매개 변수는 항상 필요합니다.
+`data_type_id`, `name` 및 `description` 매개 변수는 선택 사항이고 기본적으로 이전 값이 됩니다. `dataframe` 매개 변수는 항상 필요합니다.
 
-데이터가 이미 직렬화된 경우 `update_from_dataframe` 대신 `update_from_raw_data`를 사용합니다. 비슷하게 작동하지만`dataframe` 대신 `raw_data`만 전달합니다.
+데이터가 이미 직렬화된 경우 `update_from_dataframe` 대신 `update_from_raw_data`를 사용합니다. `dataframe` 대신 `raw_data`만 전달하면, 비슷하게 작동합니다.
 
 
 
@@ -367,4 +370,4 @@ Python 클라이언트 라이브러리에서 Pandas DataFrame을 다은 형식�
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

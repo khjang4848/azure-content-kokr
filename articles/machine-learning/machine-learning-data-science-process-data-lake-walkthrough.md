@@ -3,8 +3,8 @@
 	description="Azure Data Lake를 사용하여 데이터 집합에 대해 데이터 탐색 및 이진 분류 작업을 수행하는 방법입니다."  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,wguo123"
-	manager="paulettm"
+	authors="bradsev"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="bradsev;weig;gopitk"/>
+	ms.date="09/19/2016"
+	ms.author="bradsev;weig"/>
 
 
 # Azure Data Lake에서 확장성 있는 데이터 과학: 종단 간 연습
 
-이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 집합 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. [데이터 과학 프로세스](http://aka.ms/datascienceprocess), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
+이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 집합 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여 줍니다. [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
 
 
 ### Azure 데이터 레이크 분석
@@ -52,7 +52,7 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 
 ## 필수 조건
 
-이 항목을 시작하기 전에 다음이 있어야 합니다.
+이 토픽을 시작하기 전에 다음이 있어야 합니다.
 
 - Azure 구독. 아직 가지고 있지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
@@ -70,16 +70,14 @@ Azure 기계 학습 스튜디오는 예측 모델을 빌드 및 배포하는 데
 ## Azure Data Lake에 대한 데이터 과학 환경 준비
 이 연습에 대한 데이터 과학 환경을 준비하려면 다음 리소스를 만듭니다.
 
-- Azure Data Lake 저장소(ADLS) 
+- Azure Data Lake 저장소(ADLS)
 - Azure Data Lake 분석(ADLA)
 - Azure Blob 저장소 계정
 - Azure 기계 학습 스튜디오 계정
 - Visual Studio용 Azure Data Lake 도구(권장)
 
-이 섹션에서는 이러한 각 리소스를 만드는 방법에 대한 지침을 제공합니다. Azure 기계 학습에서 Python 대신 Hive 테이블을 사용하여 모델을 작성하려는 경우 HDInsight(Hadoop) 클러스터를 프로비전해야 합니다. 이러한 대체 절차는 아래의 해당 섹션에 설명되어 있습니다.
-
->AZURE.NOTE **Azure Data Lake 저장소**는 별도로 만들거나 **Azure Data Lake 분석**을 만들 때 기본 저장소로 만들 수 있습니다. 아래에서는 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다.
-
+이 섹션에서는 이러한 각 리소스를 만드는 방법에 대한 지침을 제공합니다. Azure 기계 학습에서 Python 대신 Hive 테이블을 사용하여 모델을 작성하려는 경우 HDInsight(Hadoop) 클러스터를 프로비전해야 합니다. 이러한 대체 절차는 아래의 해당 섹션에 설명되어 있습니다. <br/>
+>AZURE.NOTE **Azure Data Lake 저장소**는 별도로 만들거나 **Azure Data Lake 분석**을 만들 때 기본 저장소로 만들 수 있습니다. 아래에서는 이러한 각 리소스를 만들기 위한 지침이 별도로 참조되지만 Data Lake 저장소 계정을 별도의 단계로 만들지 않아도 됩니다. <br/>
 ### Azure 데이터 레이크 저장소 만들기
 
 [Azure 포털](http://portal.azure.com)에서 ADLS를 만듭니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 여기 설명된 **옵션 구성** 블레이드의 **DataSource** 블레이드에서 클러스터 AAD ID를 설정해야 합니다.
@@ -158,7 +156,7 @@ U-SQL을 실행하려면 Visual Studio를 열고 **파일 --> 새로 만들기 -
 
 ### <a name="ingest"></a>데이터 수집: 공용 Blob에서 데이터 읽기
 
-Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob_storage_account_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 모든 12개 trip 파일을 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
+Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**으로 참조되고 **Extractors.Csv()**를 사용하여 추출할 수 있습니다. 다음 스크립트에서 wasb 주소의 container_name@blob\_storage\_account\_name에 대한 사용자 고유 컨테이너 이름과 저장소 계정 이름을 대체합니다. 파일 이름은 같은 형식이므로 12개 trip 파일을 모두 읽는 데 **trip\_data\_{*}.csv**를 사용할 수 있습니다.
 
 	///Read in Trip data
 	@trip0 =
@@ -213,7 +211,7 @@ Azure Blob에서 데이터 위치는 **wasb://container_name@blob_storage_accoun
 	TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
 	USING Outputters.Csv();  
 
-마찬가지로 fare 데이터 집합에서 읽을 수 있습니다. Azure Data Lake 저장소를 마우스 오른쪽 단추로 클릭하고 **Azure 포털 --> 데이터 탐색기** 또는 Visual Studio 내 **파일 탐색기**에서 데이터를 살펴보도록 선택할 수 있습니다.
+마찬가지로 fare 데이터 집합에서 읽을 수 있습니다. Azure Data Lake 저장소를 마우스 오른쪽 단추로 클릭하고 **Azure Portal --> 데이터 탐색기** 또는 Visual Studio 내 **파일 탐색기**에서 데이터를 살펴보도록 선택할 수 있습니다.
 
  ![10](./media/machine-learning-data-science-process-data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
@@ -470,8 +468,8 @@ U-SQL 스크립트 편집을 마치면 Azure Data Lake 분석 계정을 사용�
 
 Azure 기계 학습으로 데이터를 끌어와 빌드 및 배포하기 위한 두 가지 옵션에 대해 설명합니다.
 
-- 첫 번째 옵션에서는 Azure Blob에 기록된 샘플링된 데이터를 사용하고(위의 **데이터 샘플링** 단계에서) 모델을 빌드하고 Azure 기계 학습에 배포하는 데 Python을 사용합니다. 
-- 두 번째 옵션에서는 Hive 쿼리를 사용하여 Azure Data Lake의 데이터를 직접 쿼리할 수 있습니다. 이 옵션에서는 새 HDInsight 클러스터를 만들거나 Hive 테이블이 Azure Data Lake 저장소의 NY 택시 데이터를 가리키는 기존 HDInsight 클러스터를 사용해야 합니다. 아래의 두 옵션을 모두 설명합니다. 
+- 첫 번째 옵션에서는 Azure Blob에 기록된 샘플링된 데이터를 사용하고(위의 **데이터 샘플링** 단계에서) 모델을 빌드하고 Azure 기계 학습에 배포하는 데 Python을 사용합니다.
+- 두 번째 옵션에서는 Hive 쿼리를 사용하여 Azure Data Lake의 데이터를 직접 쿼리할 수 있습니다. 이 옵션에서는 새 HDInsight 클러스터를 만들거나 Hive 테이블이 Azure Data Lake 저장소의 NY 택시 데이터를 가리키는 기존 HDInsight 클러스터를 사용해야 합니다. 아래의 두 옵션을 모두 설명합니다.
 
 ## 옵션 1: Python을 사용하여 기계 학습 모델 빌드 및 배포
 
@@ -504,7 +502,7 @@ Python을 사용하여 기계 학습 모델을 빌드 및 배포하려면 로컬
 
 ### Blob에서 데이터 읽기
 
-- 연결 문자열   
+- 연결 문자열
 
 		CONTAINERNAME = 'test1'
 		STORAGEACCOUNTNAME = 'XXXXXXXXX'
@@ -596,7 +594,7 @@ Python을 사용하여 기계 학습 모델을 빌드 및 배포하려면 로컬
 
 기계 학습 모델을 빌드한 후 운영하려고 합니다. 여기서는 예로 이진 로지스틱 모델을 사용합니다. 로컬 컴퓨터에서 scikit-learn 버전이 0.15.1인지 확인합니다. Azure 기계 학습 스튜디오 서비스를 사용하는 경우에는 걱정할 필요가 없습니다.
 
-- Azure 기계 학습 스튜디오 설정에서 작업 영역 자격 증명을 찾습니다. Azure 기계 학습 스튜디오에서 **설정** --> **이름** --> **권한 부여 토큰**을 클릭합니다. 
+- Azure 기계 학습 스튜디오 설정에서 작업 영역 자격 증명을 찾습니다. Azure 기계 학습 스튜디오에서 **설정** --> **이름** --> **권한 부여 토큰**을 클릭합니다.
 
 	![c3](./media/machine-learning-data-science-process-data-lake-walkthrough/c3-workspace-id.PNG)
 
@@ -701,7 +699,7 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 
 이제 팁이 Azure 기계 학습에서 유료인지 여부를 예측하는 모델을 빌드 및 배포할 준비가 되었습니다. 계층화된 샘플 데이터는 이 이진 분류(팁인지 아닌지) 문제에서 사용할 준비가 되었습니다. 다중 클래스 분류(tip\_class) 및 회귀(tip\_amount)를 사용하는 예측 모델은 Azure 기계 학습 스튜디오를 사용하여 빌드 및 배포할 수도 있지만 여기에서는 이진 분류 모델을 사용하여 사례를 처리하는 방법만 살펴보겠습니다.
 
-1. **데이터 입력 및 출력** 섹션에서 제공되는 **데이터 가져오기** 모듈을 사용하여 Azure ML로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기 모듈](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 참조 페이지를 참조하세요.
+1. **데이터 입력 및 출력** 섹션에서 제공되는 **데이터 가져오기** 모듈을 사용하여 Azure ML로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) 참조 페이지를 참조하세요.
 2. **속성** 패널에서 **데이터 원본**으로 **Hive 쿼리**를 선택합니다.
 3. 다음 Hive 스크립트를 **Hive 데이터베이스 쿼리** 편집기에 붙여 넣습니다.
 
@@ -734,11 +732,11 @@ Azure 기계 학습 스튜디오에서는 Azure Data Lake 저장소에서 직접
 
 ## 다음 작업
 
-[TDSP(팀 데이터 과학 프로세스)](http://aka.ms/datascienceprocess)에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 항목에 대한 링크를 제공합니다. 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 [팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md) 페이지에는 일련의 연습 과정이 항목별로 정리되어 있습니다.
+[TDSP(팀 데이터 과학 프로세스)](http://aka.ms/datascienceprocess)에 대한 학습 경로는 고급 분석 프로세스의 각 단계를 설명하는 토픽에 대한 링크를 제공합니다. 다양한 예측 분석 시나리오에서 리소스 및 서비스를 사용하는 방법을 소개하는 [팀 데이터 과학 프로세스 연습](data-science-process-walkthroughs.md) 페이지에는 일련의 연습 과정이 항목별로 정리되어 있습니다.
 
 - [실행 중인 팀 데이터 과학 프로세스: SQL 데이터 웨어하우스 사용](machine-learning-data-science-process-sqldw-walkthrough.md)
 - [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](machine-learning-data-science-process-hive-walkthrough.md)
 - [팀 데이터 과학 프로세스: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)
 - [Azure HDInsight에서 Spark를 사용하는 데이터 과학 프로세스 개요](machine-learning-data-science-spark-overview.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

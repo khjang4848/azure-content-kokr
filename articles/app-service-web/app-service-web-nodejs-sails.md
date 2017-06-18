@@ -49,23 +49,25 @@
 
 그런 다음 앱 서비스 앱 리소스를 만듭니다. 나중에 Sails.js 앱을 이 리소스에 배포합니다.
 
-1. 동일한 터미널에서 다음과 같이 Azure에 로그인합니다.
+1. 다음과 같이 Azure에 로그인합니다.
+1. 동일한 터미널에서 ASM 모드로 변경하고 Azure에 로그인합니다.
 
+        azure config mode asm
         azure login
 
-    프롬프트를 따라 Azure 구독을 보유하고 있는 Microsoft 계정을 사용하여 브라우저에서 계속 로그인합니다.
+    프롬프트를 따라 Azure 구독을 보유하고 있는 Microsoft 계정을 사용하여 브라우저에 로그인을 계속합니다.
 
 2. 여전히 Sails.js 프로젝트의 루트 디렉터리에 있는지 확인합니다. 다음 명령을 사용하여 Azure에 고유한 앱 이름을 가진 앱 서비스 앱 리소스를 만듭니다. 웹앱의 URL은 http://&lt;appname>.azurewebsites.net입니다.
 
         azure site create --git <appname>
 
-    프롬프트에 따라 배포할 Azure 지역을 선택합니다. Azure 구독에 대한 Git/FTP 배포 자격 증명을 설정하지 않은 경우에도 배포 자격 증명을 만들라는 메시지가 표시됩니다.
+    프롬프트에 따라 배포할 Azure 지역을 선택합니다. Azure 구독에 대한 Git/FTP 배포 자격 증명을 설정하지 않은 경우 배포 자격 증명을 만들라는 메시지가 표시됩니다.
 
     앱 서비스 앱 리소스를 만든 후:
 
     - Sails.js 앱이 Git-initialized입니다.
     - 로컬 Git-initialized 리포지토리가 Git remote로 "azure"라는 새 앱 서비스 앱에 연결되고
-    - 루트 디렉터리에 iisnode.yml 파일이 만들어집니다. 이 파일을 사용하여 앱 서비스가 Node.js 앱을 실행하는 데 사용할 [iisnode](https://github.com/tjanczuk/iisnode)를 구성할 수 있습니다.
+    - 루트 디렉터리에 iisnode.yml 파일이 만들어집니다. 이 파일을 사용하여 App Service가 Node.js 앱을 실행하는 데 사용할 [iisnode](https://github.com/tjanczuk/iisnode)를 구성할 수 있습니다.
 
 ## 3단계: Sails.js 앱 구성 및 배포
 
@@ -156,9 +158,9 @@ Sails.js 응용 프로그램이 앱 서비스에서 어떤 이유로 실패하�
 
 ## Azure의 데이터베이스에 연결
 
-Azure 데이터베이스에 연결하려면 Azure에 Azure SQL 데이터베이스, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility)를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계는 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다.
+Azure 데이터베이스에 연결하려면 Azure에 Azure SQL Database, MySQL, MongoDB, Azure (Redis) Cache 등 원하는 데이터베이스를 만들고 해당하는 [데이터 저장소 어댑터](https://github.com/balderdashy/sails#compatibility)를 사용하여 이 데이터베이스에 연결합니다. 이 섹션의 단계는 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다.
 
-1. 새 SQL Server에 빈 Azure SQL 데이터베이스를 만들려면 [여기](../sql-database/sql-database-get-started.md)의 자습서를 따릅니다. 기본 방화벽 설정으로 Azure 서비스(예: 앱 서비스)가 이 데이터베이스에 연결할 수 있습니다.
+1. 새 SQL Server에 빈 Azure SQL Database를 만들려면 [여기](../sql-database/sql-database-get-started.md)의 자습서를 따릅니다. 기본 방화벽 설정으로 Azure 서비스(예: 앱 서비스)가 이 데이터베이스에 연결할 수 있습니다.
 
 2. 명령줄 터미널에서 SQL Server 어댑터를 설치합니다.
 
@@ -177,7 +179,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL 데이터베이�
             }
         },
 
-4. 각 환경 변수(`process.env.*`)의 경우 앱 서비스에서 설정해야 합니다. 이렇게 하려면 터미널에서 다음 명령을 실행합니다.
+4. 각 환경 변수(`process.env.*`)의 경우 App Service에서 설정해야 합니다. 이렇게 하려면 터미널에서 다음 명령을 실행합니다.
 
         azure site appsetting add dbuser="<database server administrator>"
         azure site appsetting add dbpassword="<database server password>"
@@ -213,7 +215,7 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL 데이터베이�
             migrate: 'alter'
         },
 
-    `migrate: 'alter'`를 사용하면 데이터베이스 마이그레이션 기능을 사용하여 Azure SQL 데이터베이스에서 데이터베이스 테이블을 쉽게 만들고 업데이트할 수 있습니다. 그러나 Sails.js에서는 프로덕션 환경에서 `migrate: 'alter'` 사용을 허용하지 않으므로 Azure(프로덕션) 환경에 `migrate: 'safe'`가 사용됩니다([Sails.js 설명서](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings) 참조).
+    `migrate: 'alter'`를 사용하면 데이터베이스 마이그레이션 기능을 사용하여 Azure SQL Database에서 데이터베이스 테이블을 쉽게 만들고 업데이트할 수 있습니다. 그러나 Sails.js에서는 프로덕션 환경에서 `migrate: 'alter'` 사용을 허용하지 않으므로 Azure(프로덕션) 환경에 `migrate: 'safe'`가 사용됩니다([Sails.js 설명서](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings) 참조).
 
 4. 터미널에서 평소처럼 Sails.js [청사진 API](http://sailsjs.org/documentation/concepts/blueprints)를 [생성](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate)한 다음 `sails lift`를 실행하여 Sails.js 데이터베이스 마이그레이션을 통해 데이터베이스를 만듭니다. 예:
 
@@ -248,4 +250,4 @@ Azure 데이터베이스에 연결하려면 Azure에 Azure SQL 데이터베이�
 - [Azure 앱 서비스에서 Node.js 웹앱 시작](app-service-web-nodejs-get-started.md)
 - [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

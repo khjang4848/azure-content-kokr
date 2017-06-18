@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 MapReduce 프로그램 호출
@@ -22,7 +22,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Ma
 ## 소개 
 Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서에서는 HDInsight MapReduce 작업을 사용하는 방법을 설명합니다.
  
-HDInsight Pig 및 Hive 작업을 사용하여 Azure 데이터 팩터리 파이프라인에서 Windows/Linux 기반 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [Pig](data-factory-pig-activity.md) 및 [Hive](data-factory-hive-activity.md) 문서를 참조하세요.
+HDInsight Pig 및 Hive를 사용하여 파이프라인에서 Windows/Linux 기반 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [Pig](data-factory-pig-activity.md) 및 [Hive](data-factory-hive-activity.md) 문서를 참조하세요.
 
 ## HDInsight MapReduce 작업에 대한 JSON 
 
@@ -134,7 +134,7 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ### 데이터 집합
 
 #### 출력 데이터 집합
-이 예제의 파이프라인은 input을 포함하지 않습니다. HDInsight MapReduce 작업에 대한 출력 데이터 집합을 지정해야 합니다. 이는 파이프라인 일정을 진행하는데 필요한 더미 데이터 집합입니다.
+이 예제의 파이프라인은 input을 포함하지 않습니다. HDInsight MapReduce 작업에 대한 출력 데이터 집합을 지정합니다. 이 데이터 집합은 파이프라인 일정을 진행하는데 필요한 더미 데이터 집합입니다.
 
 	{
 	    "name": "MROutput",
@@ -159,12 +159,12 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 ### 파이프라인
 이 예제의 파이프라인은 HDInsightMapReduce 형식의 작업을 하나만 포함합니다. JSON의 중요한 속성에 대한 예를 들면 다음과 같습니다.
 
-속성 | 참고
+속성 | 참고 사항
 :-------- | :-----
 type | type은 **HDInsightMapReduce**로 설정되어야 합니다. 
 className | 클래스 이름은 **wordcount**입니다.
-jarFilePath | 위 클래스를 포함하는 jar 파일의 경로입니다. 다음 코드를 복사하여 붙여넣는 경우 클러스터의 이름을 변경해야 합니다. 
-jarLinkedService | jar 파일을 포함하는 Azure 저장소 연결된 서비스입니다. 이는 HDInsight 클러스터와 연결되는 저장소입니다. 
+jarFilePath | 클래스를 포함하는 jar 파일의 경로입니다. 다음 코드를 복사하여 붙여넣는 경우 클러스터의 이름을 변경해야 합니다. 
+jarLinkedService | jar 파일을 포함하는 Azure 저장소 연결된 서비스입니다. 이 연결된 서비스는 HDInsight 클러스터와 연결되는 저장소를 지칭합니다. 
 arguments | Wordcount 프로그램에서는 input과 output의 두 가지 인수를 사용합니다. input 파일은 davinci.txt 파일입니다.
 frequency/interval | 이러한 속성의 값은 출력 데이터 집합과 일치합니다. 
 linkedServiceName | 이전에 만든 HDInsight 연결된 서비스를 말합니다.   
@@ -228,4 +228,4 @@ MapReduce 작업을 사용하여 HDInsight Spark 클러스터에서 Spark 프로
 - [Spark 프로그램 호출](data-factory-spark.md)
 - [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

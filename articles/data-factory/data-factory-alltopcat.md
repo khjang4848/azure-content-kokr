@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -44,7 +44,7 @@
 | &nbsp; | 문서 | 업데이트된 텍스트, 코드 조각 |
 | --: | :-- | :-- |
 | 8 | [데이터 팩터리 .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리](data-factory-create-data-factories-programmatically.md) | **팝업 대화 상자 없이 로그인** 위의 샘플 코드는 대화 상자를 시작하여 Azure 자격 증명을 입력하도록 합니다. 대화 상자를 사용하지 않고 프로그래밍 방식으로 로그인해야 하는 경우 Azure Resource Manager를 사용하여 서비스 주체 인증을 참조하세요(resource-group-authenticate-service-principal.md authenticate-service-principal-with-certificate---powershell). **예제** 아래 표시된 대로 GetAuthorizationHeaderNoPopup 메서드 만들기: public static string GetAuthorizationHeaderNoPopup() { var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings "ActiveDirectoryTenantId" ); var context = new AuthenticationContext(authority.AbsoluteUri); var credential = new ClientCredential(ConfigurationManager.AppSettings "AdfClientId" , ConfigurationManager.AppSettings "AdfClientSecret" ); AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings "WindowsManagementUri" , credential).Result; |
-| 9 | [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md) | **지원되는 파일 형식** 복사 작업은 Azure Blob, 파일 시스템 및 HDFS(File System, and Hadoop Distributed File System)와 같은 두 파일 기반 데이터 저장소 사이에서 파일을 그대로 복사할 수 있습니다. 이렇게 하려면 입력 및 출력 데이터 집합 정의의 형식 섹션(data-factory-create-datasets.md)을 건너뛸 수 있고 직렬화/역직렬화 과정 없이 데이터가 복사됩니다. 복사 작업은 또한 텍스트, Avro, ORC 및 JSON 등 지정된 형식의 파일을 읽고 씁니다. 수행할 수 있는 복사 작업의 몇 가지 예는 다음과 같습니다. / Azure Blob에서 텍스트(CSV) 형식의 데이터를 복사하여 Azure SQL에 기록 / 파일 시스템 온-프레미스에서 텍스트(CSV) 형식의 파일을 복사하여 Avro 형식의 Azure Blob에 기록 / Azure SQL Database의 데이터를 복사하여 ORC 형식의 HDFS 온-프레미스에 기록** .a name="global"../a.전역적으로 사용 가능한 데이터 이동** Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만 사용할 수 있지만, 다음과 같은 지역 및 지리에서는 복사 작업을 지원하는 서비스를 전역적으로 사용할 수 있습니다.|
+| 9 | [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md) | **지원되는 파일 형식** 복사 작업은 Azure Blob, 파일 시스템 및 HDFS(File System, and Hadoop Distributed File System)와 같은 두 파일 기반 데이터 저장소 사이에서 파일을 그대로 복사할 수 있습니다. 이렇게 하려면 입력 및 출력 데이터 집합 정의의 형식 섹션(data-factory-create-datasets.md)을 건너뛸 수 있고 직렬화/역직렬화 과정 없이 데이터가 복사됩니다. 복사 작업은 또한 텍스트, Avro, ORC 및 JSON 등 지정된 형식의 파일을 읽고 씁니다. 수행할 수 있는 복사 작업의 몇 가지 예는 다음과 같습니다. / Azure Blob에서 텍스트(CSV) 형식의 데이터를 복사하여 Azure SQL에 기록 / 파일 시스템 온-프레미스에서 텍스트(CSV) 형식의 파일을 복사하여 Avro 형식의 Azure Blob에 기록 / Azure SQL Database의 데이터를 복사하여 ORC 형식의 HDFS 온-프레미스에 기록 ** .a name="global"../a.전역적으로 사용 가능한 데이터 이동** Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만 사용할 수 있지만, 다음과 같은 지역 및 지리에서는 복사 작업을 지원하는 서비스를 전역적으로 사용할 수 있습니다.|
 | 10 | [Azure Data Factory를 사용하여 OData 소스에서 데이터 이동](data-factory-odata-connector.md) | **온-프레미스 OData 소스에 액세스하는 Windows 인증 사용** { "name": "inputLinkedService", "properties": { "type": "OData", "typeProperties": { "url": ".endpoint of on-premises OData source e.g. Dynamics CRM.", "authenticationType": "Windows", "username": "domain\\user", "password": "password", "gatewayName": "mygateway" } } } |
 
 
@@ -162,4 +162,4 @@
 | 66 | [Azure 데이터 팩터리 - 이름 지정 규칙](data-factory-naming-rules.md) | 데이터 팩터리 엔터티에 대한 이름 지정 규칙을 설명합니다. |
 | 67 | [데이터 팩터리 문제 해결](data-factory-troubleshoot.md) | Azure 데이터 팩터리 사용과 관련된 문제를 해결하는 방법에 대해 알아봅니다. |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

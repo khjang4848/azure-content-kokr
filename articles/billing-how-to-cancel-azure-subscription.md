@@ -22,7 +22,7 @@
 
 >[AZURE.NOTE] Azure 지원 플랜 기간은 6개월이며, Microsoft는 해당 기간에 지속적인 현금 약정 금액을 요구합니다. 이 기간이 만료되기 전에 취소해도 나머지 약정이 면제되는 것은 아니며 선불 금액이 환불되지도 않습니다. 실수로 구독을 취소해서 다시 활성화해야 하는 경우 도움이 필요하면 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)할 수 있습니다.
 
-구독을 취소하는 경우, 사용자의 모든 서비스가 즉시 삭제됩니다. 취소하기 전에 저장하려는 데이터가 백업되었는지 확인합니다.
+구독을 취소하는 경우 [Microsoft의 보존 정책](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)에 따라 데이터가 90일 동안 저장됩니다. [Microsoft 보안 센터](https://www.microsoft.com/ko-KR/TrustCenter/Privacy/You-are-in-control-of-your-data)에서 자세히 알아보세요.
 
 1. [Azure 계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자로 로그온합니다.
 
@@ -40,6 +40,8 @@
 
 5. ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png)을 클릭하여 대화 창을 닫고 구독 페이지로 돌아갑니다.
 
+	> [AZURE.NOTE] 종량제 구독을 실수로 취소한 경우 [여기](https://azure.microsoft.com/documentation/articles/billing-subscription-become-disable/)에 설명된 지침에 따라 다시 활성화할 수 있습니다.
+
 > [AZURE.NOTE] 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

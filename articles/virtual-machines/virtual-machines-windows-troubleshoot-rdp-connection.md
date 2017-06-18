@@ -156,7 +156,7 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 
 원인: 대상 VM이 사용자의 자격 증명의 사용자 이름 부분에서 보안 기관을 찾지 못했습니다.
 
-사용자 이름이 *SecurityAuthority*\*UserName* (example: CORP\\User1) 형식인 경우 *SecurityAuthority* 부분은 VM의 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
+사용자 이름이 *SecurityAuthority*\\*UserName* (example: CORP\\User1) 형식인 경우 *SecurityAuthority* 부분은 VM의 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
 
 가능한 해결 방법:
 
@@ -173,8 +173,8 @@ VM에 실제로 두 개 이상의 동시 원격 데스크톱 연결이 필요하
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-- 로컬 계정의 경우 *ComputerName*\*UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
-- 도메인 계정의 경우 *DomainName*\*UserName* 구문(예: CONTOSO\\peterodman)을 사용합니다.
+- 로컬 계정의 경우 *ComputerName*\\*UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
+- 도메인 계정의 경우 *DomainName*\\*UserName* 구문(예: CONTOSO\\peterodman)을 사용합니다.
 
 VM을 새 Active Directory 포리스트의 도메인 컨트롤러로 승격한 경우 사용자가 로그인할 때 사용한 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 그러면 로컬 계정이 삭제됩니다.
 

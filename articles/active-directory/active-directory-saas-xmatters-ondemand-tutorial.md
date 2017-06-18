@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #자습서: xMatters OnDemand와 Azure Active Directory 통합
@@ -84,14 +84,14 @@
 
 	a. **XMatters OnDemand 로그인 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<tenant-name>.XMattersOnDemandapp.com`
 
-	b. **다음**을 클릭합니다.
+	b. **Next**를 클릭합니다.
 
 
 4.  **xMatters OnDemand에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 **c:\\XMatters OnDemand.cer**로 저장합니다.
 
     >[AZURE.IMPORTANT] XMatters 지원팀에 인증서를 전달해야 합니다. Single Sign-On 구성을 완료하기 전에 xMatters 지원팀에서 인증서를 업로드해야 합니다.
 
-    ![Single Sign On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Single Sign On 구성")
+    ![Single Sign On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Single sign on 구성")
 
 5.  다른 웹 브라우저 창에서 xMatters OnDemand 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -104,20 +104,20 @@
     ![SAML 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML 구성")
 
     1.  **SAML 사용**을 선택합니다.
-    2.  Azure 클래식 포털의 **XMatters OnDemand에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 클래식 포털의 **XMatters OnDemand에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **Single 로그온 URL** 텍스트 상자에 붙여넣습니다.
-    4.  Azure 클래식 포털의 **XMatters OnDemand에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **단일 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **XMatters OnDemand에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자 URL** 텍스트 상자에 붙여 넣습니다.
+    3.  Azure 클래식 포털의 **XMatters OnDemand에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **Single 로그온 URL** 텍스트 상자에 붙여 넣습니다.
+    4.  Azure 클래식 포털의 **XMatters OnDemand에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **단일 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
     5.  회사 상세 정보 페이지 위쪽에서 **변경 내용 저장**을 클릭합니다.![회사 세부 정보](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "회사 세부 정보")
 
 8.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
-    ![Single Sign On 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Single Sign On 구성")
+    ![Single sign on 구성](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776798.png "Single sign on 구성")
 
 ##사용자 프로비전 구성
   
 Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 XMatters OnDemand로 프로비전되어야 합니다. XMatters OnDemand의 경우 프로비전은 수동 작업입니다.
 
-###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
+###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1.  **XMatters OnDemand** 테넌트에 로그인합니다.
 
@@ -156,4 +156,4 @@ Azure AD 사용자가 XMatters OnDemand에 로그인할 수 있도록 하려면 
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

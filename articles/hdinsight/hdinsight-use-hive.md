@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="larryfr"/>
 
 # 샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용
@@ -32,6 +32,8 @@ Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 �
 
 Hive를 사용하면 특정 문자로 구분되는 필드에 위치한 텍스트 파일과 같은 구조화 및 반구조화된 데이터로 작업하는 방법을 이해합니다. 또한 Hive는 복잡하거나 불규칙하게 구조화된 데이터에 대한 사용자 지정을 **serializer/deserializers(SerDe)** 지원합니다. 자세한 내용은 [HDInsight와 JSON SerDe의 사용자 지정 사용 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx)을 참조하세요.
 
+## UDF(사용자 정의 함수)
+
 Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다. Hive와 UDF를 사용하는 예로, 다음을 참조하세요:
 
 * [Hive와 함께 Java 사용자 정의된 함수 사용](hdinsight-hadoop-hive-java-udf.md)
@@ -42,6 +44,7 @@ Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니�
 
 * [HDInsight에 사용자 지정 하이브 UDF를 추가 하는 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+* [날짜/시간 형식을 Hive 타임스탬프로 변환하는 사용자 지정 Hive UDF](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## Hive 내부 테이블과 외부 테이블 비교
 
@@ -51,7 +54,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 - **CREATE TABLE** 명령은 데이터 파일을 /hive/warehouse/<TableName> 폴더로 이동합니다.
 - **CREATE EXTERNAL TABLE** 명령은 외부 테이블을 만듭니다. 데이터 파일은 기본 컨테이너가 아닌 곳에 있을 수 있습니다.
 - **CREATE EXTERNAL TABLE** 명령은 데이터 파일을 이동하지 않습니다.
-- **CREATE EXTERNAL TABLE** 명령은 LOCATION에 어떤 폴더도 허용하지 않습니다. 이는 자습서에서 sample.log 파일의 복사본을 만들기 때문입니다.
+- **CREATE EXTERNAL TABLE** 명령은 LOCATION에 어떤 폴더도 허용하지 않습니다. 이 때문에 자습서에서는 sample.log 파일의 복사본을 만듭니다.
 
 자세한 내용은 [HDInsight: Hive 내부 및 외부 테이블 소개][cindygross-hive-tables]를 참조하세요.
 
@@ -214,4 +217,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

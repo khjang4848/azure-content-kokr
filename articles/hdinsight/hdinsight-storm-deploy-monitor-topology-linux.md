@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/22/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 # Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -62,11 +62,11 @@
 
 클러스터에서 호스트되는 Nimbus 서비스와 통신하여 HDInsight에서 Storm에 대한 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)는 Nimbus 서비스를 통해 토폴로지를 배포하고 시작하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공합니다.
 
-##Storm 명령을 사용한 모니터링 및 관리
+## Storm 명령을 사용한 모니터링 및 관리
 
 `storm` 유틸리티를 사용하면 명령줄에서 실행하는 토폴로지로 작업할 수 있습니다. 다음은 일반적으로 사용하는 명령 목록입니다. 전체 명령 목록에는 `storm -h`를 사용합니다.
 
-###목록 토폴로지
+### 목록 토폴로지
 
 다음 명령을 사용하여 실행하는 토폴로지를 나열합니다.
 
@@ -78,7 +78,7 @@
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
-###비활성화 및 다시 활성화
+### 비활성화 및 다시 활성화
 
 토폴로지를 비활성화하면 작업을 중단하거나 다시 활성화할 때까지 일시 중지합니다. 다음을 사용하여 비활성화 및 다시 활성화합니다.
 
@@ -86,13 +86,13 @@
     
     storm Activate TOPOLOGYNAME
 
-###실행 중인 토폴로지를 중단합니다.
+### 실행 중인 토폴로지를 중단합니다.
 
 Storm 토폴로지가 일단 시작되면 중지될 때까지 계속 실행됩니다. 토폴로지를 중지하려면 다음 명령을 사용합니다.
 
     storm stop TOPOLOGYNAME
 
-###균형 재조정
+### 균형 재조정
 
 토폴로지의 균형을 재조정하면 시스템이 토폴로지의 병렬 처리를 수정할 수 있습니다. 예를 들어 클러스터 크기를 조정하고 더 많은 메모를 추가하려면 균형을 재조정하여 실행 중인 토폴로지가 새 노드를 사용하도록 합니다.
 
@@ -100,7 +100,7 @@ Storm 토폴로지가 일단 시작되면 중지될 때까지 계속 실행됩�
 
     storm rebalance TOPOLOGYNAME
 
-##Storm UI를 사용한 모니터링 및 관리
+## Storm UI를 사용한 모니터링 및 관리
 
 Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터페이스를 제공하고 HDInsight 클러스터에 포함됩니다. Storm UI를 보려면 웹 브라우저를 사용하여 __https://CLUSTERNAME.azurehdinsight.net/stormui__을 엽니다. 여기서 __CLUSTERNAME\_\_은 클러스터의 이름입니다.
 
@@ -197,4 +197,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

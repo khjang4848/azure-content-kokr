@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 서버의 사용자 포털 배포" 
-	description="Azure MFA 및 사용자 포털 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Azure Multi-Factor Authentication 서버의 사용자 포털 배포"
+	description="Azure MFA 및 사용자 포털 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication 서버의 사용자 포털 배포
 
@@ -101,7 +101,7 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇 가지 옵션을 제공합니다. 다음 표에서는 이러한 옵션 및 각 옵션의 용도를 설명하는 목록을 제공합니다.
 
 사용자 포털 설정|설명|
-:------------- | :------------- | 
+:------------- | :------------- |
 User Portal URL(사용자 포털 URL)| 포털이 호스트되는 URL을 입력할 수 있습니다.
 Primary authentication(기본 인증)| 포털에 로그인할 때 사용할 인증 형식을 지정할 수 있습니다. Windows, Radius 또는 LDAP 인증 중 하나입니다.
 Allow users to log in(로그인 허용)|사용자 포털의 로그인 페이지에서 사용자 이름 및 암호를 입력할 수 있습니다. 선택하지 않으면 상자는 회색으로 표시됩니다.
@@ -187,6 +187,4 @@ SAML을 사용하는 ID 공급자의 클레임을 받을 수 있는 사용자 �
 
 이제 사용자 자체 등록이 완료되어 사용자가 사용자 포털에 로그인됩니다. 사용자는 관리자가 허용하는 경우 이후에 언제든지 사용자 포털에 다시 로그인하여 전화 번호, PIN, 인증 방법 및 보안 질문을 변경할 수 있습니다.
 
- 
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

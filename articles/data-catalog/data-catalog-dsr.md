@@ -3,8 +3,8 @@
    description="현재 지원되는 데이터 원본의 사양."
    services="data-catalog"
    documentationCenter=""
-   authors="spelluru"
-   manager="paulettm"
+   authors="trhabe"
+   manager="jstrauss"
    editor=""
    tags=""/>
 <tags
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/25/2016"
+   ms.date="09/15/2016"
    ms.author="trhabe"/>
 
 # Azure 데이터 카탈로그 지원되는 데이터 원본
 
-Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 공용 API를 사용하거나 데이터 카탈로그 웹 포털에 정보를 직접 입력하여 메타데이터를 게시할 수 있습니다. 아래 표는 현재 카탈로그로 지원되는 모든 원본 및 각각에 대한 게시 기능을 요약합니다. 또한 포털의 "열기" 경험에서 시작할 수 있는 각 원본에 대한 외부 데이터 도구가 나열되어 있습니다. 아래는 각 데이터 원본 연결 속성의 자세한 기술 사양이 있는 두 번째 표입니다.
+Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 공용 API를 사용하거나 데이터 카탈로그 웹 포털에 정보를 직접 입력하여 메타데이터를 게시할 수 있습니다. 다음 표는 현재 카탈로그로 지원되는 모든 원본 및 각각에 대한 게시 기능을 요약합니다. 또한 포털의 "열기" 경험에서 시작할 수 있는 각 원본에 대한 외부 데이터 도구가 나열되어 있습니다. 문서의 두 번째 표에는 각 데이터 원본 연결 속성의 자세한 기술 사양이 나옵니다.
 
 
 ## 지원되는 데이터 원본 목록
@@ -73,8 +73,8 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
     <tr>
       <td>Azure 저장소 테이블</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2"></font>
       </td>
@@ -269,7 +269,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
       <td>✓</td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2></font></td>
+      <td><font size=2>계산 보기 및 분석 보기만 지원되며, 특성 보기는 지원되지 않습니다.</font></td>
     </tr>
 
     <tr>
@@ -409,12 +409,12 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
 
 </table>
 
-추가적인 원본에 대한 지원이 필요하면, [Azure Data Catalog 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에 기능 요청을 제출해 주세요.
+추가적인 원본에 대한 지원이 필요하면, [Azure Data Catalog 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에 기능 요청을 제출합니다.
 
 
 <br> <br>
 ## 데이터 원본 참조 사양
-> [AZURE.NOTE] 아래 테이블의 "DSL 구조" 열에는 Azure Data Catalog에 사용되는 "address" 속성 모음에 대한 연결 속성만 나열됩니다.("address" 속성 모음은 Azure Data Catalog에서 유지하는 데이터 원본의 다른 연결 속성을 포함할 수 있지만, 사용하지는 않습니다.)
+> [AZURE.NOTE] 다음 테이블의 "DSL 구조" 열에는 Azure Data Catalog에 사용되는 "address" 속성 모음에 대한 연결 속성만 나열됩니다.("address" 속성 모음은 Azure Data Catalog에서 유지하는 데이터 원본의 다른 연결 속성을 포함할 수 있지만, 사용하지는 않습니다.)
 <table>
     <tr>
        <td><b>원본 유형</b></td>
@@ -423,7 +423,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
        <td><b>DSL 구조<b></td>
     </tr>
     <tr>
-      <td>Azure 데이터 레이크 저장소</td>
+      <td>Azure Data Lake Store</td>
       <td>컨테이너</td>
       <td>데이터 레이크</td>
       <td>
@@ -434,7 +434,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
       </td>
     </tr>
     <tr>
-      <td>Azure 데이터 레이크 저장소</td>
+      <td>Azure Data Lake Store</td>
       <td>테이블</td>
       <td>디렉터리, 파일</td>
       <td>
@@ -795,6 +795,17 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
       </td>
     </tr>
     <tr>
+      <td>파워 쿼리</td>
+      <td>테이블</td>
+      <td>데이터 매시업</td>
+      <td>
+        <font size=2> 프로토콜: power-query
+            <br>인증: {oauth}
+            <br>주소:
+            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+      </td>
+    </tr>
+    <tr>
       <td>Salesforce</td>
       <td>테이블</td>
       <td>Object</td>
@@ -858,6 +869,20 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
     </tr>
     <tr>
       <td>SQL 데이터 웨어하우스</td>
+      <td>TableValuedFunction</td>
+      <td>테이블 값 함수</td>
+      <td>
+        <font size=2> 프로토콜: tds
+            <br>인증: {프로토콜, windows}
+            <br>주소:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL 데이터 웨어하우스</td>
       <td>컨테이너</td>
       <td>데이터베이스</td>
       <td>
@@ -898,6 +923,20 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
     </tr>
     <tr>
       <td>SQL Server</td>
+      <td>TableValuedFunction</td>
+      <td>테이블 값 함수</td>
+      <td>
+        <font size=2> 프로토콜: tds
+            <br>인증: {프로토콜, windows}
+            <br>주소:
+            <br>&#160;&#160;&#160;&#160;&#160; server
+            <br>&#160;&#160;&#160;&#160;&#160; database
+            <br>&#160;&#160;&#160;&#160;&#160; schema
+            <br>&#160;&#160;&#160;&#160;&#160; Object </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
       <td>컨테이너</td>
       <td>데이터베이스</td>
       <td>
@@ -911,7 +950,7 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
     <tr>
       <td>SQL Server</td>
       <td>테이블</td>
-      <td>테이블, 뷰, 테이블 값 함수</td>
+      <td>테이블, 뷰</td>
       <td>
         <font size=2> 프로토콜: tds
             <br>인증: {프로토콜, windows}
@@ -1127,4 +1166,4 @@ Azure 데이터 카탈로그의 사용자는 등록 도구 클릭 한 번으로 
     </tr>
 </table>
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

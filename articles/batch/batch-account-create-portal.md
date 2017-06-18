@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/26/2016"
+	ms.date="09/21/2016"
 	ms.author="marsma"/>
 
 # Azure 포털을 사용하여 Azure 배치 계정 만들기
@@ -28,7 +28,7 @@
 
 1. [Azure 포털][azure_portal]에 로그인합니다.
 
-2. **새로 만들기** > **가상 컴퓨터** > **배치 서비스**를 클릭합니다.
+2. **새로 만들기** > **계산** > **배치 서비스**를 클릭합니다.
 
 	![Marketplace에서 배치][marketplace_portal]
 
@@ -125,4 +125,4 @@ Azure 포털을 사용하는 것 외에도 다음 항목으로 배치 계정을 
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

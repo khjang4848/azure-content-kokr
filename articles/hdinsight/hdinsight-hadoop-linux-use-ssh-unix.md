@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 #Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.
@@ -128,7 +128,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 * **사용자 이름** - 클러스터를 만들 때 제공한 SSH 사용자 이름입니다.
 
-다음 예제에서는 **mycluster**의 헤드 노드 0에 **me** 사용자로 연결합니다.
+다음 예제에서는 **mycluster**의 기본 헤드 노드에 **me** 사용자로 연결합니다.
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -140,7 +140,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-헤드 노드에 대한 주소를 사용하여 연결하고 지정된 포트가 없는 경우, SSH가 기본적으로 HDInsight 클러스터의 헤드 노드 0에 연결되는 22 포트로 설정됩니다. 23 포트를 사용하는 경우, 헤드 노드 1에 연결 됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
+헤드 노드에 대한 주소를 사용하여 연결하고 지정된 포트가 없는 경우, SSH가 기본적으로 22 포트로 설정되며 이는 HDInsight 클러스터의 기본 헤드 노드에 연결됩니다. 23 포트를 사용하는 경우, 보조 헤드 노드에 연결됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 ###작업자 노드에 연결
 
@@ -150,7 +150,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
 1. 텍스트 편집기를 사용하여 `~/.ssh/config`를 엽니다. 이 파일이 존재하지 않으면 터미널에 `touch ~/.ssh/config`를 입력하여 만들 수 있습니다.
 
-2. 파일에 다음을 추가합니다. *CLUSTERNAME* 을 HDInsight 클러스터의 이름으로 바꿉니다.
+2. 파일에 다음을 추가합니다. *CLUSTERNAME*을 HDInsight 클러스터의 이름으로 바꿉니다.
 
         Host CLUSTERNAME-ssh.azurehdinsight.net
           ForwardAgent yes
@@ -179,7 +179,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
 1. 앞에서 설명한 대로 SSH를 사용하여 HDInsight 클러스터에 연결합니다.
 
-2. 연결되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD* 를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME* 을 클러스터의 이름으로 바꿉니다.
+2. 연결되면 다음을 사용하여 클러스터의 노드 목록을 검색합니다. *ADMINPASSWORD*를 클러스터 관리 계정의 암호로 바꿉니다. *CLUSTERNAME*을 클러스터의 이름으로 바꿉니다.
 
         curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/hosts
 
@@ -191,13 +191,13 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
         ssh USERNAME@FQDN
 
-    *USERNAME* 을 SSH 사용자 이름으로, *FQDN* 을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
+    *USERNAME*을 SSH 사용자 이름으로, *FQDN*을 작업자 노드의 FQDN으로 바꿉니다. 예를 들면 `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`과 같습니다.
 
     > [AZURE.NOTE] 암호를 사용하여 SSH 세션을 인증하는 경우 암호를 입력하라는 메시지가 다시 표시됩니다. SSH 키를 사용하는 경우에는 아무 메시지 없이 연결이 완료됩니다.
 
-4. 세션이 설정되면 작업자 노드에 연결되었음을 나타내도록 터미널 프롬프트가 `username@hn0-clustername`에서 `username@wk0-clustername`로 변경됩니다. 이 시점부터 실행하는 모든 명령은 작업자 노드에서 실행됩니다.
+4. 세션이 설정되면 작업자 노드에 연결되었음을 나타내도록 터미널 프롬프트가 `username@hn#-clustername`에서 `username@wk#-clustername`로 변경됩니다. 이 시점부터 실행하는 모든 명령은 작업자 노드에서 실행됩니다.
 
-4. 작업자 노드에 대한 작업 수행을 마쳤으면 `exit` 명령을 사용하여 작업자 노드의 세션을 닫습니다. 그러면 `username@hn0-clustername` 프롬프트가 반환됩니다.
+4. 작업자 노드에 대한 작업 수행을 마쳤으면 `exit` 명령을 사용하여 작업자 노드의 세션을 닫습니다. 그러면 `username@hn#-clustername` 프롬프트가 반환됩니다.
 
 ##계정 추가
 
@@ -247,4 +247,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

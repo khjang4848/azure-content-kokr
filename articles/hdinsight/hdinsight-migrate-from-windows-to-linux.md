@@ -4,7 +4,7 @@ description="Windows 기반 HDInsight 클러스터에서 Linux 기반 HDInsight 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -134,7 +134,7 @@ Linux 기반 클러스터용 부트스트랩은 이 기능을 제공하지 않�
 
 ### 가상 네트워크
 
-Windows 기반 HDInsight 클러스터는 클래식 가상 네트워크에서만 작동하는 반면 Linux 기반 HDInsight 클러스터는 리소스 관리자 가상 네트워크가 필요합니다. Linux-HDInsight 클러스터가 연결해야 하는 클래식 가상 네트워크에 리소스가 있는 경우 [리소스 관리자 가상 네트워크에 클래식 가상 네트워크 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
+Windows 기반 HDInsight 클러스터는 클래식 가상 네트워크에서만 작동하는 반면 Linux 기반 HDInsight 클러스터는 리소스 관리자 가상 네트워크가 필요합니다. Linux-HDInsight 클러스터에서 연결해야 하는 Classic Virtual Network에 리소스가 있는 경우 [Resource Manager Virtual Network에 Classic Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.
 
 HDInsight에서 Azure 가상 네트워크를 사용하기 위한 구성 요구 사항에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 기능 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
@@ -254,4 +254,4 @@ Azure Data Factory 사용자 지정 .NET 작업은 현재 Linux 기반 HDInsight
 
 -   [Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

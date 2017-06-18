@@ -25,7 +25,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-C#을 사용하여 [.NET용 Azure SQL Database 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Database를 만드는 방법에 대해 알아봅니다. 이 문서에서는 SQL 및 C#으로 단일 데이터베이스를 만드는 방법을 설명합니다. 탄력적 데이터베이스 풀을 만들려면 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-portal.md)를 참조하세요.
+C#을 사용하여 [.NET용 Azure SQL Database 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)로 Azure SQL Database를 만드는 방법에 대해 알아봅니다. 이 문서에서는 SQL 및 C#으로 단일 데이터베이스를 만드는 방법을 설명합니다. 탄력적 데이터베이스 풀을 만들려면 [탄력적 데이터베이스 풀 만들기](sql-database-elastic-pool-create-csharp.md)를 참조하세요.
 
 .NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](../resource-group-overview.md) 기반 API를 제공합니다.
 
@@ -291,4 +291,4 @@ C#으로 SQL Database를 만들려면 [패키지 관리자 콘솔](http://docs.n
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

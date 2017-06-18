@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Work.com과 Azure Active Directory 통합
@@ -90,7 +90,7 @@
 
 5.  다른 웹 브라우저 창에서 Azure 클래식 포털에 로그인합니다.
 
-6.  **Work.com **응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
+6.  **Work.com** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-work-com-tutorial/IC794109.png "Single Sign-On 구성")
 
@@ -131,13 +131,13 @@
 
         >[AZURE.NOTE] **이름**에 값을 제공하면 **API 이름** 텍스트 상자가 자동으로 채워집니다.
 
-    2.  Azure 클래식 포털의 **Work.com에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **Work.com에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여 넣습니다.
     3.  다운로드한 인증서를 업로드하려면 **찾아보기**를 클릭합니다.
     4.  **엔터티 ID** 텍스트 상자에 **https://salesforce-work.com**를 입력합니다.
-    5.  **SAML ID 형식**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
+    5.  **SAML ID 유형**으로 **사용자 개체에서 페더레이션 ID를 포함하는 어설션**을 선택합니다.
     6.  **SAML ID 위치**에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
-    7.  Azure 클래식 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    8.  Azure 클래식 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    7.  Azure 클래식 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
+    8.  Azure 클래식 포털의 **Work.com에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
     9.  **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP Post**를 선택합니다.
     10. **Save**를 클릭합니다.
 
@@ -162,7 +162,7 @@
 Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전되어야 합니다.  
 Work.com의 경우 프로비전은 수동 작업입니다.
 
-###사용자 프로비전을 구성하려면
+###사용자 프로비저닝을 구성하려면
 
 1.  Work.com 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -210,4 +210,4 @@ Work.com의 경우 프로비전은 수동 작업입니다.
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

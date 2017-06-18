@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="09/20/2016"
    ms.author="tomfitz" />
 
 # Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
@@ -21,7 +21,7 @@ Visual Studio 및 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용�
 
 Azure 리소스 그룹 프로젝트는 Azure에 배포한 리소스를 정의하는 Azure Resource Manager JSON 템플릿을 포함합니다. 리소스 관리자 템플릿의 요소에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. Visual Studio는 이러한 템플릿을 편집할 수 있도록 하고 템플릿으로 작업을 간소화하는 도구를 제공합니다.
 
-이 항목에서는 웹앱 및 SQL 데이터베이스를 배포합니다. 그러나 모든 종류의 리소스에 대해서도 거의 동일한 단계를 거칩니다. 가상 컴퓨터와 관련된 리소스를 손쉽게 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다.
+이 항목에서는 웹앱 및 SQL Database를 배포합니다. 그러나 모든 종류의 리소스에 대해서도 거의 동일한 단계를 거칩니다. 가상 컴퓨터와 관련된 리소스를 손쉽게 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다.
 
 이 문서는 Visual Studio 2015 업데이트 2와 .NET 2.9용 Microsoft Azure SDK를 보여 줍니다. Azure SDK 2.9와 함께 Visual Studio 2013을 사용하면 환경이 대부분 동일합니다. Azure SDK 2.6 이상의 버전을 사용할 수 있지만 사용자 인터페이스 환경이 이 문서에 표시된 것과 다를 수 있습니다. 이 단계를 시작하기 전에 최신 버전의 [Azure SDK](https://azure.microsoft.com/downloads/)를 설치하는 것이 좋습니다.
 
@@ -75,7 +75,7 @@ JSON 개요 창의 맨 위에 있는 **리소스 추가** 버튼을 선택하거
 
 ![리소스 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-이 자습서의 경우 **저장소 계정**을 선택하고 이름을 지정합니다. 저장소 계정 이름은 숫자 및 소문자이며 24자 미만이어야 합니다. 프로젝트는 제공한 이름에 13자의 고유 문자열을 추가하므로 이름이 11자 이상이 아닌지 확인합니다.
+이 자습서의 경우 **저장소 계정**을 선택하고 이름을 지정합니다. 11개 미만의 문자이며 숫자 및 소문자만을 포함하는 이름을 제공합니다.
 
 ![저장소 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
@@ -127,30 +127,37 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 
     ![리소스 그룹 만들기 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
    
-1. **매개 변수 편집** 단추를 선택하여 배포에 대한 매개 변수를 편집할 수 있습니다. 매개 변수에 값을 제공하고 **저장** 단추를 선택합니다.
+1. **매개 변수 편집** 단추를 선택하여 배포에 대한 매개 변수를 편집합니다.
+
+    ![매개 변수 편집 단추](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
+
+1. 비어 있는 매개 변수에 값을 제공하고 **저장** 단추를 선택합니다. 비어 있는 매개 변수는 **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** 및 **databaseName**입니다.
+
+    **hostingPlanName**은 만들려는 [App Service 계획](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)의 이름을 지정합니다.
+    
+    **administratorLogin**은 SQL Server 관리자의 사용자 이름을 지정합니다. **sa** 또는 **admin**과 같은 일반 관리자 이름을 사용하지 않습니다.
+    
+    **administratorLoginPassword**는 SQL Server 관리자의 암호를 지정합니다. **암호를 매개 변수 파일에 일반 텍스트로 저장** 옵션은 안전하지 않으므로 이 옵션을 선택하지 않습니다. 암호가 일반 텍스트로 저장되지 않기 때문에 배포하는 동안 다시 이 암호를 제공해야 합니다.
+    
+    **databaseName**은 만들 데이터베이스의 이름을 지정합니다.
 
     ![매개 변수 편집 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    **암호를 매개 변수 파일에 일반 텍스트로 저장** 옵션은 안전하지 않습니다.
-
-1. **배포** 단추를 선택하여 Azure에 프로젝트를 배포합니다. **출력** 창에서 배포의 진행률을 볼 수 있습니다. 구성에 따라 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다. 메시지가 표시되면 PowerShell 콘솔에서 데이터베이스 관리자 암호를 입력합니다. 배포 진행이 중단된 경우 사용자가 PowerShell 콘솔에 암호를 입력하도록 프로세스가 대기 중이기 때문일 수 있습니다.
+1. **배포** 단추를 선택하여 Azure에 프로젝트를 배포합니다. Visual Studio 인스턴스의 외부에서 PowerShell 콘솔이 열립니다. 메시지가 표시되면 PowerShell 콘솔에 SQL Server 관리자 암호를 입력합니다. **PowerShell 콘솔은 다른 항목 뒤에 숨겨지거나 작업 표시줄에서 최소화될 수 있습니다.** 이 콘솔을 찾아서 암호를 제공합니다.
 
     >[AZURE.NOTE] Visual Studio에서는 Azure PowerShell cmdlet을 설치하도록 요청할 수 있습니다. 리소스 그룹을 성공적으로 배포하려면 Azure PowerShell cmdlet이 필요합니다. 메시지가 표시되면 설치합니다.
     
-1. 배포가 완료되면 **출력** 창에 다음과 같이 메시지 표시가 됩니다.
+1. 배포는 몇 분 정도가 걸릴 수 있습니다. **출력** 창에 배포의 상태가 표시됩니다. 배포가 완료되면 마지막 메시지는 다음과 유사한 내용으로 성공적인 배포를 나타냅니다.
 
-        ...
-        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
-        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
-        15:19:19 - ResourceGroupName  : DemoSiteGroup
-        15:19:19 - ProvisioningState  : Succeeded
-        ...
+        ... 
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 
-1. 브라우저에서 [Azure 포털](https://portal.azure.com/)을 열고 계정에 로그인합니다. 리소스 그룹을 보려면 **리소스 그룹** 및 배포한 리소스 그룹을 선택합니다.
+
+1. 브라우저에서 [Azure Portal](https://portal.azure.com/)을 열고 계정에 로그인합니다. 리소스 그룹을 보려면 **리소스 그룹** 및 배포한 리소스 그룹을 선택합니다.
 
     ![그룹 선택](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-1. 배포된 리소스가 모두 표시됩니다.
+1. 배포된 리소스가 모두 표시됩니다. 저장소 계정의 이름은 해당 리소스를 추가할 때 지정한 것과 일치하지 않은지 확인합니다. 저장소 계정은 고유해야 합니다. 고유한 이름을 제공하기 위해 템플릿은 자동으로 사용자가 제공한 이름에 문자의 문자열을 추가합니다.
 
     ![리소스 표시](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
@@ -160,9 +167,13 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 
 ## 인프라를 사용하여 코드 배포
 
-이 시점에서 앱에 대한 인프라를 배포했지만 프로젝트와 함께 배포된 실제 코드가 없습니다. 이 항목에서는 배포하는 동안 웹앱 및 SQL 데이터베이스 테이블을 배포하는 방법을 보여 줍니다. 웹앱 대신 가상 컴퓨터를 배포하는 경우 배포의 일부로 컴퓨터에 일부 코드를 실행하려고 합니다. 웹앱에 대한 코드 배포 또는 가상 컴퓨터 설정을 위한 절차는 거의 동일합니다.
+이 시점에서 앱에 대한 인프라를 배포했지만 프로젝트와 함께 배포된 실제 코드가 없습니다. 이 항목에서는 배포하는 동안 웹앱 및 SQL Database 테이블을 배포하는 방법을 보여 줍니다. 웹앱 대신 가상 컴퓨터를 배포하는 경우 배포의 일부로 컴퓨터에 일부 코드를 실행하려고 합니다. 웹앱에 대한 코드 배포 또는 가상 컴퓨터 설정을 위한 절차는 거의 동일합니다.
 
-1. Visual Studio 솔루션에서 **ASP.NET 웹 응용 프로그램**을 추가합니다.
+1. Visual Studio 솔루션에 프로젝트를 추가합니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 선택합니다.
+
+    ![프로젝트 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. **ASP.NET 웹 응용 프로그램**을 추가합니다.
 
     ![웹앱 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
     
@@ -170,37 +181,55 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 
     ![MVC 선택](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
     
-1. Visual Studio에서 웹앱을 만든 후에 웹앱 프로젝트에 리소스 그룹 프로젝트의 참조를 추가합니다.
+1. Visual Studio에서 웹앱을 만든 후에 솔루션에 두 프로젝트가 모두 표시됩니다.
+
+    ![프로젝트 표시](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. 이제, 리소스 그룹 프로젝트가 새 프로젝트를 인식하는지 확인해야 합니다. 리소스 그룹 프로젝트(AzureResourceGroup1)로 돌아갑니다. **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다.
+
+    ![참조 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. 만든 웹앱 프로젝트를 선택합니다.
 
     ![참조 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    참조를 추가하여 리소스 그룹 프로젝트에 웹앱 프로젝트에 연결하고 자동으로 세 가지 주요 속성을 설정합니다.
+    참조를 추가하여 리소스 그룹 프로젝트에 웹앱 프로젝트에 연결하고 자동으로 세 가지 주요 속성을 설정합니다. 참조를 위한 **속성** 창에서 이러한 속성을 확인합니다.
+
+      ![참조 보기](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
     
-    - **추가 속성**은 Azure Storage에 푸시되는 웹 배포 패키지 준비 위치를 포함합니다.
+    속성은 다음과 같습니다.
+
+    - **추가 속성**은 Azure Storage에 푸시되는 웹 배포 패키지 준비 위치를 포함합니다. 폴더(ExampleApp) 및 파일(package.zip)을 적어둡니다. 앱을 배포할 때 이러한 값을 매개 변수로 제공합니다.
     - **파일 경로 포함**은 패키지를 만들 경로를 포함합니다. **대상 포함**은 배포가 실행할 명령을 포함합니다.
     - **빌드;패키지**의 기본값을 통해 배포는 웹 배포 패키지(package.zip)를 빌드하고 만들 수 있습니다.
     
     배포는 패키지를 만드는 속성에서 필요한 정보를 얻게 되므로 게시 프로필이 필요하지 않습니다.
-    
-      ![참조 보기](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. 템플릿에 리소스를 추가하고 이번에는 **웹앱에 대해 웹 배포**를 선택합니다.
+1. 템플릿에 리소스를 추가합니다.
+
+    ![리소스 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. 이번에는 **Web Apps에 대한 웹 배포**를 선택합니다.
 
     ![웹 배포 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. 리소스 그룹에 리소스 그룹 프로젝트를 다시 배포합니다. 이번에는 몇 가지 새로운 매개 변수가 있습니다. 자동으로 생성되므로 **\_artifactsLocation** 또는 **\_artifactsLocationSasToken**에 대한 값을 제공할 필요가 없습니다. 배포 패키지를 포함하는 경로에 폴더와 파일 이름을 설정합니다.
+1. 리소스 그룹에 리소스 그룹 프로젝트를 다시 배포합니다. 이번에는 몇 가지 새로운 매개 변수가 있습니다. 자동으로 생성되므로 **\_artifactsLocation** 또는 **\_artifactsLocationSasToken**에 대한 값을 제공할 필요가 없습니다. 그러나 폴더와 파일 이름을 배포 패키지를 포함하는 경로로 설정해야 합니다(다음 이미지에서 **ExampleAppPackageFolder** 및 **ExampleAppPackageFileName**로 나타남). 앞서 참조 속성에서 확인한 값을 제공합니다(**ExampleApp** 및 **package.zip**).
 
     ![웹 배포 추가](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    **아티팩트 저장소 계정**의 경우 이 리소스 그룹과 함께 배포된 것을 사용할 수 있습니다.
+    **아티팩트 저장소 계정**의 경우 이 리소스 그룹과 함께 배포된 계정을 선택합니다.
     
-배포가 완료되면 사이트로 이동하고 기본 ASP.NET 앱이 성공적으로 배포된 것을 확인할 수 있습니다.
+1. 배포가 완료된 후에 포털에서 웹앱을 선택합니다. URL을 선택하여 사이트를 찾습니다.
 
-![배포된 앱 표시](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![사이트 찾아보기](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. 기본 ASP.NET 앱을 성공적으로 배포했습니다.
+
+    ![배포된 앱 표시](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## 다음 단계
 
-- 포털을 통한 리소스 관리에 대한 내용은 [Azure 포털을 사용하여 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
+- 포털을 통한 리소스 관리에 대한 내용은 [Azure Portal을 사용하여 Azure 리소스 관리](./azure-portal/resource-group-portal.md)를 참조하세요.
 - 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

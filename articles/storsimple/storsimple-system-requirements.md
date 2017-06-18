@@ -36,7 +36,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 | 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008R2 SP1, 2012, 2012R2 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>Windows Server 2012 씬 프로비저닝 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에만 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨 및 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다.<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>포맷이 완료되면 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 2012 핫픽스를 Windows Server 컴퓨터에 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅숏 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요.|
-| VMWare ESX | 5\.5, 및 6.0 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다.
+| VMWare ESX | 5\.5 및 6.0 | iSCSI 클라이언트로 VMWare vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 장치에서 VMware vSphere와 함께 지원됩니다.
 | Linux RHEL/CentOS | 5, 6 및 7 | Open iSCSI 초기자 버전 5, 6 및 7과 함께 Linux iSCSI 클라이언트를 지원합니다. |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] IBM AIX는 현재 StorSimple에 지원되지 않습니다.
@@ -57,7 +57,7 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 및 �
 | 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 사항 |
 |------------------------|-----------|------------|----------|-------|
 |TCP 80(HTTP)<sup>3</sup>| 아웃 | WAN | 아니요 |<ul><li>아웃 바운드 포트는 업데이트를 검색하기 위해 인터넷 액세스에 사용됩니다.</li><li>아웃 바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 이 포트도 IP가 고정된 컨트롤러에 대해 열려야 합니다.</li></ul> |
-|TCP 443(HTTPS)<sup>3</sup>| 아웃 | WAN | 예 |<ul><li>아웃 바운드 포트는 클라우드에서 데이터에 액세스하는 데 사용됩니다.</li><li>아웃 바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 이 포트도 IP가 고정된 컨트롤러에 대해 열려야 합니다.</li></ul>|
+|TCP 443(HTTPS)<sup>3</sup>| 아웃 | WAN | 예 |<ul><li>아웃 바운드 포트는 클라우드에서 데이터에 액세스하는 데 사용됩니다.</li><li>아웃 바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 이 포트도 IP가 고정된 컨트롤러에 대해 열려야 합니다.</li><li>이 포트는 가비지 수집을 위해 두 컨트롤러 모두에 사용됩니다.</li></ul>|
 |UDP 53(DNS) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. |
 | UDP 123(NTP) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
 | TCP 9354 | 아웃 | WAN | 예 |아웃바운드 포트는 StorSimple 장치에서 StorSimple 관리자 서비스와 통신하는 데 사용됩니다. |
@@ -291,4 +291,4 @@ StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 모
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

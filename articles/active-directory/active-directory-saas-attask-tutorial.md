@@ -19,7 +19,8 @@
 
 # 자습서: Azure Active Directory와 @Task 통합
 
-이 자습서에서는 @Task와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다. @Task를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 @Task와 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다.  
+@Task를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 - @Task에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 @Task에 자동으로 로그온(Single Sign-on)되도록 설정할 수 있습니다.
@@ -45,7 +46,8 @@ Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Direc
 
  
 ## 시나리오 설명
-이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 세 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다.  
+이 자습서에 설명된 시나리오는 다음 세 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 @Task 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -273,7 +275,8 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
 ### Single Sign-On 테스트
 
-이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다. 액세스 패널에서 @Task 타일을 클릭하면 @Task 응용 프로그램에 자동으로 로그온됩니다.
+이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.  
+액세스 패널에서 @Task 타일을 클릭하면 @Task 응용 프로그램에 자동으로 로그온됩니다.
 
 
 ## 추가 리소스

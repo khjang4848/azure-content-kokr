@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="NewTek TriCaster 인코더를 구성하여 단일 비트 전송률 라이브 스트림 보내기" 
+	pageTitle="NewTek TriCaster 인코더를 구성하여 단일 비트 전송률 라이브 스트림 보내기 | Microsoft Azure" 
 	description="이 항목에서는 Tricaster 라이브 인코더를 구성하여 라이브 인코딩에 사용할 수 있는 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,cenkdin,anilmur" 
+	authors="cenkdin" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
-	ms.author="juliako"/>
+	ms.date="09/15/2016" 
+	ms.author="juliako;cenkd;anilmur"/>
 
 #NewTek TriCaster 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
 
@@ -34,7 +34,7 @@
 ##필수 조건
 
 - [Azure 미디어 서비스 계정 만들기](media-services-create-account.md)
-- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-manage-origins.md)를 참조하세요.
+- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
 - 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
 - 이 도구를 시작하고 AMS 계정에 연결합니다.
 
@@ -157,7 +157,9 @@
 참고 자료를 보려면 [문제 해결](media-services-troubleshooting-live-streaming.md) 항목을 참조하세요.
 
 
-##미디어 서비스 학습 경로
+##다음 단계
+
+미디어 서비스 학습 경로를 검토합니다.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -165,4 +167,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

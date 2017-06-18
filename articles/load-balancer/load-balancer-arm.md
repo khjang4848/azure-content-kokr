@@ -1,6 +1,6 @@
 <properties
-   pageTitle="부하 분산 장치에 대한 Azure 리소스 관리자 지원 미리 보기 | Microsoft Azure "
-   description="ARM(Azure 리소스 관리자)(미리 보기)과 함께 부하 분산 장치용 PowerShell을 사용합니다. 부하 분산 장치에 템플릿을 사용합니다."
+   pageTitle="부하 분산 장치에 대한 Azure Resource Manager 지원 미리 보기 | Microsoft Azure "
+   description="Azure Resource Manager(미리 보기)와 함께 부하 분산 장치용 PowerShell을 사용합니다. 부하 분산 장치에 템플릿을 사용합니다."
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -16,7 +16,7 @@
    ms.author="sewhee" />
 
 
-# 부하 분산 장치에 대한 Azure 리소스 관리자 지원
+# 부하 분산 장치에 대한 Azure Resource Manager 지원
 
 Azure의 서비스용 관리 프레임워크로는 기본적으로 Azure Resource Manager가 사용됩니다. 이제 Azure Resource Manager 기반 API 및 도구를 사용하여 Azure Load Balancer를 관리할 수 있습니다.
 
@@ -38,7 +38,7 @@ Resource Manager를 사용하는 경우 Azure Load Balancer에 다음과 같은 
 
 ## 빠른 시작 템플릿
 
-Azure 리소스 관리자를 사용하면 선언적 템플릿을 통해 응용 프로그램을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 응용 프로그램 수명 주기의 각 단계 중에 응용 프로그램을 반복해서 배포합니다.
+Azure Resource Manager를 사용하면 선언적 템플릿을 통해 응용 프로그램을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 응용 프로그램 수명 주기의 각 단계 중에 응용 프로그램을 반복해서 배포합니다.
 
 템플릿은 가상 컴퓨터, 가상 네트워크, 가용성 집합, NIC(네트워크 인터페이스), 저장소 계정, 부하 분산 장치, 네트워크 보안 그룹 및 공용 IP에 대한 정의를 포함할 수 있습니다. 템플릿을 사용하면 복잡한 응용 프로그램에 필요한 모든 항목을 만들 수 있습니다. 버전 제어 및 공동 작업을 위해 템플릿 파일을 콘텐츠 관리 시스템에 체크 인할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure Load Balancer를 사용하는 빠른 시작 템플릿은 커뮤니티 생�
 Azure Resource Manager cmdlet, 명령줄 도구 및 REST API 시작
 
 - [Azure 네트워킹 Cmdlet](https://msdn.microsoft.com/library/azure/mt163510.aspx)을 사용하여 부하 분산 장치를 만들 수 있습니다.
-- [Azure 리소스 관리자를 사용하여 부하 분산 장치를 만드는 방법](load-balancer-get-started-ilb-arm-ps.md)
+- [Azure Resource Manager를 사용하여 부하 분산 장치를 만드는 방법](load-balancer-get-started-ilb-arm-ps.md)
 - [Azure 리소스 관리에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
 - [부하 분산 장치 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
@@ -71,4 +71,4 @@ Azure Resource Manager cmdlet, 명령줄 도구 및 REST API 시작
 
 [부하 분산 장치의 유휴 TCP 시간 제한 설정](load-balancer-tcp-idle-timeout.md)을 관리하는 방법을 파악합니다. 응용 프로그램이 부하 분산 장치를 통해 서버에 대한 연결 상태를 유지해야 하는 경우에는 이 내용을 숙지하고 있어야 합니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

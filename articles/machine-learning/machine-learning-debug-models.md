@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="09/09/2016" 
 	ms.author="bradsev;garye" />
 
 # Azure 기계 학습에서 모델 디버그
 
 이 문서에서는 Microsoft Azure 기계 학습에서 모델을 디버그하는 방법에 대해 설명합니다. 특히 모델을 실행할 때 다음 두 가지 오류 시나리오 중 하나가 발생할 수 있는 잠재적 원인을 알아봅니다.
 
-* [모델 학습][train-model] 모듈에서 오류 발생 
-* [모델 점수 매기기][score-model] 모듈에서 잘못된 결과 생성 
+* [모델 학습][train-model] 모듈에서 오류 발생
+* [모델 점수 매기기][score-model] 모듈에서 잘못된 결과 생성
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@
 
 실험에 성공한 경우에도 [모델 점수 매기기][score-model] 모듈에서 잘못된 결과가 생성될 수 있습니다. 다음과 같은 여러 시나리오에서 이러한 상황이 발생할 수 있습니다.
 
-1. 지정된 레이블이 범주인 경우 데이터에 대해 회귀 모델이 학습되면 [모델 점수 매기기][score-model] 모듈에서 잘못된 출력이 생성됩니다. 회귀에는 연속 응답 변수가 필요하기 때문입니다. 이 경우 분류 모델을 사용하는 것이 보다 적합합니다. 
+1. 지정된 레이블이 범주인 경우 데이터에 대해 회귀 모델이 학습되면 [모델 점수 매기기][score-model] 모듈에서 잘못된 출력이 생성됩니다. 회귀에는 연속 응답 변수가 필요하기 때문입니다. 이 경우 분류 모델을 사용하는 것이 보다 적합합니다.
 2. 마찬가지로 레이블 열에 부동 소수점 숫자가 있는 데이터 집합에 대해 분류 모델이 학습된 경우 바람직하지 않은 결과가 생성될 수 있습니다. 분류에는 범위가 유한하고 일반적으로 클래스 집합이 작은 값만 허용하는 불연속 응답 변수가 필요하기 때문입니다.
 3. 점수 매기기 데이터 집합에 모델을 학습하는 데 사용되는 일부 기능이 포함되지 않은 경우 [모델 점수 매기기][score-model]에서 오류가 생성됩니다.
 4. 해당 기능 중 하나에 대해 무한한 값 또는 누락된 값이 있는 점수 매기기 데이터 집합의 행에 해당하는 출력은 [모델 점수 매기기][score-model]에서 생성되지 않습니다.
@@ -69,4 +69,4 @@
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트 | Microsoft Azure"
    description="Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 테스트"
-   services="virtual-machines,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="hermanndms"
    manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.service="virtual-machines-linux"
+   ms.devlang="na"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
-   ms.date="05/30/2016"
+   ms.workload="infrastructure-services"
+   ms.date="09/15/2016"
    ms.author="hermannd"/>
 
 # Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행
@@ -125,9 +125,16 @@ CLI 및 Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Man
 
 공식적인 SAP-Azure 인증을 위해, SAP 라이선스에 사용되는 SAP 하드웨어 키 계산을 위한 새로운 메커니즘이 도입되었습니다. 이것을 이용하려면 SAP 커널이 적용되어야 합니다. 이전 Linux용 SAP 커널 버전에는 이 코드 변경이 포함되어 있지 않습니다. 따라서 특정한 상황(예: Azure VM 크기 조정)에서 SAP 하드웨어 키가 변경되고 SAP 라이선스가 더 이상 유효하지 않을 수 있습니다. 이 문제는 최신 SAP Linux 커널에서 해결되었습니다. 자세한 내용은 SAP 참고 1928533을 참조하세요.
 
-## SUSE sapconf 패키지
+## SUSE sapconf 패키지 / tuned-adm
 
 SUSE는 일련의 SAP 관련 설정을 관리하는 "sapconf"라는 패키지를 제공합니다. 이 패키지의 용도 및 설치하고 사용하는 방법에 대한 자세한 내용은 [sapconf를 사용하여 SAP 시스템을 실행하는 SUSE Linux Enterprise Server 준비](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) 및 [sapconf 정의 또는 SAP 시스템을 실행하기 위한 SUSE Linux Enterprise Server를 준비하는 방법](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems)을 참조하세요.
+
+그동안 sapconf - tuned-adm을 대체하는 새로운 도구가 있습니다. 이 도구에 대한 자세한 내용은 아래의 두 링크를 참조하세요.
+
+tuned-adm 프로필 sap-hana에 대한 SLES 설명서는 [여기](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html)를 참조하세요.
+
+tuned-adm을 사용하여 SAP 워크로드를 위한 시스템 튜닝은 6.2장의 [여기](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf)에서 확인할 수 있습니다.
+
 
 ## 분산된 SAP 설치에서 NFS 공유
 
@@ -166,4 +173,4 @@ Gnome 데스크톱을 사용하여 SAP GUI, 브라우저 및 SAP 관리 콘솔�
 
 가상화된 환경에서 Linux의 Oracle을 지원하는 것에 관한 제한 사항이 있습니다. Azure 관련 항목은 아니지만 이해하는 것이 중요합니다. SAP은 Azure와 같은 공용 클라우드에 있는 SUSE 또는 Red Hat에서 Oracle을 지원하지 않습니다. 이 항목을 논의하려면 Oracle에 직접 문의합니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -122,7 +122,7 @@ Azure HDInsight는 빅 데이터 클라우드 제품을 Standard 및 [Premium](h
 
 HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같은 두 개의 사용자 계정을 구성할 수 있습니다.
 
-- HTTP 사용자. 기본 사용자 이름은 Azure 포털에서 기본 구성을 사용하는 *admin*입니다. 경우에 따라 "클러스터 사용자"라고도 합니다.
+- HTTP 사용자. 기본 사용자 이름은 Azure Portal에 대한 기본 구성을 사용하는 *admin*입니다. 경우에 따라 "클러스터 사용자"라고도 합니다.
 - SSH 사용자(Linux 클러스터). SSH를 사용하여 클러스터에 연결하는 데 사용됩니다. [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md) 또는 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)의 단계에 따라 클러스터를 만든 후 추가 SSH 사용자 계정을 만들 수 있습니다.
 
     >[AZURE.NOTE] Windows 기반 클러스터의 경우 RDP를 사용하여 클러스터에 연결하는 RDP 사용자를 만들 수 있습니다.
@@ -218,7 +218,7 @@ HDInsight 클러스터와 해당 기본 저장소 계정은 같은 Azure 위치�
 
 HDInsight 클러스터를 만들 때 또는 클러스터를 만든 후에 저장소 계정을 추가할 수 있습니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-보조 Blob 저장소에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 보조 Data Lake 저장소에 대한 자세한 내용은 [Azure 포털을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+보조 Blob 저장소에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 보조 Data Lake Storage에 대한 자세한 내용은 [Azure Portal을 사용하는 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
 
 ## Hive/Oozie Metastore 사용
@@ -285,6 +285,10 @@ Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터�
 
 > Cascading은 HDInsight에서 지원되지 않으며 Microsoft 지원 대상이 아닙니다. 지원되는 구성 요소 목록은 [HDInsight에서 제공하는 클러스터 버전의 새로운 기능](hdinsight-component-versioning.md)을 참조하세요.
 
+## 에지 노드 사용
+
+ 빈 에지 노드는 헤드 노드에 설치되고 구성된 것과 동일한 클라이언트 도구를 사용하는 Linux 가상 컴퓨터입니다. 에지 노드를 사용하면 클러스터에 액세스하고, 클라이언트 응용 프로그램을 테스트하며, 클라이언트 응용 프로그램을 호스트할 수 있습니다. 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)을 참조하세요.
+ 
 ## 클러스터 생성 방법
 
 이 문서에서는 Linux 기반 HDInsight 클러스터 만들기에 대한 기본 정보에 대해 알아봤습니다. 다음 표를 사용하여 사용자 요구에 적합한 방법으로 클러스터를 만드는 방법에 대한 구체적인 정보를 확인합니다.
@@ -299,4 +303,4 @@ Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터�
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Azure 리소스 관리자 템플릿](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

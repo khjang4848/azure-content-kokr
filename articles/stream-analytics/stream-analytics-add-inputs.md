@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 />
 
@@ -24,7 +24,7 @@
 
 Blob 저장소에서 참조 데이터 또는 이벤트 허브에서 데이터 입력을 스트리밍하면서 데이터 소스를 스트림 분석 작업에 연결하는 방법을 배웁니다.
 
-Azure 스트림 분석 작업은 각각의 기존 데이터 원본에 대한 연결을 정의하는 하나 이상의 데이터 입력에 연결할 수 있습니다. 데이터가 해당 데이터 원본에 전송되면 스트림 분석 작업에서 사용되고 스트리밍 데이터와 같이 실시간으로 처리됩니다. 스트림 분석은 작업 구독 내부 및 외부의 [Azure 이벤트 허브](https://azure.microsoft.com/services/event-hubs/) 및 [Azure Blob 저장소](../storage/storage-dotnet-how-to-use-blobs.md)와 높은 수준으로 통합됩니다.
+Azure 스트림 분석 작업은 각각의 기존 데이터 원본에 대한 연결을 정의하는 하나 이상의 데이터 입력에 연결할 수 있습니다. 데이터가 해당 데이터 원본에 전송되면 스트림 분석 작업에서 사용되고 스트리밍 데이터와 같이 실시간으로 처리됩니다. Stream Analytics는 작업 구독 내부 및 외부의 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 및 [Azure Blob 저장소](../storage/storage-dotnet-how-to-use-blobs.md)와 높은 수준으로 통합됩니다.
 
 이 문서는 [스트림 분석 학습 경로](/documentation/learning-paths/stream-analytics/)의 한 단계입니다.
 
@@ -88,4 +88,4 @@ Azure 스트림 분석 작업은 각각의 기존 데이터 원본에 대한 연
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

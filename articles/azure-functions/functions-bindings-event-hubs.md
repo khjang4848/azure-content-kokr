@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
+	keywords="Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처"/>
 
 <tags
 	ms.service="functions"
@@ -65,6 +65,13 @@ Azure 이벤트 허브 트리거에 대한 *function.json* 파일은 다음 속�
 	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 	}
 
+#### Azure Event Hub 트리거 F# 예제
+
+위의 예제 function.json을 사용하면 아래의 F# 함수 코드를 사용하여 이벤트 메시지의 본문이 로깅됩니다.
+
+	let Run(myEventHubMessage: string, log: TraceWriter) =
+	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+
 #### Azure 이벤트 허브 트리거 Node.js 예제
  
 위의 예제 function.json을 사용하면 아래의 Node.js 함수 코드를 사용하여 이벤트 메시지의 본문이 로깅됩니다.
@@ -100,7 +107,7 @@ Azure 이벤트 허브 출력 바인딩에 대한 *function.json* 파일은 다�
 
 #### 출력 바인딩에 대한 Azure 이벤트 허브 C# 코드 예제
  
-다음 C# 예제 함수 코드에서는 이벤트 허브 이벤트 스트림에 이벤트를 쓰는 방법을 보여 줍니다. 이 예제에서는 C# 타이머 트리거에 적용된 위의 이벤트 허브 출력 바인딩을 나타냅니다.
+다음 C# 예제 함수 코드에서는 Event Hub 이벤트 스트림에 이벤트를 쓰는 방법을 보여 줍니다. 이 예제에서는 C# 타이머 트리거에 적용된 위의 이벤트 허브 출력 바인딩을 나타냅니다.
  
 	using System;
 	
@@ -112,6 +119,15 @@ Azure 이벤트 허브 출력 바인딩에 대한 *function.json* 파일은 다�
 	    
 	    outputEventHubMessage = msg;
 	}
+
+#### 출력 바인딩에 대한 Azure Event Hub F# 코드 예제
+
+다음 F# 예제 함수 코드에서는 Event Hub 이벤트 스트림에 이벤트를 쓰는 방법을 보여 줍니다. 이 예제에서는 C# 타이머 트리거에 적용된 위의 이벤트 허브 출력 바인딩을 나타냅니다.
+
+	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+	    log.Verbose(msg);
+	    outputEventHubMessage <- msg;
 
 #### 출력 바인딩에 대한 Azure 이벤트 허브 Node.js 코드 예제
  
@@ -136,4 +152,4 @@ Azure 이벤트 허브 출력 바인딩에 대한 *function.json* 파일은 다�
 
 [AZURE.INCLUDE [다음 단계](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

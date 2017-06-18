@@ -5,7 +5,7 @@
    services="machine-learning"
    documentationCenter="na"
    authors="brohrer-ms"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cjgronlund"/>
 
 <tags
@@ -27,7 +27,7 @@
 
 <div class="wa-video-container" data-control="video-container" data-slug="data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science"> <a title="Data science for beginners: Copy other people’s work to do data science" class="wa-video-thumbnail" href="/en-us/documentation/videos/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/" data-control="video" data-event="videopage-clicked-videothumbnail" data-event-property="data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science" data-expanding="false" data-ch9="//channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player/" data-caption=""> <img class="thumbnail" alt="Data science for beginners: Copy other people’s work to do data science" src="https://sec.ch9.ms/ch9/c2de/f3d64d4d-e9b3-44c7-9617-4f78e1c2c2de/DataScienceForBeginnersSeriesCopyOtherPeoplesWork_960.jpg"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>06-30-2016</span> <span>03 min, 18 sec</span> </span> </span> </a> </div>
 
-## 시리즈의 다른 비디오
+## 이 시리즈의 다른 비디오
 
 *초급자를 위한 데이터 과학*은 다섯 개의 짧은 비디오를 통해 데이터 과학을 간략히 소개합니다.
 
@@ -97,4 +97,4 @@ Microsoft Azure 기계 학습의 “초급자를 위한 데이터 과학”에 �
   * [Azure 기계 학습으로 첫 번째 데이터 과학 실험 시도](machine-learning-create-experiment.md)
   * [Microsoft Azure의 기계 학습 소개 보기](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

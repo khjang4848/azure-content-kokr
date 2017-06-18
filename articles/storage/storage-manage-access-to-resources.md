@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # 컨테이너 및 Blob에 대한 익명 읽기 권한 관리
@@ -22,7 +22,7 @@
 
 기본적으로는 저장소 계정 소유자만 해당 계정 내의 저장소 리소스에 액세스할 수 있습니다. Blob 저장소에만 컨테이너의 권한을 설정하여 익명 읽기 권한을 컨테이너 및 해당 Blob에 허용할 수 있으므로 계정 키를 공유하지 않고도 해당 리소스에 액세스를 허용할 수 있습니다.
 
-익명 액세스는 특정 Blob을 익명 읽기 권한에 사용하기를 원하는 경우에 가장 적합합니다. 더 세밀하게 제어하려면 공유 액세스 서명을 만들어 다른 권한 및 지정된 시간 간격을 통해 제한된 액세스를 위임할 수 있습니다. 공유 액세스 서명 만들기에 대한 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+익명 액세스는 특정 Blob을 익명 읽기 권한에 사용하기를 원하는 경우에 가장 적합합니다. 더 세밀하게 제어하려면 공유 액세스 서명을 만들어 다른 권한 및 지정된 시간 간격을 통해 제한된 액세스를 위임할 수 있습니다. 공유 액세스 서명 만들기에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 ## 컨테이너 및 Blob에 익명의 사용자 권한 부여
 
@@ -152,7 +152,7 @@
 ## 참고 항목
 
 - [Azure 저장소 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)
-- [공유 액세스 서명: SAS 모델 이해하기](storage-dotnet-shared-access-signature-part-1.md)
-- [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
+- [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)
+- [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

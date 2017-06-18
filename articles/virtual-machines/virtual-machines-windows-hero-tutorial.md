@@ -117,4 +117,4 @@ Windows Server 2012 R2 Datacenter 이미지를 예로 사용할 것이지만, �
 
 - 배포를 자동화하려는 경우 [Resource Manager 템플릿을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-windows-ps-template.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0912_2016--->
+<!-----HONumber=AcomDC_0912_2016--->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - 작동 방법" 
-	description="간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Azure Multi-Factor Authentication을 사용하면 데이터와 응용 프로그램에 대한 액세스를 보호합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 다양한 쉬운 확인 옵션을 통해 강력한 인증을 제공합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure Multi-Factor Authentication - 작동 방법"
+	description="간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Azure Multi-Factor Authentication을 사용하면 데이터와 응용 프로그램에 대한 액세스를 보호합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 다양한 쉬운 확인 옵션을 통해 강력한 인증을 제공합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 #Azure Multi-Factor Authentication 작동 방법
 
@@ -39,7 +39,7 @@
 ##다단계 인증에 사용할 수 있는 방법
 사용자가 로그인하면 사용자에게 추가 확인이 전송됩니다. 이 두 번째 확인에 사용할 수 있는 방법의 목록은 다음과 같습니다.
 
-확인 방법 | 설명 
+확인 방법 | 설명
 ------------- | ------------- |
 전화 통화 | 우물 정자를 눌러 로그인을 확인하도록 요청하는 통화가 사용자의 스마트폰으로 갑니다. 이것으로 확인 프로세스가 완료됩니다. 이 옵션은 구성 가능하고 지정한 코드로 변경할 수 있습니다.
 문자 메시지 | 6자리 코드가 있는 문자 메시지가 사용자의 스마트폰으로 전송됩니다. 확인 프로세스를 완료하려면 이 코드를 입력합니다.
@@ -50,7 +50,7 @@
 ##Azure Multi-Factor Authentication의 사용 가능한 버전
 세 가지 다른 버전으로 Azure Multi-Factor Authentication을 사용할 수 있습니다. 다음 표에서 각 항목에 대해 자세히 설명합니다.
 
-버전 | 설명 
+버전 | 설명
 ------------- | ------------- |
 Office 365용 Multi-Factor Authentication | 이 버전은 Office 365 응용프로그램에서만 작동되며 Office 365 포털에서 관리됩니다. 따라서 이제 관리자는 다단계 인증을 사용하여 Office 365 리소스의 보안을 유지할 수 있습니다. 이 버전은 Office 365 구독과 함께 제공됩니다.
 Azure 관리자를 위한 Multi-Factor Authentication | 모든 Azure 관리자는 Office 365에 적용되는 것과 동일한 Multi-Factor Authentication 기능을 무료로 사용할 수 있습니다. Azure 구독의 모든 관리 계정은 이제 이 핵심 다단계 인증 기능을 사용하여 추가의 보호 기능을 얻을 수 있습니다. 따라서 VM 및 웹 사이트 만들기, 저장소나 모바일 서비스 또는 다른 Azure 서비스 관리를 위해 Azure 포털에 액세스하려는 관리자는 자신의 관리자 계정에 다단계 인증을 추가할 수 있습니다.
@@ -59,7 +59,7 @@ Azure Multi-Factor Authentication | Azure Multi-factor Authentication은 가장 
 다음 표에서 다양한 버전의 Azure Multi-Factor Authentication에서 사용 가능한 기능의 목록을 제공합니다.
 
 
-기능 | Office 365용 Multi-Factor Authentication(Office 365 SKU에 포함됨)|Azure 관리자용 Multi-Factor Authentication(Azure 구독에 포함됨) | Azure Multi-Factor Authentication(Azure AD Premium 및 Enterprise Mobility Suite에 포함됨) 
+기능 | Office 365용 Multi-Factor Authentication(Office 365 SKU에 포함됨)|Azure 관리자용 Multi-Factor Authentication(Azure 구독에 포함됨) | Azure Multi-Factor Authentication(Azure AD Premium 및 Enterprise Mobility Suite에 포함됨)
 ------------- | :-------------: |:-------------: |:-------------: |
 관리자는 MFA를 사용하여 계정을 보호할 수 있습니다.| * | * (Azure 관리자 계정에 대해서만 사용 가능)|*
 두 번째 단계로 모바일 앱|* | * | *
@@ -98,8 +98,4 @@ Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독�
 
 조직에 가장 적합한 사용자 단위 또는 소비 기반 모델을 선택합니다. 그런 다음 시작하려면 [시작](multi-factor-authentication-get-started.md)을 참조하십시오.
 
-
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

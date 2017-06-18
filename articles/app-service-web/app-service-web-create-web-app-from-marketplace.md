@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/11/2016"
+	ms.date="09/20/2016"
 	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
@@ -69,9 +69,9 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 	![WordPress 웹앱 이름 구성][ConfigAppName]
 
-1. 구독이 둘 이상 있는 경우 사용하려는 구독을 하나 선택합니다.
+1. 구독이 둘 이상 있는 경우 사용하려는 구독을 선택합니다.
 
-	![웹앱 구독 구성][ConfigSubscription]
+	![웹앱의 구독 구성][ConfigSubscription]
 
 1. **리소스 그룹**을 선택하거나 새로 만듭니다.
 
@@ -180,4 +180,4 @@ Azure에서 WordPress 웹앱을 개발하는 방법은 [Azure 앱 서비스에�
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-<!-----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

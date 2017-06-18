@@ -4,7 +4,7 @@ description="Ambari Tez 뷰를 사용하여 HDInsight에서 Tez 작업을 디버
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -141,4 +141,4 @@ Tez에서 자세한 기술 정보는 [Hortonworks의 Tez 페이지](http://horto
 
 HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

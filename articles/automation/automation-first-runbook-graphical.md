@@ -26,7 +26,7 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
--	Azure 구독. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-account/" target="_blank">[무료 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
+-	동작합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 <a href="/pricing/free-account/" target="_blank">[무료 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
 -	runbook을 보관하고 Azure 리소스를 인증할 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md). 이 계정은 가상 컴퓨터를 시작하고 중지할 수 있는 권한이 있어야 합니다.
 -	Azure 가상 컴퓨터. 프로덕션이 되지 않게하기 위해 이 가상 컴퓨터를 중지하고 시작합니다.
 
@@ -85,7 +85,7 @@
 
 ## 5 단계 - 변수 자산 만들기
 
-지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. 인증할 runbook을 구성하기 전에 구독 ID를 보유할 변수를 만들어서 아래 6 단계에서 인증 활동을 설정한 후에 이것을 참조합니다. 구독 컨텍스트에 대한 참조를 포함하면 여러 구독 간에서 쉽게 작업할 수 있습니다. 계속하기 전에, 탐색 창의 구독 옵션에서 구독 ID를 복사합니다.
+지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. 인증할 runbook을 구성하기 전에 구독 ID를 보유할 변수를 만들어서 아래 6단계에서 인증할 활동을 설정한 후에 참조합니다. 구독 컨텍스트에 대한 참조를 포함하면 여러 구독 간에서 쉽게 작업할 수 있습니다. 계속하기 전에, 탐색 창의 구독 옵션에서 구독 ID를 복사합니다.
 
 1. 자동화 계정 블레이드에서 **자산** 타일 클릭하면 **자산** 블레이드가 열립니다.
 2. 자산 블레이드에서 **변수** 타일을 클릭합니다.
@@ -96,7 +96,7 @@
 
 ## 6 단계 - Azure 리소스를 관리하는 인증 추가
 
-이제 구독 ID를 보관할 변수가 있으므로 [필수 조건](#prerequisites)에 나온 실행 자격 증명을 사용하여 인증하도록 runbook을 구성할 수 있습니다. Azure 실행 연결 **자산** 및 **Add-AzureRMAccount** cmdlet을 캔버스에 추가하여 수행합니다.
+이제 구독 ID를 보유한 변수가 있으므로 [필수 조건](#prerequisites)에 나온 실행 자격 증명을 사용하여 인증하도록 runbook을 구성할 수 있습니다. Azure 실행 연결 **자산** 및 **Add-AzureRMAccount** cmdlet을 캔버스에 추가하여 수행합니다.
 
 1.	MyFirstRunbook 블레이드에서 **편집**을 클릭하여 그래픽 편집기를 엽니다.<br> ![Runbook 편집](media/automation-first-runbook-graphical/runbook-controls-edit-revised20165.png)
 2.	**Write Hello World to output**은 더 이상 필요하지 않으므로 마우스 오른쪽 버튼을 클릭하고 **삭제**를 선택합니다.
@@ -130,7 +130,7 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 이제 가상 컴퓨터를 시작하기 위한 **Start-AzureRmVM** 활동을 추가합니다. Azure 구독에서 모든 가상 컴퓨터를 선택 할 수 있지만 지금은 cmdlet의 이름을 하드코딩합니다.
 
 1. 라이브러리 컨트롤에서 검색 텍스트 상자에 **Start-AzureRm**을 입력합니다.
-2. **Start-AzureRmVM**을 캔버스에 추가한 다음 클릭하여 **Azure에 연결** 아래로 끌어 놓습니다.
+2. **Start-AzureRmVM**을 캔버스에 추가한 다음 클릭하여 **구독 ID 지정** 아래로 끌어 놓습니다.
 3. 도형 아래에 원이 나타날 때까지 **구독 ID 지정**을 마우스로 가리킵니다. 원을 클릭하고 화살표를 **Start-AzureRmVM**으로 끌어 놓습니다.
 4.	**Start-AzureRmVM**을 선택합니다. **매개 변수**와 **매개 변수 집합**을 차례로 클릭하여 **Start-AzureRmVM**에 대한 집합을 표시합니다. **ResourceGroupNameParameterSetName** 매개 변수 집합을 선택합니다. **ResourceGroupName** 및 **이름** 옆에는 느낌표가 있습니다. 이것은 매개 변수가 필요하다는 것을 나타냅니다. 또한, 양 쪽 모두에 문자열 값이 필요합니다.
 5.	**Name**을 선택합니다. **데이터 원본**에 대해 **PowerShell 식** 을 선택하고 이runbook으로 시작될 가상 컴퓨터의 이름을 큰따옴표 안에 입력합니다. **확인**을 클릭합니다.<br>![Start-AzureRmVM 이름 매개 변수 값](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -163,7 +163,7 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 이미 시작되지 않은 경우 가상 컴퓨터를 시작하도록 시도하기 위해 runbook을 수정합니다. 가상 컴퓨터의 인스턴스 수준 상태를 가져올 runbook에 **Get-AzureRmVM** cmdlet을 추가하여 이 작업을 수행합니다. 그런 다음 가상 컴퓨터 상태가 실행 중인지 또는 중지되었는지 확인하기 위해 PowerShell 코드 조각과 함께 **Get Status**라는 PowerShell 워크플로 코드 모듈을 추가합니다. **Get Status** 모듈의 조건부 링크는 현재 실행 중인 상태가 중지된 경우에만 **Start-AzureRmVM**을 실행합니다. 마지막으로 VM이 시작되었거나 PowerShell Write-Output cmdlet을 사용하지 않는 경우에 알려줄 메시지를 출력합니다.
 
 1. 그래픽 편집기에서 **MyFirstRunbook**을 엽니다.
-2. 클릭하고 *삭제* 키를 눌러 **구독 ID 지정**과 **Start-AzureRmVM** 간의 링크를 제거합니다.
+2. **구독 ID 지정**과 **Start-AzureRmVM** 간의 링크를 클릭하고 *삭제* 키를 눌러 제거합니다.
 3. 라이브러리 컨트롤에서 검색 텍스트 상자에 **Get-AzureRm**을 입력합니다.
 4. 캔버스에 **Get-AzureRmVM**을 추가합니다.
 5. **Get-AzureRmVM**과 **매개 변수 집합**을 차례로 선택하여 **Get-AzureRmVM**에 대한 집합을 표시합니다. **GetVirtualMachineInResourceGroupNameParamSet** 매개 변수 집합을 선택합니다. **ResourceGroupName** 및 **이름** 옆에는 느낌표가 있습니다. 이것은 매개 변수가 필요하다는 것을 나타냅니다. 또한, 양 쪽 모두에 문자열 값이 필요합니다.
@@ -211,4 +211,4 @@ runbook이 아래와 같이 표시됩니다. <br>![Runbook 인증 구성](media/
 -	PowerShell Runbook을 시작하려면 [내 첫 번째 PowerShell Runbook](automation-first-runbook-textual-powershell.md)을 참조하세요.
 -	PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

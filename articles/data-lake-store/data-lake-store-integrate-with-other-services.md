@@ -4,7 +4,7 @@
    documentationCenter=""
    services="data-lake-store"
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -84,4 +84,4 @@ Data Lake 저장소의 데이터를 Azure Data Catalog에 등록하여 조직 �
 - [포털을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
 - [PowerShell을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-powershell.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

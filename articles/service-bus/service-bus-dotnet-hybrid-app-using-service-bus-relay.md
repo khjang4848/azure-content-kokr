@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
-# Azure 서비스 버스 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
+# Azure Service Bus Relay를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
 
 ## 소개
 
@@ -25,7 +25,7 @@
 다음 내용을 배웁니다.
 
 -   웹 서비스를 만들거나 기존 웹 서비스를 웹 솔루션에서 사용할 수 있도록 변경하는 방법
--   Azure 서비스 버스 릴레이를 사용하여 Azure 응용 프로그램과 다른 위치에서 호스트되는 웹 서비스 사이에 데이터를 공유하는 방법
+-   Azure Service Bus Relay 서비스를 사용하여 Azure 응용 프로그램과 다른 위치에서 호스트되는 웹 서비스 사이에 데이터를 공유하는 방법
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -53,7 +53,7 @@
 
 Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개발 환경을 설정해야 합니다.
 
-1.  [도구 및 SDK 가져오기][]에서 .NET 용 Azure SDK를 설치합니다.
+1.  [도구 및 SDK 가져오기][] 페이지에서 .NET용 Azure SDK를 설치합니다.
 
 2. 	사용하고 있는 Visual Studio 버전에 대한 **SDK 설치**를 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2015를 사용합니다.
 
@@ -366,9 +366,9 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 다음 단계는 온-프레미스 제품 서버를 ASP.NET 응용 프로그램과 연결하는 것입니다.
 
-1.  아직 열려 있지 않은 경우 "ASP.NET 응용 프로그램 만들기" 섹션에서 만든 **ProductsPortal** 프로젝트를 Visual Studio에서 다시 엽니다.
+1.  아직 열려 있지 않은 경우 [ASP.NET 응용 프로그램 만들기](#create-an-aspnet-application) 섹션에서 만든 **ProductsPortal** 프로젝트를 Visual Studio에서 다시 엽니다.
 
-2.  "온-프레미스 서버 만들기" 섹션의 단계와 비슷하게, 프로젝트 참조에 NuGet 패키지를 추가합니다. 솔루션 탐색기에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
+2.  "온-프레미스 서버 만들기" 섹션의 단계와 비슷하게 프로젝트 참조에 NuGet 패키지를 추가합니다. 솔루션 탐색기에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 
 3.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. 그런 다음 설치를 완료하고 이 대화 상자를 닫습니다.
 
@@ -420,7 +420,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 	}
 	```
 
-7.  솔루션 탐색기에서 **ProductsPortal** 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **기존 프로젝트**를 클릭합니다.
+7.  솔루션 탐색기에서 **ProductsPortal** 솔루션을 마우스 오른쪽 단추로 클릭합니다(프로젝트가 아닌 솔루션을 마우스 오른쪽 단추로 클릭해야 함). **추가**를 클릭한 후 **기존 프로젝트**를 클릭합니다.
 
 8.  **ProductsServer** 프로젝트로 이동한 후 **ProductsServer.csproj** 솔루션 파일을 두 번 클릭하여 추가합니다.
 
@@ -448,16 +448,17 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 **ProductsPortal** 페이지에서 **새로 고침**을 누릅니다. 페이지를 새로 고칠 때마다 **ProductsServer**에서 `GetProducts()`가 호출되면 서버 앱에 메시지가 표시되는 것을 확인하게 됩니다.
 
+다음 단계를 진행하기 전에 응용 프로그램을 모두 닫습니다.
+
 ## Azure 웹앱에 ProductsPortal 프로젝트 배포
 
 다음 단계는 **ProductsPortal** 프런트 엔드를 Azure 웹앱으로 변환하는 것입니다. 먼저, [Azure 웹앱에 웹 프로젝트 배포](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app) 섹션의 모든 단계에 따라 **ProductsPortal** 프로젝트를 배포합니다. 배포가 완료되면 이 자습서로 돌아가 다음 단계를 진행합니다.
 
+> [AZURE.NOTE] 배포 후 **ProductsPortal** 웹 프로젝트가 자동으로 시작되면 브라우저 창에 오류 메시지가 표시될 수 있습니다. 예상된 동작이며 **ProductsServer** 응용 프로그램이 아직 실행되지 않기 때문에 발생합니다.
+
 다음 단계에서 URL이 필요하므로 배포된 웹앱의 URL을 복사합니다. 또한 Visual Studio의 Azure 앱 서비스 활동 창에서 이 URL을 가져올 수도 있습니다.
 
 ![][9]
-   
-
-> [AZURE.NOTE] 배포 후 **ProductsPortal** 웹 프로젝트가 자동으로 시작되면 브라우저 창에 오류 메시지가 표시될 수 있습니다. 예상된 동작이며 **ProductsServer** 응용 프로그램이 아직 실행되지 않기 때문에 발생합니다.
 
 ### 웹앱으로 ProductsPortal 설정
 
@@ -528,4 +529,4 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

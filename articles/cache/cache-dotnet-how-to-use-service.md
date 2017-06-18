@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Azure 관리된 캐시 서비스 사용 방법
@@ -23,7 +23,7 @@
 >[AZURE.IMPORTANT]작년 [알림](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)에 따라 Azure 관리된 캐시 서비스 및 Azure In-Role Cache 서비스가 2016년 11월 30일에 종료됩니다. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용할 것을 권장합니다. 마이그레이션에 대한 자세한 내용은 [관리된 캐시 서비스에서 Azure Redis Cache로 마이그레이션](../redis-cache/cache-migrate-to-redis.md)을 참조하세요.
 
 <a name="what-is"></a>
-## Azure 관리된 캐시 서비스란?
+## Azure 관리된 캐시 서비스 정의
 
 Azure 관리된 캐시 서비스는 확장 가능하며 분산된 메모리 내 솔루션으로, 데이터에 매우 빠르게 액세스하여 확장성과 응답성이 뛰어난 응용 프로그램을 빌드하는 데 사용할 수 있습니다.
 
@@ -353,7 +353,7 @@ NuGet 패키지는 또한 다음 어셈블리에 참조를 추가합니다.
 <a name="store-session"></a>
 ## 방법: 캐시에 ASP.NET 세션 상태 저장
 
-Azure 캐시의 세션 상태 공급자는 ASP.NET 응용 프로그램의 Out of Process 저장소 메커니즘입니다. 이 공급자를 사용하면 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure 캐시에 세션 상태를 저장할 수 있습니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 [관리된 캐시 서비스 시작][]에서 설명한 대로 Cache NuGet 패키지를 사용하여 캐시용 ASP.NET 응용 프로그램을 구성하세요. Cache NuGet 패키지를 설치하면 주석으로 처리된 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 Azure 캐시에 세션 상태 제공자를 사용하는 데 필요한 구성이 포함되어 있습니다.
+Azure 캐시의 세션 상태 공급자는 ASP.NET 응용 프로그램의 Out of Process 저장소 메커니즘입니다. 이 공급자를 사용하면 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure 캐시에 세션 상태를 저장할 수 있습니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 [관리된 캐시 서비스 시작][]에서 설명한 대로 Cache NuGet 패키지를 사용하여 캐시용 ASP.NET 응용 프로그램을 구성하세요. Cache NuGet 패키지를 설치하면 주석으로 처리된 섹션이 web.config에 추가됩니다. 이 섹션에는 ASP.NET 응용 프로그램에서 Azure 캐시에 세션 상태 공급자를 사용하는 데 필요한 구성이 포함되어 있습니다.
 
     <!--Uncomment this section to use Azure Caching for session state caching
     <system.web>
@@ -484,4 +484,4 @@ Azure 캐시에 출력 캐시 공급자를 사용하는 방법에 대한 자세�
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

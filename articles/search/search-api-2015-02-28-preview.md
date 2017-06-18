@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="07/25/2016"
+   ms.date="09/07/2016"
    ms.author="brjohnst"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
@@ -55,7 +55,7 @@ Azure 검색 서비스 API는 API 작업을 위한 두 URL 구문, 즉 simple �
 
 [테스트 분석기](#TestAnalyzer)
 
-    GET /indexes/[index name]/analyze?api-version=2015-02-28-Preview
+    POST /indexes/[index name]/analyze?api-version=2015-02-28-Preview
 
 [인덱스 삭제](#DeleteIndex)
 
@@ -644,7 +644,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -863,7 +863,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 **요청 본문**
 
-없음
+없음.
 
 **응답**
 
@@ -930,7 +930,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 **요청 본문**
 
-없음
+없음.
 
 **응답**
 
@@ -964,7 +964,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 **요청 본문**
 
-없음
+없음.
 
 **응답**
 
@@ -999,7 +999,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 **요청 본문**
 
-없음
+없음.
 
 **응답**
 
@@ -1344,7 +1344,9 @@ ________________________________________
 
 HTTP GET을 사용하여 **검색** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리 또는 OData 필터 식을 생성합니다. 이러한 응용 프로그램의 경우 GET보다 더 많은 필터와 쿼리를 허용할 수 있는 HTTP POST를 사용하는 것이 좋습니다. POST를 사용하면 쿼리의 절 또는 용어 수는 제한되지만 POST의 요청 크기 제한이 약 16MB이므로 원시 쿼리의 크기는 제한되지 않습니다.
 
-> [AZURE.NOTE] POST 요청 크기 제한이 매우 크긴 하지만 검색 쿼리 및 필터 식을 임의로 복잡하게 작성할 수는 없습니다. 검색 쿼리 및 필터 복잡성 제한에 대한 자세한 내용은 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx) 및 [OData 식 구문](https://msdn.microsoft.com/library/dn798921.aspx)을 참조하세요. **요청**
+> [AZURE.NOTE] POST 요청 크기 제한이 매우 크긴 하지만 검색 쿼리 및 필터 식을 임의로 복잡하게 작성할 수는 없습니다. 검색 쿼리 및 필터 복잡성 제한에 대한 자세한 내용은 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/mt589323.aspx) 및 [OData 식 구문](https://msdn.microsoft.com/library/dn798921.aspx)을 참조하세요.
+
+**요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. **검색** 요청은 GET 또는 POST 메서드를 사용하여 생성할 수 있습니다.
 
@@ -1458,7 +1460,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
-- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **검색 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
+- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **검색** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
@@ -1755,13 +1757,13 @@ Azure 검색이 연속 토큰을 반환하는 이유는 구현에 따라 그리�
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
-- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 조회 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
+- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 조회** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
-없음
+없음.
 
 **응답**
 
@@ -1803,13 +1805,13 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
 - `Accept`: 이 값은 `text/plain`으로 설정해야 합니다.
-- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 수 계산 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
+- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 수 계산** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
-없음
+없음.
 
 **응답**
 
@@ -1904,7 +1906,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
-- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **제안 ** 요청은 관리 키 또는 쿼리 키를 `api-key`로 지정할 수 있습니다.
+- `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **제안** 요청은 관리 키 또는 쿼리 키를 `api-key`로 지정할 수 있습니다.
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
@@ -1970,4 +1972,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

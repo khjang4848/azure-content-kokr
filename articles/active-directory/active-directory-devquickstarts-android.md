@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Android 응용 프로그램에 Azure AD 통합
@@ -100,7 +100,7 @@ Maven으로 빌드하려면 최상위 수준에서 pom.xml을 사용할 수 있�
   * SDK 19를 사용하여 에뮬레이터를 설치합니다.
   * 리포지토리를 복제한 루트 폴더로 이동합니다.
   * mvn clean install 명령을 실행합니다.
-  * cd samples\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
+  * cd samples\\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
   * mvn android:deploy android:run 명령을 실행합니다.
   * 앱이 시작되는 것을 볼 수 있습니다.
   * 테스트 사용자 자격 증명을 입력하여 사용해 보세요.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -283,8 +283,8 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ```
- 계정이 유효하면 Broker 사용자가 반환됩니다.
+```
+계정이 유효하면 Broker 사용자가 반환됩니다.
 
  앱 매니페스트에는 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -364,7 +364,7 @@ ADAL은 프롬프트 동작을 지정하기 위한 옵션을 제공합니다. �
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ```
+```
 아래와 같이 사용자 지정 로그 파일에 메시지를 쓸 수 있습니다. 그러나 장치에서 로그를 얻는 표준 방법은 없습니다. 이 작업에 도움이 되는 몇 가지 서비스가 있습니다. 또한 서버에 파일을 보내는 것과 같은 자체 방법을 개발할 수도 있습니다.
 
 ```Java
@@ -395,8 +395,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ```
- adb cmds에 대한 추가 예제: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+```
+adb cmds에 대한 추가 예제: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### 네트워크 추적
 
@@ -457,4 +457,4 @@ Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0921_2016-->

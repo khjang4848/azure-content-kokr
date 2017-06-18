@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication은 무엇을 의미하나요?" 
-	description="최종 사용자가 Azure Multi-Factor Authentication을 진행하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure Multi-Factor Authentication은 무엇을 의미하나요?"
+	description="최종 사용자가 Azure Multi-Factor Authentication을 진행하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -40,13 +40,11 @@ IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 �
 시작하려면 아래 항목 중 하나를 선택합니다.
 
 항목|설명
-:------------- | :------------- | 
+:------------- | :------------- |
 [설치 환경](multi-factor-authentication-end-user-first-time.md)| 다단계 인증을 처음 설정하는 프로세스를 설명합니다.
 [로그인 환경](multi-factor-authentication-end-user-signin.md)|휴대폰 또는 앱과 같은 다양한 방법을 사용하여 로그인할 때 예상되는 결과를 보여 줍니다.
 [설정 변경](multi-factor-authentication-end-user-manage-settings.md)|전화 번호 또는 기본 등록 방법 등의 설정을 변경하는 방법을 보여 줍니다.
 [앱 암호에 대한 도움말](multi-factor-authentication-end-user-app-passwords.md)| 앱 암호 만들기 및 사용에 대한 정보를 찾아보세요.
 [모바일 앱 사용](multi-factor-authentication-microsoft-authenticator.md)|[Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
- 
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

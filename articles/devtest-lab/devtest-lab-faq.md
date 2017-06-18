@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/13/2016"
 	ms.author="tarcher"/>
 
 # Azure DevTest Labs FAQ
@@ -45,6 +45,7 @@
 - [기존 Azure VM을 Azure DevTest Labs 랩으로 어떻게 이동하나요?](#how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab)
 - [여러 개의 디스크를 VM에 연결할 수 있습니까?](#can-i-attach-multiple-disks-to-my-vms)
 - [사용자 지정 이미지를 만들도록 VHD 파일 업로드 과정을 어떻게 자동화합니까?](#how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images)
+- [어떻게 하면 랩에 있는 모든 VM을 삭제하는 프로세스를 자동화할 수 있을까요?](#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)
  
 ## 아티팩트 
  
@@ -56,6 +57,8 @@
 - [서로 다른 리소스 그룹에서 만들어진 VM이 임의의 이름을 갖는 이유는 무엇인가요? 이름을 변경하거나 이러한 리소스 그룹을 수정할 수 있습니까?](#why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups)
 - [동일한 구독에서 얼마나 많은 랩을 만들 수 있습니까?](#how-many-labs-can-i-create-under-the-same-subscription)
 - [랩당 얼마나 많은 VM을 만들 수 있습니까?](#how-many-vms-can-i-create-per-lab)
+- [랩에 대한 직접 링크를 공유하려면 어떻게 합니까?](#how-do-i-share-a-direct-link-to-my-lab)
+- [Microsoft 계정이란?](#what-is-a-microsoft-account)
  
 ## 문제 해결 
  
@@ -168,11 +171,48 @@ VM에 여러 디스크 연결이 지원됩니다.
 1. 목록에서 업로드를 찾습니다. 항목이 없으면 #4단계로 돌아가서 다른 저장소 계정을 시도합니다.
 1. AzCopy 명령에서 대상으로 **URL**을 사용합니다.
 
+
+### 어떻게 하면 랩에 있는 모든 VM을 삭제하는 프로세스를 자동화할 수 있을까요?
+
+Azure 포털에 있는 내 랩에서 VM을 삭제하는 것 외에도 PowerShell 스크립트를 사용하여 랩에서 모든 VM을 삭제할 수 있습니다. 다음 예제에서 **변경할 값** 설명대로 매개 변수 값을 간단히 수정합니다. Azure Portal의 랩 블레이드에서 `subscriptionId`, `labResourceGroup` 및 `labName` 값을 검색할 수 있습니다.
+
+
+	# Delete all the VMs in a lab
+	
+	# Values to change
+	$subscriptionId = "<Enter Azure subscription ID here>"
+	$labResourceGroup = "<Enter lab's resource group here>"
+	$labName = "<Enter lab name here>"
+
+	# Login to your Azure account
+	Login-AzureRmAccount
+	
+	# Select the Azure subscription that contains the lab. This step is optional
+	# if you have only one subscription.
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	# Get the lab that contains the VMs to delete.
+	$lab = Get-AzureRmResource -ResourceId ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
+	
+	# Get the VMs from that lab.
+	$labVMs = Get-AzureRmResource | Where-Object { 
+	          $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
+	          $_.ResourceName -like "$($lab.ResourceName)/*"}
+	
+	# Delete the VMs.
+	foreach($labVM in $labVMs)
+	{
+	    Remove-AzureRmResource -ResourceId $labVM.ResourceId -Force
+	}
+
+
+
+
 ### 아티팩트는 무엇입니까? 
 아티팩트는 VM에 최신 비트 또는 개발 도구를 배포하는 데 사용할 수 있는 사용자 지정 가능한 요소입니다. 몇 가지 간단한 클릭으로 만드는 동안 VM에 연결되고 VM이 프로비전되면 아티팩트는 VM을 배포 및 구성합니다. [공용 Github 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)에 다양한 기존 아티팩트가 있지만 손쉽게 [사용자 고유의 아티팩트를 작성](devtest-lab-artifact-author.md)할 수도 있습니다.
 
 ### Azure Resource Manager 템플릿에서 어떻게 랩을 만듭니까? 
-[랩 Azure Resource Manager 템플릿의 Github 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)가 있습니다. 이러한 각 템플릿에는 클릭하여 Azure 구독 아래에 Azure DevTest Labs 랩을 배포할 수 있는 링크가 있습니다.
+있는 그대로 배포하거나 랩에 대한 사용자 지정 템플릿을 만들기 위해 수정할 수 있는 [랩 Azure Resource Manager 템플릿의 Github 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)를 제공합니다. 이러한 각 템플릿에는 Azure 구독에서 랩을 있는 그대로 배포하기 위해 클릭하거나 템플릿을 사용자에 맞게 설정하여 [PowerShell 또는 Azure CLI를 사용하여 배포](../resource-group-template-deploy.md)할 수 있는 링크가 있습니다.
  
 ### 서로 다른 리소스 그룹에서 만들어진 VM이 임의의 이름을 갖는 이유는 무엇인가요? 이름을 변경하거나 이러한 리소스 그룹을 수정할 수 있습니까? 
 리소스 그룹은 Azure DevTest Labs가 사용자 권한 및 가상 컴퓨터에 대한 액세스를 관리하기 위해 이러한 방식으로 만들어집니다. VM을 다른 리소스 그룹으로 이동하여 원하는 이름을 설정할 수는 있지만, 이렇게 하지 않는 것이 좋습니다. 보다 유동적인 작업이 가능하도록 현재 이 환경을 개선하는 중입니다.
@@ -182,6 +222,21 @@ VM에 여러 디스크 연결이 지원됩니다.
  
 ### 랩당 얼마나 많은 VM을 만들 수 있습니까? 
 랩당 만들 수 있는 VM의 수에는 특정 제한이 없지만 현재 랩은 표준 저장소에서 동시에 실행되는 약 40개의 VM 및 프리미엄 저장소에서 동시에 실행되는 25개의 VM을 지원합니다. 현재 이러한 제한을 늘리도록 작업 중입니다.
+
+### 랩에 대한 직접 링크를 공유하려면 어떻게 합니까?
+
+랩 사용자에게 직접 링크를 공유하려면 다음 절차를 수행할 수 있습니다.
+
+1. Azure 포털에서 랩으로 이동합니다.
+2. 브라우저에서 랩 URL을 복사하여 랩 사용자와 공유합니다.
+
+>[AZURE.NOTE] 랩 사용자가 [MSA 계정](#what-is-a-microsoft-account)을 가진 외부 사용자이고 회사의 Active directory에 속하지 않는 경우 제공된 링크로 이동할 때 오류가 발생할 수 있습니다. 오류가 발생하면 Azure 포털의 오른쪽 위 모서리에 있는 자신의 이름을 클릭하고 메뉴의 **디렉터리** 섹션에서 랩이 존재하는 디렉터리를 선택합니다.
+
+### Microsoft 계정이란?
+
+Microsoft 계정이란 Microsoft 장치 및 서비스를 가지고 하는 거의 모든 것에 대해 사용하는 계정입니다. Skype, Outlook.com, OneDrive, Windows Phone 및 Xbox LIVE 에 로그인하는 데 사용하는 전자 메일 주소 및 암호입니다. 이는 사용자가 어느 장치로 가든 파일, 사진, 연락처 및 설정이 따라 갈 수 있음을 의미합니다.
+
+>[AZURE.NOTE] Microsoft 계정을 "Windows Live ID"라 한 적이 있습니다.
  
 ### VM 생성 도중 아티팩트가 실패했습니다. 어떻게 해결합니까? 
 실패한 아티팩트에 대한 로그를 얻는 방법을 알아보려면 MVP 중 한 명이 작성한 블로그 게시물 [AzureDevTestLabs에서 실패한 아티팩트 문제를 해결하는 방법](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)을 참조하세요.
@@ -189,4 +244,4 @@ VM에 여러 디스크 연결이 지원됩니다.
 ### 기존 가상 네트워크가 제대로 저장되지 않는 이유는 무엇입니까?  
 한 가지 가능성은 가상 네트워크 이름에 기간이 포함되어 있는 것입니다. 그렇다면 기간을 제거하거나 하이픈으로 바꾼 다음 가상 네트워크를 다시 저장합니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

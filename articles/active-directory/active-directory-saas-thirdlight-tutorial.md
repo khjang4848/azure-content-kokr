@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Thirdlight과 Azure Active Directory 통합
@@ -78,7 +78,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-thirdlight-tutorial/IC805840.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **Thirdlight Sign-on URL** 텍스트 상자에서 사용자가 사용한 URL을 입력하여 Thirdlight 응용 프로그램에 로그인하고(예: *http://azuresso2.thirdlight.com/*")) **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Thirdlight Sign-on URL** 텍스트 상자에서 사용자가 사용한 URL을 입력하여 Thirdlight 응용 프로그램에 로그인하고(예: "*http://azuresso2.thirdlight.com/*") **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-thirdlight-tutorial/IC805841.png "앱 URL 구성")
 
@@ -98,7 +98,7 @@
 
     1.  **SAML2 Single Sign-On 사용**을 선택합니다.
     2.  **IdP 메타데이터에 대한 원본**으로 **XML에서 IdP 메타데이터 로드**를 선택합니다.
-    3.  다운로드한 메타데이터 파일을 열고 내용을 복사한 다음 **IdP 메타데이터 XML** 텍스트 상자에 붙여넣습니다.
+    3.  다운로드한 메타데이터 파일을 열고 내용을 복사한 다음 **IdP 메타데이터 XML** 텍스트 상자에 붙여 넣습니다.
     4.  **SAML2 설정 저장**을 클릭합니다.
 
 8.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
@@ -109,7 +109,7 @@
   
 Azure AD 사용자가 Thirdlight에 로그인할 수 있도록 하려면 Thirdlight로 프로비전되어야 합니다. Thirdlight의 경우 프로비전은 수동 작업입니다.
 
-###사용자 프로비전을 구성하려면
+###사용자 프로비저닝을 구성하려면
 
 1.  **Thirdlight** 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -143,4 +143,4 @@ Azure AD 사용자가 Thirdlight에 로그인할 수 있도록 하려면 Thirdli
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

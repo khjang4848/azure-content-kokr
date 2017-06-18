@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/05/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
 # HDInsight를 사용하여 스크립트 작업 개발
@@ -62,7 +62,7 @@ HDInsight의 서로 다른 버전에는 설치된 Hadoop 서비스 및 구성 �
 
 사용자는 스크립트에서 사용되는 모든 스크립트와 리소스가 클러스터의 전체 수명 동안 사용 가능한 상태로 유지되고 이러한 파일의 버전이 이 기간 동안 변경되지 않는지 확인해야 합니다. 이러한 리소스는 크기 조정 작업 중 새 노드가 클러스터에 추가되는 경우에 필요합니다.
 
-구독의 Azure 저장소 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
+구독의 Azure Storage 계정에 모든 것을 다운로드하고 보관하는 것이 좋습니다.
 
 > [AZURE.IMPORTANT] 사용된 저장소 계정은 클러스터의 기본 저장소 계정 또는 다른 모든 저장소 계정의 공용 읽기 전용 컨테이너에 있어야 합니다.
 
@@ -167,6 +167,11 @@ Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 �
 | `test_is_headnode` | 클러스터 헤드 노드에서 실행되는 경우 1을 반환하고 그렇지 않으면 0을 반환합니다. |
 | `test_is_datanode` | 현재 노드가 데이터(작업자) 노드인 경우 1을 반환합니다. 그렇지 않으면 0을 반환합니다. |
 | `test_is_first_datanode` | 현재 노드가 첫 번째 데이터(작업자) 노드(workernode0라는 이름)인 경우 1을 반환합니다. 그렇지 않으면 0을 반환합니다. |
+| `get_headnodes` | 클러스터에서 헤드 노드의 정규화된 도메인 이름을 반환합니다. 이름은 쉼표로 구분됩니다. 빈 문자열이 오류에 반환됩니다. |
+| `get_primary_headnode` | 기본 헤드 노드의 정규화된 도메인 이름을 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
+| `get_secondary_headnode` | 보조 헤드 노드의 정규화된 도메인 이름을 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
+| `get_primary_headnode_number` | 기본 헤드 노드의 숫자 접미사를 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
+| `get_secondary_headnode_number` | 보조 헤드 노드의 숫자 접미사를 가져옵니다. 빈 문자열이 오류에 반환됩니다. |
 
 ## <a name="commonusage"></a>일반적인 사용 패턴
 
@@ -268,4 +273,4 @@ _해상도_: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저�
 
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx)를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

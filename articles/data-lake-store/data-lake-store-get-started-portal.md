@@ -128,4 +128,4 @@ Azure 데이터 레이크 저장소 계정을 삭제하려면 데이터 레이�
 - [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Data Lake Store에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!-----HONumber=AcomDC_0914_2016-->

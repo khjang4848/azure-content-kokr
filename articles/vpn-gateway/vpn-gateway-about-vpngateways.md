@@ -13,20 +13,32 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 # VPN 게이트웨이 정보
 
 
-가상 네트워크 게이트웨이는 Azure 가상 네트워크와 온-프레미스 위치 및 Azure 내의 가상 네트워크 간(VNet 간)에 네트워크 트래픽을 보내는 데 사용됩니다. 연결을 만들려면 추가 리소스 및 해당 설정과 함께 VNet에 가상 네트워크 게이트웨이를 추가합니다.
+가상 네트워크 게이트웨이는 Azure 가상 네트워크와 온-프레미스 위치 및 Azure 내의 가상 네트워크 간(VNet 간)에 네트워크 트래픽을 보내는 데 사용됩니다. VPN Gateway를 구성할 때 가상 네트워크 게이트웨이 및 가상 네트워크 게이트웨이 연결을 만들고 구성해야 합니다.
 
-가상 네트워크 게이트웨이 리소스를 만들 때 몇 가지 설정을 지정합니다. 필요한 설정 중 하나는 '-GatewayType'입니다. 게이트웨이 유형은 게이트웨이에서 연결하는 방법을 지정합니다. 가상 네트워크 게이트웨이 유형은 VPN 및 Express 경로 등 두 가지입니다. 네트워크 트래픽을 전용 개인 연결에 전송하면 'Express 경로' 게이트웨이 유형을 사용합니다. 이를 Express 경로 게이트웨이라고도 합니다. 네트워크 트래픽을 공용 연결을 통해 암호화하여 전송하면 'VPN' 게이트웨이 유형을 사용합니다. 이를 VPN Gateway라고도 합니다. 사이트 간, 지점 및 사이트 간, VNet 간 연결은 모두 VPN Gateway를 사용합니다.
+Resource Manager 배포 모델에서 가상 네트워크 게이트웨이 리소스를 만들 때 몇 가지 설정을 지정합니다. 필요한 설정 중 하나는 '-GatewayType'입니다. 가상 네트워크 게이트웨이 유형은 VPN 및 Express 경로 등 두 가지입니다.
 
-각각의 가상 네트워크에는 게이트웨이 유형당 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 예를 들어 -GatewayType Vpn을 사용하는 하나의 가상 네트워크 게이트웨이와 -GatewayType Express 경로를 사용하는 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 이 문서에서는 주로 VPN Gateway에 대해 다룹니다. Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
+네트워크 트래픽을 전용 개인 연결에 전송하면 'Express 경로' 게이트웨이 유형을 사용합니다. 이를 Express 경로 게이트웨이라고도 합니다. 네트워크 트래픽을 공용 연결을 통해 암호화하여 전송하면 'VPN' 게이트웨이 유형을 사용합니다. 이를 VPN Gateway라고도 합니다. 사이트 간, 지점 및 사이트 간, VNet 간 연결은 모두 VPN Gateway를 사용합니다.
 
-게이트웨이 요구 사항에 관한 정보는 [게이트웨이 요구 사항](vpn-gateway-about-vpn-gateway-settings.md#requirements)을 참조하세요. 예상된 총 처리량은 [VPN 게이트웨이 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput)를 참조하세요. 가격 책정은 [VPN 게이트웨이 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조하세요. 구독 및 서비스 제한은 [네트워킹 제한](../articles/azure-subscription-service-limits.md#networking-limits)을 참조하세요.
+각각의 가상 네트워크에는 게이트웨이 유형당 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 예를 들어 -GatewayType ExpressRoute를 사용하는 하나의 가상 네트워크 게이트웨이와 -GatewayType Vpn을 사용하는 하나의 가상 네트워크 게이트웨이가 있을 수 있습니다. 이 문서에서는 주로 VPN Gateway에 대해 다룹니다. Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
+## 가격
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
+
+
+## 게이트웨이 SKU
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+
+다음 테이블에서는 게이트웨이 형식과 예상 총 처리량을 보여 줍니다. 이 표는 리소스 관리자 배포 모델과 클래식 배포 모델 모두에 적용됩니다.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## VPN Gateway 구성
 
@@ -34,7 +46,7 @@ VPN Gateway를 구성할 때 사용할 지침은 가상 네트워크를 만드�
 
 VPN Gateway 연결은 특정 설정으로 구성된 여러 리소스에 따라 다릅니다. 대부분의 리소스를 특정 순서로 구성해야 하지만 어떤 경우에는 개별적으로 구성할 수 있습니다. Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시작하고 구성할 수 있습니다. 그런 다음 나중에 PowerShell과 같은 다른 도구로 전환하도록 결정하여 추가 리소스를 구성하거나 해당하는 경우 기존 리소스를 수정할 수 있습니다. 현재, Azure Portal에서 모든 리소스 및 리소스 설정을 구성할 수 없습니다. 각 연결 토폴로지에 대한 문서의 지침은 특정 구성 도구가 필요한지 여부를 지정합니다. VPN Gateway의 개별 리소스 및 설정에 대한 정보는 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-아래 섹션에서는 다음 정보를 나열하는 테이블을 포함합니다.
+다음 섹션에서는 다음과 같은 내용을 나열하는 테이블을 포함합니다.
 
 - 사용 가능한 배포 모델
 - 사용 가능한 구성 도구
@@ -81,7 +93,7 @@ Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델�
 
 #### VNet 피어링
 
-가상 네트워크가 특정 요구 사항을 충족하면 VNet 피어링을 사용하여 연결을 만들 수 있습니다. VNet 피어링은 가상 네트워크 게이트웨이를 사용하지 않습니다. [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)은 현재 미리 보기로 제공됩니다.
+가상 네트워크가 특정 요구 사항을 충족하면 VNet 피어링을 사용하여 연결을 만들 수 있습니다. VNet 피어링은 가상 네트워크 게이트웨이를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
 
 ### VNet 간 배포 모델 및 메서드
@@ -136,4 +148,4 @@ VPN Gateway 구성을 계획합니다. [VPN Gateway 계획 및 디자인](vpn-ga
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -151,4 +151,4 @@
 
 모델을 만든 후에 [오프라인 평가](cognitive-services-recommendations-buildtypes.md)를 수행하여 모델의 성능이 얼마나 좋은지 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

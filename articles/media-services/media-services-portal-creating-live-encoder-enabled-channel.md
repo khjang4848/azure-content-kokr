@@ -3,7 +3,7 @@
 	description="이 자습서에서는 Azure 포털을 사용하여 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/06/2016"
-	ms.author="juliako"/>
+	ms.author="juliako;juliako"/>
 
 
 #Azure Media Services를 사용하여 Azure Portal로 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행하는 방법
@@ -183,7 +183,7 @@
 	
 	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 	
-	**지금 이 이벤트 게시**를 선택한 상태로 두면 이벤트 게시 URL이 만들어집니다.
+	**지금 이 라이브 이벤트 게시**를 선택한 상태로 두면 이벤트 게시 URL이 만들어집니다.
 	
 	이벤트를 스트리밍할 준비가 되면 언제든지 **시작**을 누르면 됩니다.
 
@@ -240,4 +240,4 @@
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -23,7 +23,7 @@
 
 [Visual Studio Application Insights][start]로 응용 프로그램을 모니터링하면 클라이언트와 서버에서 실패한 요청을 예외 및 다른 이벤트와 상호 연결하여 원인을 신속하게 진단할 수 있습니다.
 
-ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insights SDK를 추가][greenbrown]하거나, [IIS 서버에 상태 모니터를 설치][redfield]하거나, 또는 앱이 Azure 웹 앱인 경우 [Application Insights Extension][azure]을 설치해야 합니다.
+ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insights SDK를 추가][greenbrown]하거나, [IIS 서버에 상태 모니터를 설치][redfield]하거나, 또는 앱이 Azure 웹 앱인 경우 [Application Insights Extension](app-insights-azure-web-apps.md)을 설치해야 합니다.
 
 ## Visual Studio를 사용하여 예외 진단
 
@@ -76,7 +76,7 @@ Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤�
 
 *종속성*은 응용 프로그램에서 일반적으로 REST API 또는 데이터베이스 연결을 통해 호출하는 서비스입니다. [Application Insights 상태 모니터][redfield]는 다양한 유형의 종속성 호출을 자동으로 모니터링하여 호출 기간과 성공 또는 실패 여부를 측정합니다.
 
-종속성 데이터를 얻으려면 IIS 서버에 [상태 모니터를 설치][redfield]하거나 또는 앱이 Azure 웹 앱인 경우 [Application Insights Extension][azure]을 사용해야 합니다.
+종속성 데이터를 얻으려면 IIS 서버에 [상태 모니터를 설치][redfield]하거나 또는 앱이 Azure 웹 앱인 경우 [Application Insights Extension](app-insights-azure-web-apps.md)을 사용해야 합니다.
 
 실패한 종속성 호출은 실패 블레이드에 표시되며, 요청 세부 정보 및 예외 세부 정보의 관련 항목 아래에서도 찾을 수 있습니다.
 
@@ -109,7 +109,7 @@ Visual Studio에서 Application Insights 검색 창을 열고 앱에서 이벤�
 
 * 응용 프로그램 프로젝트에 [SDK를 설치][greenbrown]합니다.
 * 응용 프로그램에 코드를 삽입하여 [Microsoft.ApplicationInsights.TrackTrace()][api]를 호출합니다. 메시지 매개 변수의 POST 데이터를 보냅니다. 허용되는 크기에 제한이 있으므로 꼭 필요한 데이터만 보내야 합니다.
-* 실패한 요청을 조사할 때 연결된 추적을 찾습니다.  
+* 실패한 요청을 조사할 때 연결된 추적을 찾습니다.
 
 ![드릴스루](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
@@ -327,10 +327,10 @@ System.Web.Http.Filters.ExceptionFilterAttribute를 재정의합니다.
 
 예외 필터에서 처리할 수 없는 다양한 경우가 있습니다. 예:
 
-* 컨트롤러 생성자에서 throw된 예외 
-* 메시지 처리기에서 throw된 예외 
-* 라우팅 중에 throw된 예외 
-* 응답 콘텐츠를 직렬화하는 동안 throw된 예외 
+* 컨트롤러 생성자에서 throw된 예외
+* 메시지 처리기에서 throw된 예외
+* 라우팅 중에 throw된 예외
+* 응답 콘텐츠를 직렬화하는 동안 throw된 예외
 
 ## Web API 2.x
 
@@ -386,7 +386,7 @@ WebApiConfig에서 서비스에 추가합니다.
 
 또는 다음 방법을 사용해도 됩니다.
 
-2. 유일한 ExceptionHandler를 IExceptionHandler의 사용자 지정 구현으로 바꿉니다. 이 특성은 프레임 워크에서 보낼 응답 메시지를 선택할 수 있는 때에만 호출됩니다. 인스턴스에 대한 연결이 끊어지면 호출되지 않습니다. 
+2. 유일한 ExceptionHandler를 IExceptionHandler의 사용자 지정 구현으로 바꿉니다. 이 특성은 프레임 워크에서 보낼 응답 메시지를 선택할 수 있는 때에만 호출됩니다. 인스턴스에 대한 연결이 끊어지면 호출되지 않습니다.
 3. 위의 Web API 1.x 컨트롤러 섹션에서 설명한 것처럼 예외 필터는 어떤 경우에도 호출되지 않습니다.
 
 
@@ -467,7 +467,6 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[azure]: ../azure-portal/insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md
@@ -477,4 +476,4 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

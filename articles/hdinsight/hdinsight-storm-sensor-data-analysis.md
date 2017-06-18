@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 # HDInsight(Hadoop)에서 Apache Storm, 이벤트 허브 및 HBase를 사용하여 센서 데이터 분석 
@@ -92,11 +92,17 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 * **EventHub Spout**: spout는 Apache Storm 버전 0.10.0 이상의 일부로 제공됩니다.
 
-    > [AZURE.NOTE] 이 예제에서 사용되는 이벤트 허브 spout를 위해서는 HDInsight 클러스터 버전 3.3 또는 3.4의 Storm이 필요합니다. HDInsight의 Storm 이전 버전에서 이벤트 허브를 사용하는 방법에 대한 자세한 내용은 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
+    > [AZURE.NOTE] 이 예제에서 사용되는 Event Hubs Spout에는 HDInsight 클러스터 버전 3.3 또는 3.4에 대한 Storm이 필요합니다. HDInsight의 Storm 이전 버전에서 이벤트 허브를 사용하는 방법에 대한 자세한 내용은 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 * **ParserBolt.java**: Spout에서 내보내는 데이터는 원시 JSON이며, 한 번에 둘 이상의 이벤트를 내보낼 때도 있습니다. 이 Bolt는 Spout에서 내보낸 데이터를 읽어 여러 필드가 포함된 튜플로 새 스트림에 내보내는 방법을 보여 줍니다.
 
 * **DashboardBolt.java**: Java용 Socket.io 클라이언트 라이브러리를 사용하여 웹 대시보드로 데이터를 실시간으로 보내는 방법을 보여 줍니다.
+
+이 예제에서는 [Flux](https://storm.apache.org/releases/0.10.0/flux.html) 프레임워크를 사용하므로 토폴로지 정의가 YAML 파일에 포함됩니다. 두 가지가 있습니다.
+
+* __no-hbase.yaml__ - 개발 환경에서 토폴로지를 테스트할 때 이 파일을 사용합니다. 클러스터가 있는 가상 네트워크 외부에서 HBase Java API에 액세스할 수 없기 때문에 HBase 구성 요소를 사용하지 않습니다.
+
+* __with-hbase.yaml__ - 토폴로지를 Storm 클러스터에 배포할 때 이 파일을 사용합니다. HBase 클러스터와 동일한 가상 네트워크에서 실행되기 때문에 HBase 구성 요소를 사용합니다.
 
 ## 환경 준비
 
@@ -106,24 +112,30 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 이벤트 허브는 이 예제의 데이터 원본입니다. 다음 단계에 따라 새 이벤트 허브를 만듭니다.
 
-1. [Azure 클래식 포털에서](https://manage.windowsazure.com) **새로 만들기를 선택합니다.| Service Bus | Event Hub | Custom Create**.
+1. [Azure Portal](https://portal.azure.com)에서 **+ 새로 만들기** -> __사물 인터넷__ -> __Event Hubs__를 선택합니다.
 
-2. **새 이벤트 허브 추가** 대화 상자에서 **이벤트 허브 이름**을 입력하고 허브를 만들 **하위 지역**을 선택한 다음 새 네임스페이스를 만들거나 기존 네임스페이스를 선택합니다. 마지막으로 화살표를 클릭하여 계속합니다.
+2. __네임스페이스 만들기__ 블레이드에서 다음 태스크를 수행합니다.
 
-2. **이벤트 허브 구성** 대화 상자에서 **파티션 개수** 및 **메시지 보존** 값을 입력합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다.
+    1. 네임스페이스의 __이름__을 입력합니다.
+    2. 가격 책정 계층을 선택합니다. 이 예제에는 __기본__이면 충분합니다.
+    3. 사용할 Azure __구독__을 선택합니다.
+    4. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+    5. Event Hub의 __위치__를 선택합니다.
+    6. __대시보드에 고정__ 옵션을 선택하고 __만들기__를 클릭합니다.
 
-3. 이벤트 허브가 만들어지면 네임스페이스를 선택하고 **이벤트 허브**를 선택합니다. 마지막으로 앞에서 만든 이벤트 허브를 선택합니다.
+3. 만들기 프로세스가 완료되면 네임스페이스에 대한 Event Hubs 블레이드가 표시됩니다. 여기에서 __+ Event Hub 추가__를 선택합니다. __Event Hub 만들기__ 블레이드에서 __sensordata__의 이름을 입력한 다음 __만들기__를 선택합니다. 다른 필드는 기본값으로 둡니다.
 
-4. **구성**을 선택하고 다음 정보를 사용하여 새 액세스 정책 두 개를 만듭니다.
+4. 네임스페이스에 대한 Event Hubs 블레이드에서 __Event Hubs__를 선택합니다. __sensordata__ 항목을 선택합니다.
 
-	| 이름 | 권한 |
+5. sensordata Event Hub에 대한 블레이드에서 __공유 액세스 정책__을 선택합니다. __+ 추가__ 링크를 사용하여 다음 정책에 추가합니다.
+
+
+	| 정책 이름 | 클레임 |
     | ----- | ----- |
 	| devices | 보내기 |
-	| storm | 수신 |
+	| storm | 수신 대기 |
 
-	권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 허브로 메시지를 보내고 이 허브에서 메시지를 읽는 데 사용할 공유 액세스 정책이 만들어집니다.
-
-5. 정책을 저장한 후 페이지 아래쪽의 **공유 액세스 키 생성기**를 사용하여 **장치** 및 **Storm** 정책의 키를 검색합니다. 이러한 키는 나중에 사용되므로 저장합니다.
+5. 두 정책을 모두 선택하고 __기본 키__ 값을 적어둡니다. 이후 단계에서 두 정책에 대한 값이 필요합니다.
 
 ## 프로젝트 다운로드 및 구성
 
@@ -134,28 +146,28 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 명령이 완료되면 다음 디렉터리 구조가 생성됩니다.
 
 	hdinsight-eventhub-example/
-		TemperatureMonitor/ - this is the Java topology
-			conf/
-				Config.properties
-				hbase-site.xml
-			src/
-			test/
-			dashboard/ - this is the node.js web dashboard
-			SendEvents/ - utilities to send fake sensor data
+		TemperatureMonitor/ - this contains the topology
+			resources/
+                log4j2.xml - set logging to minimal
+                no-hbase.yaml - topology definition for local testing
+                with-hbase.yaml - topology definition that uses HBase in a virutal network
+			src/ - the Java bolts
+            dev.properties - contains configuration values for your environment
+		dashboard/nodejs/ - this is the node.js web dashboard
+		SendEvents/ - utilities to send fake sensor data
 
 > [AZURE.NOTE] 이 문서에서는 이 샘플에 포함된 코드에 대해 자세히 알아보지 않습니다. 그러나 코드는 완전히 주석 처리되어 있습니다.
 
-**Config.properties** 파일을 열고 아래 나열된 항목에 대해 이전에 이벤트 허브를 만들 때 사용한 정보를 추가합니다. 이 정보를 추가한 후 파일을 저장합니다.
+**hdinsight-eventhub-example/TemperatureMonitor/dev.properties** 파일을 열고 다음 줄에 Event Hub 정보를 추가합니다.
 
-	eventhubspout.username = storm
+    eventhub.read.policy.name: storm
+    eventhub.read.policy.key: KeyForTheStormPolicy
+    eventhub.namespace: YourNamespace
+    eventhub.name: sensordata
 
-	eventhubspout.password = <the key of the 'storm' policy>
+> [AZURE.NOTE] 이 예제에서는 __수신__ 클레임이 있는 정책 이름으로 __storm__을 사용하며 Event Hub가 __sensordata__라고 가정합니다.
 
-	eventhubspout.namespace = <the event hub namespace>
-
-	eventhubspout.entitypath = <the event hub name>
-
-	eventhubspout.partitions.count = <the number of partitions for the event hub>
+ 이 정보를 추가한 후 파일을 저장합니다.
 
 ## 로컬로 컴파일 및 테스트
 
@@ -187,19 +199,21 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 > [AZURE.NOTE] 이 섹션의 단계에서는 모든 플랫폼에서 사용할 수 있도록 Node.js를 사용합니다. 다른 언어 예제는 **SendEvents** 디렉터리를 참조하세요.
 
-1. 새 명령 프롬프트 또는 터미널을 열고 디렉터리를 **hdinsight-eventhub-example/SendEvents/nodejs**로 변경한 후 다음 명령을 사용하여 응용 프로그램에 필요한 종속성을 설치합니다.
+1. 새 명령 프롬프트, 셸 또는 터미널을 열고 디렉터리를 **hdinsight-eventhub-example/SendEvents/nodejs**로 변경한 후 다음 명령을 사용하여 응용 프로그램에 필요한 종속성을 설치합니다.
 
 		npm install
 
 2. 텍스트 편집기에서 **app.js** 파일을 열고 이전에 가져온 이벤트 허브 정보를 추가합니다.
 
 		// ServiceBus Namespace
-		var namespace = 'servicebusnamespace';
+		var namespace = 'YourNamespace';
 		// Event Hub Name
-		var hubname ='eventhubname';
+		var hubname ='sensordata';
 		// Shared access Policy name and key (from Event Hub configuration)
 		var my_key_name = 'devices';
-		var my_key = 'key';
+		var my_key = 'YourKey';
+    
+    > [AZURE.NOTE] 이 예제에서는 Event Hub의 이름으로 __sensordata__를 사용하며 __송신__ 클레임이 있는 정책 이름으로 __devices__를 사용한다고 가정합니다.
 
 2. 다음 명령을 사용하여 이벤트 허브에 새 항목을 삽입합니다.
 
@@ -220,19 +234,27 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 ### 토폴로지 시작
 
-2. 다음 명령을 사용하여 로컬로 토폴로지를 시작합니다.
+2. 새 명령 프롬프트, 셸 또는 터미널을 열고 디렉터리를 __hdinsight-eventhub-example/TemperatureMonitor__로 변경한 후 다음 명령을 사용하여 토폴로지를 시작합니다.
 
-        mvn compile exec:java -Dstorm.topology=com.microsoft.examples.Temperature
+        mvn compile exec:java -Dexec.args="--local -R /no-hbase.yaml --filter dev.properties"
+    
+    PowerShell을 사용하는 경우 다음을 대신 사용합니다.
 
-	그러면 토폴로지가 시작되고 이벤트 허브에서 파일을 읽은 후 Azure 웹 사이트에서 실행되는 대시보드로 파일을 보냅니다. 웹 대시보드에 다음과 유사한 줄이 표시됩니다.
+        mvn compile exec:java "-Dexec.args=--local -R /no-hbase.yaml --filter dev.properties"
+
+    > [AZURE.NOTE] Linux/Unix/OS X 시스템에서 [개발 환경에 Storm을 설치](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)한 경우 다음 명령을 대신 사용할 수 있습니다.
+    >
+    > `mvn compile package` `storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /no-hbase.yaml`
+
+	그러면 로컬 모드에서 __no hbase.yaml__ 파일에 정의된 토폴로지가 시작됩니다. __dev.properties__ 파일에 포함된 값은 Event Hubs에 대한 연결 정보를 제공합니다. 일단 시작되면 토폴로지는 Event Hub에서 항목을 읽고 로컬 컴퓨터에서 실행되는 대시보드에 전송합니다. 웹 대시보드에 다음과 유사한 줄이 표시됩니다.
 
 	![데이터가 표시된 대시보드](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-    > [AZURE.NOTE] PowerShell 프롬프트에서 이 명령을 실행하는 경우 `-Dstorm.topology=com.microsoft.examples.Temperature` 매개 변수를 큰따옴표로 묶어야 합니다. 예: `mvn compile exec:java "-Dstorm.topology=com.microsoft.examples.Temperature"`
-
 3. 이벤트 허브가 실행 중인 동안 이전 단계의 `node app.js` 명령을 사용하여 새 데이터를 대시보드로 보냅니다. 온도 값은 임의로 생성되기 때문에 큰 온도 변화를 표시하도록 그래프가 업데이트됩니다.
 
-3. 제대로 작동하는지 확인하고 Ctrl+C를 사용하여 토폴로지를 중지합니다. SendEvent 앱을 중지하려면 창을 선택하고 아무 키나 누릅니다. Ctrl+C를 사용하여 웹 서버를 중지할 수도 있습니다.
+    > [AZURE.NOTE] `node app.js` 명령을 사용할 때 __hdinsight-eventhub-example/SendEvents/Nodejs__ 디렉터리에 있어야 합니다.
+
+3. 제대로 작동하는지 확인하고 Ctrl+C를 사용하여 토폴로지를 중지합니다. Ctrl+C를 사용하여 로컬 웹 서버를 중지할 수도 있습니다.
 
 ## Storm 및 HBase 클러스터 만들기
 
@@ -242,9 +264,9 @@ Hdinsight에서 토폴로지를 실행하고 HBase bolt를 사용하도록 설�
 
 이 문서에 사용되는 Resource Manager 템플릿은 \_\_https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json__의 공용 Blob 컨테이너에 있습니다.
 
-1. Azure 포털에 로그인하여 Azure 포털에서 Azure Resource Manager 템플릿을 열려면 다음 단추를 클릭합니다.
+1. Azure에 로그인하고 Azure Portal에서 Azure Resource Manager 템플릿을 열려면 다음 단추를 클릭합니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ko-KR/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. **매개 변수** 블레이드에서 다음을 입력합니다.
 
@@ -275,9 +297,9 @@ Hdinsight에서 토폴로지를 실행하고 HBase bolt를 사용하도록 설�
 
 ## 대시보드 bolt 구성
 
-웹앱으로 배포된 대시보드로 데이터를 전송하려면 __DashboardBolt.java__ 파일에서 다음 줄을 수정해야 합니다.
+웹앱으로 배포된 대시보드에 데이터를 전송하려면 __dev.properties__ 파일에서 다음 줄을 수정해야 합니다.
 
-    socket = IO.socket("http://localhost:3000");
+    dashboard.uri: http://localhost:3000
 
 `http://localhost:3000`을 `http://BASENAME-dashboard.azurewebsites.net`으로 변경하고 파일을 저장합니다. __BASENAME__을 이전 단계에서 제공한 기본 이름으로 바꿉니다. 또한 이전에 만든 리소스 그룹을 사용하여 대시보드를 선택하고 URL을 확인할 수도 있습니다.
 
@@ -305,7 +327,7 @@ HBase에 데이터를 저장하려면 먼저 테이블을 만들어야 합니다
 
     	scan 'SensorData'
 		
-	이렇게 하면 테이블에 행이 0개 있음을 나타내는 다음과 비슷한 정보가 반환됩니다.
+	이렇게 하면 테이블에 0개의 행이 있음을 나타내는 다음 예제와 비슷한 정보가 반환됩니다.
 	
 		ROW                   COLUMN+CELL                                       0 row(s) in 0.1900 seconds
 
@@ -321,9 +343,9 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 
 ### hbase-site.xml 다운로드
 
-명령 프롬프트에서 SCP를 사용하여 클러스터에서 __hbase-site.xml__ 파일을 다운로드합니다. 다음 예제에서는 __USERNAME__을 클러스터를 만들 때 제공한 SSH 사용자로 바꾸고 __BASENAME__을 이전에 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다. `/path/to/TemperatureMonitor/conf/hbase-site.xml`을 TemperatureMonitor 프로젝트의 이 파일 경로로 바꿉니다.
+명령 프롬프트에서 SCP를 사용하여 클러스터에서 __hbase-site.xml__ 파일을 다운로드합니다. 다음 예제에서는 __USERNAME__을 클러스터를 만들 때 제공한 SSH 사용자로 바꾸고 __BASENAME__을 이전에 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다. `/path/to/TemperatureMonitor/resources/hbase-site.xml`을 TemperatureMonitor 프로젝트의 이 파일 경로로 바꿉니다.
 
-    scp USERNAME@hbase-BASENAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml /path/to/TemperatureMonitor/conf/hbase-site.xml
+    scp USERNAME@hbase-BASENAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml /path/to/TemperatureMonitor/resources/hbase-site.xml
 
 이렇게 하면 __hbase-site.xml__이 지정된 경로에 다운로드됩니다.
 
@@ -338,6 +360,10 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 2. 개발 환경의 로컬 Maven 저장소에 이 구성 요소를 설치하려면 다음 명령을 사용합니다. 이렇게 하면 Maven에서 프로젝트를 컴파일할 때 패키지를 찾을 수 있습니다. __###__을 파일 이름에 포함된 버전 번호로 바꿉니다.
 
         mvn install:install-file -Dfile=storm-hbase-####.jar -DgroupId=org.apache.storm -DartifactId=storm-hbase -Dversion=#### -Dpackaging=jar
+    
+    PowerShell을 사용하는 경우 다음 명령을 대신 사용합니다.
+
+        mvn install:install-file "-Dfile=storm-hbase-####.jar" "-DgroupId=org.apache.storm" "-DartifactId=storm-hbase" "-Dversion=####" "-Dpackaging=jar"
 
 ### 프로젝트에서 storm-hbase 구성 요소를 사용하도록 설정
 
@@ -362,22 +388,11 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 
 2. __pom.xml__ 파일을 저장합니다.
 
-3. 텍스트 편집기에서 **TemperatureMonitor/src/main/java/com/microsoft/examples/Temperature.java**를 열고 각각의 시작 부분에서 `//`를 제거하여 다음 줄의 주석 처리를 제거합니다.
-
-		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
-    	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
-
-	그러면 HBase Bolt가 사용하도록 설정됩니다.
-
-	> [AZURE.NOTE] 로컬로 테스트할 때까지 아니라 Storm 클러스터에 배포할 때만 HBase Bolt를 사용하도록 설정해야 합니다.
-
-4. __Temperature.java__ 파일을 저장합니다.
-    
 ## 솔루션을 빌드, 패키지하여 HDInsight에 배포
 
 개발 환경에서 다음 단계를 수행하여 Storm 토폴로지를 Storm 클러스터에 배포합니다.
 
-1. 다음 명령을 사용하여 새 빌드를 수행하고 프로젝트에서 JAR 패키지를 만듭니다.
+1. __TemperatureMonitor__ 디렉터리에서 다음 명령을 사용하여 새 빌드를 수행하고 프로젝트에서 JAR 패키지를 만듭니다.
 
 		mvn clean compile package
 
@@ -385,9 +400,13 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 
 2. scp를 사용하여 __TemperatureMonitor-1.0-SNAPSHOT.jar__ 파일을 Storm 클러스터에 업로드합니다. 다음 예제에서는 __USERNAME__을 클러스터를 만들 때 제공한 SSH 사용자로 바꾸고 __BASENAME__을 이전에 제공한 기본 이름으로 바꿉니다. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
-        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:
+        scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
     
     > [AZURE.NOTE] 파일 크기가 몇 메가바이트에 달하므로 로드하는 데 몇 분 정도 걸릴 수 있습니다.
+
+    scp를 사용하여 Event Hubs 및 대시보드에 연결하는 데 사용된 정보가 포함된 __dev.properties__ 파일을 업로드합니다.
+
+        scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
 
 3. 파일이 업로드되면 SSH를 사용하여 클러스터에 연결합니다.
 
@@ -395,9 +414,9 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 
 4. SSH 세션에서 다음 명령을 사용하여 토폴로지를 시작합니다.
 
-        storm jar TemperatureMonitor-1.0-SNAPSHOT.jar com.microsoft.examples.Temperature tempmonitor
+        storm jar TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /with-hbase.yaml --filter dev.properties
     
-    이렇게 하면 이 토폴로지 인스턴스에 대한 표시 이름으로 __tempmonitor__를 사용하고 패키지에 포함된 __com.microsoft.examples.Temperature__ 클래스를 사용하여 토폴로지가 시작됩니다.
+    __with-hbase.yaml__ 파일에 있는 토폴로지 정의 및 __dev.properties__ 파일에 있는 구성 값을 사용하여 토폴로지를 시작합니다.
 
 3. 토폴로지가 시작되면 브라우저에서 Azure에 게시한 웹 사이트를 열고 `node app.js` 명령을 사용하여 이벤트 허브로 데이터를 보냅니다. 정보를 표시하기 위해 웹 대시보드가 업데이트됩니다.
 
@@ -457,9 +476,9 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 
 ## 다음 단계
 
-지금까지 이벤트 허브에서 데이터를 읽고, HBase에 저장하고, Socket.io 및 D3.js를 사용하여 외부 대시보드에서 해당 정보를 시각화하는 방법에 대해 알아보았습니다.
+지금까지 Event Hubs에서 데이터를 읽고, HBase에 저장하고, Socket.io 및 D3.js를 사용하여 외부 대시보드에서 해당 정보를 시각화하는 방법에 대해 알아보았습니다.
 
-* HDinsight의 Storm 토폴로지에 대한 추가 예제는 다음을 참조하세요.
+* HDInsight의 Storm 토폴로지에 대한 추가 예제는 다음을 참조하세요.
 
     * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
@@ -477,4 +496,4 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 구성 세부 
 
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

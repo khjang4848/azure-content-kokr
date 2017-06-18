@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016" 
+	ms.date="09/16/2016" 
 	ms.author="garye"/>
 
 
@@ -69,7 +69,7 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 1.	데이터 집합의 이름을 입력합니다. 이 연습에서는 데이터 집합을 "UCI 독일 신용 카드 데이터"라고 합니다.
 1.	데이터 형식으로 **머리글 없는 일반 CSV 파일(.nh.csv)**을 선택합니다.
 1.	원하는 경우 설명을 추가합니다.
-1.	**확인**을 클릭합니다.  
+1.	**확인**을 클릭합니다.
 
 ![데이터 집합 업로드][1]
 
@@ -84,4 +84,4 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

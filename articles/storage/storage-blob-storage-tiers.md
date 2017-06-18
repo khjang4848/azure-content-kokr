@@ -3,8 +3,8 @@
     description="Azure Blob 저장소용 저장소 계층에서 액세스 패턴에 기반하여 개체 데이터에 대한 비용 효율적인 저장소를 제공합니다. 쿨 저장소 계층은 비교적 드물게 액세스하는 데이터에 최적화되어 있습니다."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
 
 
 # Azure Blob 저장소: 핫 및 쿨 저장소 계층
@@ -340,4 +340,4 @@ Azure 클라이언트 라이브러리 또는 Azure 저장소 서비스 REST API 
 
 [저장소 계정 찾아보기 및 탐색](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="09/15/2016" 
 	ms.author="tomfitz"/>
 
 # 리소스 관리자 템플릿과 Azure 포털로 리소스 배포
@@ -34,7 +34,7 @@
 
     ![빈 소스 그룹 만들기](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
-2. 이름과 위치를 지정하고 필요한 경우 구독을 선택합니다.
+2. 이름과 위치를 지정하고 필요한 경우 구독을 선택합니다. 그룹 리소스가 리소스에 대한 메타데이터를 저장하기 때문에 리소스 그룹에 대한 위치를 제공해야 합니다. 규정 준수 때문에 메타데이터를 저장할 위치를 지정하려고 합니다. 일반적으로 대부분의 리소스가 상주할 위치를 지정하는 것이 좋습니다. 동일한 위치를 사용하여 템플릿을 간소화할 수 있습니다.
 
     ![그룹 값 설정](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
@@ -50,7 +50,7 @@
 
     ![마켓플레이스 검색](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. 선택한 리소스 유형에 따라 배포 전 설정할 관련 속성 모음이 있습니다. 리소스 유형에 따라 달라지므로 해당 옵션은 여기에 표시되지 않습니다. 모든 유형에 대해 대상 리소스 그룹을 선택해야 합니다. 다음 이미지는 웹앱을 만들고 앞에서 만든 리소스 그룹에 배포하는 방법을 보여 줍니다.
+3. 선택한 리소스 유형에 따라 배포하기 전에 관련 속성의 컬렉션을 설정합니다. 리소스 유형에 따라 달라지므로 해당 옵션은 여기에 표시되지 않습니다. 모든 유형에 대해 대상 리소스 그룹을 선택해야 합니다. 다음 이미지는 웹앱을 만들고 앞에서 만든 리소스 그룹에 배포하는 방법을 보여 줍니다.
 
     ![리소스 그룹 만들기](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
@@ -118,4 +118,4 @@
 - 배포 오류를 해결하려면 [Azure 포털을 사용하여 리소스 그룹 배포 문제 해결](resource-manager-troubleshoot-deployments-portal.md)을 참조하세요.
 - 배포 또는 리소스 그룹에서 템플릿을 검색하려면 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

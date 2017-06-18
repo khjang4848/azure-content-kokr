@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/17/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: REST API를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [AZURE.SELECTOR]
-- [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [데이터 팩터리 편집기 사용](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API 사용](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
+- [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
 
 이 자습서에서는 REST API를 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
-
-복사 작업은 Azure Data Factory에서 데이터 이동을 수행합니다. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 > [AZURE.NOTE] 
 이 문서는 모든 데이터 팩터리 REST API를 다루지 않습니다. 데이터 팩터리 REST API에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조](https://msdn.microsoft.com/library/azure/dn906738.aspx)(영문)를 참조하세요.
@@ -36,7 +34,7 @@
 
 ## 필수 조건
 
-- [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 자세히 살펴봅니다.
+- [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 - 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/)을 설치합니다. REST 명령과 함께 Curl 도구를 사용하여 데이터 팩터리를 만듭니다.
 - [이 문서](../resource-group-create-service-principal-portal.md)의 지침에 따라 다음 작업을 수행합니다.
 	1. Azure Active Directory에서 **ADFCopyTutorialApp**이라는 웹 응용 프로그램을 만듭니다.
@@ -302,7 +300,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 다음 사항에 유의하세요.
  
-- Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "ADFCopyTutorialDF"를 사용할 수 없습니다**라는 오류가 발생한 경우 다음을 수행합니다.
+- Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "ADFCopyTutorialDF"를 사용할 수 없습니다**라는 오류가 발생한 경우 다음 단계를 수행합니다.
 	1. **datafactory.json** 파일에서 이름(예: yournameADFCopyTutorialDF)을 변경합니다.
 	2. **$cmd** 변수가 값을 할당한 첫 번째 명령에서 ADFCopyTutorialDF를 새 이름으로 바꾸고 명령을 실행합니다.
 	3. REST API를 호출하는 다음 두 명령을 실행하여 데이터 팩터리를 만들고 작업의 결과를 인쇄합니다.
@@ -493,4 +491,4 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

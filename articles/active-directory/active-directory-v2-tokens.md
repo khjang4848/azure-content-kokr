@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # V2.0 토큰 참조
@@ -29,7 +29,7 @@ v2.0 끝점은 access\_token 및 refresh\_token 둘 다를 활용하는 [OAuth 2
 
 전달자 토큰은 보호된 리소스에 대한 "전달자" 액세스 권한을 부여하는 간단한 보안 토큰입니다. 이런 의미에서, "전달자"는 토큰을 제공할 수 있는 당사자입니다. 이 당사자는 전달자 토큰을 수신하려면 먼저 Azure AD를 사용하여 인증해야 합니다. 하지만 전송 및 저장 시 토큰 보안을 유지하는 데 필요한 단계를 취하지 않는 경우 의도하지 않은 당사자가 토큰을 가로채서 사용할 수 있습니다. 일부 보안 토큰에는 권한 없는 당사자가 사용하는 것을 방지하는 기본 제공 메커니즘이 있지만, 전달자 토큰에는 이러한 메커니즘이 없으므로 전송 계층 보안(HTTPS)과 같은 보안 채널에서 전달자 토큰을 전송해야 합니다. 전달자 토큰이 일반 텍스트 상태로 전송되는 경우 악의적인 사용자가 메시지 가로채기(man-in-the-middle) 공격을 사용해서 토큰을 획득하고 보호된 리소스에 무단으로 액세스하는 데 이 토큰을 사용할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때도 동일한 보안 원칙이 적용됩니다. 항상 앱이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다. 전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750)를 참조하세요.
 
-v2.0 끝점에서 발급된 토큰은 대부분 Json 웹 토큰, 즉 JWT로 구현됩니다. JWT는 두 요소 간에 정보를 전송하는 URL로부터 안전한 간단한 수단입니다. JWT에 포함된 정보를 "클레임" 또는 토큰의 전달자 및 주체에 대한 정보 어설션이라고 합니다. JWT의 클레임은 전송을 위해 인코드 및 직렬화된 JSON 개체입니다. V2.0 끝점에 의해 발급된 JWT가 서명되었지만 암호화되지 않았으므로 디버깅을 위해 JWT의 내용을 쉽게 검사할 수 있습니다. [calebb.net](http://jwt.calebb.net) 등 이러한 작업에 사용할 수 있는 여러 도구가 있습니다. JWT에 대한 자세한 내용은 [JWT 사양](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요.
+v2.0 끝점에서 발급된 토큰은 대부분 Json 웹 토큰, 즉 JWT로 구현됩니다. JWT는 두 요소 간에 정보를 전송하는 URL로부터 안전한 간단한 수단입니다. JWT에 포함된 정보를 "클레임" 또는 토큰의 전달자 및 주체에 대한 정보 어설션이라고 합니다. JWT의 클레임은 전송을 위해 인코드 및 직렬화된 JSON 개체입니다. V2.0 끝점에 의해 발급된 JWT가 서명되었지만 암호화되지 않았으므로 디버깅을 위해 JWT의 내용을 쉽게 검사할 수 있습니다. JWT에 대한 자세한 내용은 [JWT 사양](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)을 참조하세요.
 
 ## Id\_tokens
 
@@ -45,7 +45,7 @@ id\_token의 클레임에 대한 자세한 내용 및 샘플 id\_token은 아래
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
 ```
 
-> [AZURE.TIP] 연습을 위해 샘플 id\_token에 있는 클레임을 [calebb.net](https://calebb.net)에 붙여넣어 검사하세요.
+> [AZURE.TIP] 연습을 위해 샘플 id\_token에 있는 클레임을 [calebb.net](https://calebb.net)에 붙여 넣어 검사하세요.
 
 #### id\_token의 클레임
 | 이름 | 클레임 | 예제 값 | 설명 |
@@ -82,7 +82,7 @@ v2.0 끝점의 액세스 토큰을 요청하는 경우 앱이 사용할 수 있�
 
 새로 고침 토큰은 다중 리소스입니다. 즉, 한 리소스에 대한 토큰 요청 중에 받은 새로 고침 토큰을 완전히 다른 리소스에 대한 액세스 토큰으로 교환할 수 있습니다.
 
-토큰 응답에서 새로 고침을 받으려면 앱이 `offline_acesss` 범위를 요청하고 부여받아야 합니다. `offline_access` 범위에 대한 자세한 내용은 [여기서 동의 및 범위 문서](active-directory-v2-scopes.md)를 참조하세요.
+토큰 응답에서 새로 고침을 받으려면 앱이 `offline_acesss` 범위를 요청하고 부여 받아야 합니다. `offline_access` 범위에 대한 자세한 내용은 [여기서 동의 및 범위 문서](active-directory-v2-scopes.md)를 참조하세요.
 
 새로 고침 토큰은 앱에 완전히 불투명하며 항상 그럴 것입니다. 새로 고침 토큰은 Azure AD v2.0 끝점에서 발급되며 Azure AD v2.0 끝점에서만 검사되고 해석됩니다. 또한 새로 고침 토큰은 수명이 길지만 일정 기간 지속될 것으로 예상하도록 앱을 작성해서는 안 됩니다. 다양한 이유로 언제든지 새로 고침 토큰이 무효화될 수 있기 때문입니다. 앱에서 새로 고침 토큰이 유효한지 확인하는 유일한 방법은 v2.0 끝점에 대한 토큰 요청을 수행하여 교환하는 것입니다.
 
@@ -144,7 +144,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 다음 토큰 수명은 앱 개발 및 디버그에 유용할 수 있으므로 순수하게 이해를 돕기 위해 제공되었습니다. 이러한 수명이 일정하게 유지된다고 예상하도록 앱을 작성해서는 안 됩니다. 언제든지 변경될 수 있고 변경됩니다.
 
-| 신뢰 | 수명 | 설명 |
+| 위임 | 수명 | 설명 |
 | ----------------------- | ------------------------------- | ------------ |
 | id\_token(회사 또는 학교 계정) | 1시간 | id\_token은 일반적으로 1시간 동안 유효합니다. 웹앱은 이 동일한 수명을 사용하여 사용자와의 자체 세션을 유지 관리하거나 완전히 다른 세션 수명을 선택할 수 있습니다. 앱이 새 id\_token을 가져와야 하는 경우 v2.0 권한 부여 끝점에 대한 새 로그인 요청을 만들면 됩니다. 사용자에게 v2.0 끝점과의 유효한 브라우저 세션이 있는 경우 자격 증명을 다시 입력할 필요가 없을 수도 있습니다. |
 | id\_token(개인 계정) | 24시간 | 개인 계정에 대한 id\_token은 일반적으로 24시간 동안 유효합니다. 웹앱은 이 동일한 수명을 사용하여 사용자와의 자체 세션을 유지 관리하거나 완전히 다른 세션 수명을 선택할 수 있습니다. 앱이 새 id\_token을 가져와야 하는 경우 v2.0 권한 부여 끝점에 대한 새 로그인 요청을 만들면 됩니다. 사용자에게 v2.0 끝점과의 유효한 브라우저 세션이 있는 경우 자격 증명을 다시 입력할 필요가 없을 수도 있습니다. |
@@ -155,4 +155,4 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 | 인증 코드(회사 또는 학교 계정) | 10분 | 인증 코드는 의도적으로 수명이 짧으므로 받는 즉시 access\_token 및 refresh\_token으로 교환해야 합니다. |
 | 인증 코드(개인 계정) | 5분 | 인증 코드는 의도적으로 수명이 짧으므로 받는 즉시 access\_token 및 refresh\_token으로 교환해야 합니다. 또한 개인 계정 대신 발급된 인증 코드는 일회용으로 사용됩니다. |
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

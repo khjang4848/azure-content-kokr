@@ -29,7 +29,7 @@ SLA||<p>|99\.9%|99\.95%<sup>10</sup>|99\.95%<sup>10</sup>
 
 <sup>1</sup>별도로 명시되지 않는 한 앱 서비스 계획당 앱 및 저장소 할당량입니다.  
 <sup>2</sup>이러한 컴퓨터에서 호스트할 수 있는 실제 앱 수는 앱의 활동, 컴퓨터 인스턴스 크기 및 해당 리소스 사용률에 따라 달라집니다.  
-<sup>3</sup>전용 인스턴스의 크기는 다양할 수 있습니다. 자세한 내용은 [앱 서비스 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/)을 참조하십시오. 지원 요청을 열어서 추가 인스턴스를 사용할 수 있습니다.  
+<sup>3</sup>전용 인스턴스의 크기는 다양할 수 있습니다. 자세한 내용은 [앱 서비스 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/)을 참조하십시오.
 <sup>4</sup>Premium 계층은 앱 서비스 환경을 사용하는 경우 최대 50개의 계산 인스턴스(가용성에 따라)와 500GB의 디스크 공간이 가능하며, 그렇지 않으면 20개의 계산 인스턴스 및 250GB의 저장소가 가능합니다.  
 <sup>5</sup>저장소 제한은 동일한 앱 서비스 계획에서 모든 앱에 걸쳐 총 콘텐츠 크기입니다. [앱 서비스 환경](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>에서 더 많은 저장 옵션을 사용할 수 있습니다. 이러한 리소스는 전용 인스턴스의 실제 리소스(인스턴스 크기 및 인스턴스 수)에 의해 제한됩니다.  
@@ -38,4 +38,4 @@ SLA||<p>|99\.9%|99\.95%<sup>10</sup>|99\.95%<sup>10</sup>
 <sup>9</sup>사용자 지정 실행 파일 및/또는 스크립트를 주문형, 예약형 또는 지속형으로 앱 서비스 인스턴스 내에서 백그라운드 작업으로 실행합니다. Always On은 연속 Webjob 실행을 위해 필요합니다. Azure 스케줄러 무료 또는 표준은 예약된 WebJobs에 필요합니다. 앱 서비스 인스턴스를 실행할 수 있는 WebJob의 수에 미리 정의된 제한은 없지만 응용 프로그램 코드가 수행하려는 작업에 의존하는 실질적인 제한이 있습니다.  
 <sup>10</sup>장애 조치(failover)에 대해 구성된 Azure 트래픽 관리자와 함께 여러 인스턴스를 사용하는 배포에 대해 99.95%의 SLA가 제공됩니다.  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Syncplicity와 Azure Active Directory 통합
@@ -108,7 +108,7 @@
 
 8.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
-    ![확인 페이지](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "확인 페이지")
+    ![확인](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "확인")
 
 ##사용자 프로비전 구성
   
@@ -160,4 +160,4 @@ AAD 사용자가 로그인할 수 있도록 Syncplicity 응용 프로그램에 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

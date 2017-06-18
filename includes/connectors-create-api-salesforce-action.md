@@ -41,4 +41,4 @@
 이제 논리 앱을 테스트할 수 있습니다. Salesforce에서 만든 조건을 충족하는 새 잠재 고객을 만듭니다. 이 연습 과정을 완료한 경우 *amazon.com*을 포함하는 전자 메일 주소를 사용하여 잠재 고객을 만들면 됩니다. 몇 초 후에 논리 앱이 트리거되고 다음과 유사한 결과가 표시될 수 있습니다.  
 ![Salesforce 동작 이미지 9](./media/connectors-create-api-salesforce/action-9.png)  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

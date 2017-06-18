@@ -75,6 +75,8 @@ Azure 로그 통합 서비스는 서비스가 설치된 컴퓨터에서 원격 �
 
 6. 표준 SIEM 파일 전달자 커넥터가 데이터를 SIEM 인스턴스로 파이프하기 위한 적절한 폴더를 가리킵니다. SIEM 구성에서 [SIEM 구성](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm)을 참조하세요.
 
+Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)으로 전자 메일을 보내주세요.
+
 ## 다음 단계
 
 Azure 감사 로그 및 속성 정의에 대해 자세히 알아보려면 다음을 참조하세요.
@@ -88,4 +90,4 @@ Azure 감사 로그 및 속성 정의에 대해 자세히 알아보려면 다음
 - [Azure 보안 센터 FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

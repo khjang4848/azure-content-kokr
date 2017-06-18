@@ -24,7 +24,7 @@
 
 Azure Functions에 대한 런타임은 WebJobs.Script 오픈 소스 프로젝트의 구현입니다. 이 프로젝트는 [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md)에 기반하고 프레임워크는 모두 로컬로 실행할 수 있습니다. 그러나 WebJobs SDK가 저장소 에뮬레이터에서 지원하지 않는 저장소 계정 기능을 사용하기 때문에 Azure 저장소 계정에 연결해야 합니다.
 
-함수는 Azure 포털에서 쉽게 코딩 및 테스트할 수 있지만 경우에 따라 Azure에서 실행하기 전에 로컬로 작업하는 데에도 유용합니다. 예를 들어 Azure Functions가 지원하는 언어 중 일부는 [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx)를 제공하기 때문에 Visual Studio에서 코드를 쉽게 작성할 수 있습니다. 그래고 함수를 원격으로 디버깅할 수 있는 동안 로컬로 더 빠르고 쉽게 디버깅할 수 있습니다. 로컬로 실행하는 경우 WebJobs 스크립트 호스트 코드 뿐만 아니라 함수 코드에서 중단점을 디버깅하고 설정할 수 있습니다.
+함수는 Azure 포털에서 쉽게 코딩 및 테스트할 수 있지만 경우에 따라 Azure에서 실행하기 전에 로컬로 작업하는 데에도 유용합니다. 예를 들어 Azure Functions가 지원하는 언어 중 일부는 [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx)를 제공하기 때문에 Visual Studio에서 코드를 쉽게 작성할 수 있습니다. 그리고 함수를 원격으로 디버깅할 수 있는 동안 로컬로 더 빠르고 쉽게 디버깅할 수 있습니다. 로컬로 실행하는 경우 WebJobs 스크립트 호스트 코드 뿐만 아니라 함수 코드에서 중단점을 디버깅하고 설정할 수 있습니다.
 
 >[AZURE.NOTE] Azure Functions은 현재 미리 보기 상태이며 도구를 비롯한 전반적인 환경을 신속하게 개발하는 중입니다. 이 문서에 설명된 절차는 최종 로컬 개발 환경을 반영하지 않으며 [사용자 의견을 제공](https://feedback.azure.com/forums/355860-azure-functions)해 주시길 부탁드립니다.
 
@@ -219,7 +219,8 @@ Visual Studio가 실행되는 동안 수행된 환경 변수 변경은 자동으
 
 * [Azure Functions 개발자 참조](functions-reference.md)
 * [Azure Functions C# 개발자 참조](functions-reference-csharp.md)
+* [Azure Functions F# 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

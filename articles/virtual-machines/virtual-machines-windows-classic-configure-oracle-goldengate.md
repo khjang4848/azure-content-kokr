@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/17/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus" />
 
 
@@ -43,7 +43,7 @@ oracle GoldenGate는 다음 주요 구성 요소를 포함합니다: 추출, 복
 
 이 자습서에서는 다음을 수행합니다.
 
-1. 사이트 A와 사이트 B에서 데이터베이스를 설치 합니다.  
+1. 사이트 A와 사이트 B에서 데이터베이스를 설치 합니다.
 
 	1. 초기 데이터 로드를 수행 합니다.
 
@@ -250,7 +250,7 @@ Windows 명령 창을 열고 Oracle GoldenGate 명령 인터프리터를 시작�
 	GGSCI (HostName) 1> DBLOGIN USERID ggate, PASSWORD ggate
 	Successfully logged into database.
 
-시스템에서 모든 관리자, 추출, 및 Replicat 프로세스에 대한 상태와 경과(관련 있는 경우)를 표시합니다.
+시스템에서 모든 관리자, 추출 및 Replicat 프로세스에 대한 상태와 경과(관련 있는 경우)를 표시합니다.
 
 	GGSCI (HostName) 2> info all
 	Program     Status      Group       Lag           Time Since Chkpt
@@ -263,7 +263,7 @@ PARAMS 편집 명령을 사용 하여 매개 변수 파일을 열고 다음 정�
 	USERID ggate, PASSWORD ggate
 	PURGEOLDEXTRACTS  C:\OracleGG\dirdat\ex, USECHECKPOINTS
 
-시스템에서 모든 관리자, 추출, 및 Replicat 프로세스에 대한 상태와 경과(관련 있는 경우)를 표시합니다.
+시스템에서 모든 관리자, 추출 및 Replicat 프로세스에 대한 상태와 경과(관련 있는 경우)를 표시합니다.
 
 	GGSCI (HostName) 46> info all
 	Program     Status      Group       Lag           Time Since Chkpt
@@ -488,7 +488,7 @@ MachineGG2를 원격 데스크톱으로 연결하고, Oracle GoldenGate 명령 �
 	EXTRACT DPUMP1 starting
 추출 그룹 ext1에 대한 정보가 표시합니다: GGSCI (MachineGG1) 32> info extract ext1 EXTRACT EXT1 Last Started 2013-11-25 08:03 Status RUNNING Checkpoint Lag 00:00:00 (updated 00:00:02 ago) Log Read Checkpoint Oracle Redo Logs 2013-11-25 08:03:18 Seqno 6, RBA 3230720 SCN 0.1074371 (1074371)
 
-시스템에서 모든 관리자, 추출, 및 Replicat 프로세스에 대한 상태와 경과(관련 있는 경우)를 표시합니다.
+시스템에서 모든 관리자, 추출 및 Replicat 프로세스에 대한 상태와 경과(관련 있는 경우)를 표시합니다.
 
 	GGSCI (MachineGG1) 16> info all
 	Program     Status      Group       Lag at Chkpt  Time Since Chkpt
@@ -511,7 +511,7 @@ MachineGG2를 원격 데스크톱으로 연결하고, Oracle GoldenGate 명령 �
 	Sending START request to MANAGER …
 	EXTRACT DPUMP2 starting
 
-시스템에서 모든 관리자, 추출, 및 Replicat 프로세스에 대한 상태와 경과(관련 있는 경우)를 표시합니다.
+시스템에서 모든 관리자, 추출 및 Replicat 프로세스에 대한 상태와 경과(관련 있는 경우)를 표시합니다.
 
 	GGSCI (ActiveGG2orcldb) 6> info all
 	Program     Status      Group       Lag at Chkpt  Time Since Chkpt
@@ -601,4 +601,4 @@ Oracle GoldenGate 구성을 확인 하려면 사이트 A에서 데이터베이�
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

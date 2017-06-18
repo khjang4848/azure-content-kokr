@@ -4,7 +4,7 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="ginathan;bradsev" />
+	ms.date="09/13/2016"
+	ms.author="bradsev" />
 
 # 실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
 
@@ -29,7 +29,7 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 이 데이터 집합의 각 레코드에는 40개의 열이 있습니다.
 
-- 첫 번째 열은 사용자가 광고를 클릭했는지(값 1) 또는 클릭하지 않았는지(값 0)를 나타내는 레이블 열입니다.
+- 첫 번째 열은 사용자가 **광고**를 클릭했는지(값 1) 또는 클릭하지 않았는지(값 0)를 나타내는 레이블 열입니다.
 - 다음 13개의 열은 숫자입니다.
 - 마지막 26개는 범주 열입니다.
 
@@ -42,7 +42,7 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 	0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
 	0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
 
-이 데이터 집합의 숫자 열과 범주 열 모두에 누락된 값이 있습니다. 아래에서는 누락된 값을 처리하는 간단한 방법을 설명합니다. 데이터에 대한 추가 정보는 Hive 테이블에 저장할 때 살펴봅니다.
+이 데이터 집합의 숫자 열과 범주 열 모두에 누락된 값이 있습니다. 누락된 값을 처리하는 간단한 방법을 설명합니다. 데이터에 대한 추가 정보는 Hive 테이블에 저장할 때 살펴봅니다.
 
 **정의:** *CTR(클릭률):* 데이터를 클릭한 백분율입니다. 이 Criteo 데이터 집합의 CTR은 약 3.3% 또는 0.033입니다.
 
@@ -68,21 +68,21 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 	* 1단계에서 만든 저장소 계정을 HDInsight 클러스터와 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
 
-	* 클러스터의 헤드 노드에 대한 원격 액세스를 활성화해야 합니다. 여기에서 지정한 원격 액세스 자격 증명(클러스터에 대해 지정한 자격 증명과 다름)을 기억해야 합니다. 아래에서 필요합니다.
+	* 클러스터의 헤드 노드에 대한 원격 액세스를 활성화해야 합니다. 여기에서 지정한 원격 액세스 자격 증명(클러스터에 대해 지정한 자격 증명과 다름)을 기억해야 합니다. 다음 절차를 완료하는 데 필요합니다.
 
 3. [Azure ML 작업 영역 만들기](machine-learning-create-workspace.md): 이 Azure 기계 학습 작업 영역은 초기 데이터를 탐색하고 HDInsight 클러스터에 샘플링을 다운로드한 후 기계 학습 모델을 작성하는 데 사용됩니다.
 
 ## <a name="getdata"></a>공용 원본에서 데이터 가져오기 및 사용
 
-링크를 클릭하고 사용 약관에 동의한 후 이름을 제공하여 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 집합에 액세스할 수 있습니다. 아래와 같은 스냅숏이 나타납니다.
+링크를 클릭하고 사용 약관에 동의한 후 이름을 제공하여 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 집합에 액세스할 수 있습니다. 다음과 같은 스냅숏이 나타납니다.
 
 ![Criteo 조건 동의](./media/machine-learning-data-science-process-hive-criteo-walkthrough/hLxfI2E.png)
 
-**Continue to Download**를 클릭하여 데이터 집합 및 사용성을 읽어봅니다.
+**다운로드 계속하기**를 클릭하여 데이터 집합 및 사용성을 읽어봅니다.
 
 데이터는 공용 [Azure Blob 저장소](../storage/storage-dotnet-how-to-use-blobs.md) 위치인 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/에 있습니다. "wasb"는 Azure Blob 저장소 위치를 나타냅니다.
 
-1. 이 공용 Blob 저장소의 데이터는 압축 해제된 데이터의 하위 폴더 3개로 구성됩니다.
+1. 이 공용 Blob Storage의 데이터는 압축 해제된 데이터의 하위 폴더 3개로 구성됩니다.
 
 	1. 하위 폴더 *raw/count/*는 처음 21일간의 데이터(day\_00~day\_20)를 포함합니다.
 	2. 하위 폴더 *raw/train/*은 단일 날짜의 데이터(day\_21)를 포함합니다.
@@ -94,7 +94,7 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 ## <a name="login"></a>클러스터 헤드 노드에 로그인
 
-클러스터의 헤드 노드에 로그인하려면 [Azure 관리](https://manage.windowsazure.com) 포털을 사용하여 클러스터를 찾습니다. 왼쪽에 있는 HDInsight 코끼리 아이콘을 클릭하고 클러스터 이름을 두 번 클릭합니다. **구성** 탭으로 이동하여 페이지 아래쪽에 있는 연결 아이콘을 두 번 클릭하고 메시지가 표시되면 원격 액세스 자격 증명을 입력합니다. 클러스터의 헤드 노드로 이동합니다.
+클러스터의 헤드 노드에 로그인하려면 [Azure Portal](https://ms.portal.azure.com)을 사용하여 클러스터를 찾습니다. 왼쪽에 있는 HDInsight 코끼리 아이콘을 클릭하고 클러스터 이름을 두 번 클릭합니다. **구성** 탭으로 이동하여 페이지 아래쪽에 있는 연결 아이콘을 두 번 클릭하고 메시지가 표시되면 원격 액세스 자격 증명을 입력합니다. 클러스터의 헤드 노드로 이동합니다.
 
 클러스터 헤드 노드에 처음 로그인하면 일반적으로 다음과 같은 화면이 나타납니다.
 
@@ -111,13 +111,16 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 
     cd %hive_home%\bin
 
-**중요**: **이 연습의 모든 Hive 명령은 위의 Hive bin/ 디렉터리 프롬프트에서 실행합니다. 경로 문제가 자동으로 해결됩니다. "Hive 디렉터리 프롬프트", "Hive bin/ 디렉터리 프롬프트" 및 "Hadoop Command Line"은 상호 교환적으로 사용되는 용어입니다.**
+>[AZURE.NOTE] 이 연습의 모든 Hive 명령은 Hive bin/ 디렉터리 프롬프트에서 실행합니다. 경로 문제가 자동으로 해결됩니다. "Hive 디렉터리 프롬프트", "Hive bin/ 디렉터리 프롬프트" 및 "Hadoop Command Line"은 상호 교환적으로 사용되는 용어입니다.
 
-**중요 2**: **하이브 쿼리를 실행하려면 항상 다음을 수행합니다.** cd %hive\_home%\\bin hive
+>[AZURE.NOTE]  Hive 쿼리를 실행하기 위해 항상 다음 명령을 사용할 수 있습니다.
+
+		cd %hive_home%\bin
+		hive
 
 "hive >" 기호와 함께 Hive REPL이 표시되면 쿼리를 잘라내고 붙여넣어 실행하면 됩니다.
 
-아래 코드는 "criteo" 데이터베이스를 만들고 4개의 테이블을 생성합니다.
+다음 코드는 "criteo" 데이터베이스를 만들고 4개의 테이블을 생성합니다.
 
 
 * *개수 생성을 위한 테이블* 한 개(day\_00 - day\_20의 날짜를 기반으로 작성)
@@ -126,7 +129,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 
 날짜 중 하루는 휴일이며 모델에서 휴일과 평일 간의 클릭률 차이를 감지할 수 있는지 확인할 것이기 때문에 테스트 데이터 집합을 두 개의 테이블로 분할합니다.
 
-편의를 위해 아래에 [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) 스크립트가 표시되어 있습니다.
+편의를 위해 다음에 [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) 스크립트가 표시되어 있습니다.
 
 	CREATE DATABASE IF NOT EXISTS criteo;
 	DROP TABLE IF EXISTS criteo.criteo_count;
@@ -161,7 +164,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 
 **지금까지 설명한 모든 Hive 쿼리를 실행할 수 있는 두 가지 방법이 있습니다.**
 
-1. **Hive REPL 명령줄 사용**: 첫 번째는 "hive" 명령을 실행하고 Hive REPL 명령줄에서 위 쿼리를 복사하여 붙여넣는 것입니다. 이렇게 하려면 다음을 수행합니다.
+1. **Hive REPL 명령줄 사용**: 첫 번째는 "hive" 명령을 실행하고 Hive REPL 명령줄에 쿼리를 복사하여 붙여넣는 것입니다. 이렇게 하려면 다음을 수행합니다.
 
 		cd %hive_home%\bin
 		hive
@@ -175,7 +178,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 
 ### 데이터베이스 및 테이블 만들기 확인
 
-다음으로, Hive bin/ 디렉터리 프롬프트에서 아래 명령을 실행하여 데이터베이스 생성을 확인합니다.
+다음으로, Hive bin/ 디렉터리 프롬프트에서 다음 명령을 실행하여 데이터베이스 생성을 확인합니다.
 
 		hive -e "show databases;"
 
@@ -187,7 +190,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 
 이는 "criteo"라는 새 데이터베이스의 생성을 확인합니다.
 
-만든 테이블을 확인하려면 Hive bin/ 디렉터리 프롬프트에서 아래 명령을 실행하기만 하면 됩니다.
+만든 테이블을 확인하려면 Hive bin/ 디렉터리 프롬프트에서 다음 명령을 실행하기만 하면 됩니다.
 
 		hive -e "show tables in criteo;"
 
@@ -214,7 +217,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 		192215183
 		Time taken: 264.154 seconds, Fetched: 1 row(s)
 
-또는 Hive bin/ 디렉터리 프롬프트에서 아래 명령을 실행할 수도 있습니다.
+또는 Hive bin/ 디렉터리 프롬프트에서 다음 명령을 실행할 수도 있습니다.
 
 		hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
 
@@ -229,13 +232,13 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 		189747893
 		Time taken: 267.968 seconds, Fetched: 1 row(s)
 
-일반적으로 아래 명령을 실행하여 Hive bin/ 디렉터리 프롬프트에서 스크립트를 호출할 수도 있습니다.
+일반적으로 다음 명령을 실행하여 Hive bin/ 디렉터리 프롬프트에서 스크립트를 호출할 수도 있습니다.
 
 		hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
 마지막으로 day\_23을 기준으로 테스트 데이터 집합의 test 예제 수를 알아봅니다.
 
-명령은 위와 유사합니다([sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql) 참조).
+수행할 명령은 표시된 명령과 유사합니다([sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql) 참조).
 
 		SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
@@ -294,7 +297,7 @@ Hive의 기본 "histogram\_numeric" 함수를 사용하여 숫자 변수의 변�
 		65510   3446
 		Time taken: 317.851 seconds, Fetched: 20 row(s)
 
-Hive의 LATERAL VIEW - explode 조합은 일반 목록 대신 SQL과 유사한 출력을 생성합니다. 위 테이블에서 첫 번째 열은 bin 중앙값에 해당하고 두 번째 열은 bin 빈도에 해당합니다.
+Hive의 LATERAL VIEW - explode 조합은 일반 목록 대신 SQL과 유사한 출력을 생성합니다. 이 테이블에서 첫 번째 열은 bin 중앙값에 해당하고 두 번째 열은 bin 빈도에 해당합니다.
 
 ### 학습 데이터 집합의 일부 숫자 변수에 대한 백분위수 근사치
 
@@ -403,7 +406,7 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
 
 		--- Finally test data day_23
 		CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
-		col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
+		col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 srical feature; tring)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 		LINES TERMINATED BY '\n'
 		STORED AS TEXTFILE;
@@ -425,11 +428,11 @@ Azure 기계 학습을 계속 진행하기 전에 마지막으로 확인해야 �
 
 **참고:** 이 연습에서는 count 테이블을 사용하여 고차원 범주 기능의 압축된 표현을 생성하는 데 중점을 둡니다. 이 기술 외에도 범주 기능을 인코딩하는 여러 기술이 있습니다. 다른 기술에 대한 자세한 내용은 [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) 및 [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing)을 참조하세요.
 
-개수 데이터에 대한 count 테이블을 작성하려면 raw/count 폴더의 데이터를 사용합니다. 범주 기능에 대해 이러한 count 테이블을 작성하는 방법 또는 미리 작성된 count 테이블을 사용하여 탐색하는 방법은 모델링 섹션에 설명되어 있습니다. "미리 작성된 count 테이블"이란 Microsoft에서 제공하는 count 테이블을 의미합니다. 이러한 테이블에 액세스하는 방법에 대한 자세한 지침은 다음과 같습니다.
+개수 데이터에 대한 count 테이블을 작성하려면 raw/count 폴더의 데이터를 사용합니다. 범주 기능에 대해 이러한 count 테이블을 작성하는 방법 또는 미리 작성된 count 테이블을 사용하여 탐색하는 방법은 모델링 섹션에 설명되어 있습니다. "미리 작성된 count 테이블"이란 Microsoft에서 제공하는 count 테이블을 의미합니다. 이러한 테이블에 액세스하는 방법에 대한 자세한 지침은 다음 섹션에 제공됩니다.
 
 ## <a name="aml"></a> Azure 기계 학습에서 모델 빌드
 
-Azure 기계 학습의 모델 빌드 프로세스는 다음 단계를 따릅니다.
+Azure Machine Learning의 모델 빌드 프로세스는 다음 단계를 따릅니다.
 
 1. [Hive 테이블에서 Azure 기계 학습으로 데이터 가져오기](#step1)
 2. [실험 만들기: 데이터 정리, 학습자 선택 및 count 테이블로 기능화](#step2)
@@ -438,44 +441,44 @@ Azure 기계 학습의 모델 빌드 프로세스는 다음 단계를 따릅니�
 5. [모델 평가](#step5)
 6. [모델을 사용할 웹 서비스로 게시](#step6)
 
-이제 Azure 기계 학습 스튜디오에서 모델을 빌드할 준비가 완료되었습니다. 다운 샘플링한 데이터는 클러스터에 Hive 테이블로 저장됩니다. Azure 기계 학습 **데이터 가져오기** 모듈을 사용하여 이 데이터를 읽습니다. 이 클러스터의 저장소 계정에 액세스하는 데 사용되는 자격 증명은 다음과 같습니다.
+이제 Azure 기계 학습 스튜디오에서 모델을 빌드할 준비가 완료되었습니다. 다운 샘플링한 데이터는 클러스터에 Hive 테이블로 저장됩니다. Azure Machine Learning **Import Data** 모듈을 사용하여 이 데이터를 읽습니다. 이 클러스터의 저장소 계정에 액세스하는 데 사용되는 자격 증명은 뒤에 제공됩니다.
 
-### <a name="step1"></a> 1단계: 데이터 가져오기 모듈을 사용하여 Hive 테이블에서 Azure 기계 학습으로 데이터를 가져와 기계 학습 실험용으로 선택
+### <a name="step1"></a> 1단계: Import Data 모듈을 사용하여 Hive 테이블에서 Azure Machine Learning으로 데이터를 가져와 기계 학습 실험용으로 선택
 
-**+NEW**(+새로 만들기) -> **EXPERIMENT**(실험) -> **Blank Experiment**(빈 실험)를 선택하여 시작합니다. 그런 다음 왼쪽 맨 위의 **검색** 상자에서 "데이터 가져오기"를 검색합니다. 실험 캔버스(화면 중간 부분)에 **데이터 가져오기** 모듈을 끌어다 놓고 데이터에 액세스하기 위해 모듈을 사용합니다.
+**+NEW**(+새로 만들기) -> **EXPERIMENT**(실험) -> **Blank Experiment**(빈 실험)를 선택하여 시작합니다. 그런 다음 왼쪽 맨 위의 **검색** 상자에서 "Import Data"를 검색합니다. 실험 캔버스(화면 중간 부분)에 **Import Data** 모듈을 끌어다 놓고 데이터에 액세스하기 위해 모듈을 사용합니다.
 
-Hive 테이블에서 데이터를 가져오는 동안의 **데이터 가져오기** 모양은 다음과 같습니다.
+Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양은 다음과 같습니다.
 
 ![데이터 가져오기로 데이터 가져오기](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-**데이터 가져오기** 모듈의 경우 그래픽에서 제공되는 매개 변수의 값은 사용자가 제공해야 하는 값 종류에 해당하는 예입니다. 다음은 **데이터 가져오기** 모듈에 대해 설정된 매개 변수를 입력하는 방법에 대한 일반적인 지침입니다.
+**Import Data** 모듈의 경우 그래픽에서 제공되는 매개 변수의 값은 사용자가 제공해야 하는 값 종류에 해당하는 예입니다. 다음은 **Import Data** 모듈에 대해 설정된 매개 변수를 입력하는 방법에 대한 일반적인 지침입니다.
 
 1. **데이터 원본**에서 "Hive query"(Hive 쿼리)를 선택합니다.
 2. **Hive database query**(Hive 데이터베이스 쿼리) 상자에 SELECT * FROM <your\_database\_name.your\_table\_name> 정도만 입력합니다.
 3. **Hcatalog server URI**(Hcatalog 서버 URI): 클러스터가 "abc"인 경우 간단하게 https://abc.azurehdinsight.net입니다.
 4. **Hadoop user account name**(Hadoop 사용자 계정 이름): 클러스터를 지정할 때 선택한 사용자 이름입니다. (원격 액세스 사용자 이름이 아님).
-5. **Hadoop user account password**(Hadoop 사용자 계정 암호): 클러스터를 지정할 때 선택한 위 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
+5. **Hadoop user account password**(Hadoop 사용자 계정 암호): 클러스터를 지정할 때 선택한 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
 6. **Location of output data**(출력 데이터 위치): "Azure"를 선택합니다.
 7. **Azure storage account name**(Azure 저장소 계정 이름): 클러스터와 연결된 저장소 계정입니다.
 8. **Azure storage account key**(Azure 저장소 계정 키): 클러스터와 연결된 저장소 계정의 키입니다.
 9. **Azure container name**(Azure 컨테이너 이름): 클러스터 이름 "abc"의 경우 일반적으로 단순히 "abc"입니다.
 
 
-**데이터 가져오기**에서 데이터 가져오기를 완료하면(모듈에 녹색 틱이 표시됨) 이 데이터를 데이터 집합(선택한 이름 사용)으로 저장합니다. 다음과 같이 표시됩니다.
+**Import Data**에서 데이터 가져오기를 완료하면(모듈에 녹색 틱이 표시됨) 이 데이터를 데이터 집합(선택한 이름 사용)으로 저장합니다. 다음과 같이 표시됩니다.
 
 ![데이터 가져오기로 데이터 저장](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oxM73Np.png)
 
-**데이터 가져오기** 모듈의 출력 포트를 마우스 오른쪽 단추로 클릭합니다. **Save as dataset** 옵션 및 **Visualize** 옵션이 표시됩니다. **Visualize** 옵션을 클릭하면 몇 가지 요약 통계에 유용한 오른쪽 패널과 함께 100개의 데이터 행이 표시됩니다. 데이터를 저장하려면 **Save as dataset**을 클릭하고 지침을 따릅니다.
+**Import Data** 모듈의 출력 포트를 마우스 오른쪽 단추로 클릭합니다. **Save as dataset** 옵션 및 **Visualize** 옵션이 표시됩니다. **Visualize** 옵션을 클릭하면 몇 가지 요약 통계에 유용한 오른쪽 패널과 함께 100개의 데이터 행이 표시됩니다. 데이터를 저장하려면 **Save as dataset**을 클릭하고 지침을 따릅니다.
 
-기계 학습 실험에서 사용하기 위해 저장된 데이터 집합을 선택하려면 아래에 표시된 **검색** 상자를 사용하여 데이터 집합을 찾습니다. 그런 다음 데이터 집합의 이름을 부분적으로 입력하여 데이터 집합에 액세스하고 주 패널로 끌어옵니다. 주 패널에 끌어다 놓으면 기계 학습 모델링에 사용하도록 선택됩니다.
+기계 학습 실험에서 사용하기 위해 저장된 데이터 집합을 선택하려면 다음 그림에 표시된 **검색** 상자를 사용하여 데이터 집합을 찾습니다. 그런 다음 데이터 집합의 이름을 부분적으로 입력하여 데이터 집합에 액세스하고 주 패널로 끌어옵니다. 주 패널에 끌어다 놓으면 기계 학습 모델링에 사용하도록 선택됩니다.
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
-***중요:*** **학습 및 테스트 데이터 집합 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.**
+>[AZURE.NOTE] 학습 및 테스트 데이터 집합 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.**
 
 ### <a name="step2"></a> 2단계: Azure 기계 학습에서 클릭/클릭 안 함을 예측하기 위한 간단한 실험 만들기
 
-Azure 기계 학습 실험은 아래와 같이 표시됩니다.
+Azure ML 실험은 다음과 같이 표시됩니다.
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -503,7 +506,7 @@ Azure 기계 학습 실험은 아래와 같이 표시됩니다.
 
 **중요**:**Count columns**(개수 열) 상자에 개수를 세려고 하는 열을 입력합니다. 이미 설명한 대로 이러한 열은 일반적으로 고차원 범주의 열입니다. 처음에 Criteo 데이터 집합에 Col15에서 Col40까지 26개의 범주 열이 있다고 했습니다. 여기서 이 범주 열의 개수를 세고 인덱스를 붙입니다(아래 나온 것 같이 15부터 40까지 쉼표로 구분).
 
-MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합) HDInsight Hadoop 클러스터 액세스 권한(위에서 기능 탐색에 사용했던 액세스 권한도 이 용도에 재사용 가능) 및 해당 자격 증명이 필요합니다. 위의 그림은 값을 입력했을 때 보이는 모양을 나타냅니다. 이 그림의 표시된 값은 필요한 값으로 바꾸세요.
+MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합) HDInsight Hadoop 클러스터 액세스 권한(기능 탐색에 사용했던 액세스 권한도 이 용도에 재사용 가능) 및 해당 자격 증명이 필요합니다. 이전 그림은 값을 입력했을 때 보이는 모양을 나타냅니다. 이 그림의 표시된 값은 필요한 값으로 바꾸세요.
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
@@ -518,7 +521,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 ##### 학습 및 테스트 데이터 집합의 일부로 포함할 개수 기능 선택
 
-개수 변환이 준비되면 사용자는 **개수 테이블 매개 변수 수정** 모듈을 사용하여 학습 및 테스트 데이터 집합에 포함할 기능을 선택할 수 있습니다. 완성된 모양을 보여 주기 위해 이 모듈을 아래 표시해 놓기는 했지만 실험을 단순하게 하려면 이 모듈을 실제로 사용하지 마세요.
+개수 변환이 준비되면 사용자는 **개수 테이블 매개 변수 수정** 모듈을 사용하여 학습 및 테스트 데이터 집합에 포함할 기능을 선택할 수 있습니다. 완성된 모양을 보여 주기 위해 이 모듈을 여기 표시해 놓기는 했지만 실험을 단순하게 하려면 이 모듈을 실제로 사용하지 마세요.
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
 
@@ -537,7 +540,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 이 R 스크립트에서 열 이름을 "Col1"부터 "Col40"까지로 바꿉니다. 개수 변환에서 이 형식의 이름을 필요로 하기 때문입니다.
 
-두 번째 R 스크립트에서는 음수 클래스를 다운샘플링하여 양수 클래스와 음수 클래스(각각 클래스 1과 클래스 0) 사이에서 분포의 균형을 맞춥니다. 아래의 R 스크립트에서 이 작업을 수행하는 방법을 보여 줍니다.
+두 번째 R 스크립트에서는 음수 클래스를 다운샘플링하여 양수 클래스와 음수 클래스(각각 클래스 1과 클래스 0) 사이에서 분포의 균형을 맞춥니다. 다음 R 스크립트에서 이 작업을 수행하는 방법을 보여 줍니다.
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
 
@@ -551,7 +554,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 ##### 개수 기능이 보이는 모양 발췌
 
-개수 기능이 어떻게 보이는지 보겠습니다. 아래는 이 기능이 보이는 부분을 발췌한 것입니다.
+개수 기능이 어떻게 보이는지 보겠습니다. 다음은 이 기능이 보이는 부분을 발췌한 것입니다.
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
@@ -567,7 +570,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
-실험용이므로 간단히 기본값을 선택하겠습니다. 기본값은 일반적으로 성능에 대해 빠른 기준을 얻을 수 있는 의미 있고 좋은 방법입니다. 기준이 있는 상태에서 원하는 경우 매개 변수를 스윕하여 성능을 향상시킬 수 있습니다.
+실험용이므로 기본값을 선택하겠습니다. 기본값은 일반적으로 성능에 대해 빠른 기준을 얻을 수 있는 의미 있고 좋은 방법입니다. 기준이 있는 상태에서 원하는 경우 매개 변수를 스윕하여 성능을 향상시킬 수 있습니다.
 
 #### 모델 학습
 
@@ -578,25 +581,25 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 #### 모델 점수 매기기
 
-학습된 모델이 있으면 테스트 데이터 집합에 대한 점수를 매기고 성능을 평가할 준비가 된 것입니다. **모델 평가** 모듈과 함께 아래 나와 있는 **모델 점수 매기기** 모듈을 사용하여 이 작업을 수행합니다.
+학습된 모델이 있으면 테스트 데이터 집합에 대한 점수를 매기고 성능을 평가할 준비가 된 것입니다. **Evaluate Model** 모듈과 함께 다음 그림에 있는 **Score Model** 모듈을 사용하여 이 작업을 수행합니다.
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
 
 ### <a name="step5"></a> 5단계: 모델 평가
 
-마지막으로 모델 성능을 분석하겠습니다. 일반적으로 2클래스(이진) 분류 문제의 경우 AUC를 측정하는 것이 좋습니다. 이를 시각화하려면 **점수 매기기 모델** 모듈을 **모델 평가** 모듈에 연결합니다. **Evaluate Model** 모듈에서 **Visualize**를 클릭하면 다음과 같은 그림이 표시됩니다.
+마지막으로 모델 성능을 분석하겠습니다. 일반적으로 2클래스(이진) 분류 문제의 경우 AUC를 측정하는 것이 좋습니다. 이를 시각화하려면 **점수 매기기 모델** 모듈을 **모델 평가** 모듈에 연결합니다. **Evaluate Model** 모듈에서 **Visualize**(시각화)를 클릭하면 다음과 같은 그림이 표시됩니다.
 
 ![Evaluate module BDT 모델](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
 
-이진(또는 2클래스) 분류 문제에서 예측 정확도의 적절한 척도는 AUC(Area Under Curve)입니다. 다음은 테스트 데이터 집합에서 이 모델을 사용한 결과입니다. 결과를 확인하려면 **Evaluate Model** 모듈의 출력 포트를 마우스 오른쪽 단추로 클릭한 다음 **Visualize**를 클릭합니다.
+이진(또는 2클래스) 분류 문제에서 예측 정확도의 적절한 척도는 AUC(Area Under Curve)입니다. 다음은 테스트 데이터 집합에서 이 모델을 사용한 결과입니다. 결과를 확인하려면 **Evaluate Model** 모듈의 출력 포트를 마우스 오른쪽 단추로 클릭한 다음 **Visualize**(시각화)를 클릭합니다.
 
 ![Evaluate Model 모듈 시각화](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
 ### <a name="step6"></a> 6단계: 모델을 웹 서비스로 게시
 혼란을 최소화하면서 Azure 기계 학습 모델을 웹 서비스로 게시하는 기능은 이 기능의 광범위한 사용을 위한 유용한 기능입니다. 이 작업이 완료되면 누구나 예측이 필요한 입력 데이터를 사용하여 웹 서비스를 호출하고 웹 서비스는 모델을 사용하여 해당 예측을 반환할 수 있습니다.
 
-이렇게 하려면 먼저 학습한 모델을 Trained Model 개체로 저장합니다. **모델 학습** 모듈을 마우스 오른쪽 단추로 클릭하고 **Save as Trained Model**(학습된 모델로 저장) 옵션을 사용하여 이 작업을 수행합니다.
+이렇게 하려면 먼저 학습한 모델을 Trained Model 개체로 저장합니다. **Train Model** 모듈을 마우스 오른쪽 단추로 클릭하고 **Save as Trained Model**(학습된 모델로 저장) 옵션을 사용하여 이 작업을 수행합니다.
 
 다음으로 웹 서비스에 대한 입력 및 출력 포트를 만들어야 합니다.
 
@@ -605,7 +608,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 #### 입력 포트에 대한 몇 가지 데이터 행 선택
 
-**SQL 변환 적용** 모듈을 사용하여 입력 포트 데이터로 사용할 10개 행만 편리하게 선택할 수 있습니다. 아래 나와 있는 SQL 쿼리를 사용하여 입력 포트에 대해 이러한 데이터 행을 선택합니다.
+**SQL 변환 적용** 모듈을 사용하여 입력 포트 데이터로 사용할 10개 행만 편리하게 선택할 수 있습니다. 다음에 나와 있는 SQL 쿼리를 사용하여 입력 포트에 대해 이러한 데이터 행을 선택합니다.
 
 ![입력 포트 데이터](./media/machine-learning-data-science-process-hive-criteo-walkthrough/XqVtSxu.png)
 
@@ -618,9 +621,7 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 ![BDT 입력 데이터 만들기](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OEJMmst.png)
 
-참고: 이제 입력 데이터 형식에 대해 **Count Featurizer** 모듈의 OUTPUT을 사용합니다. 이 실험의 실행이 완료되면 **Count Featurizer** 모듈의 출력을 Dataset으로 저장합니다.
-
-**중요:** 이 Dataset은 웹 서비스의 입력 데이터로 사용됩니다.
+>[AZURE.NOTE] 입력 데이터 서식에 대해 **Count Featurizer** 모듈의 OUTPUT을 사용합니다. 이 실험의 실행이 완료되면 **Count Featurizer** 모듈의 출력을 Dataset으로 저장합니다. 이 Dataset은 웹 서비스의 입력 데이터로 사용됩니다.
 
 #### 웹 서비스 게시를 위한 실험 점수 매기기
 
@@ -628,11 +629,11 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 ![데이터 집합의 열 선택](./media/machine-learning-data-science-process-hive-criteo-walkthrough/kRHrIbe.png)
 
-**데이터 집합의 열 선택** 모듈은 데이터 집합에서 데이터를 ‘필터링'할 때 사용할 수 있습니다. 아래 내용이 표시됩니다.
+**데이터 집합의 열 선택** 모듈은 데이터 집합에서 데이터를 ‘필터링'할 때 사용할 수 있습니다. 다음 내용이 표시됩니다.
 
 ![데이터 집합의 열 선택 모듈로 필터링](./media/machine-learning-data-science-process-hive-criteo-walkthrough/oVUJC9K.png)
 
-파란색 입력 및 출력 포트를 가져오려면 오른쪽 아래에서 **prepare webservice**(웹 서비스 준비)를 클릭하면 됩니다. 이 실험을 실행하면 아래와 같이 오른쪽 아래에서 **PUBLISH WEB SERVICE** 아이콘을 클릭하여 웹 서비스를 게시할 수도 있습니다.
+파란색 입력 및 출력 포트를 가져오려면 오른쪽 아래에서 **prepare webservice**(웹 서비스 준비)를 클릭하면 됩니다. 이 실험을 실행하면 다음과 같이 오른쪽 아래에서 **PUBLISH WEB SERVICE**(웹 서비스 게시) 아이콘을 클릭하여 웹 서비스를 게시할 수도 있습니다.
 
 ![웹 서비스 게시](./media/machine-learning-data-science-process-hive-criteo-walkthrough/WO0nens.png)
 
@@ -661,6 +662,6 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 요청한 두 가지 테스트 예제(python 스크립트의 JSON 프레임워크)에 대해 "Scored Labels, Scored Probabilities" 형식의 응답이 제공됩니다. 이 사례에서는 미리 만든 코드에서 제공하는 기본값(모든 숫자 열의 경우 0, 모든 범주 열의 경우 문자열 "값")을 선택했습니다.
 
-Azure 기계 학습을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
+Azure Machine Learning을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

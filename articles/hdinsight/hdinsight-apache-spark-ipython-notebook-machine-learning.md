@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/14/2016" 
 	ms.author="nitinme"/>
 
 
@@ -33,7 +33,7 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 응용 프로그램 빌드를 시작하기 전에 데이터 구조 및 데이터에 대해 수행할 분석 종류를 알려주세요.
 
-이 문서에서는 기본적으로 모든 HDInsight 클러스터에서 사용할 수 있는 샘플 **HVAC.csv** 데이터 파일(**\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**)을 사용합니다. CSV 파일을 다운로드하고 열어서 데이터의 스냅숏을 가져옵니다.
+이 문서에서는 HDInsight 클러스터와 연결되는 Azure Storage 계정에서 사용할 수 있는 **HVAC.csv** 데이터 파일을 샘플로 사용합니다. 이 파일은 저장소 계정에서 **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**에 있습니다. CSV 파일을 다운로드하고 열어서 데이터의 스냅숏을 가져옵니다.
 
 ![HVAC 데이터 스냅숏](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "HVAC 데이터의 스냅숏")
 
@@ -262,4 +262,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -27,7 +27,30 @@
 
 템플릿의 리소스 섹션에서 다음 확장 리소스 정의
 
-   { "type": "Microsoft.Compute/virtualMachines/extensions", "name": "MyCustomScriptExtension", "apiVersion": "2015-05-01-preview", "location": "[parameters('location')]", "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"], "properties": { "publisher": "Microsoft.OSTCExtensions", "type": "CustomScriptForLinux", "typeHandlerVersion": "1.2", "autoUpgradeMinorVersion": true "settings": { "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh" ], "commandToExecute": "sh mongo-install-ubuntu.sh" }, "protectedSettings": {} } }
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "MyCustomScriptExtension",
+  "apiVersion": "2015-05-01-preview",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.OSTCExtensions",
+    "type": "CustomScriptForLinux",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"
+      ],
+      "commandToExecute": "sh mongo-install-ubuntu.sh"
+    },
+    "protectedSettings": {}
+  }
+}
+```
 
 위의 예제에서 사용자 고유의 설정으로 파일 URL 및 파일 이름을 바꿉니다.
 
@@ -37,4 +60,4 @@
 
 * [Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

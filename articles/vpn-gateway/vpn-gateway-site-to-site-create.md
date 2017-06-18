@@ -20,10 +20,9 @@
 # Azure 클래식 포털을 사용하여 사이트 간 연결로 VNet 만들기
 
 > [AZURE.SELECTOR]
-- [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure 클래식 포털](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [클래식 - 클래식 포털](vpn-gateway-site-to-site-create.md)
 
 이 문서에서는 **클래식 배포 모델** 및 크래식 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다. 현재는 Azure 포털을 사용하여 클래식 배포 모델에 대한 종단 간 사이트 간 구성을 만들 수 없습니다.
 
@@ -55,7 +54,7 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 
 2. 화면의 왼쪽 아래 모서리에서 **새로 만들기**를 클릭합니다. 탐색 창에서 **네트워크 서비스**를 클릭한 다음 **가상 네트워크**를 클릭합니다. **사용자 지정 만들기**를 클릭하여 구성 마법사를 시작합니다.
 
-3. VNet을 만들려면 다음 페이지에서 정보를 입력합니다.
+3. VNet을 만들려면 다음 페이지에서 구성 설정을 입력합니다.
 
 ## 가상 네트워크 세부 정보 페이지
 
@@ -76,7 +75,7 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 
 새 로컬 네트워크를 만들 경우 **사이트 간 연결** 페이지가 표시됩니다. 이전에 만든 로컬 네트워크를 사용하려는 경우 이 페이지가 마법사에 나타나지 않고 다음 섹션으로 이동할 수 있습니다.
 
-다음 정보를 입력한 후 다음 화살표를 클릭합니다.
+다음 정보를 입력하고 다음 화살표를 클릭합니다.
 
 - 	**이름**: 로컬(온-프레미스) 네트워크 사이트를 호출할 이름입니다.
 - 	**VPN 장치 IP 주소**: Azure에 연결하는 데 사용할 온-프레미스 VPN 장치의 공용 IPv4 주소입니다. VPN 장치는 NAT 뒤에 배치할 수 없습니다.
@@ -107,4 +106,4 @@ Vnet끼리 서로 연결하려는 경우 [클래식 배포 모델에 대한 VNet
 
 연결이 완료되면 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. 자세한 내용은 [가상 컴퓨터](https://azure.microsoft.com/documentation/services/virtual-machines/) 설명서를 참조하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

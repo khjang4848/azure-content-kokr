@@ -15,7 +15,7 @@
 	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
-	ms.date="06/28/2016" 
+	ms.date="09/19/2016" 
 	ms.author="iainfou" 
 />
 
@@ -28,7 +28,7 @@ RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 컴
 
 ## Azure PowerShell 사용
 
-최신 Azure PowerShell 1.x를 컴퓨터에 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
+최신 Azure PowerShell 1.x를 컴퓨터에 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 가상 컴퓨터를 다시 배포하려면 이 Azure PowerShell 명령을 사용합니다.
 
@@ -41,4 +41,4 @@ RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 컴
 ## 다음 단계
 VM에 연결하는 데 문제가 있는 경우 [RDP 연결 문제 해결](virtual-machines-windows-troubleshoot-rdp-connection.md) 또는 [자세한 RDP 문제 해결 단계](virtual-machines-windows-detailed-troubleshoot-rdp.md)에서 특정 도움말을 찾을 수 있습니다. VM에서 실행 중인 응용 프로그램에 액세스할 수 없는 경우 [응용 프로그램 문제 해결](virtual-machines-windows-troubleshoot-app-connection.md)을 읽어볼 수도 있습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

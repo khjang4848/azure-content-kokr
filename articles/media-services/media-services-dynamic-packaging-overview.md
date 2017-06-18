@@ -1,5 +1,5 @@
 <properties
-	pageTitle="동적 패키징 개요"
+	pageTitle="동적 패키징 개요 | Microsoft Azure"
 	description="이 항목에서는 동적 패키징에 대해 간략하게 설명합니다."
 	authors="Juliako"
 	manager="erikre"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -34,7 +34,7 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 ![동적 인코딩](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 
->[AZURE.NOTE]동적 패키징을 이용하려면 먼저 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 주문형 스트리밍 단위를 하나 이상 가져와야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-manage-origins.md#scale_streaming_endpoints)을 참조하세요.
+>[AZURE.NOTE]동적 패키징을 이용하려면 먼저 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 주문형 스트리밍 단위를 하나 이상 가져와야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
 
 ##일반적인 시나리오
 
@@ -56,13 +56,13 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 3. [콘텐츠를 스트림합니다](media-services-deliver-content-overview.md).
 
 또는
- 
+
 1. 미리 인코드된 MP4 파일을 업로드합니다.
 
-	>[AZURE.NOTE] 이 옵션은 권장되지 않습니다.
-	
+>[AZURE.NOTE] 이 옵션은 권장되지 않습니다.
+
 2. [미리 인코드된 파일의 유효성을 검사합니다](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
-3. [콘텐츠를 스트림합니다](media-services-deliver-content-overview.md).
+3. [콘텐츠를 스트리밍합니다](media-services-deliver-content-overview.md).
 
 
 ##<a id="unsupported_formats"></a>동적 패키징에서 지원하지 않는 형식
@@ -80,4 +80,4 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

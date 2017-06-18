@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/19/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: .NET API를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [AZURE.SELECTOR]
-- [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [데이터 팩터리 편집기 사용](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API 사용](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
+- [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
 
 이 자습서에서는 .NET API를 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 데이터 팩터리의 파이프라인은 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
@@ -34,7 +34,7 @@
 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리 .NET SDK에 대한 자세한 내용은 [데이터 팩터리 .NET API 참조](https://msdn.microsoft.com/library/mt415893.aspx)를 참조하세요.
 
 ## 필수 조건
-- [자습서 개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 살펴보고 자습서 개요 및 전체 필수 구성 요소를 가져옵니다.
+- [자습서 개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 살펴보고 자습서 개요를 가져와서 **필수 구성 요소**를 완료합니다.
 - Visual Studio 2012, 2013 또는 2015
 - [Azure .NET SDK](http://azure.microsoft.com/downloads/) 다운로드 및 설치
 - Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell을 사용하여 Azure Active Directory 응용 프로그램을 만듭니다.
@@ -458,4 +458,4 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

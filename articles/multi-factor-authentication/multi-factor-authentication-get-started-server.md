@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 서버로 시작하기" 
-	description="Azure MFA 서버 시작 방법을 설명하는 Azure 다단계 인증 페이지입니다." 
+	pageTitle="Azure Multi-Factor Authentication 서버로 시작하기"
+	description="Azure MFA 서버 시작 방법을 설명하는 Azure 다단계 인증 페이지입니다."
 	services="multi-factor-authentication"
-	keywords="인증 서버, Azure Multi Factor Authentication 앱 활성화 페이지, 인증 서버 다운로드" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	keywords="인증 서버, Azure Multi Factor Authentication 앱 활성화 페이지, 인증 서버 다운로드"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -69,7 +69,7 @@ Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가�
 
 
 Azure Multi-Factor Authentication 서버 요구 사항|설명|
-:------------- | :------------- | 
+:------------- | :------------- |
 하드웨어|<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li>
 소프트웨어|<li>호스트가 서버 OS인 경우 Windows Server 2008 이상</li><li>호스트가 클라이언트 OS인 경우 Windows 7 이상</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li>
 
@@ -106,7 +106,7 @@ IP 서브넷|네트워크 마스크|IP 범위
 1. 실행 파일을 두 번 클릭합니다. 설치가 시작됩니다.
 2. 설치 폴더 선택 화면에서 해당 폴더가 정확한지 확인하고 다음을 클릭합니다.
 3. 설치가 완료되면 마침을 클릭합니다. 그러면 구성 마법사가 시작됩니다.
-4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**에 체크 표시하고 **다음**을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다. 
+4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**를 선택한 후 **다음**을 클릭합니다.  마법사가 닫히고 서버가 시작됩니다.
 ![클라우드](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. 서버를 다운로드한 페이지로 돌아가서 **정품 인증 자격 증명 생성** 버튼을 클릭합니다. 이 정보를 제공된 상자의 Azure MFA 서버에 복사하고 **활성화**를 클릭합니다.
@@ -175,7 +175,7 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 고급 설정 및 구성 정보에 대한 추가 정보는 아래 표를 사용합니다.
 
 메서드|설명
-:------------- | :------------- | 
+:------------- | :------------- |
 [사용자 포털](multi-factor-authentication-get-started-portal.md)| 배포 및 사용자 셀프 서비스를 포함한 사용자 포털 설정 및 구성에 대한 정보입니다.
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|AD FS를 사용한 Azure Multi-Factor Authentication 설정에 대한 정보입니다.
 [RADIUS 인증](multi-factor-authentication-get-started-server-radius.md)| RADIUS를 사용한 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
@@ -186,4 +186,4 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 [Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md)|Active Directory와 Azure MFA 서버 간의 동기화 설정 및 구성에 대한 정보입니다.
 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)|Azure MFA 서버 웹 서비스 구성 및 설치에 대한 정보입니다.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/15/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 #Azure에서 Windows 가상 컴퓨터 정보
@@ -39,4 +39,8 @@ Azure 가상 컴퓨터는 가상 컴퓨터를 실행하는 실제 하드웨어�
 
 이 자습서로 가상 컴퓨터를 신속하게 만들 수 있기 때문에 가상 컴퓨터를 만들 수 있는 다양한 도구들을 설명하는 대신 한 가지 방법만 제공합니다. 이러한 도구 및 지침에 대한 링크의 요약은 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-creation-choices.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!--links-->
+[앱 서비스]: app-service-choose-me.md
+[클라우드 서비스]: cloud-services-choose-me.md
+[가상 컴퓨터]: #tellmevm
+<!---HONumber=AcomDC_0928_2016-->

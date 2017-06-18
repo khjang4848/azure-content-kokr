@@ -13,21 +13,48 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/21/2016" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - .NET API 변경 로그 
 이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다. [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)에서 Azure Data Factory용 최신 NuGet 패키지를 찾을 수 있습니다.
 
+## 버전 4.11.0
+기능 추가 사항:
+
+- 다음에 링크된 서비스 유형이 추가 되었습니다.
+	- [OnPremisesMongoDbLinkedService](https://msdn.microsoft.com/library/mt765129.aspx)
+	- [AmazonRedshiftLinkedService](https://msdn.microsoft.com/library/mt765121.aspx)
+	- [AwsAccessKeyLinkedService](https://msdn.microsoft.com/library/mt765144.aspx)
+- 다음과 같은 데이터 집합이 추가 되었습니다.
+	- [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
+	- [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
+- 다음과 같은 원본 복사 형식이 추가되었습니다.
+	- [MongoDbSource](https://msdn.microsoft.com/ko-KR/library/mt765123.aspx)
+
+## 4\.10.0 버전
+- 다음 선택적 속성이 TextFormat에 추가되었습니다.
+	- [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
+	- [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
+	- [TreatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
+- 다음에 링크된 서비스 유형이 추가 되었습니다.
+	- [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
+	- [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
+- 다음과 같은 데이터 집합이 추가 되었습니다.
+	- [OnPremisesCassandraTableDataset](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandratabledataset.aspx)
+- 다음과 같은 원본 복사 형식이 추가되었습니다.
+	- [CassandraSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.cassandrasource.aspx)
+- [WebServiceInputs](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azuremlbatchexecutionactivity.webserviceinputs.aspx) 속성을 AzureMLBatchExecutionActivity에 추가합니다.
+	- 다중 웹 서비스 입력을 Azure Machine Learning 실험에 전달하도록 설정합니다.
+
+
 ## 버전 4.9.1
-_릴리스 날짜: 2016년 7월 5일_
 
 ### 버그 수정
 
 - [WebLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.weblinkedservice.authenticationtype.aspx)에 대한 WebApi 기반 인증이 더 이상 사용되지 않습니다.
 
 ## 버전 4.9.0
-_릴리스 날짜: 2016년 6월 10일_
 
 ### 기능 추가 사항
 
@@ -40,7 +67,6 @@ _릴리스 날짜: 2016년 6월 10일_
 - [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) 및 [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx)를 CopySink에 옵션으로 표시합니다.
 
 ## 버전 4.8.0
-_릴리스 날짜: 2016년 5월 25일_
 
 ### 기능 추가 사항
 - 복사 성능을 조정할 수 있도록 하기 위해 복사 작업 유형에 다음과 같은 옵션 속성이 추가되었습니다.
@@ -48,7 +74,6 @@ _릴리스 날짜: 2016년 5월 25일_
 	- [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## 버전 4.7.0
-릴리스 날짜: 2016-05-20
 
 ### 기능 추가 사항
 * 파일을 ORC(Optimized Row Columnar) 형식으로 복사하기 위해 새 StorageFormat 형식 [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) 형식이 추가되었습니다.
@@ -56,14 +81,12 @@ _릴리스 날짜: 2016년 5월 25일_
     * PolyBase를 사용하여 SQL 데이터 웨어하우스로 데이터를 복사할 수 있도록 합니다.
 
 ## 버전 4.6.1
-릴리스 날짜: 2016-04-26
 
 ### 버그 수정
 * 작업 창을 나열하기 위한 HTTP 요청을 해결합니다.
     * 요청 페이로드에서 리소스 그룹 이름 및 데이터 팩터리 이름을 제거합니다.
 
 ## 버전 4.6.0
-릴리스 날짜: 2016.04.14
 
 ### 기능 추가 사항
 
@@ -76,7 +99,6 @@ _릴리스 날짜: 2016년 5월 25일_
 - 데이터가 JSON 형식인 데이터 집합을 정의하는 [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) 유형 [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) 유형이 새로 추가되었습니다.
 
 ## 버전 4.5.0
-릴리스 날짜: 2016.02.24
 
 ### 기능 추가 사항
 * [작업 창에 대한 작업 목록](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx)이 추가되었습니다.
@@ -89,7 +111,6 @@ _릴리스 날짜: 2016년 5월 25일_
     * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
 ## 버전 4.4.0
-릴리스 날짜: 2016.01.28
 
 ### 기능 추가 사항
 
@@ -97,7 +118,6 @@ _릴리스 날짜: 2016년 5월 25일_
 	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). 개념 정보 및 예제는 [Azure 저장소 SAS 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service)를 참조하세요.
 
 ## 버전 4.3.0
-릴리스 날짜: 2015.11.25
 
 ### 기능 추가 사항
 
@@ -106,7 +126,6 @@ _릴리스 날짜: 2016년 5월 25일_
 	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). 개념 정보 및 예제는 [Azure Data Factory를 사용하여 ODBC 데이터 저장소에서 데이터 이동](data-factory-odbc-connector.md)을 참조하세요.
 
 ## 버전 4.2.0
-릴리스 날짜: 2015-11-10
 
 ### 기능 추가 사항
 
@@ -117,7 +136,6 @@ _릴리스 날짜: 2016년 5월 25일_
 
 
 ## Version 4.1.0
-Release date: 2015-10-28
 
 ### 기능 추가 사항
 * 다음에 링크된 서비스 유형이 추가 되었습니다.
@@ -133,10 +151,9 @@ Release date: 2015-10-28
 
 
 ## 버전 4.0.1
-릴리스 날짜: 2015-10-13
 
 ### 주요 변경 내용
-다음 클래스 이름이 변경되었습니다. 새 이름은 4.0.0 릴리스 이전의 원래 클래스 이름입니다.
+다음 클래스의 이름이 변경되었습니다. 새 이름은 4.0.0 릴리스 전의 클래스 원래 이름이었습니다.
  
 4\.0.0의 이름 | 4\.0.1의 이름
 :------------ | :------------ 
@@ -149,7 +166,6 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 
 
 ## 버전 4.0.0
-릴리스 날짜: 2015-10-02
 
 ### 주요 변경 내용
 
@@ -169,7 +185,6 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 | TableListResponse | [DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters | [DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) | 
     
-- 이 릴리스의 **API 버전**은 **2015-10-01**입니다.
 
 - **List** 메서드는 이제 페이징된 결과를 반환합니다. 응답에 비어 있지 않은 **NextLink** 속성이 포함된 경우 클라이언트 응용 프로그램은 모든 페이지가 반환될 때까지 다음 페이지를 계속 가져와야 합니다. 다음은 예제입니다.
 
@@ -190,6 +205,6 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 ### 기능 추가 사항
 - [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript**를 지원하여 Azure SQL 데이터 웨어하우스에 대한 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md) 문서에서 특히 [메커니즘 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) 및 [메커니즘 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) 섹션을 참조하세요.
 
-- 이제 복사 작업의 일부로 Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스 소스에 대한 저장 프로시저 실행을 지원합니다. 이를 지원하기 위해 [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 및 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName** 및 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.
+- 이제 복사 작업의 일부로 Azure SQL 데이터베이스 및 Azure SQL 데이터 웨어하우스 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)과 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

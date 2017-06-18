@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지" 
-	description="클라우드에서 Azure MFA 및 AD FS 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지"
+	description="클라우드에서 Azure MFA 및 AD FS 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
 조직이 Azure Active Directory와 페더레이션되어 있고 Azure AD에서 액세스되는 리소스가 있는 경우 Azure Multi-Factor Authentication 또는 Active Directory Federation Services를 사용하여 이러한 리소스를 보호할 수 있습니다. Azure Multi-Factor Authentication 또는 Active Directory Federation Services를 사용하여 Azure Active Directory 리소스를 보호하려면 아래 절차를 따르세요.
 
-## AD FS를 사용하여 Azure AD 리소스 보안을 유지하려면 다음을 수행합니다. 
+## AD FS를 사용하여 Azure AD 리소스 보안을 유지하려면 다음을 수행합니다.
 
 
 
@@ -67,7 +67,7 @@
 10. Add Transform Claim Rule Wizard(변환 클레임 규칙 추가 마법사)의 드롭다운 목록에서 Custom Rule(사용자 지정 규칙)을 사용하여 Send Claims(클레임 보내기)를 선택하고 Next(다음)를 클릭합니다.
 11. 클레임 규칙 이름 아래에 있는 상자에 로그인한 사용자 유지를 입력합니다.
 12. 사용자 지정 규칙 상자에서 다음을 입력합니다.
-	    
+
 		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
 			=> issue(claim = c);
 ![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -93,4 +93,4 @@
 
 끝났습니다. 이제 회사 인트라넷 외부에서 클레임이 시작하는 경우 Office 365 페더레이션 사용자만 MFA를 사용해야 합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

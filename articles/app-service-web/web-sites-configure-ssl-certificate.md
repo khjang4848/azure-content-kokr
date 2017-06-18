@@ -442,7 +442,9 @@ CA는 다양한 가격의 여러 SSL 인증서 유형을 제공하므로 먼저 
 
 ## 3단계. 도메인 이름 매핑 변경(IP 기반 SSL에만 해당)
 
-**SNI SSL** 바인딩만 사용하는 경우 이 섹션을 건너뛰세요. 여러 **SNI SSL** 바인딩을 앱에 할당된 기존 공유 IP 주소에서 함께 사용할 수 있습니다. 그러나 **IP 기반 SSL** 바인딩을 만든 경우 앱 서비스에서는 바인딩 전용 IP 주소(**IP 기반 SSL**에 필요하기 때문)를 만듭니다. 이 전용 IP 주소로 인해 다음에 해당하는 경우 앱을 추가로 구성해야 합니다.
+**SNI SSL** 바인딩만 사용하는 경우 이 섹션을 건너뛰세요. 여러 **SNI SSL** 바인딩을 앱에 할당된 기존 공유 IP 주소에서 함께 사용할 수 있습니다. 그러나 **IP 기반 SSL** 바인딩을 만든 경우 앱 서비스에서는 바인딩 전용 IP 주소(**IP 기반 SSL**에 필요하기 때문)를 만듭니다. 하나의 전용 IP 주소만을 만들 수 있으므로 하나의 **IP 기반 SSL** 바인딩만 추가할 수 있습니다.
+
+이 전용 IP 주소로 인해 다음에 해당하는 경우 앱을 추가로 구성해야 합니다.
 
 - [A 레코드를 사용하여 사용자 지정 도메인을 Azure 앱에 매핑](web-sites-custom-domain-name.md#a)하고 **IP 기반 SSL** 바인딩을 추가했습니다. 이 시나리오에서는 다음 단계에 따라 전용 IP 주소를 가리키도록 기존 A 레코드를 다시 매핑해야 합니다.
 
@@ -547,4 +549,4 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

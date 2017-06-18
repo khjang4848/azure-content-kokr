@@ -3,7 +3,7 @@
    description="Visual Studio Tools for Docker를 사용하여 Azure Docket 호스트 Linux VM에서 실행 중인 Docker 컨테이너에 ASP.NET Core 웹앱을 배포하는 방법에 대해 설명합니다."   
    services="azure-container-service"
    documentationCenter=".net"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas"/>
+   ms.author="mlearned"/>
 
 # 원격 Docker 호스트에 ASP.NET 컨테이너 배포
 
@@ -25,11 +25,12 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 이 자습서를 완료하려면 다음 작업을 수행해야 합니다.
 
 - [Azure에서 docker-machine을 사용하는 방법](./virtual-machines/virtual-machines-linux-docker-machine.md)의 설명에 따라 Azure Docker 호스트 VM을 만듭니다.
-- [Visual Studio 2015 업데이트 2](https://go.microsoft.com/fwlink/?LinkId=691978)를 설치합니다.
+- [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 설치
+- [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 - [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)를 설치합니다.
 
-## 1\. ASP.NET 5 웹 앱 만들기
-다음 단계에서는 이 자습서에서 사용할 기본적인 ASP.NET 5 앱을 만드는 과정을 안내합니다.
+## 1\. ASP.NET Core 웹앱 만들기
+다음 단계에서는 이 자습서에서 사용할 기본적인 ASP.NET Core 앱을 만드는 과정을 안내합니다.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
@@ -89,4 +90,4 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

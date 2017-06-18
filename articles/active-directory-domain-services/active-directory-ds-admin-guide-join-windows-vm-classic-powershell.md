@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory 도메인 서비스 미리 보기: 관리 가이드 | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: 관리 가이드 | Microsoft Azure"
 	description="Windows 가상 컴퓨터를 Azure PowerShell 및 클래식 배포 모델을 사용하여 관리되는 도메인에 가입합니다."
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
 
-# PowerShell 및 클래식 배포 모델을 사용하여 Windows 가상 컴퓨터 만들기
+# PowerShell을 사용하여 Windows Server 가상 컴퓨터를 관리되는 도메인에 가입
 
 > [AZURE.SELECTOR]
 - [Azure 클래식 포털 - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
@@ -29,7 +29,7 @@
 
 다음 단계에서는 구성 요소 접근 방식을 사용하여 Windows 기반 Azure 가상 컴퓨터를 만들고 미리 구성하는 Azure PowerShell 명령 집합을 사용자 지정하는 방법을 보여 줍니다. 다음 단계는 Windows 기반 Azure 가상 컴퓨터를 빌드하고 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 데 도움이 됩니다.
 
-다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
+다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값을 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다(아직 설치하지 않은 경우). 그런 다음 Windows PowerShell 명령 프롬프트를 엽니다.
 
@@ -147,4 +147,11 @@ Windows 가상 컴퓨터를 만들고 자동으로 Azure AD 도메인 서비스 
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
 
-<!---HONumber=AcomDC_0706_2016-->
+<br>
+
+## 관련 콘텐츠
+- [Azure AD 도메인 서비스 - 시작 가이드](./active-directory-ds-getting-started.md)
+
+- [Azure AD 도메인 서비스 관리되는 도메인 관리](./active-directory-ds-admin-guide-administer-domain.md)
+
+<!---HONumber=AcomDC_0921_2016-->

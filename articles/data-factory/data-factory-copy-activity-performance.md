@@ -13,45 +13,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 
 # 복사 작업 성능 및 조정 가이드
-이 문서에서는 복사 작업으로 Azure Data Factory를 사용할 때 데이터 이동 성능에 영향을 주는 주요 요소에 대해 설명합니다. 또한 고유한 테스트 중에 관측된 성능을 나열하고 복사 작업의 성능을 최적화하는 다양한 방법을 설명합니다.
+Azure 데이터 팩터리 복사 작업은 최고 수준의 보안, 안정성 및 고성능 데이터 로드 솔루션을 제공하여 매일 수십 테라바이트 규모의 데이터를 다양한 클라우드 및 온-프레미스 데이터 저장소에 복사할 수 있게 합니다. 초고속 데이터 로드 성능은 핵심적인 "빅 데이터" 문제인 고급 분석 솔루션을 구축하고 모든 데이터에서 깊은 통찰을 얻는 데 집중할 수 있도록 하는 열쇠입니다.
 
-복사 작업을 사용하면, 데이터 이동 처리량을 높일 수 있습니다.
+Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스 솔루션 세트를 제공하고 복사 작업은 쉽게 구성 및 설정할 수 있는 고도로 최적화된 데이터 로드 환경을 제공합니다. 단일 복사 작업 만을 사용하여 다음을 수행할 수 있습니다.
 
-- 3시간 내에 데이터 1TB를 온-프레미스 파일 시스템에서 Azure Blob 저장소로 수집합니다(100MBps에서).
-- 3시간 내에 데이터 1TB를 온-프레미스 파일 시스템 및 Azure Blob 저장소에서 Azure Data Lake Store로 수집합니다(100MBps에서).
-- 3시간 내에 데이터 1TB를 Blob 저장소에서 Azure SQL Data Warehouse로 수집합니다(100MBps에서).
+- **1.2 Gbps** 속도로 **Azure SQL 데이터 웨어하우스**에 데이터 로드
+- **1.0 Gbps** 속도로 **Azure Blob 저장소**에 데이터 로드
+- **1.0 Gbps** 속도로 **Azure Data Lake Store**에 데이터 로드
 
-복사 작업 성능 및 튜닝 팁에 대해 자세히 알아보고, 성능을 향상시키세요.
+
+이 문서에서는 다음을 설명합니다.
+
+- 지원되는 원본에 대한 [성능 참조 번호](#performance-reference)와 프로젝트를 계획하는 데 도움이 되는 싱크 데이터 저장소.
+- [병렬 복사](#parallel-copy), [클라우드 데이터 이동 단위](#cloud-data-movement-units) 및 [준비된 복사](#staged-copy)를 포함한 다양한 시나리오로 복사 처리량을 높일 수 있는 기능.
+- 성능을 조정하는 방법과 복사 성능에 영향을 줄 수 있는 주요 요소에 관한 [성능 조정 지침](#performance-tuning-steps).
 
 > [AZURE.NOTE] 복사 작업에 대해 전반적으로 잘 알지 못하는 경우, 이 문서를 읽기 전에 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)을 참조하세요.
-
-## 성능 튜닝 단계
-다음 단계에 따라 복사 작업으로 Data Factory 서비스의 성능을 조정하는 것이 좋습니다.
-
-1.	**기초 설정**. 개발 단계 중 대표적인 샘플 데이터에 대한 복사 작업을 사용하여 파이프라인을 테스트합니다. 데이터 팩터리의 [모델 조각화](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices)를 사용하여 작업하는 데이터의 양을 제한할 수 있습니다.
-
-	**모니터링 및 관리 앱**을 사용하여 실행 시간 및 성능 특성을 수집합니다. Data Factory 홈페이지에서 **모니터 및 관리**를 선택합니다. 트리 뷰에서 **출력 데이터 집합**을 선택합니다. **작업 기간** 목록에서 복사 작업 실행을 선택합니다. **작업 기간**에는 복사 작업 기간 및 복사되는 데이터 크기가 나열됩니다. 처리량은 **작업 창 탐색기**에 나열됩니다. 앱에 대해 자세히 알아보려면 [모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
-
-	![작업 실행 세부 정보](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
-
-	문서의 뒷부분에서는 시나리오의 성능 및 구성을 테스트에서 복사 작업의 [성능 참조](#performance-reference)와 비교할 수 있습니다.
-2. **성능 진단 및 최적화**. 확인되는 성능이 기대에 미치지 못하는 경우 성능 병목 상태를 식별해야 합니다. 그런 다음 성능을 최적화하여 병목 현상의 효과를 제거하거나 줄입니다. 성능 진단에 대한 자세한 내용은 이 문서의 범위를 벗어나지만 다음과 같이 몇 가지 일반적인 고려 사항이 있습니다.
-	- [원본](#considerations-for-the-source)
-	- [싱크](#considerations-for-the-sink)
-	- [직렬화 및 역직렬화](#considerations-for-serialization-and-deserialization)
-	- [압축](#considerations-for-compression)
-	- [열 매핑](#considerations-for-column-mapping)
-	- [데이터 관리 게이트웨이](#considerations-for-data-management-gateway)
-	- [기타 고려 사항](#other-considerations)
-	- [병렬 복사](#parallel-copy)
-	- [클라우드 데이터 이동 단위](#cloud-data-movement-units)
-
-3. **전체 데이터 집합으로 구성 확장**. 실행 결과 및 성능에 만족하면 정의 및 파이프라인 활성 기간을 확장하여 전체 데이터 집합을 포함할 수 있습니다.
 
 ## 성능 참조
 
@@ -60,10 +42,10 @@
 주의할 사항:
 
 - 처리량은 다음 수식을 사용하여 계산됩니다. [원본에서 읽은 데이터의 크기]/[복사 작업 실행 기간]
-- 이전 테이블에서 숫자를 계산하는 데 [TPC-H](http://www.tpc.org/tpch/) 데이터 집합을 사용했습니다.
--	클라우드 데이터 저장소 간에 복사하려면 비교를 위해 **cloudDataMovementUnits**를 1과 4로 설정합니다. **parallelCopies**는 지정하지 않습니다. 이러한 기능에 대한 자세한 내용은 [병렬 복사](#parallel-copy) 섹션을 참조하세요.
+- 위의 테이블에 나오는 성능 참조 번호는 [TPC-H](http://www.tpc.org/tpch/) 데이터 집합을 사용하여 단일 복사 작업 실행을 통해 측정된 것입니다.
+- 클라우드 데이터 저장소 간에 복사하려면 비교를 위해 **cloudDataMovementUnits**를 1과 4 (또는 8)로 설정합니다. **parallelCopies**는 지정하지 않습니다. 이러한 기능에 대한 자세한 내용은 [병렬 복사](#parallel-copy) 섹션을 참조하세요.
 - Azure 데이터 저장소에서는 원본 및 싱크는 동일한 Azure 지역에 있습니다.
-- 하이브리드(온-프레미스와 클라우드 또는 클라우드와 온-프레미스) 데이터 이동의 경우 데이터 관리 게이트웨이의 단일 인스턴스는 온-프레미스 데이터 저장소와 별개인 컴퓨터에 있었습니다. 이 구성은 다음 표에 나와 있습니다. 게이트웨이에 단일 작업이 실행 중인 경우 복사 작업은 테스트 컴퓨터의 CPU/메모리 리소스 및 네트워크 대역폭의 작은 부분만 사용합니다.
+- 하이브리드(온-프레미스와 클라우드 또는 클라우드와 온-프레미스) 데이터 이동의 경우 데이터 관리 게이트웨이의 단일 인스턴스는 온-프레미스 데이터 저장소와 별개인 컴퓨터에서 실행되었습니다. 이 구성은 다음 표에 나와 있습니다. 게이트웨이에 단일 작업이 실행 중인 경우 복사 작업은 테스트 컴퓨터의 CPU/메모리 리소스 및 네트워크 대역폭의 작은 부분만 사용합니다.
 	<table>
 	<tr>
 		<td>CPU</td>
@@ -101,7 +83,7 @@
 
 원본 및 싱크 |	서비스에 의해 결정되는 기본 병렬 복사 개수
 ------------- | -------------------------------------------------
-파일 기반 저장소 간에 데이터 복사(Blob 저장소, Data Lake Store, 온-프레미스 파일 시스템, 온-프레미스 Hadoop Distributed File System 또는 HDFS) | 1에서 32 사이. 파일 크기 및 클라우드 데이터 이동 단위의 수(DMU)에 따라, 두 클라우드 데이터 저장소 간에 데이터를 복사하거나, 하이브리드 복사(온-프레미스 데이터 저장소 간에 데이터 복사)에 사용되는 게이트웨이 컴퓨터에 대한 물리적인 구성에 사용됩니다.
+파일 기반 저장소 간에 데이터 복사(Blob 저장소, Data Lake Store, Amazon S3, 온-프레미스 파일 시스템, 온-프레미스 HDFS) | 1에서 32 사이. 파일 크기 및 클라우드 데이터 이동 단위의 수(DMU)에 따라, 두 클라우드 데이터 저장소 간에 데이터를 복사하거나, 하이브리드 복사(온-프레미스 데이터 저장소 간에 데이터 복사)에 사용되는 게이트웨이 컴퓨터에 대한 물리적인 구성에 사용됩니다.
 **원본 데이터 저장소의 데이터를 Azure 테이블 저장소에** 복사 | 4
 기타 모든 원본 및 싱크 쌍 | 1
 
@@ -158,7 +140,9 @@
 	    }
 	]
 
-**cloudDataMovementUnits** 속성에 **허용되는 값** 은 1(기본값), 2, 4, 8입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다. 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 현재는 각각 16MB 이상인 Blob 저장소 간에 또는 Data Lake Store 인스턴스로 여러 파일을 복사하는 경우에만 8 이상으로 설정할 수 있습니다.
+**cloudDataMovementUnits** 속성에 **허용되는 값** 은 1(기본값), 2, 4, 8입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다.
+
+> [AZURE.NOTE] 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 현재는 파일 크기가 각각 16MB 이상인, Blob 저장소에서 Blob 저장소, Data Lake Store, 또는 Azure SQL 데이터베이스로 여러 파일을 복사하는 경우에만 8 이상으로 설정할 수 있습니다.
 
 이러한 2가지 속성을 개선하고 데이터 이동 처리량을 향상시키려면 [샘플 사용 사례](#case-study-use-parallel-copy)를 참조하세요. 기본 동작을 활용하기 위해 **parallelCopies**를 구성할 필요가 없습니다. 구성을 수행하고 **parallelCopies**가 너무 작은 경우 여러 클라우드 DMU가 완전히 활용되지 않을 수 있습니다.
 
@@ -167,9 +151,9 @@
 ## 준비된 복사
 원본 데이터 저장소에서 싱크 데이터 저장소에 데이터를 복사할 경우 중간 준비 저장소로 Blob 저장소를 사용하도록 선택할 수 있습니다. 준비는 다음과 같은 경우에 특히 유용합니다.
 
--	**때로는 느린 네트워크 연결을 통해 하이브리드 데이터 이동(즉, 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소 또는 그 반대로 복사)을 수행하는 데 오랜 시간이 걸립니다.** 성능을 개선하기 위해 온-프레미스 데이터를 압축하면 데이터를 클라우드의 준비 데이터 저장소로 이동하는 데 소요되는 시간이 단축됩니다. 그런 다음 준비 저장소에서 데이터의 압축을 해제한 후 대상 데이터 저장소에 로드할 수 있습니다.
-2.	**기업 IT 정책 때문에 포트 80 및 포트 443 이외의 포트를 열지 않으려고 합니다**. 예를 들어 온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크에 데이터를 복사할 경우 Windows 방화벽 및 회사 방화벽 모두에 대한 포트 1433에서 아웃바운드 TCP 통신을 활성화해야 합니다. 이 시나리오에서는 데이터 관리 게이트웨이를 활용하여 포트 443에서 HTTP 또는 HTTPS를 통해 데이터를 Blob 저장소 준비 인스턴스로 처음 복사할 수 있습니다. 그런 다음 Blob 저장소 준비에서 데이터를 SQL Database 또는 SQL Data Warehouse로 로드합니다. 이 흐름에서는 포트 1433을 사용하도록 설정하지 않아도 됩니다.
-3.	**PolyBase를 통해 다양한 데이터 저장소에서 SQL Data Warehouse에 데이터를 수집합니다.** SQL Data Warehouse는 많은 양의 데이터를 SQL Data Warehouse에 로드하는 처리량이 높은 메커니즘인 PolyBase를 사용합니다. 단, 원본 데이터가 Blob 저장소에 있어야 하고 추가 조건을 충족해야 합니다. Blob 저장소가 아닌 데이터 저장소에서 데이터를 로드하는 경우 중간 준비 Blob 저장소를 통해 데이터 복사를 활성화할 수 있습니다. 이 경우 Data Factory는 PolyBase의 요구 사항을 충족하는지 확인하기 위해 필요한 데이터 변환을 수행합니다. 그런 다음 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드합니다. 자세한 내용 및 샘플은 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
+1.	**PolyBase를 통해 다양한 데이터 저장소에서 SQL Data Warehouse에 데이터를 수집하고자 합니다.** SQL Data Warehouse는 많은 양의 데이터를 SQL Data Warehouse에 로드하는 처리량이 높은 메커니즘인 PolyBase를 사용합니다. 단, 원본 데이터가 Blob 저장소에 있어야 하고 추가 조건을 충족해야 합니다. Blob 저장소가 아닌 데이터 저장소에서 데이터를 로드하는 경우 중간 준비 Blob 저장소를 통해 데이터 복사를 활성화할 수 있습니다. 이 경우 Data Factory는 PolyBase의 요구 사항을 충족하는지 확인하기 위해 필요한 데이터 변환을 수행합니다. 그런 다음 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드합니다. 자세한 내용 및 샘플은 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
+2.	**때로는 느린 네트워크 연결을 통해 하이브리드 데이터 이동(즉, 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소 또는 그 반대로 복사)을 수행하는 데 오랜 시간이 걸립니다.** 성능을 개선하기 위해 온-프레미스 데이터를 압축하면 데이터를 클라우드의 준비 데이터 저장소로 이동하는 데 소요되는 시간이 단축됩니다. 그런 다음 준비 저장소에서 데이터의 압축을 해제한 후 대상 데이터 저장소에 로드할 수 있습니다.
+3.	**기업 IT 정책 때문에 포트 80 및 포트 443 이외의 포트를 열지 않으려고 합니다**. 예를 들어 온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크에 데이터를 복사할 경우 Windows 방화벽 및 회사 방화벽 모두에 대한 포트 1433에서 아웃바운드 TCP 통신을 활성화해야 합니다. 이 시나리오에서는 데이터 관리 게이트웨이를 활용하여 포트 443에서 HTTP 또는 HTTPS를 통해 데이터를 Blob 저장소 준비 인스턴스로 처음 복사할 수 있습니다. 그런 다음 Blob 저장소 준비에서 데이터를 SQL Database 또는 SQL Data Warehouse로 로드합니다. 이 흐름에서는 포트 1433을 사용하도록 설정하지 않아도 됩니다.
 
 ### 준비 복사의 작동 방법
 준비 기능을 활성화하면 먼저 데이터가 원본 데이터 저장소에서 준비 데이터 저장소(직접 준비)로 복사됩니다. 그 다음, 데이터가 준비 데이터 저장소에서 싱크 데이터 저장소로 복사됩니다. Data Factory는 사용자에 대한 2단계 흐름을 자동으로 관리합니다. 또한 Data Factory는 데이터 이동이 완료된 후에 준비 저장소에서 임시 데이터도 정리합니다.
@@ -229,6 +213,31 @@
 - 하이브리드 복사 중에 준비를 사용하는 경우(예를 들어 온-프레미스 SQL Server 데이터베이스에서 SQL Data Warehouse 등 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 복사) [하이브리드 복사 기간]x[하이브리드 복사 단가]+[클라우드 복사 기간]x[클라우드 복사 단가]로 요금이 청구됩니다.
 
 
+## 성능 튜닝 단계
+다음 단계에 따라 복사 작업으로 Data Factory 서비스의 성능을 조정하는 것이 좋습니다.
+
+1.	**기초 설정**. 개발 단계 중 대표적인 샘플 데이터에 대한 복사 작업을 사용하여 파이프라인을 테스트합니다. 데이터 팩터리의 [모델 조각화](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices)를 사용하여 작업하는 데이터의 양을 제한할 수 있습니다.
+
+	**모니터링 및 관리 앱**을 사용하여 실행 시간 및 성능 특성을 수집합니다. Data Factory 홈페이지에서 **모니터 및 관리**를 선택합니다. 트리 뷰에서 **출력 데이터 집합**을 선택합니다. **작업 기간** 목록에서 복사 작업 실행을 선택합니다. **작업 기간**에는 복사 작업 기간 및 복사되는 데이터 크기가 나열됩니다. 처리량은 **작업 창 탐색기**에 나열됩니다. 앱에 대해 자세히 알아보려면 [모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
+
+	![작업 실행 세부 정보](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
+
+	문서의 뒷부분에서는 시나리오의 성능 및 구성을 테스트에서 복사 작업의 [성능 참조](#performance-reference)와 비교할 수 있습니다.
+2. **성능 진단 및 최적화**. 확인되는 성능이 기대에 미치지 못하는 경우 성능 병목 상태를 식별해야 합니다. 그런 다음 성능을 최적화하여 병목 현상의 효과를 제거하거나 줄입니다. 성능 진단에 대한 자세한 내용은 이 문서의 범위를 벗어나지만 다음과 같이 몇 가지 일반적인 고려 사항이 있습니다.
+	- 성능 기능:
+		- [병렬 복사](#parallel-copy)
+		- [클라우드 데이터 이동 단위](#cloud-data-movement-units)
+		- [준비된 복사](#staged-copy)
+	- [원본](#considerations-for-the-source)
+	- [싱크](#considerations-for-the-sink)
+	- [직렬화 및 역직렬화](#considerations-for-serialization-and-deserialization)
+	- [압축](#considerations-for-compression)
+	- [열 매핑](#considerations-for-column-mapping)
+	- [데이터 관리 게이트웨이](#considerations-for-data-management-gateway)
+	- [기타 고려 사항](#other-considerations)
+
+3. **전체 데이터 집합으로 구성 확장**. 실행 결과 및 성능에 만족하면 정의 및 파이프라인 활성 기간을 확장하여 전체 데이터 집합을 포함할 수 있습니다.
+
 ## 원본에 대한 고려 사항
 ### 일반
 기본 데이터 저장소가 다른 실행 중인 워크로드에 의해 과부화되지 않도록 합니다.
@@ -239,14 +248,14 @@ Blob 저장소에서 SQL Data Warehouse로 데이터를 복사하는 경우에�
 
 
 ### 파일 기반 데이터 저장소
-*(Blob 저장소, Data Lake Store, 온-프레미스 파일 시스템 포함)*
+*(Blob 저장소, Data Lake Store, Amazon S3, 온-프레미스 파일 시스템, 온-프레미스 HDFS 포함)*
 
 - **평균 파일 크기 및 파일 개수**: 복사 작업은 데이터를 한 번에 하나씩 전송합니다. 동일한 양의 데이터를 이동하는 경우 각 파일에 대한 부트스트랩 단계이기 때문에 적은 수의 큰 파일보다는 많은 수의 작은 파일로 데이터가 구성되는 경우 전체 처리량은 느려집니다. 따라서 가능하면 작은 파일을 더 큰 파일에 결합하여 처리량을 높입니다.
 - **파일 형식 및 압축**: 성능을 향상하는 다양한 방법은 [직렬화/역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
 - **데이터 관리 게이트웨이**가 필요한 **온-프레미스 파일 시스템** 시나리오는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
 
 ### 관계형 데이터 저장소
-*(SQL Database, SQL Data Warehouse, SQL Server 데이터베이스, Oracle, MySQL, DB2, Teradata, Sybase, PostgreSQL 데이터베이스 포함)*
+*(SQL Database, SQL Data Warehouse, Amazon Redshift, SQL Server 데이터베이스, Oracle, MySQL, DB2, Teradata, Sybase, PostgreSQL 데이터베이스 등 포함)*
 
 - **데이터 패턴**: 테이블 스키마는 복사본 처리량에 영향을 줍니다. 동일한 양의 데이터를 복사하려면 데이터베이스가 더 적은 행 수를 포함하는 데이터에서 적은 배치를 보다 효율적으로 검색할 수 있기 때문에 행 크기가 크면 행 크기가 작은 경우 보다 더 성능이 나아집니다.
 - **쿼리 또는 저장 프로시저**: 데이터를 보다 효율적으로 가져오기 위해 복사 작업 원본에서 지정한 쿼리 또는 저장 프로시저의 논리를 최적화합니다.
@@ -263,7 +272,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 
 ### 파일 기반 데이터 저장소
-*(Blob 저장소, Data Lake Store, 온-프레미스 파일 시스템 포함)*
+*(Blob 저장소, Data Lake Store, Amazon S3, 온-프레미스 파일 시스템, 온-프레미스 HDFS 포함)*
 
 - **복사 동작**: 서로 다른 파일 기반 저장소에서 데이터를 복사하는 경우 복사 작업에는 **copyBehavior** 속성을 통해 3가지 옵션이 제공됩니다. 계층 구조를 유지하고 평면화하며 파일을 병합합니다. 계층 구조를 유지 또는 평면화하는 작업은 성능 오버 헤드가 거의 또는 전혀 발생하지 않는 반면 파일을 병합하는 작업은 성능 오버 헤드가 증가합니다.
 - **파일 형식 및 압축**: 성능을 개선하는 다양한 방법은 [직렬화/역직렬화에 대한 고려 사항](#considerations-for-serialization-and-deserialization) 및 [압축에 대한 고려 사항](#considerations-for-compression) 섹션을 참조하세요.
@@ -271,7 +280,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 - **데이터 관리 게이트웨이**를 사용해야 하는 **온-프레미스 파일 시스템** 시나리오는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
 
 ### 관계형 데이터 저장소
-*(SQL Database, SQL Data Warehouse, SQL Server 데이터베이스 포함)*
+*(SQL Database, SQL Data Warehouse, SQL Server 데이터베이스 및 Oracle 데이터베이스 포함)*
 
 - **복사 동작**: **sqlSink**에 대해 설정된 속성에 따라 복사 작업은 대상 데이터베이스에 데이터를 다양한 방식으로 기록합니다.
 	- 기본적으로 데이터 이동 서비스는 대량 복사 API를 사용하여 추가 모드에 데이터를 삽입하며 이는 최상의 성능을 제공합니다.
@@ -390,4 +399,4 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 - 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](https://msdn.microsoft.com/library/ms189081.aspx)
 - 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

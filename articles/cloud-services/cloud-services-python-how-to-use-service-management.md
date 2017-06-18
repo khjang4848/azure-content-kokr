@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/06/2016"
 	ms.author="lmazuel"/>
 
 # Python에서 서비스 관리를 사용하는 방법
 
-이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. **Python용 Azure SDK**의 [ServiceManagementService](../python-how-to-install.md) 클래스는 [Azure 클래식 포털][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다(예: **클라우드 서비스, 배포, 데이터 관리 서비스, 가상 컴퓨터 만들기, 업데이트 및 삭제**). 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 응용 프로그램을 빌드하는 데 유용할 수 있습니다.
-
 > [AZURE.NOTE] 서비스 관리 API는 현재 미리 보기 릴리스에서 사용할 수 있는 새로운 리소스 관리 API로 대체되고 있습니다. Python에서 새로운 리소스 관리 API를 사용하는 방법에 대한 자세한 내용은 [Azure 리소스 관리 설명서](http://azure-sdk-for-python.readthedocs.org/)를 참조하세요.
 
+이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. **Python용 Azure SDK**의 [ServiceManagementService](https://github.com/Azure/azure-sdk-for-python) 클래스는 [Azure 클래식 포털][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다(예: **클라우드 서비스, 배포, 데이터 관리 서비스, 가상 컴퓨터 만들기, 업데이트 및 삭제**). 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 응용 프로그램을 빌드하는 데 유용할 수 있습니다.
 
 ## <a name="WhatIs"> </a>서비스 관리 정의
 서비스 관리 API는 [Azure 클래식 포털][management-portal]을 통해 사용할 수 있는 대부분의 서비스 관리 기능에 대해 프로그래밍 방식의 액세스를 제공합니다. Python용 Azure SDK를 사용하여 클라우드 서비스 및 저장소 계정을 관리할 수 있습니다.
@@ -31,10 +30,14 @@
 ## <a name="Concepts"> </a>개념
 Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][svc-mgmt-rest-api]를 래핑합니다. 모든 API 작업은 SSL을 통해 수행되고 X.509 v3 인증서를 사용하여 서로 인증됩니다. 관리 서비스는 Azure에서 실행 중인 서비스 내에서 액세스할 수 있거나, HTTPS 요청을 보내고 HTTPS 응답을 받을 수 있는 응용 프로그램에서 인터넷을 통해 직접 액세스할 수 있습니다.
 
+## <a name="Installation"> </a>설치
+
+이 문서에서 설명한 모든 기능은 `azure-servicemanagement-legacy` 패키지에서 사용할 수 있으며, 이 패키지는 pip을 사용하여 설치할 수 있습니다. (예를 들어 Python을 처음 사용한다면) 설치에 관한 자세한 내용은 이 문서 [Python 설치 및 Azure SDK](../python-how-to-install.md)를 참조합니다.
+
 ## <a name="Connect"> </a>방법: 서비스 관리에 연결
 서비스 관리 끝점에 연결하려면 Azure 구독 ID 및 유효한 관리 인증서가 있어야 합니다. [Azure 클래식 포털][management-portal]을 통해 구독 ID를 얻을 수 있습니다.
 
-> [AZURE.NOTE] Python용 Azure SDK v0.8.0부터 이제 Windows에서 실행할 때 OpenSSL로 만든 인증서를 사용할 수 있습니다. 여기에는 Python 2.7.4 이상이 필요합니다. .pfx 인증서 지원은 나중에 제거될 가능성이 크기 때문에 사용자는 .pfx 대신 OpenSSL을 사용하는 것이 좋습니다.
+> [AZURE.NOTE] Python용 Azure SDK v0.8.0부터 이제 Windows에서 실행할 때 OpenSSL로 만든 인증서를 사용할 수 있습니다. Python 2.7.4 이상이 필요합니다. .pfx 인증서 지원은 나중에 제거될 가능성이 크기 때문에 사용자는 .pfx 대신 OpenSSL을 사용하는 것이 좋습니다.
 
 ### Windows/Mac/Linux의 관리 인증서(OpenSSL)
 [OpenSSL](http://www.openssl.org/)을 사용하여 관리 인증서를 만들 수 있습니다. 실제로 서버용(`.cer` 파일)과 클라이언트용(`.pem` 파일)으로 두 개의 인증서를 만들어야 합니다. `.pem` 파일을 만들려면 다음을 실행합니다.
@@ -59,7 +62,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인�
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
-위 예제에서 `sms`는 **ServiceManagementService** 개체입니다. **ServiceManagementService** 클래스는 Azure 서비스를 관리하는 데 사용되는 주 클래스입니다.
+앞의 예제에서 `sms`은 **ServiceManagementService** 개체입니다. **ServiceManagementService** 클래스는 Azure 서비스를 관리하는 데 사용되는 주 클래스입니다.
 
 ### Windows의 관리 인증서(MakeCert)
 
@@ -81,7 +84,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인�
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
-위 예제에서 `sms`는 **ServiceManagementService** 개체입니다. **ServiceManagementService** 클래스는 Azure 서비스를 관리하는 데 사용되는 주 클래스입니다.
+앞의 예제에서 `sms`은 **ServiceManagementService** 개체입니다. **ServiceManagementService** 클래스는 Azure 서비스를 관리하는 데 사용되는 주 클래스입니다.
 
 ## <a name="ListAvailableLocations"> </a>방법: 사용 가능한 위치 나열
 
@@ -129,7 +132,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인�
 
 	sms.create_hosted_service(name, label, desc, location)
 
-**list\_hosted\_services** 메서드로 구독의 모든 호스티드 서비스를 나열할 수 있습니다.
+**list\_hosted\_services** 메서드로 구독의 모든 호스팅 서비스를 나열할 수 있습니다.
 
 	result = sms.list_hosted_services()
 
@@ -187,7 +190,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인�
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-위 예제에서 **create\_storage\_account** 작업 상태는 **create\_storage\_account**가 반환한 결과를 **get\_operation\_status** 메서드에 전달하여 검색할 수 있습니다.
+앞의 예제에서 **create\_storage\_account** 작업 상태는 **create\_storage\_account**가 반환한 결과를 **get\_operation\_status** 메서드에 전달하여 검색할 수 있습니다.
 
 **list\_storage\_accounts** 메서드로 저장소 계정 및 그 속성을 나열할 수 있습니다.
 
@@ -306,7 +309,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure 클라우드 서비스 인�
 		location=location)
 
 	# Name of an os image as returned by list_os_images
-	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
+	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-ko-KR-30GB.vhd'
 
 	# Destination storage account container/blob where the VM disk
 	# will be created
@@ -433,6 +436,6 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[클라우드 서비스]: https://azure.microsoft.com/en-us/documentation/services/cloud-services/
+[클라우드 서비스]: https://azure.microsoft.com/documentation/services/cloud-services/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # Azure CLI를 사용하여 Application Gateway 만들기
@@ -53,6 +53,28 @@ Azure 응용 프로그램 게이트웨이는 계층 7 부하 분산 장치입니
 
 Azure 응용 프로그램 게이트웨이에는 자체 서브넷이 필요합니다. 가상 네트워크를 만들 때 여러 서브넷을 둘 수 있는 충분한 주소 공간이 있는지 확인합니다. Application Gateway를 서브넷에 배포한 경우 추가 Application Gateway를 서브넷에 추가할 수 있습니다.
 
+## Azure에 로그인
+
+**Microsoft Azure 명령 프롬프트**를 열고 로그인합니다.
+
+    azure login
+
+앞의 예제를 입력하면 코드가 제공됩니다. 브라우저에서 https://aka.ms/devicelogin(으)로 이동하여 로그인 프로세스를 계속합니다.
+
+![장치 로그인을 보여 주는 cmd][1]
+
+브라우저에서 받은 코드를 입력합니다. 로그인 페이지로 리디렉션됩니다.
+
+![코드를 입력하는 브라우저][2]
+
+로그인한 코드가 입력된 후 브라우저를 닫아 시나리오를 계속합니다.
+
+![성공적으로 로그인][3]
+
+## Resource Manager 모드로 전환합니다.
+
+    azure config mode arm
+
 ## 리소스 그룹 만들기
 
 Application Gateway를 만들기 전에 리소스 그룹이 Application Gateway를 포함하도록 만들어집니다. 다음은 명령을 표시합니다.
@@ -75,9 +97,11 @@ Application Gateway를 만들기 전에 리소스 그룹이 Application Gateway�
 
 가상 네트워크와 서브넷을 만들면 Application Gateway에 대한 필수 구성 요소가 완료됩니다. 또한 이전에 내보낸 .pfx 인증서 및 인증서의 암호는 다음 단계에 필요합니다. 백 엔드에 사용되는 IP 주소는 백 엔드 서버에 대한 IP 주소입니다. 이 값은 가상 네트워크의 개인 IP, 공용 IP 또는 백 엔드 서버의 정규화된 도메인 이름일 수 있습니다.
 
-    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd
+    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
 
-이 예제에서는 수신기, 백 엔드 풀, 백 엔드 http 설정 및 규칙에 대한 기본 설정으로 기본 Application Gateway를 만듭니다. 또한 SSL 오프로드를 구성합니다. 프로비전에 성공하면 배포에 맞게 이러한 설정을 수정할 수 있습니다. 이전 단계에서 정의된 백 엔드 풀에 대한 IP 주소를 사용하여 정의된 웹 응용 프로그램이 이미 있는 경우 Application Gateway가 프로비전되고 시작되면 부하가 분산되기 시작합니다.
+
+
+이 예제에서는 수신기, 백 엔드 풀, 백 엔드 http 설정 및 규칙에 대한 기본 설정으로 기본 Application Gateway를 만듭니다. 또한 SSL 오프로드를 구성합니다. 프로비전에 성공하면 배포에 맞게 이러한 설정을 수정할 수 있습니다. 이전 단계에서 백 엔드 풀로 정의된 웹 응용 프로그램이 이미 있는 경우 만들어지면 부하 분산이 시작됩니다.
 
 ## 다음 단계
 
@@ -88,5 +112,8 @@ Application Gateway를 만들기 전에 리소스 그룹이 Application Gateway�
 <!--Image references-->
 
 [scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli/figure3.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

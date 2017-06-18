@@ -134,7 +134,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 3. 프로젝트를 업로드하고 실행하여 로그 데이터를 생성합니다.
 4. [Azure 포털](https://portal.azure.com/)에서 새 Application Insights 리소스를 찾아서 **검색**을 엽니다. 요청, 사용법 및 다른 원격 분석와 함께 로그 데이터가 표시됩니다. 일부 원격 분석에 몇 분 정도 걸릴 수 있습니다. 새로 고침을 클릭합니다. [자세히 알아보기](../application-insights/app-insights-diagnostic-search.md)
 
-[Application Insights로 추적되는 성능에 대해 알아보기](../azure-portal/insights-perf-analytics.md)
+[Application Insights로 추적되는 성능에 대해 알아보기](../application-insights/app-insights-azure-web-apps.md)
 
 ##<a name="streamlogs"></a> 방법: 스트림 로그
 
@@ -270,4 +270,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

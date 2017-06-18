@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Microsoft Azure Multi-Factor Auth 공급자 시작" 
-	description="Azure Multi-Factor Auth 공급자를 만드는 방법에 대해 알아봅니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Microsoft Azure Multi-Factor Auth 공급자 시작"
+	description="Azure Multi-Factor Auth 공급자를 만드는 방법에 대해 알아봅니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -26,7 +26,7 @@ Multi-Factor Authentication은 기본적으로 Azure Active Directory 및 Office
 SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니다.
 
 > [AZURE.IMPORTANT]  SDK를 다운로드하려는 경우 Azure MFA, AAD Premium 또는 EMS 라이선스가 있더라도 Azure Multi-Factor Auth 공급자를 만들어야 합니다. 이 용도로 Azure Multi-Factor Auth 공급자를 만들고 이미 라이선스를 보유하고 있는 경우 **활성화된 사용자별** 모델로 공급자를 만들고 Azure MFA, Azure AD Premium 또는 EMS 라이선스를 포함하는 디렉터리에 공급자를 연결해야 합니다. 이렇게 하면 사용자가 소유하는 라이선스 수보다 SDK를 사용한 더 많은 고유 사용자가 없는 한 요금은 청구되지 않습니다.
- 
+
 다음 단계를 따라 Azure Multi-Factor Auth 공급자를 만듭니다.
 
 ## Multi-Factor Auth 공급자를 만들려면
@@ -49,4 +49,4 @@ SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니�
 		- Azure AD Connect, AAD Sync 또는 DirSync는 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우에만 필요합니다. 동기화되지 않은 Azure AD 디렉터리를 사용하는 경우 필요하지 않습니다. ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 5. 만들기를 클릭하면 Multi-Factor Authentication 공급자가 생성되고 **Multi-Factor Authentication 공급자를 성공적으로 만들었습니다**라는 메시지가 표시됩니다. **확인**을 클릭합니다. ![MFA 공급자 만들기](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

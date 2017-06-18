@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # 포털을 통해 Azure 리소스 관리
@@ -94,7 +94,7 @@
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-     대시보드를 사용하는 방법을 알아보려면 [Azure 포털에서 사용자 지정 대시보드 빌드](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) 비디오를 시청하세요. 게시된 대시보드에 대한 액세스를 공유하는 방법을 알아보려면 [Azure 대시보드 공유](azure-portal-dashboard-share-access.md)를 참조하세요.
+     대시보드를 사용하는 방법을 알아보려면 [Azure 포털에서 대시보드 만들기 및 공유](azure-portal-dashboards.md)를 참조하세요.
 
 ## 리소스 관리
 
@@ -151,4 +151,4 @@
 - 포털을 통해 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure 포털을 사용하여 리소스 배포](../resource-group-template-deploy-portal.md)를 참조하세요.
 - 리소스에 대한 액세스를 관리하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

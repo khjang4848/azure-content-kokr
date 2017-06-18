@@ -4,7 +4,7 @@ description="HDInsight에서 실행 중인 Hadoop 서비스에 사용된 포트 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="08/30/2016"
+ms.date="09/13/2016"
 ms.author="larryfr"/>
 
 # HDInsight에 사용되는 포트 및 URI
@@ -36,9 +36,9 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 
 | 부여 | 포트 | 프로토콜 | 설명 |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | 헤드 노드 0에서 클라이언트를 sshd에 연결합니다. [Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요. |
+| sshd | 22 | SSH | 기본 헤드 노드에서 sshd에 클라이언트를 연결합니다. [Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요. |
 | sshd | 22 | SSH | 에지 노드에서 클라이언트를 sshd에 연결합니다(HDInsight 프리미엄만 해당). [HDInsight에서 R 서버 사용 시작](hdinsight-hadoop-r-server-get-started.md)을 참조하세요. |
-| sshd | 23 | SSH | 헤드 노드 1에서 클라이언트를 sshd에 연결합니다. [Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요. |
+| sshd | 23 | SSH | 보조 헤드 노드에서 sshd에 클라이언트를 연결합니다. [Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요. |
 | Ambari | 443 | HTTPS | Ambari 웹 UI. [Ambari 웹 UI를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요. |
 | Ambari | 443 | HTTPS | Ambari REST API. [Ambari REST API를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari-rest-api.md)를 참조하세요. |
 | WebHCat | 443 | HTTPS | HCatalog REST API. [Curl에서 Hive 사용](hdinsight-hadoop-use-Pig-curl.md), [Curl에서 Pig 사용](hdinsight-hadoop-use-Pig-curl.md), [Curl에서 MapReduce 사용](hdinsight-hadoop-use-mapreduce-curl.md)을 참조하세요. |
@@ -143,4 +143,4 @@ HDInsight 클러스터의 모든 노드는 Azure 가상 네트워크에 있으�
 | Broker | 작업자 노드 | 9092 | [Kafka 유선 프로토콜](http://kafka.apache.org/protocol.html) | 클라이언트 통신에 사용됨 |
 | &nbsp; | Zookeeper 노드 | 2181 | &nbsp; | 클라이언트가 ZooKeeper 연결에 사용하는 포트 |
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

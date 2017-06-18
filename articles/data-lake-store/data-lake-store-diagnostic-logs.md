@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -25,7 +25,7 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 ## 필수 조건
 
 - **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-- 데이터 레이크 저장소 공개 미리 보기를 위해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
+- Data Lake Store 공개 미리 보기에 대해 **Azure 구독을 사용하도록 설정합니다**. [지침](data-lake-store-get-started-portal.md#signup)을 참조하세요.
 - **Azure Data Lake 저장소 계정** [Azure 포털을 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)의 지침을 따릅니다.
 
 ## Data Lake Store 계정에 대한 진단 로깅 사용
@@ -115,26 +115,26 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 
 #### 요청 로그 스키마
 
-| 이름 | 형식 | 설명 |
+| Name | 형식 | 설명 |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| 실시간 | String | 로그의 타임스탬프(UTC) |
+| 실시간 | 문자열 | 로그의 타임스탬프(UTC) |
 | resourceId | String | 작업이 수행되는 리소스의 ID |
-| 카테고리 | String | 로그 범주 예를 들어 **요청** |
+| 카테고리 | 문자열 | 로그 범주 예를 들어 **요청** |
 | operationName | String | 기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType | 문자열 | 작업의 상태, 예를 들어 200 |
-| callerIpAddress | String | 요청한 클라이언트의 IP 주소 |
-| CorrelationId | String | 관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
+| callerIpAddress | 문자열 | 요청한 클라이언트의 IP 주소 |
+| CorrelationId | 문자열 | 관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
 | ID | Object | 로그를 생성하는 ID |
 | properties | JSON | 자세한 내용은 다음을 참조하세요. |
 
 #### 요청 로그 속성 스키마
 
-| 이름 | 형식 | 설명 |
+| Name | 형식 | 설명 |
 |----------------------|--------|-----------------------------------------------------------|
-| HttpMethod | 문자열 | 작업에 사용된 HTTP 메서드 예를 들어 GET |
+| HttpMethod | String | 작업에 사용된 HTTP 메서드 예를 들어 GET |
 | Path | 문자열 | 작업이 수행된 경로 |
 | RequestContentLength | int | HTTP 요청의 콘텐츠 길이 |
-| ClientRequestId | 문자열 | 이 요청을 고유하게 식별하는 ID |
+| ClientRequestId | String | 이 요청을 고유하게 식별하는 ID |
 | StartTime | 문자열 | 서버가 요청을 받은 시간 |
 | EndTime | 문자열 | 서버가 응답을 전송한 시간 |
 
@@ -164,22 +164,22 @@ Data Lake Store 계정에 대한 진단 로깅을 사용하는 방법 및 계정
 
 #### 감사 로그 스키마
 
-| 이름 | 형식 | 설명 |
+| Name | 형식 | 설명 |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| 실시간 | String | 로그의 타임스탬프(UTC) |
+| 실시간 | 문자열 | 로그의 타임스탬프(UTC) |
 | resourceId | String | 작업이 수행되는 리소스의 ID |
-| 카테고리 | String | 로그 범주 예를 들어 **감사** |
+| 카테고리 | 문자열 | 로그 범주 예를 들어 **감사** |
 | operationName | String | 기록된 작업의 이름 예를 들어 getfilestatus |
 | resultType | 문자열 | 작업의 상태, 예를 들어 200 |
-| CorrelationId | String | 관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
+| CorrelationId | 문자열 | 관련된 로그 항목의 집합을 그룹화하는 데 사용할 수 있는 로그의 ID |
 | ID | Object | 로그를 생성하는 ID |
 | properties | JSON | 자세한 내용은 다음을 참조하세요. |
 
 #### 감사 로그 속성 스키마
 
-| 이름 | 형식 | 설명 |
+| Name | 형식 | 설명 |
 |------------|--------|------------------------------------------|
-| StreamName | String | 작업이 수행된 경로 |
+| StreamName | 문자열 | 작업이 수행된 경로 |
 
 
 ## 로그 데이터를 처리하는 샘플
@@ -192,4 +192,4 @@ Azure Data Lake Store에서는 로그 데이터를 처리하고 분석하는 방
 - [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
 - [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -23,7 +23,7 @@
 - [DNS 구성](hdinsight-hbase-geo-replication-configure-DNS.md)
 - [HBase 복제 구성](hdinsight-hbase-geo-replication.md)
 
-Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 사용하여 Ipsec/IKE를 통한 보안 터널을 제공합니다. VNet은 서로 다른 구독 및 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. Vnet 간 연결을 사용하는 이유는 다음과 같습니다.
+Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 사용하여 Ipsec/IKE를 통한 보안 터널을 제공합니다. VNet은 서로 다른 구독과 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수도 있습니다. Vnet 간 연결을 사용하는 이유는 다음과 같습니다.
 
 - 지역 간 지리적 중복 및 지리적 상태
 - 분리 경계가 뚜렷한 지역별 다중 계층 응용 프로그램
@@ -53,7 +53,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 
 - **Azure PowerShell이 포함된 워크스테이션**.
 
-	PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
+	PowerShell 스크립트를 실행하기 전에 다음의 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
 		Add-AzureAccount
 
@@ -272,4 +272,4 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/13/2016"
 	ms.author="guybo"/>
 
 # 가상 컴퓨터 규모 집합 개요
 
 가상 컴퓨터 규모 집합은 동일한 VM 집합을 배포하고 관리하는데 사용할 수 있는 Azure 계산 리소스입니다. 모든 VM이 동일하게 설정되는 VM 규모 집합은 자동 크기 조정을 충실하게 지원하도록 설계되었습니다. VM 사전 프로비전이 필요하지 않으며, 큰 계산, 빅 데이터 및 컨테이너식 워크로드를 대상으로 하는 대규모 서비스를 쉽게 구축할 수 있도록 합니다.
 
-계산 리소스 크기를 조정해야 하는 응용 프로그램의 경우 크기 조정 작업은 장애 도메인 및 업데이트 도메인 간에 암시적으로 균형이 조정됩니다. VM 규모 집합에 대한 소개는 최신 [Azure 블로그 공지](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/)를 참조하세요.
+계산 리소스 크기를 조정해야 하는 응용 프로그램의 경우 크기 조정 작업은 장애 도메인 및 업데이트 도메인 간에 암시적으로 균형이 조정됩니다. VM 규모 집합에 대한 소개는 [Azure 블로그 공지](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/)를 참조하세요.
 
 VM 규모 집합에 대한 자세한 정보는 이러한 비디오를 살펴보세요.
 
@@ -31,7 +31,9 @@ VM 규모 집합에 대한 자세한 정보는 이러한 비디오를 살펴보�
 
 ## VM 규모 집합 만들기 및 관리
 
-VM 규모 집합은 개별적인 Azure 리소스 관리자 VM과 마찬가지로 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx)를 사용하여 정의하고 배포할 수 있습니다. 따라서 모든 표준 Azure 리소스 관리자 배포 방법을 사용할 수 있습니다. 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+_new_를 선택하고 검색 표시줄에 "scale"을 입력하여 [Azure 포털](https://portal.azure.com)에 VM 크기 집합을 만들 수 있습니다. 결과에 "가상 컴퓨터 규모 집합"이 표시됩니다. 여기에서 필수 필드를 입력하여 규모 집합을 사용자 지정하고 배포할 수 있습니다.
+
+VM 규모 집합은 개별적인 Azure Resource Manager VM과 마찬가지로 JSON 템플릿 및 [REST API](https://msdn.microsoft.com/library/mt589023.aspx)를 사용하여 정의하고 배포할 수도 있습니다. 따라서 모든 표준 Azure 리소스 관리자 배포 방법을 사용할 수 있습니다. 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
 VM 규모 집합에 대한 예제 템플릿의 집합은 Azure 빠른 시작 템플릿 GitHub 리포지토리 [여기](https://github.com/Azure/azure-quickstart-templates)에서 찾을 수 있습니다. 제목에서 _vmss_가 있는 템플릿을 찾아 보세요.
 
@@ -49,7 +51,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 ## VM 규모 집합 모니터링
 
-[Azure 포털](https://portal.azure.com)은 규모 집합을 표시하고 기본 속성을 제공할 뿐 아니라 집합에 VM 목록을 표시합니다. 자세한 내용은 [Azure 리소스 탐색기](https://resources.azure.com)를 사용하여 VM 규모 집합을 보는 것이 좋습니다. VM 규모 집합은 Microsoft.Compute의 리소스이므로 이 사이트에서 다음 링크를 확장하여 VM 규모 집합을 볼 수 있습니다.
+[Azure 포털](https://portal.azure.com)은 규모 집합을 표시하고 기본 속성을 제공할 뿐 아니라 집합에 VM 목록을 표시합니다. 자세한 내용은 [Azure Resource Explorer](https://resources.azure.com)를 사용하여 VM 규모 집합을 보는 것이 좋습니다. VM 규모 집합은 Microsoft.Compute의 리소스이므로 이 사이트에서 다음 링크를 확장하여 VM 규모 집합을 볼 수 있습니다.
 
 	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
@@ -75,7 +77,7 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 	[이러한 방식의 예제에서 이 템플릿은 VM 규모 집합 기반 VM 클러스터를 관리하는 독립 실행형 마스터 VM으로 구성된 간단한 Mesos 클러스터를 만듭니다.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **VM 규모 집합 인스턴스에 부하 분산** - "라운드 로빈" 방식을 사용하여 VM 계산 클러스터에 작업을 전달하려면, 그에 맞게 Azure Load Balancer에 부하 분산 규칙을 구성합니다. 지정된 프로토콜, 간격, 요청 경로로 포트를 Ping하여 응용 프로그램이 실행되는지 확인하는 프로브를 정의할 수 있습니다. 또한 Azure [응용 프로그램 게이트웨이](https://azure.microsoft.com/services/application-gateway/)는 보다 복잡한 부하 분산 시나리오와 함께 규모 집합을 지원합니다.
+ - **VM 규모 집합 인스턴스에 부하 분산** - "라운드 로빈" 방식을 사용하여 VM 계산 클러스터에 작업을 전달하려면, 그에 맞게 Azure Load Balancer에 부하 분산 규칙을 구성합니다. 지정된 프로토콜, 간격, 요청 경로로 포트를 Ping하여 응용 프로그램이 실행되는지 확인하는 프로브를 정의할 수 있습니다. 또한 Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/)는 보다 복잡한 부하 분산 시나리오와 함께 규모 집합을 지원합니다.
 
 	[IIS 웹 서버를 실행하는 VM으로 구성되는 VM 규모 집합을 만들고 부하 분산 장치를 사용하여 각 VM이 수신하는 부하를 분산하는 예제가 있습니다. 또한 HTTP 프로토콜을 사용하여 각 VM의 특정 URL을 ping합니다.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Microsoft.Network/loadBalancers 리소스 종류를 살펴보고 virtualMachineScaleSet의 networkProfile 및 extensionProfile을 살펴보세요.)
 
@@ -149,10 +151,10 @@ VM 규모 집합에서 가상 컴퓨터의 수를 늘리거나 줄이려면, _�
 
 **Q.** VM 규모 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있습니까?
 
-**A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다([예: 확장 로그 모니터링](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). 확장 시퀀싱에 대한 추가 지침은 블로그 게시물 [Azure VM 규모 집합의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)에서 찾을 수 있습니다.
+**A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다([예: 확장 로그 모니터링](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). 확장 시퀀싱에 대한 추가 지침은 블로그 게시물 [Azure VM 크기 집합의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)에서 찾을 수 있습니다.
 
 **Q.** VM 규모 집합은 Azure 가용성 집합과 작업이 가능합니까?
 
 **A.** 예. VM 규모 집합은 FD 5개와 UD 5개를 포함하는 암시적인 가용성 집합입니다. virtualMachineProfile에 대해 아무것도 구성할 필요가 없습니다. 앞으로 출시되는 릴리스에서 VM 규모 집합이 여러 테넌트로 확장될 가능성이 있지만 현재 규모 집합은 단일 가용성 집합입니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

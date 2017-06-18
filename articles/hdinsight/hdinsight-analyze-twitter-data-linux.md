@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -161,7 +161,7 @@ Twitter를 사용하여 [각 트윗에 대한 데이터](https://dev.twitter.com
 
 	진행률 표시기가 표시되어야 하며 트윗으로 최대 100%의 횟수가 다운로드되며 파일로 저장됩니다.
 
-    > [AZURE.NOTE] 진행률 표시줄이 전진하는 데 매우 긴 시간이 걸리는 경우 추세 항목을 추적하는 필터를 변경해야 합니다. 필터링할 항목에 대한 트윗이 많은 경우 필요한 10,000개의 트윗을 매우 신속하게 가져올 수 있습니다.
+    > [AZURE.NOTE] 진행률 표시줄이 전진하는 데 매우 긴 시간이 걸리는 경우 추세 항목을 추적하는 필터를 변경해야 합니다. 필터링할 항목에 대한 트윗이 많은 경우 필요한 트윗 10,000개를 매우 신속하게 가져올 수 있습니다.
 
 ###데이터 업로드
 
@@ -319,4 +319,4 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

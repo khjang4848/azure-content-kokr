@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication을 사용할 경우 Azure MFA 로그인 환경" 
+<properties
+	pageTitle="Azure Multi-Factor Authentication을 사용할 경우 Azure MFA 로그인 환경"
 	description="이 페이지에서는 Azure MFA에서 사용할 수 있는 다양한 로그인 방법을 확인할 수 있는 위치에 대한 지침을 제공합니다."
-	keywords="사용자 인증, 로그인 환경, 휴대폰으로 로그인, 사무실 전화로 로그인" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	keywords="사용자 인증, 로그인 환경, 휴대폰으로 로그인, 사무실 전화로 로그인"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication의 로그인 환경
 > [AZURE.NOTE]  이 페이지에 제공된 다음의 문서는 일반적인 로그인 환경을 보여줍니다. 로그인 관련 지원은 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-manage-settings.md)를 참조하세요.
@@ -27,13 +27,13 @@
 
 
 수행하는 작업|설명
-:------------- | :------------- | 
+:------------- | :------------- |
 [휴대폰 또는 사무실 전화로 로그인](#signing-in-with-mobile-or-office-phone) | 휴대폰 또는 사무실 전화를 사용하여 로그인할 때 예상할 수 있는 환경입니다.
 [알림을 사용하여 Microsoft Authenticator 앱에 로그인](#signing-in-with-the-microsoft-authenticator-app-using-notification) | 인증을 통해 Microsoft Authenticator 앱을 사용할 때 예상할 수 있는 환경입니다.
 [확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인](#signing-in-with-the-microsoft-authenticator-app-using-verification-code)|확인 코드를 통해 Microsoft Authenticator 앱을 사용할 때 예상할 수 있는 환경입니다.
 [다른 방법을 사용하여 로그인](#signing-in-with-an-alternate-method)|여기서는 대체 방법을 사용하려면 경우 예상할 수 있는 환경을 보여 줍니다.
 
-<h2 id="-1">휴대폰 또는 사무실 전화로 로그인</h2>
+## 휴대폰 또는 사무실 전화로 로그인
 
 다음 정보에서는 휴대폰 또는 사무실 전화를 통해 다단계 인증을 사용하는 환경에 대해 설명합니다.
 
@@ -50,7 +50,7 @@
 
 - 사용자가 로그인됩니다.</li>
 
-<h2 id="-3">알림을 사용하여 Microsoft Authenticator 앱에 로그인</h2>
+## 알림을 사용하여 Microsoft Authenticator 앱에 로그인
 
 다음 정보에서는 알림을 받았을 때 Microsoft Authenticator에서 Multi-Factor Authentication을 사용하는 환경에 대해 설명합니다.
 
@@ -71,7 +71,7 @@
 - 사용자가 로그인됩니다.
 
 
-<h2 id="-5">확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인</h2>
+## 확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인
 
 다음 정보에서는 확인 코드를 함께 사용할 때 Microsoft Authenticator 앱에서 Multi-Factor Authentication을 사용하는 환경에 대해 설명합니다.
 
@@ -91,7 +91,7 @@
 - 사용자가 로그인됩니다.
 
 
-<h2 id="-7">다른 방법을 사용하여 로그인</h2>
+## 다른 방법을 사용하여 로그인
 
 
 다음 섹션에서는 기본 방법을 사용할 수 없을 때 대체 방법을 사용하여 로그인하는 방법을 보여 줍니다.
@@ -105,6 +105,4 @@
 
 - 대체 방법을 선택하고 로그인합니다.
 
- 
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2016"
+	ms.date="09/07/2016"
 	ms.author="byvinyal"/>
 
 # 방법: Azure 앱 서비스에서 앱 모니터링
@@ -47,7 +47,7 @@
    
 **기본**, **표준** 및 **프리미엄** 계획에 호스팅되는 앱에 적용 가능한 유일한 할당량은 **파일 시스템**입니다.
 
-다양한 앱 서비스 SKU에 사용할 수 있는 특정 할당량, 한도 및 기능에 대한 자세한 정보는 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md#app-service-limits)에서 확인할 수 있습니다.
+다양한 App Service SKU에 사용할 수 있는 특정 할당량, 한도 및 기능에 대한 자세한 정보는 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md#app-service-limits)에서 확인할 수 있습니다.
 
 #### 할당량 적용
 
@@ -126,9 +126,9 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다. **CPU 시간
 
 응용 프로그램 및 앱 서비스 계획에 대한 메트릭은 다음 세분성 및 보존 정책에 따라 서비스에 의해 기록 및 집계됩니다.
 
- * **분** 세분성 메트릭은 **24시간** 동안 보존됩니다.
- * **시** 세분성 메트릭은 **7일** 동안 보존됩니다.
- * **일** 세분성 메트릭은 **30일** 동안 보존됩니다.
+ * **분** 세분성 메트릭은 **48시간** 동안 보존됩니다.
+ * **시** 세분성 메트릭은 **30일** 동안 보존됩니다.
+ * **일** 세분성 메트릭은 **90일** 동안 보존됩니다.
 
 ## Azure 포털에서 할당량 및 메트릭을 모니터링합니다.
 
@@ -160,4 +160,4 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다. **CPU 시간
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

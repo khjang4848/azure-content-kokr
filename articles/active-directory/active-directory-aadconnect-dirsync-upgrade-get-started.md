@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -208,4 +208,4 @@ Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](acti
 사용자 지정된 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
 설치에 사용되는 계정 | [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-accounts-permissions.md)
 
-<!-----HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

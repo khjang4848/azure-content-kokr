@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/02/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 # Windows Server 또는 Linux에서 독립 실행형 서비스 패브릭 클러스터 만들기
@@ -27,8 +27,8 @@ Azure 서비스 패브릭을 사용하면 Windows Server 또는 Linux를 실행 
 다음 운영 체제를 실행하는 컴퓨터 또는 VM에서 클러스터를 만들 수 있습니다.
 
 * Windows Server 2012 R2
-* Windows Server 2016
-* Linux
+* Windows Server 2016(일반 공급으로 발표된 후)
+* Linux(예정)
 
 Windows Server에 대한 자세한 내용은 [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)를 참조하세요.
 
@@ -62,4 +62,4 @@ Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기:
 
 Linux를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Linux의 서비스 패브릭](service-fabric-linux-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

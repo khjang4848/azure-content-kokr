@@ -46,10 +46,10 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 필요
 8. AS2에 필요한 **헤더**가 추가됩니다. HTTP 요청 헤더에 위치합니다. 이 예제에서는 논리 앱을 트리거한 HTTP 헤더의 본문을 선택합니다.
 9. 이제 **작업 추가**를 다시 선택하여 X12 메시지 디코딩 작업을 추가합니다. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-9.png)
 10. 사용하려는 작업에 대해 모든 작업을 필터링하기 위해 검색 상자에 **x12**라는 단어를 입력합니다. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)
-11. **X12 - X12 메시지 디코딩** 작업을 선택하여 논리 앱에 추가합니다. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-11.png)
+11. **X12 - X12 메시지 디코딩** 작업을 선택하여 논리 앱에 추가합니다. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)
 12. 이제 위의 AS2 작업의 출력인 이 작업에 대한 입력을 지정해야 합니다. 실제 메시지 내용은 JSON 개체에 있으며 base64로 인코딩됩니다. 따라서 식을 입력으로 지정해야 하기 때문에 다음 식을 **디코딩할 X12 플랫 파일 메시지** 입력 필드에 입력합니다.
 
-    @base64ToString(body('Decode\_AS2\_message')?['Message']?['Content'])
+    @base64ToString(body('Decode\_AS2\_message')?['AS2Message']?['Content'])
 
 13. 이 단계는 거래 파트너로부터 수신한 X12 데이터를 디코딩하고 JSON 개체에 항목의 수를 출력합니다. 데이터의 수신을 파트너에게 알리기 위해 HTTP 응답 작업에서 AS2 MDN(메시지 처리 알림)을 포함하는 응답을 다시 보낼 수 있습니다.
 14. **작업 추가**를 선택하여 **응답** 작업을 추가합니다. ![](./media/app-service-logic-enterprise-integration-b2b/b2b-14.png)
@@ -75,4 +75,4 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 필요
 
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](./app-service-logic-enterprise-integration-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

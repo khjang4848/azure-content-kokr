@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -121,4 +121,4 @@ HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용�
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 위의 **Azure 기계 학습 권한 부여 키 가져오기**를 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

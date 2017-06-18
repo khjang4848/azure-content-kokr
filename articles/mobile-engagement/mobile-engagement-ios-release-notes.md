@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/12/2016"
 	ms.author="piyushjo" />
 
 #Azure Mobile Engagement iOS SDK 릴리스 정보
+
+##4\.0.0(09/12/2016)
+
+-   iOS 10 장치에서 알림이 작동하지 않는 문제를 해결했습니다.
+-   XCode 7은 더 이상 사용되지 않습니다.
 
 ##3\.2.4(2016년 6월 30일)
 
@@ -71,4 +76,4 @@
 -   보안이 개선되었습니다.
 -   SmartAd 추적 기능이 제거되었습니다.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

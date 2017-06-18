@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="08/26/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma" />
 
 # Azure 배치 풀에서 Linux 계산 노드 프로비전
 
 Azure 배치를 사용하여 Linux 및 Windows 가상 컴퓨터에서 병렬 계산 워크로드를 실행할 수 있습니다. 이 문서에서는 [배치 Python][py_batch_package] 및 [배치 .NET][api_net] 클라이언트 라이브러리를 모두 사용하여 배치 서비스에서 Linux 계산 노드 풀을 만드는 방법에 대해 자세히 설명합니다.
 
-> [AZURE.NOTE] 배치에서 Linux 지원은 현재 미리 보기로 제공됩니다. 여기서 설명하는 기능의 몇 가지 측면은 일반 공급 전에 변경될 수 있습니다. [응용 프로그램 패키지](batch-application-packages.md)는 Linux 계산 노드에서 현재 지원되지 않습니다.
+> [AZURE.NOTE] [Application packages](Batch-application-packages.md)는 현재 Linux 계산 노드에서 지원되지 않습니다.
 
 ## 가상 컴퓨터 구성
 
@@ -349,6 +349,4 @@ MSDN의 [Azure 배치 포럼][forum]은 배치를 설명하고 서비스에 대�
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "응용 프로그램 패키지에 대한 개략적인 다이어그램"
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

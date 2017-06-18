@@ -1,6 +1,6 @@
 <properties
-	pageTitle="공유 액세스 서명: SAS 모델 | Microsoft Azure 이해하기"
-	description="SAS(공유 액세스 서명)를 사용하여 Blob, 큐, 테이블 및 파일을 비롯한 Azure 저장소 리소스에 대한 액세스 권한을 위임하는 방법을 알아봅니다. 공유 액세스 서명을 통해 계정에서 다른 사용자에게 리소스에 액세스를 허용하는 동안 저장소 계정 키를 보호할 수 있습니다. 부여하는 사용 권한 및 SAS 유효 간격을 제어할 수 있습니다. 저장된 액세스 정책도 설정하는 경우 계정 보안 문제가 발생할 염려가 있는 SAS를 취소할 수 있습니다."
+	pageTitle="SAS(공유 액세스 서명) 사용 | Microsoft Azure"
+	description="SAS(공유 액세스 서명)를 사용하여 Blob, 큐, 테이블 및 파일을 비롯한 Azure 저장소 리소스에 대한 액세스 권한을 위임하는 방법을 알아봅니다."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 
 
-# 공유 액세스 서명, 1부: SAS 모델 이해하기
+# SAS(공유 액세스 서명) 사용
 
 ## 개요
 
@@ -289,7 +289,7 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 응용 프로그램에서 공유 액세스 서명을 사용할 경우 다음과 같은 두 가지 잠재적 위험에 대해 잘 알고 있어야 합니다.
 
 - SAS가 누설될 경우 SAS를 획득한 모든 사용자가 SAS를 사용하여 저장소 계정을 손상시킬 수 있습니다.
-- 클라이언트 응용 프로그램에 제공된 SAS가 만료되어 응용 프로그램이 서비스에서 새 SAS를 검색할 수 없는 경우 응용 프로그램의 기능이 저하될 수 있습니다.  
+- 클라이언트 응용 프로그램에 제공된 SAS가 만료되어 응용 프로그램이 서비스에서 새 SAS를 검색할 수 없는 경우 응용 프로그램의 기능이 저하될 수 있습니다.
 
 다음은 공유 액세스 서명을 사용하여 이러한 위험을 조율하는 데 도움이 되는 권장 사항입니다.
 
@@ -318,4 +318,4 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

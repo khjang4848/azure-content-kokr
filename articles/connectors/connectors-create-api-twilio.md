@@ -9,12 +9,12 @@ editor=""
 tags="connectors"/>
 
 <tags
-ms.service="multiple"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
+ms.workload="integration"
+ms.date="09/19/2016"
 ms.author="mandia"/>
 
 # Twilio 커넥터 시작
@@ -25,15 +25,15 @@ Twilio에 연결하여 전역 SMS, MMS 및 IP 메시지를 보내고 받습니�
 
 Twilio를 사용하여 다음을 수행할 수 있습니다.
 
-- Twilio에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다. 
-- 메시지 가져오기, 메시지 나열 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 새 Twilio 메시지를 받은 경우 이 메시지를 가져와 서비스 버스 워크플로에서 사용할 수 있습니다. 
+- Twilio에서 가져온 데이터를 기반으로 비즈니스 흐름을 빌드합니다.
+- 메시지 가져오기, 메시지 나열 등의 작업을 사용합니다. 이러한 작업을 사용하여 응답을 가져오고 출력을 다른 작업에 사용할 수 있도록 설정합니다. 예를 들어 새 Twilio 메시지를 받은 경우 이 메시지를 가져와 서비스 버스 워크플로에서 사용할 수 있습니다.
 
 논리 앱에 작업을 추가하려면 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)를 참조하세요.
 
 ## 트리거 및 작업
 Twilio 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니다.
 
-| 트리거 | actions|
+| 트리거 | 작업|
 | --- | --- |
 |없음| <ul><li>메시지 가져오기</li><li>메시지 나열</li><li>메시지 보내기</li></ul>|
 
@@ -249,4 +249,4 @@ Twilio 커넥터에는 다음 작업이 포함됩니다. 트리거는 없습니�
 ## 다음 단계
 [논리 앱 만들기](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

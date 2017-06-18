@@ -6,13 +6,13 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/06/2016"
+   ms.date="09/15/2016"
    ms.author="magoedte;bwren"/>
 
 # Azure 자동화에서 Runbook 시작
@@ -32,14 +32,6 @@
 다음 이미지는 Runbook의 수명 주기에서 자세한 단계별 프로세스를 보여 줍니다. Runbook이 Azure 자동화에서 시작하는 다른 방법인 Hybrid Runbook Worker에 필요한 구성 요소를 포함하여 Azure 자동화 Runbook 및 다른 구성 요소 간의 상호 작용을 실행합니다. 데이터 센터에서 자동화 Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 참조하세요.
 
 ![Runbook 아키텍처](media/automation-starting-runbook/runbooks-architecture.png)
-
-## Azure 포털을 사용하여 Runbook 시작
-
-1.	Azure 포털에서 **자동화**를 선택한 다음 자동화 계정의 이름을 클릭합니다.
-2.	**Runbook** 탭을 선택합니다.
-3.	Runbook을 선택하고 **시작**을 클릭합니다.
-4.	Runbook에 매개 변수가 있는 경우 각 매개 변수에 대한 텍스트 상자와 함께 값을 제공하라는 메시지가 표시됩니다. 매개 변수에 대한 자세한 내용은 아래의 [Runbook 매개 변수](#Runbook-parameters)를 참조하세요.
-5.	**시작 중** Runbook 메시지 옆의 **작업 보기**를 선택하거나, Runbook에 대한 **작업** 탭을 선택하여 Runbook 작업의 상태를 확인합니다.
 
 ## Azure 포털을 사용하여 Runbook 시작
 
@@ -91,7 +83,7 @@ Azure 자동화 웹 서비스는 다음 섹션에 설명된 대로 특정 데이
 
 ### 명명된 값
 
-매개 변수의 데이터 형식이 [object]인 경우 *{"Name1":Value1, "Name2":Value2, "Name3":Value3}* JSON 형식을 사용하여 명명된 값 목록으로 전송할 수 있습니다. 이러한 값은 단순한 형식이어야 합니다. Runbook에 각 명명된 값에 해당하는 속성이 있는 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject(v=vs.85).aspx)로 매개 변수가 수신됩니다.
+매개 변수의 데이터 형식이 [object]인 경우 *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}* JSON 형식을 사용하여 명명된 값 목록으로 전송할 수 있습니다. 이러한 값은 단순한 형식이어야 합니다. Runbook에 각 명명된 값에 해당하는 속성이 있는 [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx)로 매개 변수가 수신됩니다.
 
 예를 들어 다음 테스트 Runbook에서는 user라는 매개 변수를 허용합니다.
 
@@ -101,10 +93,11 @@ Workflow Test-Parameters
    param (
       [Parameter(Mandatory=$true)][object]$user
    )
-    if ($user.Show) {
-        foreach ($i in 1..$user.RepeatCount) {
-            $user.FirstName
-            $user.LastName
+    $userObject = $user | ConvertFrom-JSON
+	if ($userObject.Show) {
+        foreach ($i in 1..$userObject.RepeatCount) {
+            $userObject.FirstName
+            $userObject.LastName
         }
     }
 }
@@ -113,7 +106,7 @@ Workflow Test-Parameters
 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 ```
-{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+{FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 그러면 다음과 같이 출력됩니다.
@@ -191,6 +184,7 @@ jsmith
 
 ## 다음 단계
 
--	현재 문서의 Runbook 아키텍처에서는 하이브리드 Runbook에 대한 자세한 설명을 제공합니다. 자세한 내용은 [Azure 자동화의 자식 Runbook](automation-child-runbooks.md)을 참조하세요.
+-	현재 문서의 Runbook 아키텍처는 Hybrid Runbook Worker를 사용하여 Azure 및 온-프레미스에서 리소스를 관리하는 runbook의 대략적인 개요를 제공합니다. 데이터 센터에서 자동화 Runbook의 실행에 대해 알아보려면 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 참조하세요.
+-	특정 또는 일반 함수에 대해 다른 Runbook에서 사용될 모듈식 Runbook 만들기에 대한 자세한 내용은 [자식 Runbook](automation-child-runbooks.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

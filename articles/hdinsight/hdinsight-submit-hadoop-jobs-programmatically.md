@@ -2,7 +2,7 @@
 	pageTitle="HDInsight에서 Hadoop 작업 제출 | Microsoft Azure"
 	description="Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 작업 제출
@@ -26,4 +26,4 @@
 - [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md)
 - [HDInsight에서 Oozie 사용](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

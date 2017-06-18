@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: TalentLMS와 Azure Active Directory 통합
@@ -99,18 +99,18 @@
     ![SSO(Single sign-on)](./media/active-directory-saas-talentlms-tutorial/IC777297.png "SSO(Single sign-on)")
 
     1.  **SSO 통합 형식** 목록에서 **SAML 2.0**을 선택합니다.
-    2.  Azure 클래식 포털의 **TalentLMS에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자(IdP)** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **TalentLMS에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **ID 공급자(IdP)** 텍스트 상자에 붙여 넣습니다.
     3.  내보낸 인증서에서 **지문** 값을 복사한 다음 **인증서 지문** 텍스트 상자에 붙여 넣습니다.
 
         >[AZURE.TIP] 자세한 내용은 [인증서의 지문 값을 검색하는 방법](http://youtu.be/YKQF266SAxI)을 참조하십시오.
 
-    4.  Azure 클래식 포털의 **TalentLMS에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **원격 로그인 URL** 텍스트 상자에 붙여넣습니다.
-    5.  Azure 클래식 포털의 **TalentLMS에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    4.  Azure 클래식 포털의 **TalentLMS에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **원격 로그인 URL** 텍스트 상자에 붙여 넣습니다.
+    5.  Azure 클래식 포털의 **TalentLMS에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **원격 로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
     6.  **TargetedID** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**를 입력합니다.
-7.  **이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**를 입력합니다.
-8.  **성** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**를 입력합니다.
-9.  **이메일** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
-10. **Save**를 클릭합니다.
+    7.  **이름** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**를 입력합니다.
+    8.  **성** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**를 입력합니다.
+    9.  **이메일** 텍스트 상자에 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**를 입력합니다.
+    10. **Save**를 클릭합니다.
 
 9.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
@@ -120,7 +120,7 @@
   
 Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLMS로 프로비전되어야 합니다. TalentLMS의 경우 프로비전은 수동 작업입니다.
 
-###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
+###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1.  자신의 **TalentLMS** 테넌트에 로그인합니다.
 
@@ -153,4 +153,4 @@ Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLM
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/20/2016" 
+    ms.date="09/09/2016" 
     ms.author="jeedes" />
 
 #자습서: Workday와 Azure Active Directory 통합
@@ -80,7 +80,7 @@
 
 	b. **Workday 회신 URL** 텍스트 상자에서 다음 패턴을 사용하여 Workday 회신 URL을 입력합니다. `https://impl.workday.com/<tenant>/login-saml.htmld`
 
-	>[AZURE.NOTE] 회신 URL에 하위 도메인이 있어야 합니다(예: www, wd2, wd3, wd3-impl, wd5, wd5-impl). "**http://www.myworkday.com*" 등을 사용하면 작동하지만 "**http://myworkday.com*"을 사용하면 작동하지 않습니다.
+	>[AZURE.NOTE] 회신 URL에 하위 도메인이 있어야 합니다(예: www, wd2, wd3, wd3-impl, wd5, wd5-impl). "*http://www.myworkday.com*" 등을 사용하면 작동하지만 "*http://myworkday.com*"을 사용하면 작동하지 않습니다.
  
 4.  **Workday에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -106,9 +106,9 @@
 
 	a. **행 추가**를 클릭합니다.
 
-	b. **로그인 리디렉션 URL** 텍스트 상자 및 **모바일 리디렉션 URL** 텍스트 상자에서 Azure 클래식 포털의 **앱 URL 구성** 페이지에 입력한 **Workday 테넌트 URL**를 입력합니다.
+	b. **로그인 리디렉션 URL** 텍스트 상자 및 **모바일 리디렉션 URL** 텍스트 상자에서 Azure 클래식 포털의 **앱 URL 구성** 페이지에 입력한 **Workday 테넌트 URL**을 입력합니다.
     
-	c. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL**을 복사한 다음 **로그아웃 리디렉션 URL** 텍스트 상자에 붙여넣습니다.
+	c. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL**을 복사한 다음 **로그아웃 리디렉션 URL** 텍스트 상자에 붙여 넣습니다.
 
 	d. **환경** 텍스트 상자에서 환경 이름을 입력합니다.
 
@@ -132,11 +132,11 @@
 
 	a. ID 공급자 이름 텍스트 상자에 공급자 이름(예:*SPInitiatedSSO*)을 입력합니다.
 
-    b. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
+    b. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여 넣습니다.
 
     c. **Workday가 시작한 로그아웃 사용**을 선택합니다.
 
-    d. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **로그아웃 요청 URL** 텍스트 상자에 붙여넣습니다.
+    d. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-Out 서비스 URL** 값을 복사한 다음 **로그아웃 요청 URL** 텍스트 상자에 붙여 넣습니다.
 
 
     e. **ID 공급자 공개 키 인증서**를 클릭한 다음 **만들기**를 클릭합니다.
@@ -162,11 +162,11 @@
 
 	d. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.
 
-	>[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
+	>[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 	e. 메모장에서 Base-64로 인코딩된 인증서를 열고 콘텐츠를 복사합니다.
     
-	f. **인증서** 텍스트 상자에 클립보드의 내용을 붙여넣습니다.
+	f. **인증서** 텍스트 상자에 클립보드의 내용을 붙여 넣습니다.
     
 	g. **확인**을 클릭합니다.
 
@@ -180,7 +180,7 @@
 
 	c. **SP가 시작한 SAML 인증 사용**을 선택합니다.
 
-	d. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **IdP SSO 서비스 URL** 텍스트 상자에 붙여넣습니다.
+	d. Azure 클래식 포털의 **Workday에서 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **IdP SSO 서비스 URL** 텍스트 상자에 붙여 넣습니다.
      
 	e. **SP에서 시작한 인증 요청을 Deflate하지 않음**을 선택합니다.
 
@@ -224,4 +224,4 @@ Workday에 테스트 사용자를 프로비전하려면 Workday 지원팀에 문
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍" 
+	pageTitle="다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍 | Microsoft Azure" 
 	description="이 항목에서는 온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH, HDS 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="cenkdin;juliako"/>
 
 #다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍
@@ -134,7 +134,7 @@ SSL 연결을 통한 조각화된 MP4(부드러운 스트리밍) 라이브 스�
 
 다음 표에서는 세그먼트 기간이 계산되는 방식을 보여 줍니다.
 
-키 프레임 간격|HLS 세그먼트 패키징 비율(FragmentsPerSegment)|예제
+키 프레임 간격|HLS 세그먼트 패키징 비율(FragmentsPerSegment)|예
 ---|---|---
 3초보다 작거나 같음|3:1|KeyFrameInterval(또는 GOP)이 2초 길이인 경우, 기본 HLS 세그먼트 패키징 비율은 3-1이 되며, 이는 6초 HLS 세그먼트를 만듭니다.
 3~5초|2:1|KeyFrameInterval(또는 GOP)이 4초 길이인 경우, 기본 HLS 세그먼트 패키징 비율은 2-1이 되며, 이는 8초 HLS 세그먼트를 만듭니다.
@@ -212,7 +212,7 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
  
 채널 상태|포털 UI 표시기|청구 여부
 ---|---|---|---
-시작 중|시작 중|없음(일시적인 상태)
+Starting|Starting|없음(일시적인 상태)
 실행 중|준비(실행 중인 프로그램이 없음)<p>또는<p>스트리밍(실행 중인 프로그램이 하나 이상임)|예
 중지 중|중지 중|없음(일시적인 상태)
 중지됨|중지됨|아니요
@@ -221,7 +221,7 @@ KeyFrameInterval 및 FragmentsPerSegment 둘 다 명시적으로 설정하는 �
 
 다음 표는 지원된 선택 캡션 및 광고 삽입 표준을 설명합니다.
 
-표준|참고 사항
+Standard|참고 사항
 ---|---
 CEA-708 및 EIA-608(708/608)|CEA-708 및 EIA-608은 미국 및 캐나다의 선택 캡션 표준입니다.<p><p>현재 인코딩된 입력 스트림에 수반되는 경우에만 캡션이 지원됩니다. 미디어 서비스에 전송되는 인코딩된 스트림으로 608 또는 708 캡션을 삽입할 수 있는 라이브 미디어 인코더를 사용해야 합니다. 미디어 서비스는 뷰어에 삽입된 선택 캡션이 있는 콘텐츠를 제공합니다.
 TTML inside ismt (부드러운 스트리밍 텍스트 트랙)|미디어 서비스 동적 패키징을 사용하면 클라이언트가 MPEG DASH, HLS 또는 부드러운 스트리밍 형식 중 하나로 콘텐츠를 스트림할 수 있습니다. 하지만 자막 inside .ismt(부드러운 스트리밍 텍스트 트랙)가 포함된 조각화된 MP4(부드러운 스트리밍)을 수집하는 경우 부드러운 스트리밍 클라이언트로만 스트림을 제공할 수 있습니다.
@@ -271,10 +271,10 @@ SCTE-35|디지털 신호 시스템이 큐 광고 삽입에 사용됩니다. 다�
 
 [Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
-[Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공](media-services-live-streaming-workflow.md)
+[Azure 미디어 서비스를 사용하여 라이브 스트리밍 이벤트 제공](media-services-overview.md)
 
 [미디어 서비스 개념](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

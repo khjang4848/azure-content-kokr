@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="zhangya;bradsev" />
 
 
 # Cortana 분석 프로세스의 기능 엔지니어링 
 
-이 항목은 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이 프로세스를 설명하는 데 사용된 예제는 Azure 기계 학습 스튜디오에서 가져온 것입니다.
+이 토픽은 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이 프로세스를 설명하는 데 사용된 예제는 Azure 기계 학습 스튜디오에서 가져온 것입니다.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 항목으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 토픽으로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
-기능 엔지니어링은 원시 데이터에서 학습 프로세스를 용이하게 하는 데 도움이 되는 기능을 만들어 학습 알고리즘의 예측 능력을 높입니다. 엔지니어링 및 선택된 기능은 [팀 데이터 과학 프로세스란 무엇입니까?](data-science-process-overview.md)에 설명된 TDSP의 한 부분입니다. 기능 엔지니어링 및 선택은 CAP의 **개발 기능** 단계의 일부입니다.
+기능 엔지니어링은 원시 데이터에서 학습 프로세스를 용이하게 하는 데 도움이 되는 기능을 만들어 학습 알고리즘의 예측 능력을 높입니다. 기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스란 무엇입니까?](data-science-process-overview.md)에 설명된 TDSP의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다.
+
 * **기능 엔지니어링**: 이 프로세스에서는 데이터의 기존 원시 기능에서 추가 관련 기능을 만들고 학습 알고리즘의 예측 능력을 향상시키려 합니다.
+
 * **선택 기능**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 원래 데이터 기능의 주요 하위 집합을 선택합니다.
 
 일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링**을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택** 단계가 수행됩니다.
@@ -95,4 +97,4 @@ Azure 기계 학습에는 이러한 단어/문구 기능을 편리하게 생성�
 기능 엔지니어링이나 기능 선택을 반드시 항상 수행할 필요는 없습니다. 이러한 기능의 필요 여부는 보유하거나 수집한 데이터, 선택한 알고리즘 및 실험 목적에 따라 달라집니다.
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

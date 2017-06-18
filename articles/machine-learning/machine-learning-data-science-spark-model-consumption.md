@@ -3,8 +3,8 @@
 	description="Azure Blob 저장소(WASB)에 저장된 학습 모델의 점수를 매기는 방법."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
+	authors="bradsev"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -14,20 +14,20 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Spark에서 만든 기계 학습 모델 점수 매기기 
 
 [AZURE.INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-이 토픽에서는 Spark MLlib를 사용하여 만들어진 Azure Blob 저장소(WASB)에 저장된 기계 학습(ML) 모델을 로드하는 방법 및 WASB에도 저장된 데이터 집합을 사용하여 해당 모델의 점수를 매기는 방법을 설명합니다. 입력 데이터를 전처리하고 MLlib 도구 키트의 인덱싱 및 인코딩 기능을 사용하여 기능을 변환하는 방법, 그리고 ML 모델에서 점수를 매기기 위한 입력으로 사용할 수 있는 레이블이 지정된 점수 데이터 개체를 만드는 방법을 보여 줍니다. 점수 매기기에 사용되는 모델은 선형 회귀, 로지스틱 회귀, 임의 포리스트 모델 및 점진적 향상 트리 모델을 포함합니다.
+이 토픽에서는 Spark MLlib를 사용하여 만들어진 Azure Blob Storage(WASB)에 저장된 기계 학습(ML) 모델을 로드하는 방법 및 WASB에도 저장된 데이터 집합을 사용하여 해당 모델의 점수를 매기는 방법을 설명합니다. 입력 데이터를 전처리하고 MLlib 도구 키트의 인덱싱 및 인코딩 기능을 사용하여 기능을 변환하는 방법, 그리고 ML 모델에서 점수를 매기기 위한 입력으로 사용할 수 있는 레이블이 지정된 점수 데이터 개체를 만드는 방법을 보여 줍니다. 점수 매기기에 사용되는 모델은 선형 회귀, 로지스틱 회귀, 임의 포리스트 모델 및 점진적 향상 트리 모델을 포함합니다.
 
 
 ## 필수 조건
 
-1. Azure 계정과 HDInsight Spark가 필요합니다. 이 연습을 완료하려면 HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 이러한 요구 사항, 여기에 사용한 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 관한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)를 참조하세요. 이 항목에서 코드 샘플을 포함하는 **machine-learning-data-science-spark-data-exploration-modeling.ipynb** Notebook은 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에서 사용할 수 있습니다.
+1. Azure 계정과 HDInsight Spark가 필요합니다. 이 연습을 완료하려면 HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 이러한 요구 사항, 여기에 사용한 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 관한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](machine-learning-data-science-spark-overview.md)를 참조하세요. 이 토픽에서 코드 샘플을 포함하는 **machine-learning-data-science-spark-data-exploration-modeling.ipynb** Notebook은 [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)에서 사용할 수 있습니다.
 
-2. 또한 [Spark를 사용한 데이터 탐색 및 기계 학습 모델링](machine-learning-data-science-spark-data-exploration-modeling.md) 항목을 통해 작업하여 여기서 점수를 매길 기계 학습 모델을 만들어야 합니다.
+2. 또한 [Spark로 데이터 탐색 및 모델링](machine-learning-data-science-spark-data-exploration-modeling.md) 항목을 통해 작업하여 여기서 점수를 매길 기계 학습 모델을 만들어야 합니다.
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -104,7 +104,7 @@ Spark 컨텍스트를 설정하고 다음 코드를 사용하여 필요한 라�
 
 Jupyter Notebook에 제공되는 PySpark 커널에는 미리 설정된 컨텍스트가 있으므로 개발 중인 응용 프로그램으로 작업을 시작하기 전에 Spark 또는 Hive 컨텍스트를 명시적으로 설정할 필요가 없습니다. 즉, Spark 또는 Hive 컨텍스트를 기본적으로 사용할 수 있습니다. 이러한 컨텍스트는 다음과 같습니다.
 
-- sc - Spark용 
+- sc - Spark용
 - sqlContext - Hive용
 
 PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 %%를 사용하여 호출할 수 있습니다. 이러한 코드 샘플에 사용되는 다음과 같은 두 가지 명령이 있습니다.
@@ -113,7 +113,7 @@ PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하
 - **%%sql -o <variable name>** sqlContext에 대해 Hive 쿼리를 실행합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
  
 
-Jupyter Notebook의 커널 및 여기에서 제공되고 %%(예: %%local)로 호출되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
+Jupyter Notebook의 커널 및 제공되는 %%(예: %%local)로 호출할 수 있는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
 
 ## 데이터 수집 및 정리된 데이터 프레임 만들기
@@ -191,7 +191,7 @@ Jupyter Notebook의 커널 및 여기에서 제공되고 %%(예: %%local)로 호
 
 ### 기능 변환: 범주 기능을 점수 매기기 모델에 입력하기 위해 인덱싱 및 인코딩 
 
-이 섹션에서는 `StringIndexer`을 사용하여 범주 데이터를 인덱싱하고 `OneHotEncoder` 입력을 가진 기능을 모델로 인코딩하는 방법을 보여 줍니다.
+이 섹션에서는 `StringIndexer`를 사용하여 범주 데이터를 인덱싱하고 `OneHotEncoder` 입력을 가진 기능을 모델로 인코딩하는 방법을 보여 줍니다.
 
 [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer)는 레이블의 문자열 열을 레이블 인덱스의 열로 인코딩합니다. 인덱스는 레이블 빈도 순으로 정렬됩니다.
 
@@ -385,7 +385,7 @@ Jupyter Notebook의 커널 및 여기에서 제공되고 %%(예: %%local)로 호
 	#LOAD LIBRARIES​
 	from pyspark.mllib.regression import LinearRegressionWithSGD, LinearRegressionModel
 	
-	# LOAD MODEL AND SCORE USING **SCALED VARIABLES**
+	# LOAD MODEL AND SCORE USING ** SCALED VARIABLES **
 	savedModel = LinearRegressionModel.load(sc, linearRegFileLoc)
 	predictions = oneHotTESTregScaled.map(lambda features: (float(savedModel.predict(features))))
 	
@@ -529,17 +529,17 @@ Jupyter Notebook의 커널 및 여기에서 제공되고 %%(예: %%local)로 호
 
 **출력:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-05-0317\_22\_38.953814.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22\_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD\_2016-05-0317\_22\_58.878949
+linearRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22\_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification\_2016-05-0317\_23\_15.939247.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23\_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression\_2016-05-0317\_23\_31.459140.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23\_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-05-0317\_23\_49.648334.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23\_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_56.860740.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23\_56.860740.txt
 
 
 
@@ -547,7 +547,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_
 
 Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대한 자세한 내용은 [Livy를 사용하여 원격으로 Spark 작업 제출](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md)을 참조하세요.
 
-Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 blob에 업로드합니다. **Microsoft Azure 저장소 Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 blob에 복사합니다. 이 경우 우리는 스크립트를 ***wasb:///example/python/ConsumeGBNYCReg.py***에 업로드했습니다.
+Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면[Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 BLOB에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 BLOB에 복사합니다. 이 경우 우리는 스크립트를 ***wasb:///example/python/ConsumeGBNYCReg.py***에 업로드했습니다.
 
 
 >[AZURE.NOTE] 필요한 액세스 키는 Spark 클러스터와 연결된 저장소 계정용 포털에서 찾을 수 있습니다.
@@ -595,11 +595,11 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 	conn.close()
 
 
-또한 이 Python 코드를 [Azure Functions](https://azure.microsoft.com/documentation/services/functions/)에 추가하여 blob의 타이머, 생성 또는 업데이트 등과 같은 여러 이벤트를 기반으로 blob의 점수를 매기는 Spark 작업 제출을 트리거할 수 있습니다.
+또한 이 Python 코드를 [Azure Functions](https://azure.microsoft.com/documentation/services/functions/)에 추가하여 BLOB의 타이머, 생성 또는 업데이트 등과 같은 여러 이벤트를 기반으로 BLOB의 점수를 매기는 Spark 작업 제출을 트리거할 수 있습니다.
 
 코드 없는 클라이언트 환경을 선호하는 경우 [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/)를 사용하여 **Logic Apps Designer**에서 HTTP 작업을 정의하고 해당 매개변수를 설정하여 Spark 배치 점수 매기기를 호출합니다.
 
-- Azure 포털에서 **+새로 만들기** -> **웹 + 모바일** -> **논리 앱**을 선택하여 새 논리 앱을 만듭니다. 
+- Azure Portal에서 **+새로 만들기** -> **웹 + 모바일** -> **Logic App**을 선택하여 새 Logic App을 만듭니다.
 - Logic App 및 앱 서비스 계획의 이름을 입력하여 **Logic Apps Designer**를 표시합니다.
 - HTTP 작업을 선택하고 다음 그림과 같은 매개 변수를 입력합니다.
 
@@ -608,6 +608,6 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
 ## 다음 작업 
 
-**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)을 참조하세요.
+**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark를 사용한 고급 데이터 탐색 및 모델링](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # 노드에 대한 WEB-API 시작
@@ -124,7 +124,7 @@ npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 Restify는 DTrace를 사용하여 REST 호출을 추적하는 강력한 메커니즘을 제공합니다. 그러나 대부분의 운영 체제에서는 DTrace를 사용할 수 없습니다. 이러한 오류는 무시해도 됩니다.
 
 
-이 명령의 출력은 다음과 유사하게 표시됩니다.
+이 명령의 출력은 다음과 유사합니다.
 
 
 	restify@2.6.1 node_modules/restify
@@ -941,4 +941,4 @@ ADAL 과정의 다음 단계에 관심이 있는 경우 여기서 권장하는 A
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

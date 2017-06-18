@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;bradsev" />
+	ms.date="09/14/2016" 
+	ms.author="bradsev" />
 
 # Azure 가상 컴퓨터에서 SQL Server로 데이터 이동
 
-이 항목에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
+이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.
 
-기계 학습을 위해 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션을 설명하는 항목은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
+기계 학습을 위해 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션을 설명하는 토픽은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
 
-다음 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 항목에 연결됩니다.
+다음 **메뉴**는 TDSP(팀 데이터 과학 프로세스) 중 데이터를 저장하고 처리할 수 있는 다른 대상 환경에 데이터를 수집하는 방법을 설명하는 토픽에 연결됩니다.
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
@@ -31,7 +31,7 @@
 
 <b>원본</b> |<b>대상: Azure VM의 SQL Server</b> |
 ------------------ |-------------------- |
-<b>플랫 파일</b> |1\. <a href="#insert-tables-bcp">명령줄 BCP(대량 복사 유틸리티) </a><br> 2. <a href="#insert-tables-bulkquery">대량 삽입 SQL 쿼리 </a><br> 3. <a href="#sql-builtin-utilities">SQL Server의 기본 제공 그래픽 유틸리티</a>
+<b>플랫 파일</b> |1\. <a href="#insert-tables-bcp">명령줄 BCP(대량 복사 유틸리티)</a><br> 2. <a href="#insert-tables-bulkquery">대량 삽입 SQL 쿼리 </a><br> 3. <a href="#sql-builtin-utilities">SQL Server의 기본 제공 그래픽 유틸리티</a>
 <b>온-프레미스 SQL Server</b> | 1\. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사</a><br> 2. <a href="#export-flat-file">플랫 파일로 내보내기 </a><br> 3. <a href="#sql-migration">SQL 데이터베이스 마이그레이션 마법사 </a> <br> 4. <a href="#sql-backup">데이터베이스 백업 및 복원 </a><br>
 
 이 문서는 SQL Server Management Studio 또는 Visual Studio 데이터베이스 탐색기에서 SQL 명령을 실행하는 것으로 가정합니다.
@@ -52,7 +52,7 @@
 
 데이터가 플랫 파일에 있는 경우(행/열 형식으로 정렬됨) 다음 방법을 통해 Azure 기반의 SQL Server VM으로 데이터를 이동할 수 있습니다.
 
-1. [명령줄 BCP(대량 복사 유틸리티)](#insert-tables-bcp) 
+1. [명령줄 BCP(대량 복사 유틸리티)](#insert-tables-bcp)
 2. [대량 삽입 SQL 쿼리](#insert-tables-bulkquery)
 3. [SQL Server의 기본 제공 그래픽 유틸리티(가져오기/내보내기, SSIS)](#sql-builtin-utilities)
 
@@ -131,7 +131,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 
 ### <a name="insert-tables-bulkquery"></a>대량 삽입 SQL 쿼리
 
-[대량 삽입 SQL 쿼리](https://msdn.microsoft.com/library/ms188365)는 데이터를 행/열 기반 파일에서 데이터베이스로 가져오는 데 사용할 수 있습니다(지원되는 형식은 [대량 내보내기 또는 가져오기를 위한 데이터 준비(SQL Server)](https://msdn.microsoft.com/library/ms188609) 항목에서 설명).
+[대량 삽입 SQL 쿼리](https://msdn.microsoft.com/library/ms188365)는 데이터를 행/열 기반 파일에서 데이터베이스로 가져오는 데 사용할 수 있습니다(지원되는 형식은 [대량 내보내기 또는 가져오기를 위한 데이터 준비(SQL Server)](https://msdn.microsoft.com/library/ms188609) 토픽에서 설명).
 
 아래는 대량 삽입을 위한 몇 가지 샘플 명령입니다.
 
@@ -156,7 +156,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 
 SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이터를 Azure 기반의 SQL Server VM으로 가져올 수 있습니다. SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세한 내용은 [SSIS(Integration Services) 및 스튜디오 환경](https://technet.microsoft.com/library/ms140028.aspx)을 참조하세요.
 
-- SQL Server 데이터 도구에 대한 자세한 내용은 [Microsoft SQL Server 데이터 도구](https://msdn.microsoft.com/data/tools.aspx) 참조  
+- SQL Server 데이터 도구에 대한 자세한 내용은 [Microsoft SQL Server 데이터 도구](https://msdn.microsoft.com/data/tools.aspx) 참조
 - 가져오기/내보내기 마법사에 대한 자세한 내용은 [SQL Server 가져오기 및 내보내기 마법사](https://msdn.microsoft.com/library/ms141209.aspx) 참조
 
 
@@ -165,7 +165,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 다음과 같은 마이그레이션 전략을 사용할 수도 있습니다.
 
 1. [Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
-2. [플랫 파일로 내보내기](#export-flat-file) 
+2. [플랫 파일로 내보내기](#export-flat-file)
 3. [SQL 데이터베이스 마이그레이션 마법사](#sql-migration)
 4. [데이터베이스 백업 및 복원](#sql-backup)
 
@@ -177,7 +177,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 
 ### <a name="export-flat-file"></a>플랫 파일로 내보내기
 
-[데이터의 대량 가져오기 및 내보내기(SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) 항목에 설명된 대로 온-프레미스 SQL Server에서 데이터를 대량으로 내보내는 데 다양한 방법을 사용할 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
+[데이터의 대량 가져오기 및 내보내기(SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) 토픽에 설명된 대로 온-프레미스 SQL Server에서 데이터를 대량으로 내보내는 데 다양한 방법을 사용할 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
 
 1. 다음과 같이 bcp 유틸리티를 사용하여 온-프레미스 SQL Server에서 파일로 데이터를 내보냅니다.
 
@@ -208,8 +208,8 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 
 SQL Server는 다음을 지원합니다.
 
-1. [데이터베이스 백업 및 복원 기능](https://msdn.microsoft.com/library/ms187048.aspx)(로컬 파일 백업 또는 blob로 bacpac 내보내기 모두 지원) 및 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)(bacpac 사용). 
-2. 복사된 데이터베이스를 사용하여 또는 기존 SQL Azure 데이터베이스에 복사하여 Azure에서 직접 SQL Server VM을 만드는 기능. 자세한 내용은 [데이터베이스 복사 마법사 사용](https://msdn.microsoft.com/library/ms188664.aspx)을 참조하세요. 
+1. [데이터베이스 백업 및 복원 기능](https://msdn.microsoft.com/library/ms187048.aspx)(로컬 파일 백업 또는 blob로 bacpac 내보내기 모두 지원) 및 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)(bacpac 사용).
+2. 복사된 데이터베이스를 사용하여 또는 기존 SQL Azure 데이터베이스에 복사하여 Azure에서 직접 SQL Server VM을 만드는 기능. 자세한 내용은 [데이터베이스 복사 마법사 사용](https://msdn.microsoft.com/library/ms188664.aspx)을 참조하세요.
 
 아래는 SQL Server Management Studio의 데이터베이스 백업/복원 옵션 스크린샷입니다.
 
@@ -224,4 +224,4 @@ SQL Server는 다음을 지원합니다.
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

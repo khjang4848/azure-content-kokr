@@ -52,7 +52,7 @@ SQL Server를 실행하는 서버에서 [부록 A](#appendix-a)에 있는 SQL �
 6. 일부 특성 유형은 SQL 데이터베이스에서 검색할 수 없습니다. 특히 참조 특성 유형은 검색할 수 없습니다. Group 개체 유형의 경우 OwnerID와 MemberID를 참조로 변경해야 합니다. ![Connector6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
 7. 이전 단계에서 참조 특성으로 선택한 특성에는 이러한 값을 참조하는 개체 유형이 필요합니다. 이 경우에 User 개체 유형입니다. ![Connector7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. 글로벌 매개 변수 페이지에서 **워터마크**를 델타 전략으로 선택합니다. 또한 날짜/시간 형식 **yyyy-MM-dd HH:mm:ss**를 입력합니다. ![Connector8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)
-9. **파티션 구성** 페이지에서 두 개체 유형을 모두 선택합니다. ![Connector9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
+9. **파티션 및 계층 구조 구성** 페이지에서 두 개체 유형을 모두 선택합니다. ![Connector9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
 10. **개체 유형 선택** 및 **특성 선택**에서 두 개체 유형과 모든 특성을 선택합니다. **앵커 구성** 페이지에서 **마침**을 클릭합니다.
 
 ## 실행 프로필 만들기
@@ -170,4 +170,4 @@ ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

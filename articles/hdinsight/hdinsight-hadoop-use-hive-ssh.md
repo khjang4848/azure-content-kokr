@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -19,7 +19,7 @@
 
 #SSH 사용하는 HDInsight에서 Hadoop과 Hive 사용
 
-[AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
+[AZURE.INCLUDE [hive-선택기](../../includes/hdinsight-selector-use-hive.md)]
 
 이 문서에서는 SSH(Secure Shell)를 사용하여 Azure HDInsight 클러스터의 Hadoop에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다.
 
@@ -150,4 +150,4 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

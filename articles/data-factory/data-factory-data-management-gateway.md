@@ -153,7 +153,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 
 ![등록 중에 프록시 설정](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
 
-게이트웨이는 프록시 서버를 사용하여 클라우드 서비스에 연결합니다. 초기 설정 중에 **변경** 링크를 클릭하면 프록시 설정 대화 상자가 시작됩니다.
+게이트웨이는 프록시 서버를 사용하여 클라우드 서비스에 연결합니다. 초기 설치 중에 **변경** 링크를 클릭합니다. **프록시 설정** 대화가 표시됩니다.
 
 ![구성 관리자를 사용하여 프록시 설정](media/data-factory-data-management-gateway/SetProxySettings.png)
 
@@ -181,7 +181,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트는 일반적으�
 ### diahost.exe.config에서 프록시 서버 설정 구성
 HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 경우 게이트웨이는 diahost.exe.config의 프록시 설정을 사용합니다. diahost.exe.config에 프록시가 지정되어 있지 않으면 게이트웨이는 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다. 다음 절차에서는 config 파일을 업데이트하는 지침을 제공합니다.
 
-1.	파일 탐색기에서 원본 파일을 백업할 C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config의 안전한 복사본을 만듭니다.
+1.	파일 탐색기에서 원본 파일을 백업할 C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config의 안전한 복사본을 만듭니다.
 2.	관리자 권한으로 Notepad.exe 실행을 시작하고 텍스트 파일 "C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config"를 엽니다. 다음과 같이 system.net에 대한 기본 태그를 찾습니다.
 
 			<system.net>
@@ -205,7 +205,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
 이러한 사항 외에 Microsoft Azure가 회사의 허용 목록에 있는지도 확인해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
 
 #### 방화벽 및 프록시 서버 관련 문제 발생 시 나타날 수 있는 증상
-다음과 같은 오류가 발생할 경우 방화벽 또는 프록시 서버가 잘못 구성된 것일 수 있습니다. 그러면 게이트웨이가 Data Factory에 연결하여 인증을 할 수 없게 됩니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.
+다음과 비슷한 오류가 발생할 경우 방화벽 또는 프록시 서버가 잘못 구성된 것일 수 있습니다. 그러면 게이트웨이가 Data Factory에 연결하여 인증을 할 수 없게 됩니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.
 
 1.	게이트웨이를 등록하려고 하는 경우 다음과 같은 오류가 나타납니다. "게이트웨이 키를 등록하지 못했습니다. 게이트웨이 키를 다시 등록하려 하기 전에 데이터 관리 게이트웨이가 연결된 상태이며 데이터 관리 게이트웨이 호스트 서비스가 시작되었는지 확인합니다."
 2.	구성 관리자를 열 때 상태가 "연결 끊김" 또는 "연결 중"으로 표시됩니다. Windows 이벤트 로그를 확인할 때 "이벤트 뷰어" > "응용 프로그램 및 서비스 로그" > "데이터 관리 게이트웨이"에 다음과 같은 오류 메시지가 표시됩니다. `Unable to connect to the remote server` `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
@@ -217,7 +217,7 @@ Azure 포털에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-게이트웨이 컴퓨터에서 포트 8050을 열지 않는 경우 온-프레미스 연결된 설정하려면 **자격 증명 설정** 응용 프로그램을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 저장소 자격 증명을 구성합니다. 예를 들어 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 [자격 증명 및 보안 설정](#set-credentials-and-securityy) 섹션을 참조하세요.
+게이트웨이 컴퓨터에서 포트 8050을 열지 않는 경우 **자격 증명 설정** 응용 프로그램을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 저장소 자격 증명을 구성합니다. 예를 들어 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 [자격 증명 및 보안 설정](#set-credentials-and-securityy) 섹션을 참조하세요.
 
 ## 업데이트 
 기본적으로 데이터 관리 게이트웨이는 게이트웨이의 새 버전을 사용할 수 있을 때 자동으로 업데이트됩니다. 게이트웨이는 모든 예약된 작업이 완료될 때까지 업데이트되지 않습니다. 업데이트 작업이 완료될 때까지 게이트웨이가 더 이상 작업을 처리하지 않습니다. 업데이트가 실패하면 게이트웨이는 이전 버전으로 다시 롤백됩니다.
@@ -246,7 +246,7 @@ Azure 포털에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 다음을 수행하여 자동 업데이트 기능을 사용하지 않거나/사용할 수 있습니다.
 
 1. 게이트웨이 컴퓨터에서 Windows PowerShell을 시작합니다.
-2. C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript 폴더로 전환합니다.
+2. C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\PowerShellScript 폴더로 전환합니다.
 3. 다음 명령을 실행하여 자동 업데이트 기능을 끕니다(사용 안 함).
 
 		.\GatewayAutoUpdateToggle.ps1  -off
@@ -259,7 +259,7 @@ Azure 포털에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 - **검색** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다.
-- **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 실행합니다.
+- **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 실행합니다.
  
 ### 홈 페이지
 홈 페이지를 통해 다음 작업을 수행할 수 있습니다.
@@ -340,6 +340,32 @@ Azure 포털에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
 ![데이터 관리 게이트웨이 - 로그 보관](media/data-factory-data-management-gateway/data-management-gateway-archive-logs.png)
 
+### 게이트웨이는 기능이 제한된 온라인입니다. 
+게이트웨이의 상태가 다음과 같은 이유로 **기능이 제한된 온라인**으로 표시됩니다.
+
+- 게이트웨이는 서비스 버스를 통해 클라우드 서비스에 연결할 수 없습니다.
+- 클라우드 서비스는 서비스 버스를 통해 게이트웨이에 연결할 수 없습니다.
+
+게이트웨이가 기능이 제한된 온라인일 때 온-프레미스 데이터 저장소로/에서 데이터를 복사하기 위해 데이터 파이프라인을 만드는 데 데이터 팩터리 복사 마법사를 사용하지 못할 수도 있습니다.
+
+이 문제(기능이 제한된 온라인)에 대한 해결 방법은 게이트웨이가 클라우드 서비스 또는 다른 방법에 연결할 수 없는지 여부에 기초합니다. 다음 섹션에서는 이러한 해결 방법을 제공합니다.
+
+#### 게이트웨이는 서비스 버스를 통해 클라우드 서비스에 연결할 수 없습니다.
+게이트웨이를 다시 온라인으로 가져오려면 다음 단계를 따릅니다.
+
+1. 게이트웨이 컴퓨터 상의 Windows 방화벽 및 회사 방화벽 모두에 아웃바운드 포트 9350-9354를 사용하도록 설정합니다. 자세한 내용은 [포트 및 방화벽](#ports-and-firewall) 섹션을 참조하세요.
+2. 게이트웨이에 프록시 설정 구성 자세한 내용은 [프록시 서버 고려 사항](#proxy-server-considerations) 섹션을 참조하세요.
+
+해결 방법으로 데이터 팩터리 편집기를 Azure 포털 (또는) Visual Studio (또는) Azure PowerShell에서 사용합니다.
+
+#### 오류: 클라우드 서비스는 서비스 버스를 통해 게이트웨이에 연결할 수 없습니다.
+게이트웨이를 다시 온라인으로 가져오려면 다음 단계를 따릅니다.
+ 
+1. 게이트웨이 컴퓨터 상의 Windows 방화벽 및 회사 방화벽 모두에 아웃바운드 포트 5671 및 9350-9354를 사용하도록 설정합니다. 자세한 내용은 [포트 및 방화벽](#ports-and-firewall) 섹션을 참조하세요.
+2. 게이트웨이에 프록시 설정 구성 자세한 내용은 [프록시 서버 고려 사항](#proxy-server-considerations) 섹션을 참조하세요.
+3. 프록시 서버에서 고정 IP 제한을 제거합니다.
+
+해결 방법으로 데이터 팩터리 편집기를 Azure 포털 (또는) Visual Studio (또는) Azure PowerShell에서 사용할 수 있습니다.
  
 ## 컴퓨터 간에 게이트웨이 이동
 이 섹션에서는 컴퓨터 간에 게이트웨이 클라이언트를 이동하는 단계를 제공합니다.
@@ -406,7 +432,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음을 수�
 
 **자격 증명 설정** 응용 프로그램을 사용하는 경우 포털은 게이트웨이 컴퓨터에서 **게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
 
-API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet를 사용하여 자격 증명을 암호화할 수 있습니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet에서 사용하려는 JSON 파일 또는 Data Factory Editor의 JSON 코드 조각 내 **connectionString**의 **EncryptedCredential** 요소에 암호화된 자격 증명을 추가합니다.
+API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet를 사용하여 자격 증명을 암호화할 수 있습니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 암호화된 자격 증명을 JSON에서.**connectionString**의 **EncryptedCredential** 요소에 추가합니다. JSON을 `[New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet과 함께 또는 데이터 팩터리 편집기에서.사용합니다.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -442,7 +468,7 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
 		Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
 
 	
-4. Azure PowerShell에서 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** 폴더로 전환합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key**와 연결된 **RegisterGateway.ps1**을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
+4. Azure PowerShell에서 **C:\\Program Files\\Microsoft Data Management Gateway\\2.0\\PowerShellScript** 폴더로 전환합니다. 다음 명령에 나와 있는 대로 로컬 변수 **$Key**와 연결된 **RegisterGateway.ps1**을 실행합니다. 이 스크립트는 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리적 게이트웨이에 등록합니다.
 
 		PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
 		
@@ -468,6 +494,6 @@ API 기반 방식으로 자격 증명을 암호화하려는 경우에는 [New-Az
 
 
 ## 다음 단계
-- 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
+- [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 이 연습에서는 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 이동하는 파이프라인을 만듭니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

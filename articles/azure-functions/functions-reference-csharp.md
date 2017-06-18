@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""
 	tags=""
-	keywords="Azure 함수, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
+	keywords="Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처"/>
 
 <tags
 	ms.service="functions"
@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [C# 스크립트](../articles/azure-functions/functions-reference-csharp.md)
+- [F# 스크립트](../articles/azure-functions/functions-reference-fsharp.md)
 - [Node.JS](../articles/azure-functions/functions-reference-node.md)
  
 Azure Functions에 대한 C# 환경은 Azure WebJobs SDK를 기반으로 합니다. 데이터는 메서드 인수를 통해 C# 함수로 흐릅니다. 인수 이름은 `function.json`에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다.
@@ -51,7 +52,7 @@ public class MyClass
 
 ## 로깅
 
-C#의 스트리밍 로그에 대한 출력을 기록하려면 `TraceWriter` 형식의 인수를 포함할 수 있습니다. 이름을 `log`(으)로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`을(를) 피하는 것이 좋습니다.
+C#의 스트리밍 로그에 대한 출력을 기록하려면 `TraceWriter` 형식의 인수를 포함할 수 있습니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`는 피하는 것이 좋습니다.
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -76,7 +77,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## 취소 토큰
 
-어떤 경우에는 종료되기 어려운 작업이 있을 수 있습니다. 충돌을 처리할 수 있는 코드를 작성하는 데 가장 좋은 방법이지만 정상 종료 요청을 처리하려는 경우 [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 형식의 인수를 정의합니다. 호스트 종료가 트리거되는 경우 `CancellationToken`이(가) 제공됩니다.
+어떤 경우에는 종료되기 어려운 작업이 있을 수 있습니다. 충돌을 처리할 수 있는 코드를 작성하는 데 가장 좋은 방법이지만 정상 종료 요청을 처리하려는 경우 [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 형식의 인수를 정의합니다. 호스트 종료가 트리거되는 경우 `CancellationToken`이 제공됩니다.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -138,7 +139,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
-또한 다음 어셈블리는 특수한 경우이며 simplename에서 참조할 수 있습니다(예: `#r "AssemblyName"`).
+또한 다음 어셈블리는 특수한 경우이며 simplename으로 참조할 수 있습니다(예: `#r "AssemblyName"`).
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
@@ -164,20 +165,20 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 }
 ```
 
-.NET Framework 4.6만 지원되므로 *project.json* 파일이 다음과 같이 `net46`을(를) 지정하도록 합니다.
+.NET Framework 4.6만 지원되므로 *project.json* 파일이 다음과 같이 `net46`을 지정하도록 합니다.
 
-*project.json* 파일을 업로드하는 경우 런타임은 패키지를 가져오고 패키지 어셈블리에 참조를 자동으로 추가합니다. `#r "AssemblyName"` 지시문을 추가할 필요가 없습니다. 필요한 `using` 문을 *run.csx* 파일에 추가하여 NuGet 패키지에 정의된 형식을 사용합니다.
+*project.json* 파일을 업로드하는 경우 런타임은 패키지를 가져오고 패키지 어셈블리에 참조를 자동으로 추가합니다. `#r "AssemblyName"` 지시문을 추가할 필요가 없습니다. 필요한 `using` 문을 *run.csx* 파일에 추가하기만 하면 NuGet 패키지에 정의된 형식을 사용할 수 있습니다.
 
 
 ### project.json 파일을 업로드하는 방법
 
-1. 함수 앱을 실행하여 시작하며 이는 Azure 포털에서 함수를 열어 수행할 수 있습니다. 
+1. 함수 앱을 실행하여 시작하며 이는 Azure 포털에서 함수를 열어 수행할 수 있습니다.
 
 	또한 패키지 설치 출력이 표시되는 스트리밍 로그에 액세스할 수 있습니다.
 
-2. project.json 파일을 업로드하려면, [Azure Functions 개발자 참조](functions-reference.md#fileupdate) 항목에 있는 **함수 앱 파일을 업데이트하는 방법** 섹션에 설명되어 있는 방법 중 하나를 사용합니다.
+2. project.json 파일을 업로드하려면 [Azure Functions 개발자 참조 토픽](functions-reference.md#fileupdate)의 **함수 앱 파일을 업데이트하는 방법** 섹션에 설명되어 있는 방법 중 하나를 사용합니다.
 
-3. *project.json* 파일을 업로드한 후에 함수의 스트리밍 로그에서 다음 예제와 같은 출력을 확인합니다.
+3. *project.json* 파일을 업로드하면 함수의 스트리밍 로그에 다음 예제와 같은 출력이 표시됩니다.
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -198,7 +199,7 @@ C# 함수에서 NuGet 패키지를 사용하려면 *project.json* 파일을 함�
 
 ## 환경 변수
 
-환경 변수 또는 앱 설정 값을 가져오려면, 다음 코드 예제와 같이 `System.Environment.GetEnvironmentVariable`을(를) 사용합니다.
+환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `System.Environment.GetEnvironmentVariable`을 사용합니다.
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -217,7 +218,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## .csx 코드 재사용
 
-*run.csx* 파일에 있는 다른 *.csx* 파일에 정의된 클래스와 메서드를 사용할 수 있습니다. 이를 위해 다음 예제와 같이 *run.csx* 파일에서 `#load` 지시문을 사용합니다.
+*run.csx* 파일에 있는 다른 *.csx* 파일에 정의된 클래스와 메서드를 사용할 수 있습니다. 이렇게 하려면 다음 예제와 같이 *run.csx* 파일에서 `#load` 지시문을 사용합니다.
 
 예제 *run.csx*:
 
@@ -242,20 +243,21 @@ public static void MyLogger(TraceWriter log, string logtext)
 
 `#load` 지시문으로 상대 경로를 사용할 수 있습니다.
 
-* `#load "mylogger.csx"`은(는) 함수 폴더에 있는 파일을 로드합니다.
+* `#load "mylogger.csx"`는 함수 폴더에 있는 파일을 로드합니다.
 
-* `#load "loadedfiles\mylogger.csx"`은(는) 함수 폴더의 폴더에 있는 파일을 로드합니다.
+* `#load "loadedfiles\mylogger.csx"`는 함수 폴더의 폴더에 있는 파일을 로드합니다.
 
-* `#load "..\shared\mylogger.csx"`은(는) 함수 폴더와 동일한 수준의 폴더 즉, *wwwroot*에 있는 파일을 로드합니다.
+* `#load "..\shared\mylogger.csx"`는 함수 폴더와 동일한 수준의 폴더 즉, *wwwroot*에 있는 파일을 로드합니다.
  
-`#load` 지시문은 *.cs* 파일이 아닌 *.csx*(C# 스크립트) 파일로 작동합니다.
+`#load` 지시문은 *.cs* 파일이 아닌 *.csx*(C# 스크립트) 파일에서만 작동합니다.
 
 ## 다음 단계
 
 자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure Functions 개발자 참조](functions-reference.md)
+* [Azure Functions NodeJS 개발자 참조](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 개발자 참조](functions-reference-node.md)
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0921_2016-->

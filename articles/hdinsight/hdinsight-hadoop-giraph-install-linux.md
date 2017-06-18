@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -21,7 +21,7 @@
 
 클러스터를 사용자 지정하는 **스크립트 작업**을 사용하여 Azure HDInsight의 Hadoop에서 모든 유형의 클러스터에 Giraph를 설치할 수 있습니다.
 
-이 항목에서는 스크립트 작업을 사용하여 Giraph를 설치하는 방법을 알아봅니다. Giraph를 설치한 후 대규모 그래프를 처리하기 위해 가장 일반적인 응용 프로그램에 Giraph를 사용하는 방법도 알아보겠습니다.
+이 항목에서는 스크립트 동작을 사용하여 Giraph를 설치하는 방법을 알아봅니다. Giraph를 설치한 후 대규모 그래프를 처리하기 위해 가장 일반적인 응용 프로그램에 Giraph를 사용하는 방법도 알아보겠습니다.
 
 > [AZURE.NOTE] 이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터를 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 Giraph 설치](hdinsight-hadoop-giraph-install.md)를 참조하세요.
 
@@ -154,4 +154,4 @@ HDInsight 클러스터에서 Giraph를 설치하는 샘플 스크립트는 다�
 
 - [HDInsight 클러스터에 Solr 설치](hdinsight-hadoop-solr-install-linux.md)(영문). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Solr을 설치합니다. Solr을 사용하면 저장된 데이터에서 강력한 검색 작업을 수행할 수 있습니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

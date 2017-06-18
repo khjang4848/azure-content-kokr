@@ -14,29 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/20/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory ID 보호 
 
-Azure Active Directory ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 보안 서비스입니다. Microsoft는 10년 넘게 클라우드 기반 ID를 보호했습니다. Microsoft는 Azure AD ID 보호를 사용하여 기업 고객이 이러한 동일한 보호 시스템을 사용할 수 있도록 노력하고 있습니다. ID 보호는 기존 Azure AD의 비정상 감지 기능(Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 활용하고 실시간으로 잘못된 부분을 검색할 수 있는 새로운 위험 이벤트 유형을 소개합니다.
+Azure Active Directory ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 Azure AD Premium P2 버전의 기능입니다. Microsoft는 10년 넘게 클라우드 기반 ID를 보호했습니다. Microsoft는 Azure AD ID 보호를 사용하여 기업 고객이 이러한 동일한 보호 시스템을 사용할 수 있도록 노력하고 있습니다. ID 보호는 기존 Azure AD의 비정상 감지 기능(Azure AD의 비정상적인 작업 보고서를 통해 사용 가능)을 활용하고 실시간으로 잘못된 부분을 검색할 수 있는 새로운 위험 이벤트 유형을 소개합니다.
 
-## 현재 미리 보기 제한 사항
-이 섹션에서는 현재 Azure Active Directory ID 보호 미리 보기에 적용되는 제한 사항을 나열합니다.
-
-
-
-### ID 보호 및 페더레이션된 도메인
-
-Azure Active Directory ID 보호에는 페더레이션된 도메인과 함께 다음과 같은 제한 사항이 있습니다.
-
-- 페더레이션된 도메인에 적용되는 사용자 위험 보안 정책의 경우
-
-	- 클라우드에서 암호 변경이 다시 온-프레미스에 작성될 수 있도록 [비밀번호 쓰기 저장](active-directory-passwords-getting-started.md)은 페더레이션된 도메인에 사용되도록 설정되어야 합니다.
-
-	- Azure AD Premium 라이선스가 최종 사용자에게 할당되어야 합니다.
-
-- 위험 이벤트는 Azure Active Directory와 페더레이션되는 앱에 대해서만 검색됩니다.
 
 
 ##시작하기
@@ -47,7 +31,7 @@ Azure Active Directory ID 보호에는 페더레이션된 도메인과 함께 �
  
 ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사하고 적절한 수정 또는 완화 작업을 수행할 수 있도록 하는 보고서 및 경고를 생성합니다.
  
-하지만 Azure Active Directory ID 보호의 기능은 모니터링 및 보고 도구 이상입니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다. Azure Active Directory 및 EMS에서 제공되는 다른 조건부 액세스 제어 외에도 이러한 위험 기반 정책은 암호 재설정 및 Multi-Factor Authentication 적용을 포함하는 적응형 수정 작업을 자동으로 차단하거나 제공할 수 있습니다.
+하지만 Azure Active Directory ID 보호는 모니터링 및 보고 도구 이상입니다. ID 보호는 위험 이벤트에 따라 각 사용자에 대한 위험 수준을 계산하며 이는 위험 기반 정책을 구성하여 조직의 ID를 자동으로 보호할 수 있도록 합니다. Azure Active Directory 및 EMS에서 제공되는 다른 조건부 액세스 제어 외에도 이러한 위험 기반 정책은 암호 재설정 및 Multi-Factor Authentication 적용을 포함하는 적응형 수정 작업을 자동으로 차단하거나 제공할 수 있습니다.
 
 ####ID 보호의 기능 살펴보기 
 
@@ -59,7 +43,7 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 
 - 취약점을 강조 표시하여 전반적인 보안 포스처를 개선하도록 사용자 지정 권장 사항 제공
 
-<br>
+
 
 **위험 이벤트 조사:**
 
@@ -71,7 +55,7 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 
 - 암호 재설정 등 수정 작업에 쉬운 액세스 제공
 
-<br>
+
 
 **위험 기준 조건부 액세스 정책:**
 
@@ -88,7 +72,7 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 
 위험 이벤트는 ID 보호에서 의심스러운 것으로 플래그가 지정된 이벤트이며 ID가 손상되었을 수 있음을 나타냅니다. 위험 이벤트의 전체 목록은 [Azure Active Directory ID 보호에서 검색하는 위험 이벤트의 유형](active-directory-identityprotection-risk-events-types.md)을 참조하세요.
 
-이러한 위험 이벤트 중 일부는 Azure 관리 포털에서 Azure AD 비정상적인 작업 보고서를 통해 제공되었습니다. 아래 테이블에서는 다양한 위험 이벤트 유형 및 해당하는 **Azure AD 비정상적인 작업** 보고서를 나열합니다. Microsoft는 이 공간에 계속 투자하며 지속적으로 기존 위험 이벤트의 검색 정확도를 향상시키고 새 위험 이벤트 유형을 추가할 예정입니다.
+이러한 위험 이벤트 중 일부는 Azure 포털에서 Azure AD 비정상적인 작업 보고서를 통해 제공되었습니다. 아래 테이블에서는 다양한 위험 이벤트 유형 및 해당하는 **Azure AD 비정상적인 작업** 보고서를 나열합니다. Microsoft는 이 공간에 계속 투자하며 지속적으로 기존 위험 이벤트의 검색 정확도를 향상시키고 새 위험 이벤트 유형을 추가할 예정입니다.
 
 
 
@@ -99,10 +83,10 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 | 감염된 장치에서 로그인 | 감염 가능성이 있는 장치에서 로그인 |
 | 익명 IP 주소에서 로그인 | 알 수 없는 원본에서 로그인 |
 | 의심스러운 작업이 있는 IP 주소에서 로그인 |	의심스러운 작업이 있는 IP 주소에서 로그인 |
-| 알 수 없는 위치에서 로그인 | - | 
-| 잠금 이벤트(공개 미리 보기 상태 아님) | - |
+| 알 수 없는 위치에서 로그인 | - |
+| 잠금 이벤트 | - |
 
-다음의 Azure AD 비정상적인 작업 보고서는 Azure AD ID 보호에서 위험 이벤트로 포함되지 않으며 따라서 ID 보호를 통해 사용할 수 없습니다. 이러한 보고서는 Azure 관리 포털에서 사용할 수 있지만 나중에 ID 보호에서 위험 이벤트에 의해 대체되는 경우 사용되지 않게 됩니다.
+다음의 Azure AD 비정상적인 작업 보고서는 Azure AD ID 보호에서 위험 이벤트로 포함되지 않으며 따라서 ID 보호를 통해 사용할 수 없습니다. 이러한 보고서는 Azure 포털에서 사용할 수 있지만 나중에 ID 보호에서 위험 이벤트에 의해 대체되는 경우 사용되지 않게 됩니다.
 
 - 여러 번의 실패 후 로그인
 - 여러 지역에서의 로그인
@@ -130,7 +114,7 @@ ID 보호는 이 데이터를 사용하여 이러한 위험 이벤트를 조사�
 ## 조사
 ID 보호를 통한 이동은 일반적으로 ID 보호 대시보드를 시작합니다.
 
-<br><br> ![재구성](./media/active-directory-identityprotection/29.png "재구성") <br>
+![재구성](./media/active-directory-identityprotection/1000.png "재구성")
 
 대시보드는 다음에 대한 액세스를 제공합니다.
  
@@ -158,7 +142,7 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 - 이러한 이벤트의 위험 수준
 - 수정 작업이 수행되었는지 여부
 
-<br> ![사용자 위험](./media/active-directory-identityprotection/86.png "사용자 위험") <br>
+![사용자 위험](./media/active-directory-identityprotection/1001.png "사용자 위험")
 
 
 
@@ -167,14 +151,14 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 
 ## 수동으로 위험 이벤트 닫기
 
-대부분의 경우에서 자동으로 위험 이벤트를 닫도록 다시 설정된 보안 암호와 같은 수정 작업을 수행합니다. 그러나 불가능할 수 있습니다. <br> 예를 들어 다음과 같은 경우에 그렇습니다.
+대부분의 경우에서 자동으로 위험 이벤트를 닫도록 다시 설정된 보안 암호와 같은 수정 작업을 수행합니다. 그러나 불가능할 수 있습니다. 예를 들어 다음과 같은 경우에 그렇습니다.
 
 - 활성 위험 이벤트가 있는 사용자가 삭제된 경우
 - 조사 결과, 보고된 위험 이벤트가 합법적인 사용자에 의해 수행된 것으로 드러난 경우
 
-**활성** 상태인 위험 이벤트는 사용자 위험 계산에 사용될 수 있기 때문에 수동으로 위험 이벤트를 닫아서 위험 수준을 낮춰야 합니다. <br> 조사하는 과정 동안 이러한 작업을 수행하여 위험 이벤트의 상태를 변경할 수 있습니다.
+**활성** 상태인 위험 이벤트는 사용자 위험 계산에 사용될 수 있기 때문에 수동으로 위험 이벤트를 닫아서 위험 수준을 낮춰야 합니다. 조사하는 과정 동안 이러한 작업을 수행하여 위험 이벤트의 상태를 변경할 수 있습니다.
 
-<br> ![작업](./media/active-directory-identityprotection/34.png "작업") <br>
+![작업](./media/active-directory-identityprotection/34.png "작업")
 
 - **해결** - 위험 이벤트를 검사한 후에 ID 보호 외부에서 적절한 수정 작업을 수행하고 위험 이벤트가 닫힌 것으로 간주되어야 한다고 판단하는 경우 이벤트를 "해결됨"으로 표시합니다. 해결된 이벤트는 위험 이벤트의 상태를 닫힘으로 설정하고 위험 이벤트는 더 이상 사용자 위험에 영향을 주지 않습니다.
 
@@ -184,11 +168,35 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 
 - **다시 활성화** - 수동으로 닫힌 위험 이벤트(**해결**, **가양성** 또는 **무시**를 선택하여)는 이벤트 상태를 다시 **활성**으로 설정하여 다시 활성화될 수 있습니다. 다시 활성화된 위험 이벤트는 사용자 위험 수준 계산에 영향을 줍니다. 수정(예: 보안 암호를 다시 설정)을 통해 닫힌 위험 이벤트를 다시 활성화할 수 없습니다.
 
+
+
+
 **관련 구성 대화 상자를 열려면**
 
-1. **Azure AD ID 보호** 블레이드에서 **위험에 대한 플래그가 지정된 사용자**를 클릭합니다. <br><br> ![수동 암호 다시 설정](./media/active-directory-identityprotection/408.png "수동 암호 다시 설정") <br>
+1. **Azure AD ID 보호** 블레이드의 **조사** 아래에서 **위험 이벤트**를 클릭합니다.
 
-2. 영향을 받는 사용자를 마우스 오른쪽 단추로 클릭합니다. <br><br> ![수동 암호 다시 설정](./media/active-directory-identityprotection/437.png "수동 암호 다시 설정") <br>
+	![수동 암호 다시 설정](./media/active-directory-identityprotection/1002.png "수동 암호 다시 설정")
+
+2. **위험 이벤트** 목록에서 위험을 클릭합니다.
+
+	![수동 암호 다시 설정](./media/active-directory-identityprotection/1003.png "수동 암호 다시 설정")
+
+2. 위험 블레이드에서 사용자를 마우스 오른쪽 단추로 클릭합니다.
+
+	![수동 암호 다시 설정](./media/active-directory-identityprotection/1004.png "수동 암호 다시 설정")
+
+
+
+### 사용자에 대한 모든 위험 이벤트를 수동으로 닫기
+
+수동으로 사용자에 대한 위험 이벤트를 개별적으로 닫는 대신 Azure Active Directory ID 보호는 한 번의 클릭으로 사용자에 대한 모든 이벤트를 닫는 메서드를 제공합니다.
+
+
+![작업](./media/active-directory-identityprotection/2222.png "작업")
+
+**모든 이벤트 해제**를 클릭하면 모든 이벤트가 닫히고 영향을 받는 사용자가 더 이상 위험에 노출되지 않습니다.
+
+
 
 ## 사용자 위험 이벤트 수정
 
@@ -213,15 +221,25 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 
 **임시 암호** - **임시 암호 생성**을 선택하여 즉시 기존 암호를 무효화하고 사용자에 대한 새 임시 암호를 만듭니다. 사용자에 대한 대체 전자 메일 주소 또는 사용자의 관리자에게 새 임시 암호를 보냅니다. 암호가 임시적이기 때문에 사용자는 로그인 시 암호를 변경하라는 메시지를 받습니다.
 
-<br> ![정책](./media/active-directory-identityprotection/71.png "정책") <br>
+
+![정책](./media/active-directory-identityprotection/1005.png "정책")
+
 
 **관련 구성 대화 상자를 열려면**
 
-1. **Azure AD ID 보호** 블레이드에서 **위험에 대한 플래그가 지정된 사용자**를 클릭합니다. <br><br> ![수동 암호 다시 설정](./media/active-directory-identityprotection/408.png "수동 암호 다시 설정") <br>
+1. **Azure AD ID 보호** 블레이드에서 **위험에 대한 플래그가 지정된 사용자**를 클릭합니다.
 
-2. 영향을 받는 사용자를 클릭합니다. <br><br> ![수동 암호 다시 설정](./media/active-directory-identityprotection/404.png "수동 암호 다시 설정") <br>
+	![수동 암호 다시 설정](./media/active-directory-identityprotection/1006.png "수동 암호 다시 설정")
 
-2. 암호 다시 설정을 클릭합니다. <br><br> ![수동 암호 다시 설정](./media/active-directory-identityprotection/420.png "수동 암호 다시 설정") <br>
+
+2. 사용자 목록에서 하나 이상의 위험 이벤트와 사용자를 선택합니다.
+
+	![수동 암호 다시 설정](./media/active-directory-identityprotection/1007.png "수동 암호 다시 설정")
+
+
+2. 사용자 블레이드에서 **암호 재설정**을 클릭합니다.
+
+	![수동 암호 다시 설정](./media/active-directory-identityprotection/1008.png "수동 암호 다시 설정")
 
 
 
@@ -229,19 +247,37 @@ Azure Active Directory 보호에서 전자 메일을 통해 보내는 [알림](a
 
 ## 사용자 위험 보안 정책
 
-사용자 위험 보안 정책은 특정 사용자에 대한 위험 수준을 평가하고 미리 정의된 조건 및 규칙에 따라 수정 및 완화 작업을 적용하는 조건부 액세스 정책입니다. <br><br> ![사용자 ridk 정책](./media/active-directory-identityprotection/500.png "사용자 ridk 정책") <br>
+사용자 위험 보안 정책은 특정 사용자에 대한 위험 수준을 평가하고 미리 정의된 조건 및 규칙에 따라 수정 및 완화 작업을 적용하는 조건부 액세스 정책입니다.
+
+
+![사용자 ridk 정책](./media/active-directory-identityprotection/1009.png "사용자 ridk 정책")
+
 
 Azure AD ID 보호를 사용하면 다음을 사용하여 위험에 플래그가 지정된 사용자의 완화 및 수정을 관리할 수 있습니다.
 
-- 정책이 적용되는 사용자 및 그룹 설정: <br><br> ![사용자 ridk 정책](./media/active-directory-identityprotection/501.png "사용자 ridk 정책") <br>
+- 정책이 적용되는 사용자 및 그룹 설정:
 
-- 암호 변경을 트리거하는 사용자 위험 수준 임계값 설정(낮음, 보통 또는 높음): <br><br> ![사용자 ridk 정책](./media/active-directory-identityprotection/502.png "사용자 ridk 정책") <br>
+	![사용자 ridk 정책](./media/active-directory-identityprotection/1010.png "사용자 ridk 정책")
 
-- 사용자 차단을 트리거하는 사용자 위험 수준 임계값 설정(낮음, 보통 또는 높음): <br><br> ![사용자 ridk 정책](./media/active-directory-identityprotection/503.png "사용자 ridk 정책") <br>
 
-- 정책 상태 전환: <br><br> ![MFA 등록](./media/active-directory-identityprotection/403.png "MFA 등록") <br>
+- 정책을 트리거하는 사용자 위험 수준 임계값 설정(낮음, 보통 또는 높음):
 
-- 활성화하기 전에 변경의 영향 검토 및 평가: <br><br> ![사용자 ridk 정책](./media/active-directory-identityprotection/504.png "사용자 ridk 정책") <br>
+	![사용자 ridk 정책](./media/active-directory-identityprotection/1011.png "사용자 ridk 정책")
+
+
+- 정책이 트리거할 때 적용될 컨트롤 설정:
+
+	![사용자 ridk 정책](./media/active-directory-identityprotection/1012.png "사용자 ridk 정책")
+
+
+- 정책 상태 전환:
+
+	![사용자 ridk 정책](./media/active-directory-identityprotection/403.png "MFA 등록")
+
+
+- 활성화하기 전에 변경의 영향 검토 및 평가:
+
+	![사용자 ridk 정책](./media/active-directory-identityprotection/1013.png "사용자 ridk 정책")
 
 
 **높음** 임계값을 선택하면 정책이 트리거되는 횟수를 줄이고 사용자에게 미치는 영향을 최소화합니다. 그러나 정책에서 위험에 플래그가 지정된 **낮음** 및 **보통** 사용자를 제외하며 이는 이전에 손상이 우려되거나 손상된 ID 또는 장치를 보호하지 않을 수 있습니다.
@@ -267,9 +303,9 @@ Azure AD ID 보호를 사용하면 다음을 사용하여 위험에 플래그가
 
 **관련 구성 대화 상자를 열려면**
 
-1. **Azure AD ID 보호** 블레이드에서 **설정**을 클릭합니다. <br><br> ![사용자 위험 정책](./media/active-directory-identityprotection/401.png "사용자 위험 정책") <br>
+1. **Azure AD ID 보호** 블레이드의 **구성** 섹션에서 **사용자 위험 정책**을 클릭합니다.
 
-2. **보안 정책** 섹션에서 **사용자 위험**을 클릭합니다. <br><br> ![사용자 위험 정책](./media/active-directory-identityprotection/500.png "사용자 위험 정책") <br>
+	![사용자 ridk 정책](./media/active-directory-identityprotection/1009.png "사용자 ridk 정책")
 
 
 
@@ -294,27 +330,45 @@ Azure AD ID 보호를 사용하면 다음을 사용하여 위험에 플래그가
 ## 로그인 위험 이벤트 완화 
 완화는 ID 또는 장치를 안전한 상태로 복원하지 않고 손상된 ID 또는 장치를 악용하는 공격자의 능력을 제한하는 작업입니다. 완화 조치는 ID 또는 장치와 연결된 이전 로그인 위험 이벤트를 해결하지 않습니다.
 
-Azure AD ID 보호에 조건부 액세스를 사용하여 자동으로 로그인 위험 이벤트를 완화할 수 있습니다. 이러한 정책을 사용하여 사용자 또는 로그인의 위험 수준을 고려하여 위험한 로그인을 차단하거나 사용자가 Multi-Factor Authentication을 수행하도록 합니다. 이러한 작업은 공격자가 피해를 일으키는 도난당한 ID를 악용하지 않도록 방지하며 ID를 보호할 시간을 제공할 수 있습니다.
+Azure AD ID 보호에 조건부 액세스를 사용하여 자동으로 로그인 위험 이벤트를 완화할 수 있습니다. 이러한 정책을 사용하여 사용자 또는 로그인의 위험 수준을 고려하여 위험한 로그인을 차단하거나 사용자가 Multi-Factor Authentication을 수행하도록 합니다. 이러한 작업은 공격자가 피해를 일으키는 도난 당한 ID를 악용하지 않도록 방지하며 ID를 보호할 시간을 제공할 수 있습니다.
 
 
 ## 로그인 위험 보안 정책
 
-로그인 위험 정책은 특정 로그인에 대한 위험을 평가하고 미리 정의된 조건 및 규칙에 따라 완화를 적용하는 조건부 액세스 정책입니다. <br><br> ![로그인 위험 정책](./media/active-directory-identityprotection/700.png "로그인 위험 정책") <br>
+로그인 위험 정책은 특정 로그인에 대한 위험을 평가하고 미리 정의된 조건 및 규칙에 따라 완화를 적용하는 조건부 액세스 정책입니다.
+
+![로그인 위험 정책](./media/active-directory-identityprotection/1014.png "로그인 위험 정책")
+
 
 Azure AD ID 보호를 사용하면 다음을 사용하여 위험한 로그인을 완화하도록 관리할 수 있습니다.
 
-- 정책이 적용되는 사용자 및 그룹 설정: <br><br> ![로그인 위험 정책](./media/active-directory-identityprotection/701.png "로그인 위험 정책") <br>
+- 정책이 적용되는 사용자 및 그룹 설정:
 
-- 영향을 받는 로그인에 Multi-Factor Authentication 질문을 트리거하는 로그인 위험 수준 임계값 설정(낮음, 보통 또는 높음): <br><br> ![로그인 위험 정책](./media/active-directory-identityprotection/702.png "로그인 위험 정책") <br>
+	![로그인 위험 정책](./media/active-directory-identityprotection/1015.png "로그인 위험 정책")
 
-- 영향을 받는 로그인을 차단하는 로그인 위험 수준 임계값 설정(낮음, 보통 또는 높음): <br><br> ![로그인 위험 정책](./media/active-directory-identityprotection/703.png "로그인 위험 정책") <br>
 
-- 정책 상태 전환: <br><br> ![MFA 등록](./media/active-directory-identityprotection/403.png "MFA 등록") <br>
+- 정책을 트리거하는 로그인 위험 수준 임계값 설정(낮음, 보통 또는 높음):
 
-- 활성화하기 전에 변경의 영향 검토 및 평가: <br><br> ![로그인 위험 정책](./media/active-directory-identityprotection/704.png "로그인 위험 정책") <br>
+	![로그인 위험 정책](./media/active-directory-identityprotection/1016.png "로그인 위험 정책")
+
+
+- 정책이 트리거할 때 적용될 컨트롤 설정:
+
+	![로그인 위험 정책](./media/active-directory-identityprotection/1017.png "로그인 위험 정책")
+
+
+- 정책 상태 전환:
+
+	![MFA 등록](./media/active-directory-identityprotection/403.png "MFA 등록")
+
+- 활성화하기 전에 변경의 영향 검토 및 평가:
+
+	![로그인 위험 정책](./media/active-directory-identityprotection/1018.png "로그인 위험 정책")
 
  
-**높은** 임계값을 선택하면 정책이 트리거되는 횟수를 줄이고 사용자에게 미치는 영향을 최소화합니다.<br> 그러나 정책에서 위험에 플래그가 지정된 **낮은** 및 **보통** 로그인을 제외하며 이는 공격자가 손상된 ID를 악용하지 않도록 차단하지 않을 수 있습니다.
+**높음** 임계값을 선택하면 정책이 트리거되는 횟수를 줄이고 사용자에게 미치는 영향을 최소화합니다.
+ 
+그러나 정책에서 위험에 플래그가 지정된 **낮은** 및 **보통** 로그인을 제외하며 이는 공격자가 손상된 ID를 악용하지 않도록 차단하지 않을 수 있습니다.
 
 정책을 설정 하는 경우
 
@@ -355,33 +409,52 @@ ID 보호 콘솔의 **위험 이벤트** 페이지에서는 모든 이벤트를 
 
 **관련 구성 대화 상자를 열려면**
 
-1. **Azure AD ID 보호** 블레이드에서 **설정**을 클릭합니다. <br><br> ![MFA 등록](./media/active-directory-identityprotection/401.png "MFA 등록") <br>
+1. **Azure AD ID 보호** 블레이드의 **구성** 섹션에서 **로그인 위험 정책**을 클릭합니다.
 
-1. **보안 정책** 섹션에서 **로그인 위험**을 클릭합니다. <br><br> ![MFA 등록](./media/active-directory-identityprotection/700.png "MFA 등록") <br>
+	![사용자 ridk 정책](./media/active-directory-identityprotection/1014.png "사용자 ridk 정책")
+
 
 
 
 
 ## Multi-Factor Authentication 등록 정책
 
-Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 두번째 계층을 제공합니다. <br> 다음과 같은 이유로, 사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다.
+Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야 하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 두 번째 계층을 제공합니다. 다음과 같은 이유로, 사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다.
 
 - 다양한 간편한 확인 옵션과 함께 강력한 인증 제공
 
 - 조직에서 계정 손상을 방지 및 복구하도록 준비하는 데 중요한 역할 수행
+
+![사용자 ridk 정책](./media/active-directory-identityprotection/1019.png "사용자 ridk 정책")
+
+
 
 자세한 세부 내용은 [Azure Multi-Factor Authentication 정의](../multi-factor-authentication/multi-factor-authentication.md)를 참조하세요.
 
 
 Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여 Multi-Factor Authentication 등록의 롤아웃을 관리할 수 있습니다.
 
-- 현재 등록 상태 보기: <br><br> ![MFA 등록](./media/active-directory-identityprotection/603.png "MFA 등록") <br>
 
-- 정책이 적용되는 사용자 및 그룹 설정: <br><br> ![MFA 등록](./media/active-directory-identityprotection/601.png "MFA 등록") <br>
 
-- 등록을 건너뛸 수 있는 기간 정의: <br><br> ![MFA 등록](./media/active-directory-identityprotection/602.png "MFA 등록") <br>
+- 정책이 적용되는 사용자 및 그룹 설정:
 
-- 정책 상태 전환: <br><br> ![MFA 등록](./media/active-directory-identityprotection/403.png "MFA 등록") <br>
+	![MFA 정책](./media/active-directory-identityprotection/1020.png "MFA 정책")
+
+
+
+- 정책이 트리거할 때 적용될 컨트롤 설정:
+
+	![MFA 정책](./media/active-directory-identityprotection/1021.png "MFA 정책")
+
+
+- 정책 상태 전환:
+
+	![MFA 정책](./media/active-directory-identityprotection/403.png "MFA 정책")
+
+- 현재 등록 상태 보기:
+
+	![MFA 정책](./media/active-directory-identityprotection/1022.png "MFA 정책")
+
 
 관련 사용자 환경에 대한 개요는 다음을 참조하세요.
 
@@ -395,14 +468,15 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
 
 **관련 구성 대화 상자를 열려면**
 
-1. **Azure AD ID 보호** 블레이드에서 **설정**을 클릭합니다. <br><br> ![MFA 등록](./media/active-directory-identityprotection/401.png "MFA 등록") <br>
+1. **Azure AD ID 보호** 블레이드의 **구성** 섹션에서 **Multi-Factor Authentication 등록**을 클릭합니다.
 
-2. **Multi-factor Authentication** 섹션에서 **등록**을 클릭합니다. <br><br> ![MFA 등록](./media/active-directory-identityprotection/402.png "MFA 등록") <br>
-
-
+	![MFA 정책](./media/active-directory-identityprotection/1019.png "MFA 정책")
 
 
-## 참고 항목
+
+
+
+## 다음 단계
 
  - [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [Azure Active Directory ID 보호에서 검색한 위험 이벤트의 유형](active-directory-identityprotection-risk-events-types.md)
@@ -411,6 +485,10 @@ Azure AD ID 보호를 사용하면 다음을 지원하는 정책을 구성하여
  - [Azure Active Directory ID 보호 흐름](active-directory-identityprotection-flows.md)
  - [Azure Active Directory ID 보호 플레이 북](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory ID 보호 용어집](active-directory-identityprotection-glossary.md)
+
+ - [Azure Active Directory ID 보호 활성화](active-directory-identityprotection-enable.md)
+ - [Azure Active Directory ID 보호 - 사용자를 차단 해제하는 방법](active-directory-identityprotection-unblock-howto.md)
+
  - [Azure Active Directory ID 보호 및 Microsoft Graph 시작](active-directory-identityprotection-graph-getting-started.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@ description="Apache Maven을 사용하여 Java 기반 Apache HBase 응용 프로
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"
 tags="azure-portal"/>
 
@@ -646,4 +646,4 @@ __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 표준 오류(STDERR)을 확인합니다.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

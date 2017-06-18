@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
 
 # Resource Manager 템플릿을 사용하여 VNet 피어링 만들기
 
@@ -29,7 +29,7 @@ Resource Manager 템플릿을 사용하여 VNet 피어링을 만들려면 다음
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 
-    참고: VNet 피어링을 관리하기 위한 PowerShell cmdlet은 [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)에 포함되어 있습니다.
+    > [AZURE.NOTE] VNet 피어링을 관리하기 위한 PowerShell cmdlet은 [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0)에 포함되어 있습니다.
 
 2. 아래 텍스트에서는 위의 시나리오를 기반으로 VNet1-VNet2에 대한 VNet 피어링 연결의 정의를 보여 줍니다. 아래의 콘텐츠를 복사하고 VNetPeeringVNet1.json 파일에 저장합니다.
 
@@ -58,7 +58,7 @@ Resource Manager 템플릿을 사용하여 VNet 피어링을 만들려면 다음
             }
         ]
         }
-    
+
 3. 아래 섹션에서는 위의 시나리오를 기반으로 VNet2-VNet1에 대한 VNet 피어링 연결의 정의를 보여 줍니다. 아래의 콘텐츠를 복사하고 VNetPeeringVNet2.json 파일에 저장합니다.
 
         {
@@ -178,7 +178,7 @@ Resource Manager 템플릿을 사용하여 VNet 피어링을 만들려면 다음
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
 
     JSON 파일을 정의하는 방법은 다음과 같습니다.
-    
+
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -204,11 +204,11 @@ Resource Manager 템플릿을 사용하여 VNet 피어링을 만들려면 다음
             }
         ]
         }
-   
+
 4. 사용자-B의 로그인 세션에서 다음 cmdlet을 실행합니다.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet5.json -DeploymentDebugLogLevel all
-   
+
 	JSON 파일을 정의하는 방법은 다음과 같습니다.
 
         {
@@ -236,7 +236,7 @@ Resource Manager 템플릿을 사용하여 VNet 피어링을 만들려면 다음
             }
         ]
         }
- 
+
  	이 시나리오에서 피어링을 설정한 후에 다른 구독에 걸쳐 두 VNet의 어떤 가상 컴퓨터에서 가상 컴퓨터로 연결을 시작할 수 있어야 합니다.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
@@ -303,4 +303,57 @@ Resource Manager 템플릿을 사용하여 VNet 피어링을 만들려면 다음
 
 3. 피어링을 설정하면 UDR(사용자 정의 경로)를 정의하는 이 [문서](virtual-network-create-udr-arm-ps.md)를 참조하여 그 기능을 사용하는 가상 어플라이언스를 통해 VNet1 트래픽을 리디렉션할 수 있습니다. 경로에 다음 홉 주소를 지정하면 피어링된 VNet HubVNet에서 가상 어플라이언스의 IP 주소를 설정할 수 있습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+다양한 배포 모델의 가상 네트워크 간에 피어링을 만들려면 다음 단계를 수행합니다.
+1. 아래 텍스트는 이 시나리오에서 VNET1-VNet2에 대한 VNet 피어링 연결의 정의를 보여 줍니다. Azure Resource Manager 가상 네트워크에 클래식 가상 네트워크를 피어링하는 데 하나의 링크만이 필요합니다.
+
+    클래식 가상 네트워크 또는 VNET2이 있는 구독 ID에 위치하도록 하고 MyResouceGroup을 적절한 리소스 그룹 이름으로 변경해야 합니다.
+
+    { "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", "contentVersion": "1.0.0.0", "parameters": { }, "variables": { }, "resources": [ { "apiVersion": "2016-06-01", "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings", "name": "VNET1/LinkToVNET2", "location": "[resourceGroup().location]", "properties": { "allowVirtualNetworkAccess": true, "allowForwardedTraffic": false, "allowGatewayTransit": false, "useRemoteGateways": false, "remoteVirtualNetwork": { "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]" } } } ] }
+
+2. 템플릿 파일을 배포하려면 배포를 생성하거나 업데이트기 위해 다음 cmdlet을 실행합니다.
+
+        New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
+
+        Output shows:
+
+        DeploymentName          : VnetPeering
+        ResourceGroupName       : MyResourceGroup
+        ProvisioningState       : Succeeded
+        Timestamp               : XX/XX/YYYY 5:42:33 PM
+        Mode                    : Incremental
+        TemplateLink            :
+        Parameters              :
+        Outputs                 :
+        DeploymentDebugLogLevel : RequestContent, ResponseContent
+
+3. 배포가 성공한 후에 다음 cmdlet을 실행하여 피어링 상태를 볼 수 있습니다.
+
+        Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNET1 -ResourceGroupName MyResourceGroup -Name LinkToVNET2
+
+        Output shows:
+
+        Name                             : LinkToVNET2
+        Id                               : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResource
+                                   Group/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeering
+                                   s/LinkToVNET2
+        Etag                             : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/M
+                                   yResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                   }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
+
+클래식 VNet과 리소스 관리자 VNet 간에 피어링이 설정된 후에 VNET1의 가상 컴퓨터에서 VNET2의 가상 컴퓨터로 연결을 시작할 수 있어야 하고 반대로도 가능해야 합니다.
+
+<!---HONumber=AcomDC_0921_2016-->

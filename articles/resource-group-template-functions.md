@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager 템플릿 함수
@@ -1087,7 +1087,7 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 		}
 	}
 
-반환된 개체의 속성은 리소스 유형에 따라 다릅니다.
+**reference** 함수에서 반환된 개체의 속성은 리소스 유형에 따라 다릅니다. 리소스 유형에 대한 속성 이름 및 값을 보려면 **outputs** 섹션에서 개체를 반환하는 간단한 템플릿을 만듭니다. 해당 유형의 기존 리소스가 있는 경우 템플릿은 새로운 리소스를 배포하지 않고 개체를 반환합니다. 해당 유형의 기존 리소스가 없는 경우 템플릿은 이 유형만 배포하고 개체를 반환합니다. 그런 다음, 배포 중에 값을 동적으로 검색하는 데 필요한 다른 템플릿에 해당 속성을 추가합니다.
 
 <a id="resourcegroup" />
 ### resourceGroup
@@ -1217,4 +1217,4 @@ listKeys에서 반환된 개체는 다음 형식을 가집니다.
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 - 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

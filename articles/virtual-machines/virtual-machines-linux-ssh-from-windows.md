@@ -26,6 +26,7 @@ description="Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure�
 
 이 항목에서는 **ssh-rsa** 및 **.pem** 형식의 공용 및 개인 키 파일을 Windows에 만들고 사용하여 **ssh** 명령으로 Azure에 Linux VM을 연결할 방법에 대해 설명합니다. **.pem** 파일이 이미 만들어져 있는 경우 해당 파일을 사용하여 Linux VM(**ssh**를 사용하여 연결)을 만듭니다. 일부 다른 명령은 **SSH** 프로토콜 및 키 파일을 사용하여 작업을 안전하게 수행하며 특히 **scp** 또는 [안전한 복사](https://en.wikipedia.org/wiki/Secure_copy)는 **SSH** 연결을 지원하는 컴퓨터에서 파일을 안전하게 복사할 수 있습니다.
 
+> [AZURE.NOTE] 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
 
 ## 어떤 SSH 및 키 생성 프로그램이 필요한가요?
 
@@ -167,4 +168,4 @@ Windows용 `ssh-keygen` 및 `openssl`을 포함한 여러 유틸리티가 [이 �
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

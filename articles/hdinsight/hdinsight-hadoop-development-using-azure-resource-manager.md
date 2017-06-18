@@ -3,7 +3,7 @@
 	description="HDInsight 클러스터용 Azure Resource Manager 개발 도구에 마이그레이션하는 방법"
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="nitinme"
 	documentationCenter=""/>
 
@@ -137,17 +137,17 @@ Windows PowerShell 콘솔에서 HDInsight ASM cmdlet을 나열하려면:
 ARM 모드에서만 사용할 수 있는 새 cmdlet은 다음과 같습니다.
 
 **cmdlet 관련 스크립트 작업:**
-- **Get-AzureRmHDInsightPersistedScriptAction**:클러스터에 대한 지속형 스크립트 동작을 가져오고 시간 순서로 나열하거나 또는 지정된 지속형 스크립트 작업에 대한 세부 정보를 가져옵니다. 
-- **Get-AzureRmHDInsightScriptActionHistory**:클러스터에 대한 스크립트 작업 기록을 가져오고 시간 순서로 나열하거나 또는 이전에 실행된 스크립트 작업의 세부 정보를 가져옵니다. 
-- **Remove-AzureRmHDInsightPersistedScriptAction**:HDInsight 클러스터에서 지속형 스크립트 작업을 제거합니다.
-- **Set-AzureRmHDInsightPersistedScriptAction**:이전에 실행된 스크립트 작업을 지속형 스크립트 작업으로 설정합니다.
-- **Submit-AzureRmHDInsightScriptAction**:Azure HDInsight 클러스터에 새 스크립트 작업을 제출합니다. 
+- **Get-AzureRmHDInsightPersistedScriptAction**: 클러스터에 대한 지속형 스크립트 동작을 가져와 시간 순서로 나열하거나 지정된 지속형 스크립트 동작에 대한 세부 정보를 가져옵니다.
+- **Get-AzureRmHDInsightScriptActionHistory**: 클러스터에 대한 스크립트 동작 기록을 가져와 시간 순서로 나열하거나 이전에 실행된 스크립트 동작의 세부 정보를 가져옵니다.
+- **Remove-AzureRmHDInsightPersistedScriptAction**: HDInsight 클러스터에서 지속형 스크립트 동작을 제거합니다.
+- **Set-AzureRmHDInsightPersistedScriptAction**: 이전에 실행된 스크립트 동작을 지속형 스크립트 동작으로 설정합니다.
+- **Submit-AzureRmHDInsightScriptAction**: Azure HDInsight 클러스터에 새 스크립트 동작을 제출합니다.
 
 추가 사용 정보는 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 **cmdlet 관련 클러스터 ID:**
 
-- **Add-AzureRmHDInsightClusterIdentity**:HDInsight 클러스터가 Azure Data Lake 저장소에 액세스할 수 있도록 클러스터 구성 개체에 클러스터 ID를 추가합니다. [Azure PowerShell을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)를 참조하세요.
+- **Add-AzureRmHDInsightClusterIdentity**: HDInsight 클러스터가 Azure Data Lake Stores에 액세스할 수 있도록 클러스터 구성 개체에 클러스터 ID를 추가합니다. [Azure PowerShell을 사용하여 Data Lake 저장소로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)를 참조하세요.
 
 ### 예
 
@@ -375,4 +375,4 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 
 		client.Clusters.Delete(resourceGroup, dnsname);
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

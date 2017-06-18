@@ -101,7 +101,7 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 
 - WMF 5 RTM로 업그레이드할 때 컴퓨터가 Azure 자동화 DSC의 노드로 이미 등록되어 있으면 Azure 자동화 DSC에서 등록을 취소하고 WMF 5 RTM 업그레이드 후에 다시 등록합니다.
 
-- Azure 자동화 DSC는 현재 부분 또는 복합 DSC 구성을 지원하지 않습니다. 그러나 DSC 복합 리소스는 로컬 PowerShell과 마찬가지로 가져와서 사용될 수 있으며 이는 구성을 다시 사용하도록 합니다.
+- Azure 자동화 DSC는 현재 부분 또는 복합 DSC 구성을 지원하지 않습니다. 그러나 DSC 복합 리소스는 로컬 PowerShell과 마찬가지로 가져와서 Azure Automation DSC 구성에서 사용될 수 있으며 이는 구성을 다시 사용하도록 합니다.
 
 - Windows용 PowerShell DSC 에이전트가 Azure 자동화와 통신하려면 최신 버전의 WMF 5가 설치되어 있어야 합니다. 최신 버전 Linux용 PowerShell DSC 에이전트가 Azure 자동화와 통신하려면 Linux용으로 설치되어야 합니다.
 
@@ -128,4 +128,4 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 - [Azure 자동화 DSC 가격 책정](https://azure.microsoft.com/pricing/details/automation/)
 - [Azure 자동화 DSC 및 Chocolatey를 사용하여 IaaS VM에 연속 배포](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

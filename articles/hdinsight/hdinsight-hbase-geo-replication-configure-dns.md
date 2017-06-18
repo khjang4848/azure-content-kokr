@@ -4,7 +4,7 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -44,7 +44,7 @@ Azure 가상 네트워크에 DNS 서버를 추가하고 구성하여 가상 네�
 
 - **Azure PowerShell이 포함된 워크스테이션**.
 
-	PowerShell 스크립트를 실행하기 전에 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
+	PowerShell 스크립트를 실행하기 전에 다음의 cmdlet을 사용하여 Azure 구독에 연결되어 있는지 확인합니다.
 
 		Add-AzureAccount
 
@@ -222,4 +222,4 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

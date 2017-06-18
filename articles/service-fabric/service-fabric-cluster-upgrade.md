@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="09/13/2016"
    ms.author="chackdan"/>
 
 
@@ -71,13 +71,10 @@ Microsoft는 클러스터에서 실행하는 패브릭 코드 및 구성을 유�
 
 ### 인증서
 
-Azure 포털(아래 참조)에서 또는 servicefabric.cluster 리소스의 PUT 명령 발급을 통해 손쉽게 주 또는 보조 인증서를 업데이트할 수 있습니다.
+포털을 통해 클러스터 및 클라이언트에 대한 인증서를 쉽게 새로 추가하거나 삭제할 수 있습니다. [자세한 지침은 이 문서](service-fabric-cluster-security-update-certs-azure.md)를 참조하세요.
 
 ![Azure 포털의 인증서 지문을 보여 주는 스크린샷][CertificateUpgrade]
 
->[AZURE.NOTE] 클러스터 리소스에 사용할 인증서를 식별하려면 먼저 다음 단계를 완료해야 합니다. 그러지 않으면 새 인증서가 사용되지 않습니다.
-1. Azure 키 자격 증명 모음에 새 인증서를 업로드합니다. 지침은 [서비스 패브릭 보안](service-fabric-cluster-security.md)을 참조하세요. 해당 문서의 2단계로 시작합니다.
-2. 인증서가 배포되도록 클러스터를 구성하는 모든 VM(가상 컴퓨터)을 업데이트합니다. 이를 수행하려면 [Azure 주요 자격 증명 모음 팀 블로그](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)를 참조하세요.
 
 ### 응용 프로그램 포트
 
@@ -87,7 +84,7 @@ Azure 포털(아래 참조)에서 또는 servicefabric.cluster 리소스의 PUT 
 
 1. 적절한 부하 분산 장치에 새 프로브를 추가합니다.
 
-    포털을 사용하여 클러스터를 배포한 경우 부하 분산 장치는 각 노드 유형에 대해 "loadBalancer-0", "loadBalancer-1" 등으로 이름이 지정됩니다. 부하 분산 장치 이름은 리소스 그룹에만 고유하므로 특정 리소스 그룹 아래에 대해 검색하는 것이 가장 좋습니다.
+    포털을 사용하여 클러스터를 배포한 경우 부하 분산 장치는 각 노드 형식에 대해 "LB-name of the Resource group-NodeTypename"으로 이름이 지정됩니다. 부하 분산 장치 이름은 리소스 그룹에만 고유하므로 특정 리소스 그룹 아래에 대해 검색하는 것이 가장 좋습니다.
 
     ![포털에서 부하 분산 장치에 프로브 추가를 보여 주는 스크린샷][AddingProbes]
 
@@ -122,8 +119,8 @@ Azure 포털(아래 참조)에서 또는 servicefabric.cluster 리소스의 PUT 
 - [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에 대해 알아보기
 
 <!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
+[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
+[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0921_2016-->

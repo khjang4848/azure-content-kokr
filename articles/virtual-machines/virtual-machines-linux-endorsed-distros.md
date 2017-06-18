@@ -22,6 +22,8 @@
 
 #Azure 인증 배포의 Linux
 
+> [AZURE.NOTE] 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
+
 Azure 갤러리 또는 마켓플레이스의 Linux 이미지는 다양한 파트너에서 제공되며, 여러 Linux 커뮤니티와의 작업을 통해 좀 더 다양한 인증 배포 목록을 추가합니다. 그러는 동안 이 갤러리에서 사용할 수 없는 배포의 경우, [이 페이지](virtual-machines-linux-classic-create-upload-vhd.md)의 지침에 따라 자신만의 Linux를 언제든지 가져올 수 있습니다.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -89,4 +91,4 @@ Canonical 엔지니어링과 개방형 커뮤니티 관리로 인해 고객에 �
 
 Canonical은 전 세계의 개발자 및 엔지니어링 센터와 함께 PC에서 서버 및 핸드헬드 장치에 이르는 업계에 Ubuntu 솔루션을 제공하기 위해 하드웨어 제조업체, 콘텐츠 공급자 및 소프트웨어 개발자와 유일하게 파트너 입장에 있습니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

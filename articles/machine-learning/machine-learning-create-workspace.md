@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -106,4 +106,4 @@ Azure 기계 학습 스튜디오를 사용하려면 기계 학습 작업 영역�
 [기계 학습 스튜디오]: https://studio.azureml.net/
 [Microsoft Azure 클래식 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

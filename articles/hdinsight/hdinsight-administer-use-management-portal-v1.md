@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -160,7 +160,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 **Hadoop 명령줄을 열려면**
 
 1. [Azure 클래식 포털](https://manage.windowsazure.com/)에 로그인합니다.
-2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 배포된 Hadoop 클러스터 목록이 표시됩니다.
+2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 배포된 Hadoop 클러스터의 목록이 표시됩니다.
 3. 연결할 HDInsight 클러스터를 클릭합니다.
 3. 페이지 맨 위에서 **구성**을 클릭합니다.
 4. 페이지 아래쪽에서 **연결**을 클릭합니다.
@@ -199,4 +199,4 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Hadoop 명령줄"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

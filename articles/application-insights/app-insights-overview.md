@@ -347,11 +347,11 @@ Application Insights는 전자 메일을 통해 전달되는 세 가지 유형�
  * [문제 해결][qna]
  * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* 제안:
+ * [개발자 지원 받기](app-insights-get-dev-support.md)
+* 사용자 제안:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * 블로그:
  * [Application Insights 블로그](https://azure.microsoft.com/blog/tag/application-insights)
-
 
 
 
@@ -386,4 +386,4 @@ Application Insights는 전자 메일을 통해 전달되는 세 가지 유형�
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

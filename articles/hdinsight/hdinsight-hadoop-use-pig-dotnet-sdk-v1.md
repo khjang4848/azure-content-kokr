@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=".net"
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -18,7 +18,7 @@
 
 #HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
 
-[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
+[AZURE.INCLUDE [pig-선택기](../../includes/hdinsight-selector-use-pig.md)]
 
 이 문서는 HDInsight 클러스터의 Hadoop에 Pig 작업을 제출하기 위해 Hadoop용 .NET SDK를 사용하는 예시를 보여 줍니다.
 
@@ -40,7 +40,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 ##<a id="certificate"></a>관리 인증서 만들기
 
-Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인증서를 만들고 개발 워크스테이션에 설치하여 Azure 구독에 업로드해야 합니다.
+Azure HDInsight에 대한 응용 프로그램을 인증하려면 자체 서명된 인증서를 만들고 개발 워크스테이션에 설치하여 Azure 구독에 업로드해야 합니다.
 
 이 작업을 수행하는 방법에 대한 지침은 [자체 서명된 인증서 만들기](http://go.microsoft.com/fwlink/?LinkId=511138)를 참조하세요.
 
@@ -54,7 +54,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 
 2. 포털 왼쪽에 있는 막대에서 **설정**을 선택합니다.
 
-3. 페이지 오른쪽에 있는 정보에서 사용할 구독을 찾아 **구독 ID** 열에서 해당 값을 기록해 둡니다.
+3. 페이지 오른쪽에 있는 정보에서 사용할 구독을 찾아 **구독 ID** 열에 해당 값을 기록해 둡니다.
 
 나중에 사용할 것이므로 구독 ID를 저장합니다.
 
@@ -77,7 +77,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 	</tr>
 	<tr>
 	<th>Template</th>
-	<th>Console Application</th>
+	<th>콘솔 응용 프로그램</th>
 	</tr>
 	<tr>
 	<th>이름</th>
@@ -162,4 +162,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

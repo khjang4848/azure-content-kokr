@@ -1,6 +1,6 @@
 <properties
 	pageTitle="미디어 서비스 확장의 CDN 캐싱 정책"
-	description="이 항목에서는 미디어 서비스 확장의 CDN 캐싱 정책에 대한 개요를 제공합니다."
+	description="이 항목에서는 Media Services Extension의 CDN 캐싱 정책에 대한 개요를 제공합니다."
 	services="media-services,cdn"
 	documentationCenter=".NET"
 	authors="juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
  
 #미디어 서비스 확장의 CDN 캐싱 정책
@@ -28,13 +28,13 @@ Azure 미디어 서비스는 HTTP 기반 적응 스트리밍 및 점진적 다�
 
 Azure 미디어 서비스는 스트리밍 끝점에 대한 [CDN 통합](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/)을 제공합니다. Cache-control 헤더는 CDN 사용 스트리밍 끝점에 스트리밍 끝점과 동일한 방식으로 적용됩니다. Azure CDN은 스트리밍 끝점에 구성된 캐시 값을 사용하여 내부적으로 캐시된 개체의 수명을 정의하며, 이 값을 사용하여 배달 캐시 헤더도 설정합니다. CDN 사용 스트리밍 끝점을 사용하는 경우에는 작은 캐시 값을 설정하지 않는 것이 좋습니다. 작은 값을 설정하면 성능이 저하되고 CDN의 이점이 줄어듭니다. CDN 사용 스트리밍 끝점의 경우 캐시 헤더를 600초보다 작게 설정할 수 없습니다.
 
->[AZURE.IMPORTANT] Azure 미디어 서비스와 Azure CDN의 통합은 **Verizon의 Azure CDN**에 구현됩니다. Azure 미디어 서비스에 **Akamai의 Azure CDN**을 사용하려면, [끝점을 수동으로 구성](cdn-create-new-endpoint.md)해야 합니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](cdn-overview.md)를 참조하세요.
+>[AZURE.IMPORTANT] Azure 미디어 서비스와 Azure CDN의 통합은 **Verizon의 Azure CDN**에 구현됩니다. Azure Media Services에 **Akamai의 Azure CDN**을 사용하려면 [끝점을 수동으로 구성](cdn-create-new-endpoint.md)해야 합니다. Azure CDN 기능에 대한 자세한 내용은 [CDN 개요](cdn-overview.md)를 참조하세요.
 
 ##Azure 미디어 서비스를 사용하여 캐시 헤더 구성
 
 Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 헤더 값을 구성할 수 있습니다.
 
-1. 관리 포털을 사용하여 캐시 헤더를 구성하려면 스트리밍 끝점 구성에서 [스트리밍 끝점을 관리하는 방법](../media-services/media-services-manage-origins.md) 섹션을 참조하세요.
+1. 관리 포털을 사용하여 캐시 헤더를 구성하려면 스트리밍 끝점 구성에서 [스트리밍 끝점을 관리하는 방법](../media-services/media-services-portal-manage-streaming-endpoints.md) 섹션을 참조하세요.
 2. Azure 미디어 서비스 REST API, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl)
 3. Azure 미디어 서비스 .NET SDK, [StreamingEndpointCacheControl 속성](http://go.microsoft.com/fwlink/?LinkId=615302)
 
@@ -44,4 +44,4 @@ Azure 관리 포털 또는 Azure 미디어 서비스 API를 사용하여 캐시 
 2. 수동 구성이 없으면 기본값이 적용됩니다.
 3. 라이브 스트리밍에는 Azure 미디어 또는 Azure 저장소 구성에 상관없이 기본적으로 2초 캐시 헤더가 적용되며, 이 값은 재정의할 수 없습니다.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

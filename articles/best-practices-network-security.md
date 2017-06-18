@@ -297,6 +297,10 @@ VNETLocal은 항상 특정 네트워크의 가상 네트워크에 대한 정의�
 2. 다음 홉이 방화벽으로 정의된 가상 네트워크 트래픽, 이 경우 로컬 가상 네트워크 트래픽이 직접 라우팅되도록 하는 기본 규칙을 재정의합니다.
 3. 다음 홉이 방화벽으로 정의된 나머지 트래픽(0/0)
 
+>[AZURE.TIP] UDR의 로컬 서브넷 항목이 없는 경우 로컬 서브넷 통신의 연결이 끊어집니다.
+> - 이 예제에서 VNETLocal을 가리키는 10.0.1.0/24는 매우 중요합니다. 웹 서버(10.0.1.4)를 다른 로컬 서버(예: 10.0.1.25)에 보내는 패킷은 NVA에 전송되는 경우 실패합니다. 그러면 해당 패킷을 서브넷에 전송하고 서비넷은 NVA 등에 해당 패킷을 다시 전송합니다.
+> - 라우팅 루프가 발생할 가능성은 일반적으로 통신하는 각 서브넷에 직접 연결된 다중 NIC 어플라이언스에서 더 높으며 이는 종종 기존의 온-프레미스 어플라이언스입니다.
+
 라우팅 테이블이 생성되면 해당 서브넷에 바인딩됩니다. 프런트 엔드 서브넷 라우팅 테이블이 생성되어 서브넷에 바인딩되면 다음과 같습니다.
 
         Effective routes : 
@@ -306,12 +310,9 @@ VNETLocal은 항상 특정 네트워크의 가상 네트워크에 대한 정의�
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] Azure 가상 게이트웨이에서 사용되는 동적 라우팅의 복잡성으로 인해 UDR을 Express 경로와 함께 사용하는 경우 특정 제한 사항이 있습니다.
+>[AZURE.NOTE] 이제 UDR은 ExpressRoute 회로가 연결된 게이트웨이 서브넷에 적용될 수 있습니다.
 >
->- UDR은 Express 경로에 연결된 Azure 가상 게이트웨이가 연결된 게이트웨이 서브넷에 적용될 수 없습니다.
-> - Express 경로에 연결된 Azure 가상 게이트웨이는 UDR에 바인딩된 다른 서브넷에 대한 NextHop 장치가 될 수 없습니다.
->
->Express 경로 또는 사이트 간 네트워킹에서 경계 네트워크를 사용하도록 설정하는 방법은 예제 3과 4에 설명되어 있습니다.
+> Express 경로 또는 사이트 간 네트워킹에서 경계 네트워크를 사용하도록 설정하는 방법은 예제 3과 4에 설명되어 있습니다.
 
 
 #### IP 전달 설명
@@ -472,7 +473,7 @@ Express 경로 사설 피어링 네트워크 연결을 추가하면 안전하며
 - 사용자 정의 라우팅 설명서: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](./virtual-network/virtual-networks-udr-overview.md)
 - Azure 가상 게이트웨이: [https://azure.microsoft.com/documentation/services/vpn-gateway/](https://azure.microsoft.com/documentation/services/vpn-gateway/)
 - 사이트 간 VPN: [https://azure.microsoft.com/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-- Express 경로 설명서("시작하기" 및 "방법" 섹션 확인): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
+- ExpressRoute 설명서("시작하기" 및 "방법" 섹션 확인): [https://azure.microsoft.com/documentation/services/expressroute/](https://azure.microsoft.com/documentation/services/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "보안 옵션 순서도"
@@ -504,4 +505,4 @@ Express 경로 사설 피어링 네트워크 연결을 추가하면 안전하며
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0921_2016-->

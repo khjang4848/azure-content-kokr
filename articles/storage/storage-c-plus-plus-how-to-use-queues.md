@@ -3,8 +3,8 @@
     description="Azure에서 큐 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다."
     services="storage"
     documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager=jahogg""
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;robinsh"/>
 
 # C++에서 큐 저장소를 사용하는 방법  
 
@@ -228,6 +228,7 @@ Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하�
 	queue.delete_queue_if_exists();  
 
 ## 다음 단계
+
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 Azure 저장소에 대해 알아보세요.
 
 -	[C++에서 Blob 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-blobs.md)
@@ -236,4 +237,4 @@ Azure Storage 에뮬레이터를 시작하려면 **시작** 단추를 선택하�
 -	[C++용 Storage Client Library 참조(영문)](http://azure.github.io/azure-storage-cpp)
 -	[Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

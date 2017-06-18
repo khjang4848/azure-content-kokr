@@ -66,8 +66,8 @@ Azure의 진단, 모니터링 및 메트릭 데이터는 선택한 저장소 계
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](insights-receive-alert-notifications.md)합니다.
 * [서비스 메트릭을 모니터링](insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * [인스턴스 개수를 자동으로 조정](insights-how-to-scale.md)하여 수요를 기준으로 서비스 크기가 조정되도록 합니다.
-* 클라우드에서 코드의 성능을 정확히 파악하려는 경우[응용 프로그램 성능을 모니터링](insights-perf-analytics.md)합니다.
+* 클라우드에서 코드의 성능을 정확히 파악하려는 경우[응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md)합니다.
 * [이벤트 및 감사 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

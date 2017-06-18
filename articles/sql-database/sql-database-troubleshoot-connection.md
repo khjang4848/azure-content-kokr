@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="daleche"/>
 
 # SQL 데이터베이스에 연결할 때 “현재 서버의 데이터베이스를 사용할 수 없습니다” 오류
@@ -40,4 +40,4 @@ Azure 데이터베이스를 이동하거나 다시 구성하는 중이어서 SQL
 - 다른 오류가 발생하는 경우에는 [오류 메시지](sql-database-develop-error-messages.md)를 점검하여 오류의 원인을 파악합니다.
 - 문제가 지속되면 [Azure SQL 데이터베이스의 일반적인 연결 문제 해결](sql-database-troubleshoot-common-connection-issues.md)의 지침을 확인해 보세요.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

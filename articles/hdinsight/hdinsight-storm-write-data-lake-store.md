@@ -4,7 +4,7 @@ description="HDInsight의 Apache Storm 토폴로지에서 Azure 데이터 레이
 services="hdinsight"
 documentationCenter="na"
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/17/2016"
+ms.date="09/06/2016"
 ms.author="larryfr"/>
 
 #HDInsight에서 Apache Storm으로 Azure 데이터 레이크 저장소 사용
@@ -27,7 +27,7 @@ Azure 데이터 레이크 저장소는 데이터에 대한 높은 처리량, 가
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 * Azure 구독
-* HDInsight 클러스터 버전 3.2의 Storm. HDInsight 클러스터에서 새 Storm을 만들려면 [Azure를 사용하는 Data Lake 저장소로 HDInsight 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서의 단계를 따릅니다. 이 문서의 단계는 새 HDInsight 클러스터 및 Azure 데이터 레이크 저장소를 만드는 과정을 안내합니다.  
+* HDInsight 클러스터 버전 3.2의 Storm. HDInsight 클러스터에서 새 Storm을 만들려면 [Azure를 사용하는 Data Lake 저장소로 HDInsight 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서의 단계를 따릅니다. 이 문서의 단계는 새 HDInsight 클러스터 및 Azure 데이터 레이크 저장소를 만드는 과정을 안내합니다.
 
     > [AZURE.IMPORTANT] HDInsight 클러스터를 만들 때 __Storm__을 클러스터 유형으로 선택하고 버전으로 __3.2__를 선택해야 합니다. OS는 Windows 또는 Linux일 수 있습니다.
 
@@ -221,4 +221,4 @@ __Windows 기반 HDInsight의 경우__:
 
 이제 Storm을 사용하여 Azure Data Lake 저장소에 작성하는 방법을 알아보았으므로 다른 [HDInsight에 대한 Storm 예제](hdinsight-storm-example-topology.md)를 검색합니다.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -198,4 +198,4 @@ API의 요청 본문은 입력, 출력 및 오류 파일이 저장되어야 하�
 -	한 번에 구독당 하나의 배치 작업만을 호출할 수 있습니다.
 -	배치 작업 입력 파일은 2MB 이상일 수 없습니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

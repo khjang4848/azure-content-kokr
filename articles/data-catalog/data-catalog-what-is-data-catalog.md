@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/26/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Azure 데이터 카탈로그란?
@@ -74,4 +74,4 @@ Azure Data Catalog는 조직이 기존 투자에서 더 많은 가치를 얻을 
 * [비즈니스 용어집을 설정하는 방법](data-catalog-how-to-business-glossary.md)
 * [질문과 대답](data-catalog-frequently-asked-questions.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!-----HONumber=AcomDC_0921_2016-->

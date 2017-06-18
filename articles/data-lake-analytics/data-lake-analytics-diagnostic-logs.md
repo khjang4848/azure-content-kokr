@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="Blackmist" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -234,4 +234,4 @@ Azure Data Lake Analytics에서는 로그 데이터를 처리하고 분석하는
 
 - [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

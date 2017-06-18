@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Azure 인프라 연습 예제
@@ -38,7 +38,7 @@ Adventure Works Cycles는 Azure에서 다음으로 구성된 온라인 스토어
 
 ![응용 프로그램 인프라의 여러 다른 계층 다이어그램](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-고객이 온라인 스토어를 검색할 때 들어오는 보안 웹 트래픽의 부하는 웹 서버 사이에서 분산되어야 합니다. 웹 서버에서 HTTP 요청 양식의 주문 처리 트래픽의 부하는 응용 프로그램 서버 사이에서 분산되어야 합니다. 또한 인프라는 고가용성을 위해 설계되어야 합니다.
+고객이 온라인 스토어를 검색할 때 들어오는 보안 웹 트래픽의 부하는 웹 서버 사이에서 분산되어야 합니다. 웹 서버에서 HTTP 요청 양식의 주문 처리 트래픽의 부하는 응용 프로그램 서버 사이에서 부하 분산되어야 합니다. 또한 인프라는 고가용성을 위해 설계되어야 합니다.
 
 결과로 나온 디자인 다음을 통합해야 합니다.
 
@@ -132,4 +132,4 @@ Adventure Works Cycles는 Azure VM에 대해 다음 이름을 결정했습니다
 
 [AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

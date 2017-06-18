@@ -3,8 +3,8 @@
 	description="Azure 마켓플레이스에 Azure 기계 학습 웹 서비스를 게시하는 방법" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	authors="BharathS" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="09/08/2016" 
 	ms.author="bharaths"/>
 
 # Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시 
@@ -29,15 +29,15 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 
 1. 기계 학습 요청-응답 서비스(RR)를 만들어서 게시합니다.
 2. 서비스를 프로덕션 환경에 배포하고 API 키 및 OData 끝점 정보를 가져옵니다.
-3. 게시된 웹 서비스의 URL을 사용하여 [Azure 마켓플레이스(데이터 마켓)](https://publish.windowsazure.com/workspace/)에 게시합니다. 
-4. 제출된 제품은 검토되고 고객이 구매를 시작하기 전에 승인되어야 합니다. 게시 프로세스는 영업일 기준 몇 일이 걸릴 수 있습니다. 
+3. 게시된 웹 서비스의 URL을 사용하여 [Azure 마켓플레이스(데이터 마켓)](https://publish.windowsazure.com/workspace/)에 게시합니다.
+4. 제출된 제품은 검토되고 고객이 구매를 시작하기 전에 승인되어야 합니다. 게시 프로세스는 영업일 기준 몇 일이 걸릴 수 있습니다.
 
 ## 방법 설명
 ###1단계: 기계 학습 요청-응답 서비스(RR)를 만들어서 게시###
  아직 게시하지 않은 분은 이 [방법 설명](machine-learning-walkthrough-5-publish-web-service.md)을 살펴보세요.
 
 ###2단계: 서비스를 프로덕션 환경에 배포하고 API 키 및 OData 끝점 정보 가져오기###
-1. [Azure 클래식 포털](http://manage.windowsazure.com)에서,왼쪽에 있는 탐색 모음에서 **기계 학습** 옵션을 선택하고 작업 영역을 선택합니다. 
+1. [Azure 클래식 포털](http://manage.windowsazure.com)에서,왼쪽에 있는 탐색 모음에서 **기계 학습** 옵션을 선택하고 작업 영역을 선택합니다.
 
 2. **웹 서비스** 탭을 클릭하고 마켓플레이스에 게시할 웹 서비스를 선택합니다.
 
@@ -64,10 +64,10 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 
 ###3단계: 게시된 웹 서비스의 URL을 사용하여 Azure 마켓플레이스(데이터 마켓)에 게시###
 
-1.  [Azure 마켓플레이스(데이터 마켓)](http://datamarket.azure.com/home)으로 이동합니다. 
+1.  [Azure 마켓플레이스(데이터 마켓)](http://datamarket.azure.com/home)으로 이동합니다.
 2.  페이지 상단의 **게시** 링크를 클릭합니다. [Microsoft Azure 게시 포털](https://publish.windowsazure.com)로 이동될 것입니다.
 3.  **게시자** 섹션을 클릭하여 게시자로 등록합니다.
-4.	새 제품을 만들 때 **데이터 서비스**를 선택하고 **새 데이터 서비스 만들기**를 클릭합니다. 
+4.	새 제품을 만들 때 **데이터 서비스**를 선택하고 **새 데이터 서비스 만들기**를 클릭합니다.
  
 	![Azure 마켓플레이스][image1]
 
@@ -109,4 +109,4 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

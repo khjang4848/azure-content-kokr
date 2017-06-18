@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # v2.0 끝점을 사용해야 하나요?
@@ -121,4 +121,4 @@ Azure Active Directory 서비스에서 사용할 수 있는 개발자 기능 집
 - Azure AD 사용자에 대한 그룹 클레임
 - 응용 프로그램 역할 및 역할 클레임
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

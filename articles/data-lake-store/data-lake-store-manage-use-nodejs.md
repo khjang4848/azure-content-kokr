@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/25/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 저장소 관리
@@ -35,6 +35,12 @@ Node.js용 Azure SDK는 Azure Data Lake 저장소 계정은 물론 파일 시스
   *  **Node.js 버전: 0.10.0 이상**
   *  **계정에 대한 REST API 버전: 2015-10-01-preview**
   *  **FileSystem용 REST API 버전: 2015-10-01-preview**
+
+##필수 조건
+
+이 문서를 시작하기 전에 다음이 있어야 합니다.
+
+- **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## 기능
 
@@ -141,4 +147,4 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 - [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)
 - [Node.js용 Microsoft Azure SDK - Data Lake 분석 관리](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

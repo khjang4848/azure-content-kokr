@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Azure 저장소 연결 문자열 구성
@@ -72,7 +72,7 @@ SAS(공유 액세스 서명) URL을 보유하는 경우 연결 문자열에 해�
 
 각 서비스 끝점은 선택 사항이지만 연결 문자열에는 최소한 하나 이상이 포함되어야 합니다.
 
-SAS와 함께 HTTPS를 사용하는 것이 가장 좋습니다. 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+SAS와 함께 HTTPS를 사용하는 것이 가장 좋습니다. 공유 액세스 서명에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 >[AZURE.NOTE] 구성 파일에서 연결 문자열의 SAS를 지정하는 경우 URL의 특수 문자 인코딩이 필요할 수 있습니다.
 
@@ -163,4 +163,4 @@ SAS와 함께 HTTPS를 사용하는 것이 가장 좋습니다. 공유 액세스
 - [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](storage-use-emulator.md)
 - [Azure 저장소 탐색기](storage-explorers.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

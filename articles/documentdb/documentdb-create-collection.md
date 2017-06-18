@@ -26,7 +26,7 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
     ![이동 표시줄에서 DocumentDB 계정을, DocumentDB 계정 블레이드에서 계정을, DocumentDB 계정 블레이드와 데이터베이스 렌즈에서 데이터베이스를 강조 표시한 스크린샷](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
     
-    이동 표시줄에 **DocumentDB 계정**이 표시되지 않으면 **서비스 더 보기**를 클릭한 다음 **DocumentDB(NoSQL)**를 클릭합니다. 나열된 계정이 없는 경우 [DocumentDB 계정을 만들](documentdb-create-account.md)어야 합니다.
+    이동 표시줄에 **DocumentDB (NoSQL)**이 표시되지 않으면 **서비스 더 보기**를 클릭한 다음 **DocumentDB (NoSQL)**를 클릭합니다. 나열된 계정이 없는 경우 [DocumentDB 계정을 만들](documentdb-create-account.md)어야 합니다.
 
 2. 선택한 계정에 대한 **DocumentDB 계정** 블레이드의 **데이터베이스** 렌즈에서 컬렉션을 추가할 데이터베이스를 선택합니다.
 
@@ -91,4 +91,4 @@ Microsoft Azure DocumentDB를 사용하려면 [DocumentDB 계정](documentdb-cre
 
 컬렉션에 문서를 추가한 후에 포털의 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](documentdb-sdk-dotnet.md) 중 하나를 사용하여 문서에 [쿼리를 실행](documentdb-sql-query.md#executing-queries)하기 위해 [DocumentDB SQL](documentdb-sql-query.md)을 사용할 수 있습니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

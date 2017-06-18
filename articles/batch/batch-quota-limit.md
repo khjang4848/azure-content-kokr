@@ -1,6 +1,6 @@
 <properties
 	pageTitle="배치 서비스 할당량 및 제한 | Microsoft Azure"
-	description="Azure 배치 서비스 사용에 대한 할당량, 제한 및 제약 조건에 알아봅니다."
+	description="기본 Azure 배치 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다."
 	services="batch"
 	documentationCenter=""
 	authors="mmacy"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/10/2016"
 	ms.author="marsma"/>
 
 # Azure 배치 서비스에 대한 할당량 및 제한
@@ -46,13 +46,13 @@
 
 [Azure 포털][portal]에서 배치 계정 할당량을 봅니다.
 
-1. 포털에서 **배치 계정**, 배치 계정 이름을 차례로 클릭합니다.
+1. 포털에서 **배치 계정**을 선택한 다음 관심 있는 배치 계정을 선택합니다.
 
-2. 계정 블레이드에서 **모든 설정** > **속성**을 클릭합니다.
+2. 배치 계정의 메뉴 블레이드에서 **속성**을 선택합니다.
+
+3. 속성 블레이드에서 현재 배치 계정에 적용되는 **할당량**을 표시합니다.
 
 	![배치 계정 할당량][account_quotas]
-
-3. **속성** 블레이드에서 현재 배치 계정에 적용되는 할당량을 표시합니다.
 
 ## 할당량 증가
 
@@ -106,4 +106,4 @@
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -28,6 +28,9 @@
 게스트 OS가 무엇인지 또는 게스트 OS 릴리스가 어떻게 작동하는지 잘 모르시나요? [이](#how-it-works) 섹션을 읽어보세요.
 
 ## 새 업데이트
+###### **2016년 9월 13일**
+게스트 OS 9월 롤아웃은 2016년 9월 13일에 시작되며 2016년 10월 13일에 출시될 예정입니다.
+
 ###### **2016년 8월 9일**
 게스트 OS 롤아웃은 2016년 8월 9일에 시작되며 2016년 9월 8일에 출시될 예정입니다.
 
@@ -66,9 +69,10 @@
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.35\_201608-01 | 2016년 9월 8일* | Post 4.37 | TBD |
+| WA-GUEST-OS-4.36\_201609-01 | 2016년 10월 13일 | Post 4.38 | TBD |
+| WA-GUEST-OS-4.35\_201608-01 | 2016년 9월 13일 | Post 4.37 | TBD |
 | WA-GUEST-OS-4.34\_201607-01 | 2016년 8월 8일 | 4\.36 후 | TBD |
-| WA-GUEST-OS-4.33\_201606-01 | 2016년 7월 13일 | 4\.35 후 | TBD |
+| WA-GUEST-OS-4.33\_201606-01 | 2016년 7월 13일 | 2016년 10월 13일 | TBD |
 | WA-GUEST-OS-4.32\_201605-01 | 2016년 6월 10일 | 2016년 9월 8일 | TBD |
 | WA-GUEST-OS-4.31\_201604-01 | 2016년 5월 2일 | 2016년 8월 13일 | TBD |
 | WA-GUEST-OS-4.30\_201603-01 | 2016년 4월 7일 | 2016년 7월 10일 | TBD |
@@ -95,9 +99,10 @@
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.42\_201608-01 | 2016년 9월 8일* | Post 3.44 | TBD |
+| WA-GUEST-OS-3.43\_201609-01 | 2016년 10월 13일 | Post 3.45 | TBD |
+| WA-GUEST-OS-3.42\_201608-01 | 2016년 9월 13일 | Post 3.44 | TBD |
 | WA-GUEST-OS-3.41\_201607-01 | 2016년 8월 8일 | 3\.43 후 | TBD |
-| WA-GUEST-OS-3.40\_201606-01 | 2016년 7월 13일 | 3\.42 후 | TBD |
+| WA-GUEST-OS-3.40\_201606-01 | 2016년 7월 13일 | 2016년 10월 13일 | TBD |
 | WA-GUEST-OS-3.39\_201605-01 | 2016년 6월 10일 | 2016년 9월 8일 | TBD |
 | WA-GUEST-OS-3.38\_201604-01 | 2016년 5월 2일 | 2016년 8월 13일 | TBD |
 | WA-GUEST-OS-3.37\_201603-01 | 2016년 4월 7일 | 2016년 7월 10일 | TBD |
@@ -125,9 +130,10 @@
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.54\_201608-01 | 2016년 9월 8일* | Post 2.56 | TBD |
+| WA-GUEST-OS-2.55\_201609-01 | 2016년 10월 13일 | Post 2.57 | TBD |
+| WA-GUEST-OS-2.54\_201608-01 | 2016년 9월 13일 | Post 2.56 | TBD |
 | WA-GUEST-OS-2.53\_201607-01 | 2016년 8월 8일 | 2\.55 후 | TBD |
-| WA-GUEST-OS-2.52\_201606-01 | 2016년 7월 13일 | 2\.54 후 | TBD |
+| WA-GUEST-OS-2.52\_201606-01 | 2016년 7월 13일 | 2016년 10월 13일 | TBD |
 | WA-GUEST-OS-2.51\_201605-01 | 2016년 6월 10일 | 2016년 9월 8일 | TBD |
 | WA-GUEST-OS-2.50\_201604-01 | 2016년 5월 2일 | 2016년 8월 13일 | TBD |
 | WA-GUEST-OS-2.49\_201603-01 | 2016년 4월 7일 | 2016년 7월 10일 | TBD |
@@ -199,7 +205,7 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 ## 게스트 OS 지원 가능성 및 사용 중지 정책
 게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/ko-KR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure 게스트 OS 업데이트 설정]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -220,4 +226,4 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,30 +13,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Azure AD 도메인 서비스*(미리 보기)* - Azure AD 도메인 서비스에 대한 암호 동기화 활성화
+# Azure AD 도메인 서비스에 대한 암호 동기화 활성화
+앞의 태스크에서 Azure AD 테넌트에 대한 Azure AD 도메인 서비스를 활성화했습니다. 다음 태스크는 Azure AD 도메인 서비스에 대한 암호의 동기화를 활성화하는 것입니다. 자격 증명 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
 
-## Task 5: 동기화된 Azure AD 테넌트에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화
-Azure AD 디렉터리에 Azure AD 도메인 서비스를 사용하도록 설정한 후에 수행할 작업은 Azure AD 도메인 서비스에 암호 동기화를 사용하도록 설정하는 것입니다. 이를 수행한 후에 사용자가 회사 자격 증명을 사용하여 도메인에 로그인할 수 있습니다.
-
-관련된 단계는 조직이 클라우드 전용 Azure AD 디렉터리인지, 아니면 Azure AD Connect를 사용하여 온-프레미스 디렉터리와 동기화되도록 설정되었는지에 따라 다릅니다.
+관련된 단계는 조직에 클라우드 전용 Azure AD 테넌트가 있는지, 아니면 Azure AD Connect를 사용하여 온-프레미스 디렉터리와 동기화되도록 설정되었는지에 따라 다릅니다.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [클라우드 전용 Azure AD 디렉터리](active-directory-ds-getting-started-password-sync.md)
-- [동기화된 Azure AD 디렉터리](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [클라우드 전용 Azure AD 테넌트](active-directory-ds-getting-started-password-sync.md)
+- [동기화된 Azure AD 테넌트](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
-### 동기화된 테넌트 - Azure AD로 NTLM 및 Kerberos 자격 증명 해시를 동기화하도록 설정
+
+## Task 5: 동기화된 Azure AD 테넌트에 대해 AAD 도메인 서비스에 대한 암호 동기화 활성화
 동기화된 Azure AD 테넌트는 Azure AD Connect를 사용하여 조직의 온-프레미스 디렉터리와 동기화하도록 설정됩니다. azure AD Connect는 기본적으로 NTLM 및 Kerberos 자격 증명 해시를 Azure AD에 동기화하지 않습니다. Azure AD 도메인 서비스를 사용하려면 Azure AD Connect를 구성하여 NTLM 및 Kerberos 인증에 필요한 자격 증명 해시를 동기화해야 합니다. 다음 단계를 통해 Azure AD 테넌트에 필요한 자격 증명 해시를 동기화할 수 있습니다.
 
-#### Azure AD Connect 설치 또는 업데이트
 
-도메인에 가입한 컴퓨터에 Azure AD Connect의 최신 권장 릴리스를 설치해야 합니다. Azure AD Connect 설치의 기존 인스턴스가 있는 경우 최신 버전의 Azure AD Connect를 사용하도록 업데이트해야 합니다. 이미 해결되었을 수도 있는 알려진 문제/버그를 방지하려면 최신 버전의 Azure AD Connect를 사용해야 합니다.
+### Azure AD Connect 설치 또는 업데이트
+도메인에 가입한 컴퓨터에 Azure AD Connect의 최신 권장 릴리스를 설치합니다. Azure AD Connect 설치의 기존 인스턴스가 있는 경우 최신 버전의 Azure AD Connect를 사용하도록 업데이트해야 합니다. 이미 해결되었을 수도 있는 알려진 문제/버그를 방지하려면 최신 버전의 Azure AD Connect를 사용해야 합니다.
 
 **[Azure AD Connect 다운로드](http://www.microsoft.com/download/details.aspx?id=47594)**
 
@@ -47,8 +46,7 @@ Azure AD 디렉터리에 Azure AD 도메인 서비스를 사용하도록 설정�
 Azure AD Connect에 대한 설치 지침은 [Azure AD Connect 시작](../active-directory/active-directory-aadconnect.md) 문서에 나와 있습니다.
 
 
-#### Azure AD에 전체 암호 동기화 강제 적용
-
+### NTLM 및 Kerberos 자격 증명 해시를 Azure AD에 동기화하도록 설정합니다.
 전체 암호 동기화를 강제로 적용하려면 각 AD 포리스트에서 다음 PowerShell 스크립트를 실행하고 모든 온-프레미스 사용자의 자격 증명 해시를 사용하도록 설정합니다. 이 스크립트를 사용하면 Azure AD 테넌트로 동기화할 NTLM/Kerberos 인증에 필요한 자격 증명 해시를 활성화합니다.
 
 ```
@@ -80,4 +78,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 - [Red Hat Enterprise Linux 가상 컴퓨터를 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

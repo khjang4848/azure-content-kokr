@@ -20,9 +20,9 @@
 # Azure 포털을 사용하여 사이트 간 연결로 VNet 만들기
 
 > [AZURE.SELECTOR]
-- [Azure 포털](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure 클래식 포털](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [클래식 - 클래식 포털](vpn-gateway-site-to-site-create.md)
 
 
 이 문서에서는 **Azure Resource Manager 배포 모델** 및 Azure 포털을 사용하여 온-프레미스 네트워크에 대한 가상 네트워크와 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 사이트간 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
@@ -154,4 +154,4 @@ VNet이 만들어지면 여기에 다른 주소 공간 및 서브넷을 추가�
 
 - BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

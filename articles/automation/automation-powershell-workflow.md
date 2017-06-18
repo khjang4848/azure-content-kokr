@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/24/2016"
+   ms.date="09/12/2016"
    ms.author="bwren" />
 
 # Windows PowerShell 워크플로 학습
@@ -46,7 +46,7 @@ PowerShell 스크립트를 PowerShell 워크플로로 변환하는 첫 단계는
 
 ## 코드 변경 내용
 
-PowerShell 워크플로 코드는 몇가지 중요한 변경 내용을 제외하고는 PowerShell 스크립트 코드와 거의 동일합니다. 다음 섹션에서 설명하는 변경 사항을 사용자가 워크플로에서 실행하려면 PowerShell script를 만들 필요가 있습니다.
+PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외하고는 PowerShell 스크립트 코드와 거의 동일합니다. 다음 섹션에서 설명하는 변경 사항을 사용자가 워크플로에서 실행하려면 PowerShell script를 만들 필요가 있습니다.
 
 ### 활동
 
@@ -56,13 +56,13 @@ PowerShell 워크플로 코드는 몇가지 중요한 변경 내용을 제외하
 
 ### 위치 매개 변수
 
-워크플로에서 위치매개 변수는 활동및 cmdlets와 같이 사용할 수 없습니다. 사용자가 매개 변수 이름을 사용해야 한다는 뜻입니다.
+워크플로에서 위치매개 변수는 활동 및 cmdlets와 같이 사용할 수 없습니다. 사용자가 매개 변수 이름을 사용해야 한다는 뜻입니다.
 
 예를 들어, 다음 모든 실행 중인 서비스의 코드를 가져오는 것이 좋습니다.
 
 	 Get-Service | Where-Object {$_.Status -eq "Running"}
 
-동일한 코드를 워크플로에서 실행하려고 한다면, 다음과 같은 메시지를 얻게 됩니다. “지정된 이름 매개 변수를 사용하여 매개 변수 집합을 해결수 없습니다.” 이 문제를 해결하려면 다음과 같은 매개 변수 이름을 제공합니다.
+동일한 코드를 워크플로에서 실행하려고 한다면, 다음과 같은 메시지를 얻게 됩니다. “지정된 이름 매개 변수를 사용하여 매개 변수 집합을 해결할 수 없습니다.” 이 문제를 해결하려면 다음과 같은 매개 변수 이름을 제공합니다.
 
 	Workflow Get-RunningServices
 	{
@@ -71,7 +71,7 @@ PowerShell 워크플로 코드는 몇가지 중요한 변경 내용을 제외하
 
 ### 역직렬화된 개체
 
-개체는 워크플로에서 역직렬화됩니다. 즉, 이 말은 해당 속성은 사용할수 있지만 메서드는 사용할 수 없다는 의미입니다. 서비스 개체의 stop 메서드를 사용하여 서비스를 중지시키는 다음의 Powershell 코드를 예로 들수 있습니다.
+개체는 워크플로에서 역직렬화됩니다. 즉, 이 말은 해당 속성은 사용할수 있지만 메서드는 사용할 수 없다는 의미입니다. 서비스 개체의 stop 메서드를 사용하여 서비스를 중지시키는 다음의 Powershell 코드를 예로 들 수 있습니다.
 
 	$Service = Get-Service -Name MyService
 	$Service.Stop()
@@ -206,7 +206,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 		Write-Output "All files copied."
 	}
 
-> [AZURE.NOTE]  자식 runbook을 병렬로 실행하는 것은 추천하지 않는 이유는 결과물이 신뢰할 수 없기 때문입니다. 자식 runbook에서의 출력은 때때로 나타나지 않을수도 있고, 한 자식 runbook의 설정이 다른 병렬 자식 runbook에 영향을 미칠 수 있습니다.
+> [AZURE.NOTE]  자식 runbook을 병렬로 실행하는 것은 추천하지 않는 이유는 결과물이 신뢰할 수 없기 때문입니다. 자식 runbook에서의 출력은 때때로 나타나지 않을 수도 있고, 한 자식 runbook의 설정이 다른 병렬 자식 runbook에 영향을 미칠 수 있습니다.
 
 
 ## 검사점
@@ -276,4 +276,4 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 - PowerShell 워크플로 Runbook을 시작하려면 [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)을 참조하세요.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

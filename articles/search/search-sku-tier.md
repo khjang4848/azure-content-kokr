@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -101,4 +101,4 @@ SKU당 허용되는 인덱스|3|5|50|200|200|1000
 - [포털에서 검색 서비스 만들기](search-create-service-portal.md)
 - [서비스 규모에 맞게 파티션 및 복제본 할당 변경](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -34,7 +34,7 @@ DocumentDB에서 샘플 데이터를 사용하여 이 워크플로를 시도해 
 
 ## 데이터 가져오기 마법사에서 지원하는 데이터 원본
 
-인덱싱 자동화 및 도구를 다음 데이터 원본에 사용할 수 있습니다.
+데이터 가져오기 마법사에서는 다음 데이터 원본을 지원합니다.
 
 - Azure SQL 데이터베이스
 - Azure VM에서 SQL Server 관계형 데이터
@@ -119,4 +119,4 @@ Azure 검색에서 인덱스에 대한 구조적 업데이트를 위해서는 �
 <!--Image references-->
 [1]: ./media/search-import-data-portal/search-import-data-command.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -60,7 +60,12 @@
 - 삭제 - 복구 서비스 자격 증명 모음이 더 이상 사용할 수 없는 경우 삭제하여 저장소 공간을 확보할 수 있습니다. 삭제는 등록된 모든 보호된 서버가 자격 증명 모음에서 삭제된 후에만 사용할 수 있습니다.
 
 ![백업 대시보드 작업](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
-
+## Azure 백업 에이전트에 의한 백업 경고
+| 경고 수준 | 전송되는 경고 |
+| ------------- | ------------- |
+| 중요 | Backup failure, recovery failure |
+| Warning | Backup completed with warnings (when less than hundred files are not backed up due to corruption issues and more than a million of files are successfully backed up) |
+| 정보 제공 | 없음 |
 ## 백업 경고 관리
 **백업 경고** 타일을 클릭하여 **백업 경고** 블레이드를 열고 경고를 관리합니다.
 
@@ -285,9 +290,14 @@ A3. 아래는 경고 노이즈를 줄이기 위해 알림이 전송되지 않는
    - 작업이 취소됩니다.
    - 원래 백업 작업이 진행 중이므로 두 번째 백업 작업이 실패합니다.
 
+## 모니터링 문제 해결<br>
+#### 문제: 포털에서 Azure 백업 에이전트의 작업과 경고가 보이지 않습니다.
+##### 문제 해결 단계
+"OBRecoveryServicesManagementAgent"는 작업과 경고에 대한 데이터를 Azure 백업 서비스에 보내는 데 사용합니다. 작업 관리자를 열어 "OBRecoveryServicesManagementAgent" 프로세스를 실행 중인지 확인합니다. 이 프로세스는 가끔씩 장애를 일으키거나 종료됩니다. 프로세스를 실행하고 있지 않으면 제어판에서 서비스 목록을 검색하여 "Microsoft Azure Recovery Services Management Agent"를 시작하거나 다시 시작합니다. 자세한 내용은 "Azure 백업 에이전트 설치 폴더"인 \\Microsoft Azure Recovery Services Agent\\Temp\\GatewayProvider*에 있는 로그를 찾아봅니다. <b>예:</b> C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Temp\\GatewayProvider0.errlog
+
 ## 다음 단계
 - [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)를 참조하세요.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

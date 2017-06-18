@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -104,7 +104,7 @@ Map Reduce 작업을 실행할 때 R 서버에 사용 가능한 메모리 양을
 
 HDInsight Premium 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영역입니다. 클러스터에 연결한 후 Linux 명령 프롬프트에 **R**을 입력하여 R 서버에 대한 콘솔 인터페이스를 시작할 수 있습니다. R 스크립트 개발용 텍스트 편집기를 다른 창에서 실행하고 필요에 따라 스크립트의 섹션을 복사하여 R 콘솔에 붙여 넣는 경우 콘솔 인터페이스의 사용이 개선됩니다.
 
-R 스크립트를 개발하기 위한 보다 복잡한 도구는 데스크톱에서 사용할 R 기반 IDE(예: Microsoft에서 최근 발표한 RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/en-us/features/rtvs-vs.aspx)))입니다. [RStudio](https://www.rstudio.com/products/rstudio-server/)의 데스크톱 및 서버 도구 제품군입니다. Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet)를 사용할 수도 있습니다.
+R 스크립트를 개발하기 위한 보다 복잡한 도구는 데스크톱에서 사용할 R 기반 IDE(예: Microsoft에서 최근 발표한 RTVS([Visual Studio용 R 도구](https://www.visualstudio.com/ko-KR/features/rtvs-vs.aspx)))입니다. [RStudio](https://www.rstudio.com/products/rstudio-server/)의 데스크톱 및 서버 도구 제품군입니다. Walware의 Eclipse 기반 [StatET](http://www.walware.de/goto/statet)를 사용할 수도 있습니다.
 
 또 다른 옵션은 Linux 에지 노드 자체에 IDE를 설치하는 것입니다. 일반적으로 [RStudio 서버](https://www.rstudio.com/products/rstudio-server/)를 선택하며 이는 원격 클라이언트에서 사용할 브라우저 기반 IDE를 제공합니다. RStudio 서버를 HDInsight Premium 클러스터의 에지 노드에 설치하면 클러스터의 R 서버를 사용하여 R 스크립트를 개발 및 실행할 수 있는 완벽한 IDE 환경이 제공됩니다. R 콘솔보다 생산성을 크게 높일 수 있습니다. RStudio 서버를 사용하려는 경우 [HDInsight 클러스터에 RStudio 서버 설치](hdinsight-hadoop-r-server-install-r-studio.md)를 참조하세요.
 
@@ -124,4 +124,4 @@ HDInsight 클러스터에서 R 서버를 사용하는 방법에 대한 자세한
 
 - [HDInsight Premium의 R 서버에 대한 Azure 저장소 옵션](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

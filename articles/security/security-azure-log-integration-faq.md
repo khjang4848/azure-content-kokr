@@ -85,7 +85,7 @@
 
 ## VM 진단을 통해 수집되는 항목을 어떻게 수정할 수 있나요?
 
-Microsoft Azure 진단*(WAD)* 구성을 가져오고, 수정하고, 설정하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)을 참조하세요. 다음은 샘플입니다.
+Windows Azure 진단*(WAD)* 구성을 가져오고, 수정하고, 설정하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 Windows를 실행하는 가상 컴퓨터에서 Azure 진단을 사용하도록 설정](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)을 참조하세요. 다음은 샘플입니다.
 
 ### WAD 구성 가져오기
 
@@ -113,7 +113,9 @@ Microsoft Azure 진단*(WAD)* 구성을 가져오고, 수정하고, 설정하는
 
 구성을 변경한 후에는 저장소 계정을 검사하여 올바른 이벤트가 수집되는지 확인합니다.
 
+Azure 로그 통합에 대한 질문이 있으면 [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)으로 전자 메일을 보내주세요.
+
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

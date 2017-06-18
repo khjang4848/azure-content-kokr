@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
+	ms.date="09/08/2016"
 	ms.author="ashwink"/>
 
 # Azure Insights 플랫폼 간 CLI 빠른 시작 샘플
 
-이 문서에서는 Azure Insights 모니터링 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Insights에서는 클라우드 서비스, 가상 컴퓨터 및 웹앱의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
+이 문서에서는 Azure Insights 모니터링 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Insights는 클라우드 서비스, 가상 컴퓨터 및 웹 앱의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
 
 ## 필수 조건
@@ -46,7 +46,7 @@ azure help
 azure login
 ```
 
-로그인해야 합니다. 그러면 계정, 테넌트 ID 및 기본 구독 ID가 표시됩니다. 모든 명령은 기본 구독의 컨텍스트에서 작동합니다.
+이 명령을 실행한 후 화면의 지시에 따라 로그인해야 합니다. 그러면 계정, 테넌트 ID 및 기본 구독 ID가 표시됩니다. 모든 명령은 기본 구독의 컨텍스트에서 작동합니다.
 
 현재 구독에 대한 세부 정보를 나열하려면 다음 명령을 사용합니다.
 
@@ -60,7 +60,7 @@ azure account show
 azure account set "subscription ID or subscription name"
 ```
 
-Azure Resource Manager 및 Azure Insights 명령을 사용하려면 ARM 모드에 있어야 합니다.
+Azure Resource Manager 및 Azure Insights 명령을 사용하려면 Azure Resource Manager 모드에 있어야 합니다.
 
 ```
 azure config mode arm
@@ -110,34 +110,34 @@ azure insights logs list --resourceProvider "Microsoft.Web" --caller "myname@com
 ### 리소스 그룹의 경고 규칙 가져오기
 
 ```
-node bin\azure insights alerts rule list abhingrgtest123
-node bin\azure insights alerts rule list abhingrgtest123 --ruleName andy0323
+azure insights alerts rule list abhingrgtest123
+azure insights alerts rule list abhingrgtest123 --ruleName andy0323
 ```
 
 ### 메트릭 경고 규칙 만들기
 
 ```
-node bin\azure insights alerts actions email create --customEmails foo@microsoft.com
-node bin\azure insights alerts actions webhook create https://someuri.com
-node bin\azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
+azure insights alerts actions email create --customEmails foo@microsoft.com
+azure insights alerts actions webhook create https://someuri.com
+azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
 ```
 
 ### 로그 경고 규칙 만들기
 
 ```
-insights alerts rule log set ruleName eastus resourceGroupName someOperationName
+azure insights alerts rule log set ruleName eastus resourceGroupName someOperationName
 ```
 
 ### 웹 테스트 경고 규칙 만들기
 
 ```
-node bin\azure insights alerts rule webtest set leowebtestr1-webtestr1 eastus Default-Web-WestUS PT5M 1 GSMT_AvRaw /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/webtests/leowebtestr1-webtestr1
+azure insights alerts rule webtest set leowebtestr1-webtestr1 eastus Default-Web-WestUS PT5M 1 GSMT_AvRaw /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/webtests/leowebtestr1-webtestr1
 ```
 
 ### 경고 규칙 삭제
 
 ```
-node bin\azure insights alerts rule delete abhingrgtest123 andy0323
+azure insights alerts rule delete abhingrgtest123 andy0323
 ```
 
 ## 로그 프로필
@@ -146,33 +146,33 @@ node bin\azure insights alerts rule delete abhingrgtest123 andy0323
 ### 로그 프로필 가져오기
 
 ```
-node bin\azure insights logprofile list
-node bin\azure insights logprofile get -n default
+azure insights logprofile list
+azure insights logprofile get -n default
 ```
 
 
 ### 보존하지 않는 로그 프로필 추가
 
 ```
-node bin\azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
+azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### 로그 프로필 제거
 
 ```
-node bin\azure insights logprofile delete --name default
+azure insights logprofile delete --name default
 ```
 
 ### 보존하는 로그 프로필 추가
 
 ```
-node bin\azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
+azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
 ```
 
 ### 보존하는 로그 프로필 및 이벤트 허브 추가
 
 ```
-node bin\azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --serviceBusRuleId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/testshoeboxeastus/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
+azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --serviceBusRuleId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/testshoeboxeastus/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
 ```
 
 
@@ -182,19 +182,19 @@ node bin\azure insights logprofile add --name default --storageId /subscriptions
 ### 진단 설정 가져오기
 
 ```
-node bin\azure insights diagnostic get --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp
+azure insights diagnostic get --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```
 
 ### 진단 설정 사용 안 함
 
 ```
-node bin\azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled false
+azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled false
 ```
 
 ### 보존하지 않는 진단 설정 사용
 
 ```
-node bin\azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled true
+azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled true
 ```
 
 
@@ -204,20 +204,20 @@ node bin\azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0
 ### 리소스 그룹에 대한 자동 크기 조정 설정 가져오기
 
 ```
-node bin\azure insights autoscale setting list montest2
+azure insights autoscale setting list montest2
 ```
 
 ### 리소스 그룹의 이름으로 자동 크기 조정 설정 가져오기
 
 ```
-node bin\azure insights autoscale setting list montest2 -n setting2
+azure insights autoscale setting list montest2 -n setting2
 ```
 
 
 ### 자동 크기 조정 설정 지정
 
 ```
-node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
+azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

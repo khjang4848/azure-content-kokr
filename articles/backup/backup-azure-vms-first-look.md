@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/29/2016"
+	ms.date="09/15/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # 소개: Azure 가상 컴퓨터 백업
 
 > [AZURE.SELECTOR]
-- [소개: 복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)
-- [소개: 백업 자격 증명으로 Azure VM 보호](backup-azure-vms-first-look.md)
+- [복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)
+- [백업 자격 증명으로 Azure VM 보호](backup-azure-vms-first-look.md)
 
 이 자습서에서는 Azure 가상 컴퓨터(VM)를 Azure의 백업 자격 증명 모음에 백업하는 단계를 안내합니다. 이 문서에서는 VM을 백업하기 위해 클래식 모델 또는 서비스 관리자 배포 모델을 설명합니다. 리소스 그룹에 속해 있는 복구 서비스 자격 증명 모음에 VM을 백업하려는 경우 [소개: 복구 서비스 자격 증명 모음으로 VM 보호](backup-azure-vms-first-look-arm.md)를 참조하세요. 이 자습서를 성공적으로 완료하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
@@ -213,4 +213,4 @@ VM이 온-프레미스 데이터 센터에서 마이그레이션된 경우에는
 ## 질문이 있으십니까?
 질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

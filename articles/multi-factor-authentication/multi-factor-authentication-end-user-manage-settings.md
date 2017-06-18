@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication에 문제가 있는 경우 | Microsoft Azure" 
-	description="이 문서는 Azure 다단계 인증에 문제가 있는 경우 수행할 작업에 대한 정보를 제공합니다." 
+<properties
+	pageTitle="Azure Multi-Factor Authentication에 문제가 있는 경우 | Microsoft Azure"
+	description="이 문서는 Azure 다단계 인증에 문제가 있는 경우 수행할 작업에 대한 정보를 제공합니다."
 	services="multi-factor-authentication"
 	keywords = "다단계 인증 클라이언트, 인증 문제, 상관관계 ID"
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication에 문제가 있는 경우
 >[AZURE.IMPORTANT]
@@ -44,7 +44,7 @@
  - **SessionId** - 수신한 특정 세션 ID
  - **상관관계 ID** – 사용자가 오류를 확인했을 때 생성된 상관관계 ID
  - **타임스탬프** – 오류(표준 시간대 포함)가 나타나는 경우 정확한 날짜 및 시간 정의
- 
+
 ![상관관계 ID](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
  - **사용자 ID** – 오류가 나타난 사용자의 ID 정의(예: user@contoso.com)
@@ -58,7 +58,7 @@
 사용자 계정으로 돌아가는 데는 두 가지 옵션이 있습니다. 첫 번째는 대체 인증 전화 번호를 설정한 경우 이를 사용하여 사용자 계정으로 돌아가 보안 설정을 변경할 수 있습니다.
 
 보조 인증 전화 번호를 지정한 경우 이를 사용하여 로그인할 수 있습니다. ![설정](./media/multi-factor-authentication-end-user-manage/altphone.png) 위의 스크린샷에서 두 개의 전화 번호가 설정되었습니다. 67 및 30에서 하나씩 끝납니다.
-  
+
 대체 전화 번호를 사용하여 로그인하려면 일반적으로 로그인한 다음 **다른 인증 옵션 사용**을 선택하면 됩니다. ![다양한 확인](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 그런 다음 다른 전화번호를 선택합니다. 이 경우 **다음 번호로 호출: +X XXXXXXXX30**을 선택합니다.
@@ -74,13 +74,13 @@
 다중 요소 인증을 사용하는 방법에 따라 전화 번호와 같은 설정을 변경할 수 있는 몇 가지 위치가 있습니다. 자신에게 가장 잘 맞는 한 가지를 선택하도록 아래의 표를 사용합니다.
 
 다단계 인증을 사용하는 방법|설명
-:------------- | :------------- | 
+:------------- | :------------- |
 [Office 365에서 사용](#changing-your-settings-with-office-365)| Office 365 포털을 통해 설정을 변경할 수 있습니다.
 [잘 모름](#changing-your-settings-with-the-myapps-portal)|즉, [http://myapps.microsoft.com](http://myapps.microsoft.com)에 로그인한 후 여기에서 설정을 변경할 수 있습니다.
 [Microsoft Azure에서 사용](#changing-your-settings-with-microsoft-azure)| Azure 포털을 통해 설정을 변경할 수 있습니다.
 
 
- 
+
 ### Office 365에서 설정 변경
 
 
@@ -128,7 +128,7 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 보조 인증 전화 번호를 구성하는 것이 중요합니다. 기본 전화 번호 및 모바일 앱은 아마도 동일한 전화상에 있으므로 보조 전화 번호는 전화를 분실하거나 도난당한 경우 사용자 계정으로 돌아갈 수 있는 유일한 방법입니다.
 
 첫 번째 방법은 보조 인증 방법을 사용하는 것입니다. 보조 인증 전화 번호를 지정한 경우 이를 사용하여 로그인할 수 있습니다. ![설정](./media/multi-factor-authentication-end-user-manage/altphone.png) 위의 스크린샷에서 두 개의 전화 번호가 설정되었습니다. 67 및 30에서 하나씩 끝납니다.
-  
+
 대체 전화 번호를 사용하여 로그인하려면 일반적으로 로그인한 다음 **다른 인증 옵션 사용**을 선택하면 됩니다. ![다양한 확인](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 그런 다음 다른 전화번호를 선택합니다. 이 경우 **다음 번호로 호출: +X XXXXXXXX30**을 선택합니다.
@@ -172,4 +172,4 @@ Azure에서 Multi-Factor Authentication을 사용하는 경우 Azure 포털을 �
 
 마지막으로, 이 페이지를 업데이트하고 보다 많은 정보를 제공하여 지속적으로 개선할 수 있도록 이 페이지에 자세한 피드백을 남겨야 합니다.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

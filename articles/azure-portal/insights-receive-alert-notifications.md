@@ -65,8 +65,8 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * [서비스 메트릭을 모니터링](insights-how-to-customize-monitoring.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * [모니터링 및 진단을 사용](insights-how-to-use-diagnostics.md)하여 서비스의 자세한 고주파 메트릭을 수집합니다.
 * Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../application-insights/app-insights-monitor-web-app-availability.md)하여 페이지가 다운된 경우를 찾을 수 있습니다.
-* 클라우드에서 코드가 어떻게 수행되고 있는지 정확하게 알고 싶은 경우[응용 프로그램 성능을 모니터링](insights-perf-analytics.md)합니다.
+* 클라우드에서 코드가 어떻게 수행되고 있는지 정확하게 알고 싶은 경우[응용 프로그램 성능을 모니터링](../application-insights/app-insights-azure-web-apps.md)합니다.
 * [이벤트 및 감사 로그를 보고](insights-debugging-with-events.md) 서비스에서 발생한 모든 사항을 알아봅니다.
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 경우를 알아봅니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

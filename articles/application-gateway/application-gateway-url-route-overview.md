@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="09/16/2016"
    ms.author="gwallace"/>
 
 # URL 경로 기반 라우팅 개요
@@ -25,7 +25,7 @@ http://contoso.com/video*에 대한 요청은 VideoServerPool로 라우팅되고
 
 ## UrlPathMap 구성 요소
 
-UrlPathMap 요소는 백 엔드 서버 풀 매핑에 대한 경로 패턴을 지정하는 데 사용됩니다. 다음은 템플릿 파일의 urlPathMap 요소 조각입니다.
+UrlPathMap 요소는 백 엔드 서버 풀 매핑에 대한 경로 패턴을 지정하는 데 사용됩니다. 다음 코드 예제는 템플릿 파일의 urlPathMap 요소 조각입니다.
 
 	"urlPathMaps": [
 	{
@@ -82,8 +82,8 @@ PathBasedRouting 형식의 RequestRoutingRule은 수신기를 urlPathMap에 바�
 
     }
 	
-## 다음 단계 
+## 다음 단계
 
 URL 기반 콘텐츠 라우팅을 알아본 후에는 [URL 기반 라우팅을 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-create-url-route-portal.md)로 이동하여 URL 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이를 만듭니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

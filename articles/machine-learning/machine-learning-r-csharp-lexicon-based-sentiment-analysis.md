@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="pengxia" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2016" 
+	ms.date="09/16/2016" 
 	ms.author="pengxia"/>
 
 
@@ -27,7 +27,7 @@
 
 감정 분석 방법으로는 일반적으로 두 가지 방법이 있습니다. 하나는 감독되는 학습 알고리즘을 사용하는 것이고 다른 하나는 자율 학습으로 간주할 수 있습니다. 감독되는 학습 알고리즘은 일반적으로 주석이 지정된 큰 모음을 기반으로 분류 모델을 작성합니다. 그 정확도는 주로 주석의 품질을 기반으로 하며, 대개 학습 프로세스에 걸리는 시간이 깁니다. 그 외에도 알고리즘을 다른 도메인에 적용할 때 결과가 대개 좋지 않습니다. 감독되는 학습과 비교하여, 어휘집 기반 자율 학습은 큰 데이터 모음 저장과 학습이 불필요한 감정 사전을 사용하여 전체 프로세스가 훨씬 더 빠릅니다.
 
-이 [서비스](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis)는 가장 일반적으로 사용되는 주관성 어휘집 중 하나인 MPQA 주관성 어휘집(http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/))(영문)을 기반으로 작성되었습니다. MPQA에는 5097개의 부정적인 감정과 2533개의 긍정적인 감정이 있습니다. 또한 이러한 모든 단어에는 강하거나 약한 극성으로 주석이 지정되어 있습니다. 전체 모음은 GNU General Public License의 적용을 받습니다. 이 웹 서비스는 트윗 및 Facebook 게시물과 같은 짧은 문장에 적용될 수 있습니다.
+이 [서비스](https://datamarket.azure.com/dataset/aml_labs/lexicon_based_sentiment_analysis)는 가장 일반적으로 사용되는 주관성 어휘집 중 하나인 MPQA 주관성 어휘집(http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/)(영문)을 기반으로 작성되었습니다. MPQA에는 5097개의 부정적인 감정과 2533개의 긍정적인 감정이 있습니다. 또한 이러한 모든 단어에는 강하거나 약한 극성으로 주석이 지정되어 있습니다. 전체 모음은 GNU General Public License의 적용을 받습니다. 이 웹 서비스는 트윗 및 Facebook 게시물과 같은 짧은 문장에 적용될 수 있습니다.
 
 >사용자는 이 웹 서비스를 모바일 앱이나 웹 사이트를 통해 사용하거나 로컬 컴퓨터에서도 사용할 수 있습니다. 하지만 이 웹 서비스는 Azure 기계 학습을 사용하여 R 코드 기반의 웹 서비스를 만드는 방법을 보여 주는 예로 제공되기도 합니다. Azure 기계 학습 스튜디오 내에서 R 코드 몇 줄을 포함하고 단추를 몇 번 클릭하면 R 코드를 사용하여 실험을 만들고 웹 서비스로 게시할 수 있습니다. 그런 다음 웹 서비스를 Azure 마켓플레이스에 게시하면 웹 서비스 작성자가 인프라를 설정하지 않고도 전 세계의 사용자와 장치에서 이러한 웹 서비스를 사용할 수 있습니다.
 
@@ -153,4 +153,4 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

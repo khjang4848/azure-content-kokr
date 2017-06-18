@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="IIS 인증 및 Azure Multi-Factor Authentication 서버" 
-	description="IIS 인증 및 Azure Multi-Factor Authentication 서버 배포에 도움이 되는 Azure Multi-Factor 인증 페이지입니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="IIS 인증 및 Azure Multi-Factor Authentication 서버"
+	description="IIS 인증 및 Azure Multi-Factor Authentication 서버 배포에 도움이 되는 Azure Multi-Factor 인증 페이지입니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # IIS 인증
 
@@ -76,4 +76,4 @@ Azure Multi-Factor Authentication 서버의 IIS 인증 섹션을 통해 Microsof
 3. 신뢰할 수 있는 IP 추가 대화 상자가 나타나면 단일 IP, IP 범위 또는 서브넷 라디오 단추를 선택합니다.
 4. 허용 목록에 추가할 IP 주소, IP 주소 범위 또는 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 확인 단추를 클릭합니다. 이제 허용 목록이 추가되었습니다.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

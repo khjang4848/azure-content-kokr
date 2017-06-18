@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="09/21/2016" 
 	ms.author="stefsch"/>
 
 # Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법
@@ -78,10 +78,10 @@ SSL 인증서가 생성되고 Base64 인코딩 문자열로 변환되면 [기본
 
 - *appServiceEnvironmentName*: 구성하는 ILB ASE의 이름입니다.
 - *existingAseLocation*: ILB ASE가 배포된 Azure 지역을 포함하는 텍스트 문자열입니다. 예를 들어 "미국 중남부"입니다.
-- *pfxBlobString*: .pfx 파일의 Base64 인코딩 문자열 표현입니다. 앞서 표시된 코드 조각을 사용하여 "exportedcert.pfx.b64"에 포함된 문자열을 복사한 후 *pfxBlobString* 특성의 값으로 붙여넣습니다.
+- *pfxBlobString*: .pfx 파일의 Base64 인코딩 문자열 표현입니다. 앞서 표시된 코드 조각을 사용하여 "exportedcert.pfx.b64"에 포함된 문자열을 복사한 후 *pfxBlobString* 특성의 값으로 붙여 넣습니다.
 - *password*: .pfx 파일을 보호하는 데 사용되는 암호입니다.
 - *certificateThumbprint*: 인증서의 지문입니다. PowerShell에서 이 값을 검색하는 경우(예: 이전 코드 조각의 *$certificate.Thumbprint*) 값을 있는 그대로 사용할 수 있습니다. 그러나 Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다. *certificateThumbprint*는 AF3143EB61D43F6727842115BB7F17BBCECAECAE와 같이 나타납니다.
-- *certificateName*: 인증서를 식별하는 데 사용되는 직접 선택한 친숙한 문자열 식별자입니다. 이 이름은 SSL 인증서를 나타내는 *Microsoft.Web/certificates* 엔터티에 대한 고유한 Azure Resource Manager 식별자의 일부로 사용됩니다.
+- *certificateName*: 인증서를 식별하는 데 사용되는 직접 선택한 친숙한 문자열 식별자입니다. 이 이름은 SSL 인증서를 나타내는 *Microsoft.Web/certificates* 엔터티에 대한 고유한 Azure Resource Manager 식별자의 일부로 사용됩니다. 이름은 다음 접미사 \_yourASENameHere\_InternalLoadBalancingASE와 함께 종료**해야** 합니다. 이 접미사는 포털에서 인증서가 ILB 지원 ASE 보안에 사용되는 표시기로 사용됩니다.
 
 
 *azuredeploy.parameters.json*을 축약한 예는 다음과 같습니다.
@@ -107,7 +107,7 @@ SSL 인증서가 생성되고 Base64 인코딩 문자열로 변환되면 [기본
                    "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
               },
               "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere"
+                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
               }
          }
     }
@@ -142,4 +142,4 @@ Azure Resource Manager 템플릿이 제출된 후에 변경 내용을 적용하�
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

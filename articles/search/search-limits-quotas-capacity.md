@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -97,4 +97,4 @@ API 키는 서비스 인증에 사용됩니다. 두 가지 형식이 있습니�
 - 서비스당 최대 2개의 관리자 키
 - 서비스당 최대 50개의 쿼리 키
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

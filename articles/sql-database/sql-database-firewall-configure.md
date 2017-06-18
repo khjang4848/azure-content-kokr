@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/06/2016"
+   ms.date="09/14/2016"
    ms.author="rickbyh"/>
 
 # Azure SQL 데이터베이스 방화벽 규칙 구성 - 개요
@@ -76,7 +76,7 @@ Azure에서 두 가지 방법으로 연결을 설정할 수 있습니다.
 
 ## 첫 번째 서버 수준 방화벽 규칙 만들기
 
-첫 번째 서버 수준 방화벽 설정은 [Azure 포털](https://portal.azure.com/)을 사용하거나 REST API 또는 Azure PowerShell을 사용하여 프로그램에 따라 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 Transact-SQL과 같은 메서드를 사용하여 생성할 수 있습니다. 서버 수준 방화벽 규칙에 대한 자세한 내용은 [방법: Azure 포털을 사용하여 Azure SQL 서버 방화벽 설정](sql-database-configure-firewall-settings.md)을 참조하세요.
+첫 번째 서버 수준 방화벽 설정은 [Azure 포털](https://portal.azure.com/)을 사용하거나 REST API 또는 Azure PowerShell을 사용하여 프로그램에 따라 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 Transact-SQL과 같은 메서드를 사용하여 생성할 수 있습니다. 성능 향상을 위해 서버 수준 방화벽 규칙이 데이터베이스 수준에서 일시적으로 캐시됩니다. 캐시를 새로 고치려면 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)를 참조하세요. 서버 수준 방화벽 규칙에 대한 자세한 내용은 [방법: Azure 포털을 사용하여 Azure SQL 서버 방화벽 설정](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 ## 데이터베이스 수준 방화벽 규칙 만들기.
 
@@ -158,4 +158,4 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="클러스터 및 해당 리소스 삭제 | Microsoft Azure"
+   pageTitle="Azure 클러스터 및 해당 리소스 삭제 | Microsoft Azure"
    description="클러스터가 포함된 리소스 그룹을 삭제하거나 리소스를 선별적으로 삭제하여 서비스 패브릭 클러스터를 완전히 삭제하는 방법을 알아봅니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
-# 서비스 패브릭 클러스터와 사용하는 리소스 삭제
+# Azure의 서비스 패브릭 클러스터와 사용하는 리소스 삭제
 
-서비스 패브릭 클러스터는 클러스터 리소스 자체 외에도 다른 많은 Azure 리소스로 이루어져 있습니다. 따라서 서비스 패브릭 클러스터를 완벽하게 삭제하려면 구성되어 있는 모든 리소스를 삭제해야 합니다. 이 작업을 수행하는 데 두 가지 옵션이 있습니다. 클러스터가 속한 리소스 그룹을 삭제(리소스 그룹의 다른 리소스와 클러스터 리소스 삭제)하거나 클러스터 리소스와 관련 리소스(리소스 그룹의 다른리소스 제외)를 특별히 삭제합니다.
+서비스 패브릭 클러스터는 클러스터 리소스 자체 외에도 다른 많은 Azure 리소스로 이루어져 있습니다. 따라서 서비스 패브릭 클러스터를 완벽하게 삭제하려면 구성되어 있는 모든 리소스를 삭제해야 합니다. 이 작업을 수행하는 데 두 가지 옵션이 있습니다. 클러스터가 속한 리소스 그룹을 삭제(리소스 그룹의 다른 리소스와 클러스터 리소스 삭제)하거나 클러스터 리소스와 관련 리소스(리소스 그룹의 다른 리소스 제외)를 특별히 삭제합니다.
 
 >[AZURE.NOTE] 클러스터 리소스를 삭제해도 서비스 패브릭 클러스터를 구성하고 있는 기타 리소스를 모두 삭제하지는 **않습니다**.
 
@@ -56,11 +56,11 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 
 리소스 그룹에 삭제하려는 서비스 패브릭 클러스터와 관련된 리소스만 있는 경우 리소스 그룹 전체를 삭제하기 훨씬 쉽습니다. 리소스 그룹의 리소스를 단계별로 선별하여 삭제하려면 다음 단계를 따르세요.
 
-포털을 사용하거나 템플릿 갤러리에서 서비스 패브릭 ARM 템플릿 중 하나를 사용하여 클러스터를 배포한 경우 클러스터에서 사용하는 모든 리소스에는 다음 두 개의 태그가 지정됩니다. 삭제하려는 리소스를 결정하기 위해 사용할 수 있습니다.
+포털을 사용하거나 템플릿 갤러리에서 서비스 패브릭 Resource Manager 템플릿 중 하나를 사용하여 클러스터를 배포한 경우 클러스터에서 사용하는 모든 리소스에는 다음 두 개의 태그가 지정됩니다. 삭제하려는 리소스를 결정하기 위해 사용할 수 있습니다.
 
-***Tag#1 :*** 키 = clusterName , 값 = '클러스터 이름'
+***Tag#1:*** 키 = clusterName, 값 = '클러스터 이름'
 
-***Tag#2 :*** 키 = resourceName , 값 = ServiceFabric
+***Tag#2:*** 키 = resourceName, 값 = ServiceFabric
 
 ### Azure 포털에서 특정 리소스 삭제
 
@@ -111,4 +111,4 @@ Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Mic
 
 [TaggedResources]: ./media/service-fabric-cluster-delete/TaggedResources.PNG
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

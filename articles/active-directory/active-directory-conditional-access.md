@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -30,9 +30,7 @@ Azure Active Directory의 조건부 액세스 제어 기능은 클라우드 및 
 
 ## 라이선스 요구 사항
 
-조건부 액세스는 [Azure AD Premium](http://www.microsoft.com/identity)의 기능입니다. 조건부 액세스 정책이 적용된 응용 프로그램에 액세스하는 모든 사용자는 Azure AD Premium 라이선스가 있어야 합니다. [허가되지 않은 사용자 보고서](https://aka.ms/utc5ix)를 통해 사용 현황에 대해 자세히 알아볼 수 있습니다.
-
-
+Azure Active Directory 조건부 액세스는 [Azure AD Premium](http://www.microsoft.com/identity)의 기능입니다. 조건부 액세스 정책이 적용된 응용 프로그램에 액세스하는 모든 사용자는 Azure AD Premium 라이선스가 있어야 합니다. [허가되지 않은 사용자 보고서](https://aka.ms/utc5ix)를 통해 사용 현황에 대해 자세히 알아볼 수 있습니다.
 
 
 
@@ -125,4 +123,4 @@ Azure AD에서 장치 기반 CA 정책을 구성하는 방법에 대한 자세�
 - [조건부 액세스 FAQ](active-directory-conditional-faqs.md)
 - [기술 참조](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

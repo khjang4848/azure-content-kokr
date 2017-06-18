@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Hive 작업
@@ -66,9 +66,9 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 
 ## 예
 
-회사에서 실행한 게임을 플레이하는 사용자가 사용한 시간을 식별하려는 게임 로그 분석의 예를 살펴보겠습니다.
+회사에서 출시한 게임을 사용자가 플레이한 시간을 파악하려는 게임 로그 분석의 예를 살펴보겠습니다.
 
-아래은 쉼표(,)로 구분되고 다음 필드를 포함하는 샘플 게임 로그입니다. ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
+다음 로그는 쉼표 (`,`)로 구분되고 ProfileID, SessionStart, Duration, SrcIPAddress 및 GameType 필드를 포함하는 샘플 게임 로그입니다.
 
 	1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
 	1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
@@ -76,7 +76,7 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 	1809,2014-05-04 05:24:22.2100000,23,192.84.66.141,KingHill
 	.....
 
-이 데이터를 프로세스하려는 **Hive 스크립트**는 다음과 같습니다.
+이 데이터를 처리하는 **Hive 스크립트**는 다음과 같습니다.
 
 	DROP TABLE IF EXISTS HiveSampleIn; 
 	CREATE EXTERNAL TABLE HiveSampleIn 
@@ -103,13 +103,13 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 
 데이터 팩터리 파이프라인에서 이 Hive 스크립트를 실행하려면 다음을 수행해야 합니다
 
-1. 연결된 서비스를 만들어 [고유의 HDInsight 계산 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 계산 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 "HDInsightLinkedService"라고 하겠습니다.
+1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 "HDInsightLinkedService"라고 하겠습니다.
 2. [연결된 서비스](data-factory-azure-blob-connector.md)를 만들어 데이터를 호스팅하는 Azure Blob 저장소에 연결을 구성합니다. 이 연결된 서비스를 "StorageLinkedService"라고 합니다.
 3. 입력 및 출력 데이터를 가리키는 [데이터 집합](data-factory-create-datasets.md)을 만듭니다. 입력 데이터 집합을 "HiveSampleIn"라고 하고 출력 데이터 집합을 "HiveSampleOut"라고 합니다.
-4. 위의 #2단계에서 구성된 Azure Blob 저장소에 Hive 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 연결된 서비스가 이 쿼리 파일을 호스트하는 연결된 서비스와 다른 경우 서비스에 연결된 별도 Azure 저장소를 만들고 작업 구성에서 이를 참조합니다. **scriptPath**를 사용하여 hive 쿼리 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다.
+4. #2단계에서 구성된 Azure Blob Storage에 Hive 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 저장소가 이 쿼리 파일을 호스트하는 저장소와 다른 경우 서비스에 연결된 별도 Azure 저장소를 만들고 작업에서 이를 참조합니다. **scriptPath**를 사용하여 hive 쿼리 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다.
 
-	> [AZURE.NOTE] **스크립트** 속성을 사용하여 활동 정의에서 Hive 스크립트 인라인을 제공할 수도 있지만 JSON 문서 내에서 스크립트의 모든 특수 문자가 이스케이프되어야 하고 디버깅 문제를 발생킬 수 있기 때문에 권장되지 않습니다. 모법 사례는 #4단계를 수행하는 것입니다.
-5.	HDInsightHive 활동으로 아래 파이프라인을 만들어 데이터를 처리합니다.
+	> [AZURE.NOTE] **script** 속성을 사용하여 활동 정의에서 Hive 스크립트를 인라인으로 제공할 수도 있습니다. 이렇게 하면 JSON 문서 내의 스크립트 모든 특수 문자를 이스케이프 처리해야 하므로 디버그 관련 문제가 발생할 수 있기 때문에 이 방식은 사용하지 않는 것이 좋습니다. 모법 사례는 4단계를 수행하는 것입니다.
+5.	HDInsightHive 활동이 포함된 파이프라인을 만듭니다. 작업은 데이터를 프로세스/변환합니다.
 
 		{
 		  "name": "HiveActivitySamplePipeline",
@@ -143,12 +143,11 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 		}
 
 6.	파이프라인을 배포합니다. 자세한 내용은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요.
-7.	데이터 팩터리 모니터링 및 관리 보기를 사용하여 파이프라인을 모니터링합니다. 세부 정보는 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하세요.
+7.	데이터 팩터리 모니터링 및 관리 보기를 사용하여 파이프라인을 모니터링합니다. 자세한 내용은 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 문서를 참조하세요.
 
 
-## 사용하여 Hive 스크립트에 매개 변수를 지정하면 요소를 정의합니다. 
-
-게임 로그가 Azure Blob 저장소에 매일 수집되고 날짜 및 시간으로 분할된 폴더에 저장된 예를 살펴보세요. Hive 스크립트를 매개 변수화하고 런타임 동안 입력 폴더 위치를 동적으로 전달하며 날짜 및 시간으로 분할된 출력을 생성하려고 합니다.
+## Hive 스크립트에 대한 매개 변수 지정  
+이 예에서 게임 로그는 Azure Blob Storage에 매일 수집되고 날짜 및 시간으로 분할된 폴더에 저장됩니다. Hive 스크립트를 매개 변수화하고 런타임 동안 입력 폴더 위치를 동적으로 전달하며 날짜 및 시간으로 분할된 출력을 생성하려고 합니다.
 
 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
 
@@ -222,4 +221,4 @@ defines | 'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 �
 - [Spark 프로그램 호출](data-factory-spark.md)
 - [R 스크립트 호출](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

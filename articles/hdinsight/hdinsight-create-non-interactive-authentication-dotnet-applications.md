@@ -2,7 +2,7 @@
 	pageTitle="비대화형 인증 .NET HDInsight 응용 프로그램 만들기 | Microsoft Azure"
 	description="비대화형 인증 .NET HDInsight 응용 프로그램을 만드는 방법을 알아봅니다."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -122,4 +122,4 @@ PowerShell을 통해 테넌트 ID를 검색하려면
 - [Azure Resource Manager를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)
 - [Azure 역할 기반 액세스 제어](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

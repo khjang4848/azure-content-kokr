@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -21,9 +21,9 @@
 
 이 자습서에서는 Kindling과 Azure AD(Azure Active Directory)를 통합하는 방법을 보여 줍니다. Kindling을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
-- Kindling에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다. 
+- Kindling에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 - 사용자가 해당 Azure AD 계정으로 Kindling에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다. 
+- 단일 중앙 위치인 Azure 클래식 포털에서 계정을 관리할 수 있습니다.
 
 
 Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)을 참조하세요.
@@ -42,13 +42,13 @@ Kindling과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 않도록 합니다.
-- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다. 
+- Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
  
 ## 시나리오 설명
 이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
-1. 갤러리에서 Kindling 추가 
+1. 갤러리에서 Kindling 추가
 2. Azure AD Single Sign-on 구성 및 테스트
 
 
@@ -91,9 +91,9 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 Kindling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[Kindling 테스트 사용자 만들기](#creating-a-kindling-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Kindling에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 6. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### Azure AD Single Sign-On 구성
@@ -136,7 +136,7 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
     a. **인증서 다운로드**를 클릭하고 파일을 컴퓨터에 저장합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 
 
@@ -144,8 +144,8 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
 	- 다운로드한 인증서
 	- Kindling의 **엔터티 ID**에 매핑되는 **발급자 URL** 값
-	- Kindling의 **SSO 로그온 URL**에 매핑되는 **Single Sign-on 서비스 URL** 
-	- Kindling의 **SSO 로그아웃 URL**에 매핑되는 **Single Sign-Out 서비스 URL** 
+	- Kindling의 **SSO 로그온 URL**에 매핑되는 **Single Sign-on 서비스 URL**
+	- Kindling의 **SSO 로그아웃 URL**에 매핑되는 **Single Sign-Out 서비스 URL**
 
 6. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
@@ -187,7 +187,7 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -281,4 +281,4 @@ Kindling에 Single Sign-On을 구성하려면 등록된 도메인이 필요합�
 [204]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

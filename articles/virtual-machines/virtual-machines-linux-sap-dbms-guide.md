@@ -703,7 +703,11 @@ Microsoft Azure 저장소 BLOB을 더 최신 버전의 백업 대상으로 사�
 * Microsoft Azure Storage 탐색기(<https://azure.microsoft.com/downloads/>)
 * 타사 도구
 
-[설명]: <> (아직 ARM에서 지원되지 않음) [설명]: <> (### Azure VM 백업) [설명]: <> (SAP 시스템 내의 VM은 Azure 가상 컴퓨터 백업 기능을 사용하여 백업할 수 있습니다. Azure 가상 컴퓨터 백업은 2015년 초반에 도입된 이후 Azure에서 전체 VM을 백업하는 표준 방법이 되었습니다. Azure 백업은 백업을 Azure에 저장하며 VM의 복원을 허용합니다.) [설명]: <> (DBMS 시스템에서 Windows VSS(볼륨 섀도 복사본 서비스 - <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>)를 지원하는 경우 데이터베이스를 실행하는 VM을 SQL Server 등 일관성 있는 방법으로 백업할 수 있습니다. 따라서 Azure VM 백업을 사용하여 SAP 데이터베이스의 복원 가능한 백업을 가져올 수 있습니다. 그러나 데이터베이스의 Azure VM 백업 기반의 지정 시간 복원은 가능하지 않습니다. 따라서 Azure VM 백업을 사용하지 않고 DBMS 기능을 사용하여 데이터베이스 백업을 수행하는 것이 좋습니다.) [설명]: <> (Azure 가상 컴퓨터 백업 기능을 익히려면 여기 <https://azure.microsoft.com/documentation/services/backup/>에서 시작하세요.)
+[설명]: <> (아직 ARM에서 지원되지 않음) 
+[설명]: <> (### Azure VM 백업) 
+[설명]: <> (SAP 시스템 내의 VM은 Azure 가상 컴퓨터 백업 기능을 사용하여 백업할 수 있습니다. Azure 가상 컴퓨터 백업은 2015년 초반에 도입된 이후 Azure에서 전체 VM을 백업하는 표준 방법이 되었습니다. Azure 백업은 백업을 Azure에 저장하며 VM의 복원을 허용합니다.) 
+[설명]: <> (DBMS 시스템에서 Windows VSS(볼륨 섀도 복사본 서비스 - <https://msdn.microsoft.com/library/windows/desktop/bb968832.aspx>)를 지원하는 경우 데이터베이스를 실행하는 VM을 SQL Server 등 일관성 있는 방법으로 백업할 수 있습니다. 따라서 Azure VM 백업을 사용하여 SAP 데이터베이스의 복원 가능한 백업을 가져올 수 있습니다. 그러나 데이터베이스의 Azure VM 백업 기반의 지정 시간 복원은 가능하지 않습니다. 따라서 Azure VM 백업을 사용하지 않고 DBMS 기능을 사용하여 데이터베이스 백업을 수행하는 것이 좋습니다.) 
+[설명]: <> (Azure 가상 컴퓨터 백업 기능을 익히려면 여기 <https://azure.microsoft.com/documentation/services/backup/>에서 시작하세요.)
 
 ### <a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Microsoft Azure 마켓플레이스에서 SQL Server 이미지 사용
 Microsoft는 Azure 마켓플레이스에서 이미 SQL Server를 포함하는 버전의 VM을 제공합니다. SQL Server 및 Windows 라이선스가 필요한 SAP 고객의 경우, 이미 SQL Server가 설치된 VM을 스핀업하여 라이선스에 대한 요구 사항을 충족시킬 수 있습니다. SAP에 대한 이러한 이미지를 사용하려면 다음 사항을 고려해야 합니다.
@@ -735,7 +739,8 @@ Azure 마켓플레이스의 SQL Server 이미지는 SAP NetWeaver 응용 프로�
 ### Azure의 SAP용 SQL Server 고가용성
 이 문서 앞부분에서 언급했듯이 이전 SQL Server 고가용성 기능 활용에 필요한 공유 저장소를 만들 수는 없습니다. 이 기능은 사용자 데이터베이스(및 tempdb)용 공유 디스크를 사용하여 WSFC(Windows Server 장애 조치(failover) 클러스터)에 둘 이상의 SQL Server 인스턴스를 설치합니다. 이는 SAP에서도 지원되는 오래된 표준 고가용성 방법입니다. Azure에서는 공유 저장소를 지원하지 않으므로 공유 디스크 클러스터 구성의 SQL Server 고가용성 구성을 인식할 수 없습니다. 그러나 여러 가지 다른 고가용성 방법을 사용할 수 있으며 다음 섹션에서 설명합니다.
 
-[설명]: <> (문서에서는 여전히 ASM을 참조) [설명]: <> (Azure의 SQL Server에 사용 가능한 다른 특정 고가용성 기술을 읽기 전에 [여기][virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]에서 자세한 내용을 참조하세요.)
+[설명]: <> (문서에서는 여전히 ASM을 참조) 
+[설명]: <> (Azure의 SQL Server에 사용 가능한 다른 특정 고가용성 기술을 읽기 전에 [여기][virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]에서 자세한 내용을 참조하세요.)
 
 #### SQL Server 로그 전달
 HA(고가용성) 방법 중 하나는 SQL Server 로그 전달입니다. HA 구성에 참여하는 VM에 이름 확인 작업이 있는 경우 아무 문제가 없으며 Azure 설정이 온-프레미스의 설정과 다르지 않습니다. IP 확인만 사용하는 것은 권장되지 않습니다. 로그 전달 및 로그 전달 관련 원칙 설정에 대한 내용은 이 설명서를 참조하세요.
@@ -777,7 +782,8 @@ AlwaysOn은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688] �
 [설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)
 [설명]: <> (* <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>)
 
-여러 Azure 지역에 SQL Server AlwaysOn 가용성 그룹을 배포할 수도 있습니다. 이 기능은 Azure VNet-VNet 연결을 활용합니다([자세한 내용][virtual-networks-configure-vnet-to-vnet-connection]). [설명]: <> (TODO 이전 블로그) 
+여러 Azure 지역에 SQL Server AlwaysOn 가용성 그룹을 배포할 수도 있습니다. 이 기능은 Azure VNet-VNet 연결을 활용합니다([자세한 내용][virtual-networks-configure-vnet-to-vnet-connection]). 
+[설명]: <> (TODO 이전 블로그) 
 [설명]: <> (이러한 시나리오의 SQL Server AlwaysOn 가용성 그룹의 설정은 여기 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>에 설명되어 있습니다.)
 
 #### Azure의 SQL Server 고가용성 요약

@@ -110,4 +110,4 @@ Azure 포털을 사용하여 데이터 레이크 저장소를 프로비전하는
 * [Azure 데이터 팩터리를 사용하여 Azure Data Lake 저장소에 대한 데이터 오케스트레이션](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Azure Data Lake 저장소에서 데이터 보호](https://mix.office.com/watch/1q2mgzh9nn5lx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!-----HONumber=AcomDC_0914_2016-->

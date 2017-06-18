@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.author="garye" />
 
 
-#R을 사용하여 실험 확장
+# R을 사용하여 실험 확장
 
 [R 스크립트 실행][execute-r-script] 모듈을 사용하여 R 언어를 통해 기계 학습 스튜디오의 기능을 확장할 수 있습니다.
 
@@ -29,7 +29,7 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##현재 설치된 모든 패키지 나열
+## 현재 설치된 모든 패키지 나열
 
 설치된 패키지 목록을 변경할 수 있습니다. 각 패키지의 설명을 포함하여 설치된 패키지의 완전한 현재 목록을 가져오려면 [R 스크립트 실행][execute-r-script] 모듈에 다음 코드를 입력합니다.
 
@@ -40,8 +40,11 @@
 
 ![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
+<!--
+For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+-->
 
-##패키지 가져오기
+## 패키지 가져오기
 
 [R 스크립트 실행][execute-r-script] 모듈 및 압축된 패키지 아카이브에서 다음 명령을 사용하여 스테이징된 기계 학습 스튜디오 리포지토리에서 아직 설치되지 않은 패키지도 가져올 수 있습니다.
 
@@ -50,9 +53,8 @@
 
 여기서 `my_favorite_package.zip`에는 패키지의 zip이 포함되어 있습니다.
 
-
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

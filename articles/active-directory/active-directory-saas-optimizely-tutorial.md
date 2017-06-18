@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2016"
+	ms.date="09/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -144,7 +144,7 @@ Optimizely 응용 프로그램은 SAML 어셜선이 "email"이라는 특성을 �
 
 	b. **식별자** 텍스트 상자에 `urn:auth0:optimizely:contoso`를 입력합니다.
 
-	c. **다음**을 클릭합니다.
+	c. **Next**를 클릭합니다.
 
 
 	> [AZURE.NOTE] **로그온 URL** 및 **식별자** 값은 실제 값에 대한 자리 표시자에 불과합니다. 이 자습서의 뒷부분에는 Optimizely에서 실제 값을 획득하기 위한 지침을 찾을 수 있습니다.
@@ -180,7 +180,7 @@ Optimizely 응용 프로그램은 SAML 어셜선이 "email"이라는 특성을 �
 
     a. Single Sign-On 구성 확인을 선택합니다.
 
-    b. **다음**을 클릭합니다.
+    b. **Next**를 클릭합니다.
 
 11. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.
   	
@@ -224,7 +224,7 @@ Optimizely 응용 프로그램은 SAML 어셜선이 "email"이라는 특성을 �
 
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
-    c. **다음**을 클릭합니다.
+    c. **Next**를 클릭합니다.
 
 6.  **사용자 프로필** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
@@ -238,7 +238,7 @@ Optimizely 응용 프로그램은 SAML 어셜선이 "email"이라는 특성을 �
 
     d. **역할** 목록에서 **사용자**를 선택합니다.
 
-    e. **다음**을 클릭합니다.
+    e. **Next**를 클릭합니다.
 
 7. **임시 암호 가져오기** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -332,4 +332,4 @@ Optimizely 응용 프로그램은 SAML 어셜선이 "email"이라는 특성을 �
 [204]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

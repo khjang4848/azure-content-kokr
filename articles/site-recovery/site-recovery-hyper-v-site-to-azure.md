@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/09/2016"
+	ms.date="09/19/2016"
 	ms.author="raynew"/>
 
 
@@ -193,11 +193,11 @@ Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공�
 1. 공급자 설치 파일을 실행합니다.
 2. Microsoft Update 정책에 따라 공급자 업데이트가 설치되도록 **Microsoft Update**에서 업데이트를 선택할 수 있습니다.
 3. **설치**에서 기본 공급자 설치 위치를 수락하거나 수정하고 **설치**를 클릭합니다.
-5. **자격 증명 모음 설정** 페이지에서 **찾아보기**를 클릭하고 다운로드한 자격 증명 모음 키 파일을 선택합니다. Azure Site Recovery 구독, 자격 증명 모음 이름 및 Hyper-V 서버가 속한 Hyper-V 사이트를 지정합니다.
+4. **자격 증명 모음 설정** 페이지에서 **찾아보기**를 클릭하고 다운로드한 자격 증명 모음 키 파일을 선택합니다. Azure Site Recovery 구독, 자격 증명 모음 이름 및 Hyper-V 서버가 속한 Hyper-V 사이트를 지정합니다.
 
 	![서버 등록](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-4\.**프록시 설정**에서 서버에 설치할 공급자가 인터넷을 통해 Azure Site Recovery에 연결하는 방법을 지정합니다.
+5\.**프록시 설정**에서 서버에 설치할 공급자가 인터넷을 통해 Azure Site Recovery에 연결하는 방법을 지정합니다.
 
 - 공급자가 직접 연결되도록 하려면 **프록시 없이 직접 연결**을 선택합니다.
 - 현재 서버에 설정된 프록시를 사용하여 연결하려면 **기존 프록시 설정을 사용하여 연결**을 선택합니다.
@@ -207,9 +207,9 @@ Hyper-V 사이트를 설정하고 Hyper-V 호스트에 Azure Site Recovery 공�
 
 	![인터넷](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-5\.설치가 완료되면 **등록**을 클릭하여 자격 증명 모음에 서버를 등록합니다. ![설치 위치](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
+6\.설치가 완료되면 **등록**을 클릭하여 자격 증명 모음에 서버를 등록합니다. ![설치 위치](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6\.등록이 완료되면 Azure Site Recovery에서 Hyper-V 서버의 메타데이터가 검색되며 서버가 **설정** > **Site Recovery 인프라** > **Hyper-V 호스트** 블레이드에 표시됩니다.
+7\.등록이 완료되면 Azure Site Recovery에서 Hyper-V 서버의 메타데이터가 검색되며 서버가 **설정** > **Site Recovery 인프라** > **Hyper-V 호스트** 블레이드에 표시됩니다.
 
 
 ### 명령줄 설치
@@ -342,7 +342,7 @@ Capacity Planner 도구를 사용하여 복제(초기 복제 그 후에 델타)�
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/enable-replication6.png)
 
-12. **복제 설정** > **복제 설정 구성**에서 보호되는 VM에 적용할 복제 정책을 선택합니다. 그런 후 **OK**를 클릭합니다. **설정** > **복제 정책** > 정책 이름 > **설정 편집**에서 복제 정책을 수정할 수 있습니다. 적용하는 변경 사항은 이미 복제 중인 컴퓨터와 새 컴퓨터에 사용됩니다.
+12. **복제 설정** > **복제 설정 구성** 에서 보호되는 VM에 적용할 복제 정책을 선택합니다. 그런 후 **OK**를 클릭합니다. **설정** > **복제 정책** > 정책 이름 > **설정 편집**에서 복제 정책을 수정할 수 있습니다. 적용하는 변경 사항은 이미 복제 중인 컴퓨터와 새 컴퓨터에 사용됩니다.
 
 	![복제 활성화](./media/site-recovery-hyper-v-site-to-azure/enable-replication7.png)
 
@@ -469,4 +469,4 @@ ssh(보안 셸 클라이언트)를 사용하여 장애 조치(Failover) 후 Linu
 
 배포가 설정되고 실행된 후에는 다양한 형식의 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

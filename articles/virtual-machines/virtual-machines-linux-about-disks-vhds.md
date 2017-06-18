@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
+> [AZURE.NOTE] 잠시 시간을 내어 사용 환경에 대한 [간단한 설문](https://aka.ms/linuxdocsurvey)에 응답하여 Azure Linux VM 설명서를 개선하는 데 도움을 주세요. 모든 답변은 작업 수행에 도움이 될 것입니다.
 
 ## 운영 체제 디스크
 
@@ -73,4 +73,4 @@ Azure는 고정 디스크 VHD 형식을 지원합니다. 고정 형식은 디스
 -  중복성을 위해 [소프트웨어 RAID를 구성](virtual-machines-linux-configure-raid.md)합니다.
 -  추가 VM을 신속하게 배포할 수 있도록 [Linux 가상 컴퓨터를 캡처](virtual-machines-linux-classic-capture-image.md)합니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="ireiter" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -35,17 +35,17 @@
 ###이항 분포 변위치 계산기
 이 서비스는 정규 분포의 인수 4개를 받아들여 연관된 변위치를 계산합니다. 입력 인수는 다음과 같습니다.
 
-- p - 여러 시도의 단일 집계 확률  
+- p - 여러 시도의 단일 집계 확률
 - size – 시도 횟수
 - prob – 시도의 성공 확률
-- Side – L: 분포의 아래쪽, U: 분포의 위쪽 
+- Side – L: 분포의 아래쪽, U: 분포의 위쪽
 
 이 서비스에서는 제공된 확률과 연결된 계산된 분위수가 결과 값으로 표시됩니다.
 
 ###이항 분포 확률 계산기
 이 서비스는 이항 분포의 인수 4개를 받아들여 연관된 확률을 계산합니다. 입력 인수는 다음과 같습니다.
 
-- q – 이항 분포에서 이벤트의 단일 변위치 
+- q – 이항 분포에서 이벤트의 단일 변위치
 - size – 시도 횟수
 - prob – 시도의 성공 확률
 - side – L: 분포의 아래쪽, U: 분포의 위쪽 또는 E: 성공의 단일 횟수와 같음
@@ -55,7 +55,7 @@
 ###이항 분포 생성기
 이 서비스는 이항 분포의 인수 3개를 받아들여 이항 분포된 숫자의 임의 시퀀스를 생성합니다. 요청 내에서 다음과 같은 인수가 서비스에 제공되어야 합니다.
 
-- n - 관찰 수 
+- n - 관찰 수
 - size – 시도 횟수
 - prob – 성공 확률
 
@@ -290,4 +290,4 @@
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

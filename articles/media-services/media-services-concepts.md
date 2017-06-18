@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 미디어 서비스 개념" 
+	pageTitle="Azure 미디어 서비스 개념 | Microsoft Azure" 
 	description="이 항목에서는 Azure 미디어 서비스 개념에 대한 개요를 제공합니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 개념 
@@ -85,7 +85,7 @@ Azure 저장소에 대한 모든 액세스는 저장소 계정을 통해 수행�
 
 작업에는 수행할 처리에 대한 메타데이터가 포함됩니다. 각 작업에는 원자성 처리 태스크, 해당 입력 자산, 출력 자산, 미디어 프로세서 및 관련 설정을 지정하는 하나 이상의 [태스크](https://msdn.microsoft.com/library/azure/hh974286.aspx)가 포함됩니다. 작업 내의 태스크는 함께 연결할 수 있으며, 이때 한 태스크의 출력 자산은 다음 태스크의 입력 자산으로 제공됩니다. 이러한 방식으로 한 작업에는 미디어 프레젠테이션에 필요한 모든 처리가 포함될 수 있습니다.
 
-##<a id="encoding"></a>인코딩 
+##<a id="encoding"></a>인코딩
 
 Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다.
 
@@ -96,7 +96,7 @@ Azure 미디어 서비스는 클라우드에서 미디어의 인코딩에 대한
 [동적 패키징](media-services-dynamic-packaging-overview.md)을 이용하려면 다음을 수행해야 합니다.
 
 - mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩합니다(인코딩 단계는 이 자습서의 뒷부분에서 설명).
-- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 주문형 스트리밍 단위를 구성합니다. 자세한 내용은 [주문형 스트리밍 예약 단위를 확장하는 방법](media-services-manage-origins.md#scale_streaming_endpoints/)을 참조하세요
+- 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점에 하나 이상의 주문형 스트리밍 단위를 구성합니다. 자세한 내용은 [주문형 스트리밍 예약 단위를 확장하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요
 
 미디어 서비스는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
@@ -123,7 +123,7 @@ Azure 미디어 서비스에서 채널은 라이브 스트리밍 콘텐츠를 �
 각 미디어 서비스 계정에는 여러 채널, 여러 프로그램 및 여러 StreamingEndpoints가 포함될 수 있습니다. 대역폭 및 보안 요구 사항에 따라 하나 이상의 채널에 StreamingEndpoint 서비스를 전용으로 사용할 수 있습니다. 모든 StreamingEndpoint는 모든 채널에서 가져올 수 있습니다.
 
 
-###프로그램 
+###프로그램
 
 [프로그램](https://msdn.microsoft.com/library/azure/dn783463.aspx)에서는 라이브 스트림의 세그먼트 게시 및 저장을 제어할 수 있습니다. 채널은 프로그램을 관리합니다. 채널 및 프로그램 관계는 기존 미디어와 매우 유사하여 채널에는 일정한 콘텐츠 스트림이 있고 프로그램 범위는 해당 채널에 있는 일부 시간 제한 이벤트로 지정됩니다. **ArchiveWindowLength** 속성을 설정하여 프로그램에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다.
 
@@ -176,7 +176,7 @@ Azure 미디어 서비스를 사용하면 컴퓨터를 떠날 때부터 저장, 
 
 StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레이어 응용 프로그램이나 CDN(콘텐츠 배달 네트워크)에 직접 배달할 수 있는 스트리밍 서비스를 나타냅니다. 이제 Azure 미디어 서비스는 Azure CDN 통합을 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 라이브 스트림이거나 미디어 서비스 계정의 주문형 비디오 자산일 수 있습니다. 또한 배율 단위(스트리밍 단위라고도 함)를 조정하여 증가하는 대역폭 요구를 처리하도록 StreamingEndpoint 서비스의 용량을 제어할 수 있습니다. 프로덕션 환경에서 응용 프로그램에 대한 하나 이상의 확장 단위를 할당하는 것이 좋습니다. 확장 단위는 200mbps 단위로 구입할 수 있는 전용된 송신 용량 및 동적 패키징을 사용하여 현재 포함된 추가 기능을 모두 사용하여 제공 합니다.
 
-동적 패키징 및/또는 동적 암호화를 사용하는 것이 좋습니다. 이 기능을 사용하려면 스트리밍하려는 끝점에 대한 스트리밍 단위가 하나 이상 있어야 합니다. 자세한 내용은 [스트리밍 단위 크기 조정](media-services-manage-origins.md#scale_streaming_endpoints)을 참조하세요.
+동적 패키징 및/또는 동적 암호화를 사용하는 것이 좋습니다. 이 기능을 사용하려면 스트리밍하려는 끝점에 대한 스트리밍 단위가 하나 이상 있어야 합니다. 자세한 내용은 [스트리밍 단위 크기 조정](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
 
 기본적으로 미디어 서비스 계정에 최대 2개의 스트리밍 끝점이 있을 수 있습니다. 더 높은 한도를 요청하려면 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요
 
@@ -188,7 +188,7 @@ StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레
 
 저장소에서 암호화된 자산이 있는 경우 자산을 스트리밍하기 전에 스트리밍 서버에서 저장소 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 예를 들어 AES(Advanced Encryption Standard) 암호화 키로 암호화된 자산을 배달하려면 정책 유형을 DynamicEnvelopeEncryption으로 설정합니다. 저장소 암호화를 제거하고 암호화 되지 않은 자산을 스트리밍하려면, 정책 유형을 NoDynamicEncryption로 설정하세요.
 
-###점진적 다운로드 
+###점진적 다운로드
 
 점진적 다운로드를 사용하면 전체 파일이 다운로드되기 전에 미디어 재생을 시작할 수 있습니다. MP4 파일만 점진적으로 다운로드할 수 있습니다.
 
@@ -196,7 +196,7 @@ StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레
 
 사용자에게 점진적 다운로드 ,URL을 제공하려면 먼저 OnDemandOrigin 로케이터를 만들어야 합니다. 로케이터를 만들면 자산에 대한 기본 경로가 제공됩니다. 그러면 MP4 파일의 이름을 추가해야 합니다. 예:
 
-	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
 ###스트리밍 URL
 
@@ -210,40 +210,40 @@ SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게
 
 - 부드러운 스트리밍
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
-		
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 
 - MPEG DASH
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
- 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 
 
 - Apple HLS(HTTP 라이브 스트리밍) V4
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 
 
 - Apple HLS(HTTP 라이브 스트리밍) V3
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 - HDS(Adobe PrimeTime/Access 정식 사용자만 해당)
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-		http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f) 
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
- 
+
 ##미디어 서비스 학습 경로
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -252,4 +252,4 @@ SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

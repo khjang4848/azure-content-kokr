@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="vm-windows"
 ms.workload="infrastructure-services"
-ms.date="05/17/2016"
+ms.date="09/06/2016"
 ms.author="rclaus" />
 
 #Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항
@@ -53,7 +53,7 @@ Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴
 
 Azure 가상 컴퓨터에서 Oracle 데이터베이스를 사용할 때, 사용자는 모든 가동 중지 시간을 방지하기 위해 높은 가용성과 재해 복구 솔루션을 구현하는 일을 담당합니다. 또한 사용자 고유의 데이터와 응용 프로그램 백업을 담당해야 합니다.
 
-Azure에서 Oracle Database Enterprise Edition(RAC 제외)에 대한 고가용성 및 재해 복구는 두 가상 컴퓨터에 있는 두 개의 데이터베이스와 함께 [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 또는 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 가상 컴퓨터는 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [클라우드 서비스](virtual-machines-linux-classic-connect-vms.md) 및 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다. 또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 [가용성 집합](virtual-machines-windows-manage-availability.md)에 VM을 배치하는 것이 좋습니다. 참고 동일한 클라우드 서비스에서 오직 가상 컴퓨터만 동일한 가용성 집합에 참여할 수 있습니다. 각 가상 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다.
+Azure에서 Oracle Database Enterprise Edition(RAC 제외)에 대한 고가용성 및 재해 복구는 두 가상 컴퓨터에 있는 두 개의 데이터베이스와 함께 [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 또는 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 가상 컴퓨터는 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [클라우드 서비스](virtual-machines-linux-classic-connect-vms.md) 및 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다. 또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 [가용성 집합](virtual-machines-windows-manage-availability.md)에 VM을 배치하는 것이 좋습니다. 동일한 클라우드 서비스에서 오직 가상 컴퓨터만 동일한 가용성 집합에 참여할 수 있습니다. 각 가상 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다.
 
 Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 다른 가상 컴퓨터에서 보조(대기) 데이터 베이스에서 고가용성을 얻을 수 있으며, 양 데이터베이스 간에 단방향 복제를 설정할 수 있습니다. 결과는 해당 데이터 베이스의 복사본에 대한 읽기 엑세스입니다. Oracle 골든 게이트로, 두 개의 데이터베이스 간의 양방향 복제를 구성할 수 있습니다. 이러한 도구를 사용하여 데이터베이스에 대한 고가용성 솔루션을 설정하는 방법을 알아보려면 Oracle 웹 사이트에서 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 및 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 설명서를 참조하세요. 데이터베이스의 복사본에 대한 읽기-쓰기 권한이 필요한 경우 [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)를 사용할 수 있습니다.
 
@@ -73,7 +73,7 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 
 		Bootstrap to: example.cloudapp.net/138.91.142.178:7006' over: 't3' got an error or timed out]
 
-	이는 모든 원격 T3 액세스에 대해, WebLogic Server가 부하 분산 장치 포트 및 WebLogic 관리 서버가 동일한 것으로 간주하기 때문입니다. 위와 같은 경우, 클라이언트는 포트 7006에 액세스하고 관리 서버는 7008(개인포트)에서 수신합니다. 이 제한은 T3 액세스에만 적용가능하며 HTTP에는 적용할 수 없는 것에 유의해 주세요.
+	이는 모든 원격 T3 액세스에 대해, WebLogic Server가 부하 분산 장치 포트 및 WebLogic 관리 서버가 동일한 것으로 간주하기 때문입니다. 위와 같은 경우, 클라이언트는 포트 7006에 액세스하고 관리 서버는 7008(개인포트)에서 수신합니다. 이 제한은 T3 액세스에만 적용가능하며 HTTP에는 적용할 수 없습니다.
 
 	이 문제를 방지하려면, 다음 해결 방법중 하나를 사용합니다.
 
@@ -102,4 +102,4 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지 ](virtual-machines-linux-classic-oracle-images.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0914_2016-->

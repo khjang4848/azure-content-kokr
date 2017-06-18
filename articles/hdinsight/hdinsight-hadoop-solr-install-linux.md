@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
 
-이 항목에서는 Azure HDInsight에서 스크립트 작업을 사용하여 Solr을 설치하는 방법에 대해 알아봅니다. Solr은 강력한 검색 플랫폼으로서 Hadoop에서 관리하는 데이터에 대한 엔터프라이즈 수준의 검색 기능을 제공합니다. HDInsight 클러스터에 Solr을 설치한 후에는 Solr을 사용하여 데이터를 검색하는 방법도 알아봅니다.
+이 항목에서는 스크립트 동작을 사용하여 Azure HDInsight에 Solr을 설치하는 방법에 대해 알아봅니다. Solr은 강력한 검색 플랫폼으로서 Hadoop에서 관리하는 데이터에 대한 엔터프라이즈 수준의 검색 기능을 제공합니다. HDInsight 클러스터에 Solr을 설치한 후에는 Solr을 사용하여 데이터를 검색하는 방법도 알아봅니다.
 
 > [AZURE.NOTE] 이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Windows 기반 클러스터와 함께 Solr을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)을 참조하세요.
 
-이 항목에 사용되는 샘플 스크립트로는 특정 구성의 Solr 클러스터가 만들어집니다. 서로 다른 컬렉션, 분할, 스키마, 복제 등으로 Solr 클러스터를 구성하려는 경우 그에 따라 이 스크립트와 Solr 바이너리를 수정해야 합니다.
+이 항목에서 사용된 샘플 스크립트로는 특정 구성의 Solr 클러스터가 만들어집니다. 서로 다른 컬렉션, 분할, 스키마, 복제 등으로 Solr 클러스터를 구성하려는 경우 그에 따라 이 스크립트와 Solr 바이너리를 수정해야 합니다.
 
 ## <a name="whatis"></a>Solr이란?
 
@@ -85,7 +85,7 @@ HDInsight 클러스터에서 Solr을 설치하는 샘플 스크립트는 다음 
 
 	> [AZURE.IMPORTANT] 이 문서의 이후 단계에서 SSL 터널을 사용하여 Solr 웹 UI에 연결합니다. 다음이 단계를 사용하려면 SSL 터널을 설정하고 브라우저를 구성하여 사용해야 합니다.
 	>
-	> 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+	> 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 2. 다음 명령을 사용하여 Solr 인덱스 샘플 데이터를 포함합니다.
 
@@ -162,17 +162,29 @@ HDInsight 클러스터에서 Solr을 설치하는 샘플 스크립트는 다음 
 
 ### Solr 대시보드 사용
 
-Solr 대시보드는 웹 브라우저를 통해 Solr로 작업할 수 있는 웹 UI입니다. Solr 대시보드는 HDInsight 클러스터에서 인터넷에 직접 드러나지 않지만 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 사용에 대한 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+Solr 대시보드는 웹 브라우저를 통해 Solr로 작업할 수 있는 웹 UI입니다. Solr 대시보드는 HDInsight 클러스터에서 인터넷에 직접 드러나지 않지만 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 사용에 대한 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 SSH 터널을 설정하면 다음 단계를 수행하여 Solr 대시보드를 사용합니다.
 
-1. 헤드 노드에 호스트 이름을 결정합니다.
+1. 기본 헤드 노드의 호스트 이름을 결정합니다.
 
-    1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. 메시지가 표시되면 관리자 사용자 이름 및 암호를 사용하여 사이트에 인증합니다.
+    1. SSH를 사용하여 포트 22에 있는 클러스터에 연결합니다. 예를 들어 `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`에서 __USERNAME__은 SSH 사용자 이름이고 __CLUSTERNAME__은 클러스터의 이름입니다.
+
+        SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+        * [Linux, Unix 또는 Mac OS X 클라이언트에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+        * [Windows 클라이언트에서 Linux 기반 HDInsight와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
     
-    2. 페이지 위쪽에 있는 메뉴에서 __호스트__를 선택합니다.
+    3. 다음 명령을 사용하여 정규화된 호스트 이름을 가져옵니다.
+
+            hostname -f
+
+        다음과 유사한 이름을 반환합니다.
+
+            hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-    3. __hn0__으로 시작하는 항목을 선택합니다. 페이지가 열릴 때 호스트 이름이 위쪽에 표시됩니다. 호스트 이름의 형식은 __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__입니다. 이는 Solr 대시보드에 연결할 때 사용해야 하는 호스트 이름입니다.
+        다음 단계에 사용해야 하는 호스트 이름입니다.
     
 1. 브라우저에서 __http://HOSTNAME:8983/solr/#/__에 연결하며 여기에서 __HOSTNAME\_\_은 이전 단계에서 결정한 이름입니다.
 
@@ -311,4 +323,4 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

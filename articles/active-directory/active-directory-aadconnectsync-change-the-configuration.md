@@ -35,7 +35,7 @@
 아래에는 선택된 동기화 규칙에 대한 작업을 수행하는 단추가 있습니다. **편집** 및 **삭제** 단추를 누르면 해당 작업을 수행합니다. **내보내기**는 동기화 규칙을 다시 만들기 위해 PowerShell 스크립트를 생성합니다. 이 절차를 통해 동기화 규칙을 한 서버에서 다른 서버로 이동할 수 있습니다.
 
 ## 첫 번째 사용자 지정 규칙 만들기
-가장 일반적인 변경은 특성 흐름을 변경하는 것입니다. 원본 디렉터리의 데이터는 사용자가 원하는 방식으로 Azure AD에 저장되지 않을 수도 있습니다. 이 섹션의 예제에서는 지정된 사용자의 이름이 항상 **적절한 대/소문자**로 표시되는지 확인해야 합니다.
+가장 일반적인 변경은 특성 흐름을 변경하는 것입니다. 원본 디렉터리의 데이터는 Azure AD에서와 같지 않을 수도 있습니다. 이 섹션의 예제에서는 지정된 사용자의 이름이 항상 **적절한 대/소문자**로 표시되는지 확인해야 합니다.
 
 ### 스케줄러 사용 안 함
 [스케줄러](active-directory-aadconnectsync-feature-scheduler.md)는 기본적으로 30분마다 실행됩니다. 변경을 수행하고 새 규칙의 문제를 해결하는 동안 스케줄러가 시작되지 않도록 해야 합니다. 스케줄러를 일시적으로 사용하지 않으려면 PowerShell을 시작하고 `Set-ADSyncScheduler -SyncCycleEnabled $false`을(를) 실행합니다.
@@ -134,4 +134,4 @@ Fabrikam에서는 클라우드에 동기화된 특성 중 일부라도 클라우
 - [Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정](active-directory-aadconnectsync-whatis.md)
 - [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

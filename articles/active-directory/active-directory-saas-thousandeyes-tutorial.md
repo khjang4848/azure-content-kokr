@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: ThousandEyes와 Azure Active Directory 통합
@@ -72,19 +72,19 @@
 
 1.  Azure 클래식 포털의 **ThousandEyes** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790062.png "Single SignOn 구성")
 
 2.  **ThousandEyes에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Microsoft Azure AD Single Sign-On**을 선택하고 **다음**을 클릭합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Single SignOn 구성")
 
-3.  **앱 URL 구성** 페이지의 **ThousandEyes 로그온 URL** 텍스트 상자에 ThousandEyes 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL(예: **https://app.thousandeyes.com/login/sso*"))을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **ThousandEyes 로그온 URL** 텍스트 상자에 ThousandEyes 응용 프로그램에 로그온하기 위해 사용자가 사용하는 URL(예: "*https://app.thousandeyes.com/login/sso*")을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "앱 URL 구성")
 
 4.  **ThousandEyes에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Single Sign-On 구성")
 
 5.  다른 웹 브라우저 창에서 **ThousandEyes** 회사 사이트에 관리자로 로그인합니다.
 
@@ -105,15 +105,15 @@
     ![Single Sign-On 설정](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Single Sign-On 설정")
 
     1.  **Single Sign-On 사용**을 선택합니다.
-    2.  Microsoft Azure 클래식 포털의 **ThousandEyes에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
-    3.  Microsoft Azure 클래식 포털의 **ThousandEyes에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
-    4.  Microsoft Azure 클래식 포털의 **ThousandEyes에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **ID 공급자 발급자** 텍스트 상자에 붙여넣습니다.
+    2.  Microsoft Azure 클래식 포털의 **ThousandEyes에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그인 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여 넣습니다.
+    3.  Microsoft Azure 클래식 포털의 **ThousandEyes에서 Single Sign-On 구성** 대화 상자 페이지에서 **원격 로그아웃 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여 넣습니다.
+    4.  Microsoft Azure 클래식 포털의 **ThousandEyes에서 Single Sign-On 구성** 대화 상자 페이지에서 **발급자 URL** 값을 복사한 다음 **ID 공급자 발급자** 텍스트 상자에 붙여 넣습니다.
     5.  **ID 공급자 인증서**에서 **파일 선택**을 클릭하고 Microsoft Azure 클래식 포털에서 다운로드한 인증서를 업로드합니다.
-    6.  **저장**을 클릭합니다.
+    6.  **Save**를 클릭합니다.
 
 10. Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Single Sign-On 구성")
 
 ##사용자 프로비전 구성
   
@@ -164,4 +164,4 @@ Azure AD 사용자가 ThousandEyes에 로그인할 수 있도록 하려면 Thous
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

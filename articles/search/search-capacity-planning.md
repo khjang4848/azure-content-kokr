@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -118,4 +118,4 @@ S3 HD는 1개의 파티션과 최대 12개의 복제본을 가질 수 있으며 
 
 SU당 비용은 계층별로 결정됩니다. SU당 비용은 표준 계층보다 기본 계층이 더 낮습니다. 각 계층에 대한 요금은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)에서 확인할 수 있습니다.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

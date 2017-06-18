@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/19/2016" 
     ms.author="jeedes" />
 
 #자습서: Spring CM과 Azure Active Directory 통합
@@ -21,7 +21,7 @@
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 -   유효한 Azure 구독
--   Spring CM Single Sign-On이 설정된 구독
+-   SpringCM Single Sign-On이 설정된 구독
   
 이 자습서를 완료한 후 SpringCM에 할당한 Azure Active Directory 사용자가 AAD 액세스 패널에서 Single Sign-On을 수행할 수 있습니다.
 
@@ -86,7 +86,7 @@
 
 4.  **SpringCM에서 Single Sign-On 구성** 페이지에서 인증서를 다운로드하려면 **인증서 다운로드**를 클릭한 다음 컴퓨터에 로컬로 인증서 파일을 저장합니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-spring-cm-tutorial/IC797050.png "Single SignOn 구성")
 
 5.  다른 웹 브라우저 창에서 **SpringCM** 회사 사이트에 관리자로 로그인합니다.
 
@@ -99,14 +99,14 @@
     ![Id 공급자 구성](./media/active-directory-saas-spring-cm-tutorial/IC797052.png "Id 공급자 구성")
 
     1.  다운로드한 Azure Active Directory 인증서를 업로드하려면 **발급자 인증서 선택** 또는 **발급자 인증서 변경**을 클릭합니다.
-    2.  Azure 클래식 포털의 **SpringCM에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 클래식 포털의 **SpringCM에 대한 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **서비스 공급자(SP)가 시작하는 끝점** 텍스트 상자에 붙여넣습니다.
+    2.  Azure 클래식 포털의 **SpringCM에서 Single Sign-On 설정** 대화 상자 페이지에서**발급자 URL** 값을 복사하여 **발급자** 텍스트 상자에 붙여 넣습니다.
+    3.  Azure 클래식 포털의 **SpringCM에 대한 Single Sign-On 구성** 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **서비스 공급자(SP)가 시작하는 끝점** 텍스트 상자에 붙여 넣습니다.
     4.  **SAML 사용**으로 설정되었을 때 **사용**을 선택합니다.
     5.  **Save**를 클릭합니다.
 
 8.  Azure 클래식 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다.
 
-    ![Single Sign-On 구성](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Single Sign-On 구성")
+    ![Single SignOn 구성](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Single SignOn 구성")
 
 ##사용자 프로비전 구성
   
@@ -154,4 +154,4 @@ Azure Active Directory 사용자가 SpringCM에 로그인할 수 있도록 하�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

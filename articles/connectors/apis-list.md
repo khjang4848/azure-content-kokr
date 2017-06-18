@@ -14,30 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/23/2016"
+	ms.date="09/20/2016"
 	ms.author="deonhe"/>
 
 # 커넥터 목록
 
-워크플로를 신속하게 구축하는 방법에 대해 알아보려면 커넥터를 선택합니다.
+워크플로를 구축하는 방법에 대해 알아보려면 커넥터를 선택합니다.
 
 ## 표준 커넥터
 
 |커넥터||||
 |-----------|-----------|-----------|-----------|
 |[![API 아이콘][API/Web-Appicon]<br/>**API/웹앱**][API/Web-Appdoc]|[![API 아이콘][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc]|[![API 아이콘][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc]|[![API 아이콘][Boxicon]<br/>**Box**][Boxdoc]|
-|[![API 아이콘][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![API 아이콘][Delayicon]<br/>**지연**][Delaydoc]|[![API 아이콘][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|[![API 아이콘][Facebookicon]<br/>**Facebook**][Facebookdoc]|
-|[![API 아이콘][FTPicon]<br/>**FTP**][FTPdoc]|[![API 아이콘][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![API 아이콘][Google-Driveicon]<br/>**Google 드라이브**][Google-Drivedoc]|![API 아이콘][Google-Sheetsicon]<br/>**Google Sheets**|
-|![API 아이콘][Google-Tasksicon]<br/>**Google 태스크**|![API 아이콘][Google~Calendaricon]<br/>**Google<br/>달력**|[![API 아이콘][HTTPicon]<br/>**HTTP**][HTTPdoc]|[![API 아이콘][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|
-|[![API 아이콘][HTTP~Requesticon]<br/>**HTTP<br/>요청**][HTTP~Requestdoc]|[![API 아이콘][HTTP~Responseicon]<br/>**HTTP<br/>응답**][HTTP~Responsedoc]|![API 아이콘][Instagramicon]<br/>**Instagram**|[![API 아이콘][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|
-|![API 아이콘][Mandrillicon]<br/>**Mandrill**|[![API 아이콘][Nested~Logic-Appicon]<br/>**중첩된<br/>논리 앱**][Nested~Logic-Appdoc]|[![API 아이콘][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![API 아이콘][Office-365~Usersicon]<br/>**Office 365<br/>사용자**][Office-365~Usersdoc]|
-|[![API 아이콘][Office-365~Videoicon]<br/>**Office 365<br/>비디오**][Office-365~Videodoc]|[![API 아이콘][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API 아이콘][OneDrive-for~Businessicon]<br/>**비즈니스용<br/>OneDrive**][OneDrive-for~Businessdoc]|[![API 아이콘][Outlookicon]<br/>**Outlook**][Outlookdoc]|
-|[![API 아이콘][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API 아이콘][Queryicon]<br/>**쿼리**][Querydoc]|[![API 아이콘][Recurrenceicon]<br/>**되풀이**][Recurrencedoc]|[![API 아이콘][RSSicon]<br/>**RSS**][RSSdoc]|
-|[![API 아이콘][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API 아이콘][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API 아이콘][Service-Busicon]<br/>**서비스 버스**][Service-Busdoc]|[![API 아이콘][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-|[![API 아이콘][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API 아이콘][Slackicon]<br/>**Slack**][Slackdoc]|[![API 아이콘][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API 아이콘][SparkPosticon]<br/>**SparkPost**|
-|[![API 아이콘][SQLicon]<br/>**SQL**][SQLdoc]|[![API 아이콘][Translatoricon]<br/>**번역기**][Translatordoc]|[![API 아이콘][Trelloicon]<br/>**Trello**][Trellodoc]|[![API 아이콘][Twilioicon]<br/>**Twilio**][Twiliodoc]|
-|[![API 아이콘][Twittericon]<br/>**Twitter**][Twitterdoc]|[![API 아이콘][Webhookicon]<br/>**Webhook**][Webhookdoc]|[![API 아이콘][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API 아이콘][Yammericon]<br/>**Yammer**][Yammerdoc]|
-|![API 아이콘][YouTubeicon]<br/>**YouTube**||||
+|[![API 아이콘][CRM-Onlineicon]<br/>**CRM Online**][CRM-Onlinedoc]|[![API 아이콘][DB2icon]<br/>**DB2**][db2doc]|[![API 아이콘][Delayicon]<br/>**지연**][Delaydoc]|[![API 아이콘][Dropboxicon]<br/>**Dropbox**][Dropboxdoc]|
+|[![API 아이콘][Facebookicon]<br/>**Facebook**][Facebookdoc]|[![API 아이콘][FTPicon]<br/>**FTP**][FTPdoc]|[![API 아이콘][GitHubicon]<br/>**GitHub**][GitHubdoc]|[![API 아이콘][Google-Driveicon]<br/>**Google 드라이브**][Google-Drivedoc]|
+|![API 아이콘][Google-Sheetsicon]<br/>**Google Sheets**|![API 아이콘][Google-Tasksicon]<br/>**Google 태스크**|![API 아이콘][Google~Calendaricon]<br/>**Google<br/>달력**|[![API 아이콘][HTTPicon]<br/>**HTTP**][HTTPdoc]|
+|[![API 아이콘][HTTP-Swaggericon]<br/>**HTTP Swagger**][HTTP-Swaggerdoc]|[![API 아이콘][HTTP~Requesticon]<br/>**HTTP<br/>요청**][HTTP~Requestdoc]|[![API 아이콘][HTTP~Responseicon]<br/>**HTTP<br/>응답**][HTTP~Responsedoc]|[![API 아이콘][Informixicon]<br/>**Informix**][informixdoc]|
+|![API 아이콘][Instagramicon]<br/>**Instagram**|[![API 아이콘][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API 아이콘][Mandrillicon]<br/>**Mandrill**|[![API 아이콘][Nested~Logic-Appicon]<br/>**중첩된<br/>논리 앱**][Nested~Logic-Appdoc]|
+|[![API 아이콘][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][Office-365~Outlookdoc]|[![API 아이콘][Office-365~Usersicon]<br/>**Office 365<br/>사용자**][Office-365~Usersdoc]|[![API 아이콘][Office-365~Videoicon]<br/>**Office 365<br/>비디오**][Office-365~Videodoc]|[![API 아이콘][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|
+|[![API 아이콘][OneDrive-for~Businessicon]<br/>**비즈니스용<br/>OneDrive**][OneDrive-for~Businessdoc]|[![API 아이콘][Outlookicon]<br/>**Outlook**][Outlookdoc]|[![API 아이콘][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API 아이콘][Queryicon]<br/>**쿼리**][Querydoc]|
+|[![API 아이콘][Recurrenceicon]<br/>**되풀이**][Recurrencedoc]|[![API 아이콘][RSSicon]<br/>**RSS**][RSSdoc]|[![API 아이콘][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API 아이콘][SendGridicon]<br/>**SendGrid**][SendGriddoc]|
+|[![API 아이콘][Service-Busicon]<br/>**서비스 버스**][Service-Busdoc]|[![API 아이콘][SFTPicon]<br/>**SFTP**][SFTPdoc]|[![API 아이콘][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API 아이콘][Slackicon]<br/>**Slack**][Slackdoc]|
+|[![API 아이콘][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API 아이콘][SparkPosticon]<br/>**SparkPost**|[![API 아이콘][SQLicon]<br/>**SQL**][SQLdoc]|[![API 아이콘][Translatoricon]<br/>**번역기**][Translatordoc]|
+|[![API 아이콘][Trelloicon]<br/>**Trello**][Trellodoc]|[![API 아이콘][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API 아이콘][Twittericon]<br/>**Twitter**][Twitterdoc]|[![API 아이콘][Webhookicon]<br/>**Webhook**][Webhookdoc]|
+|[![API 아이콘][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API 아이콘][Yammericon]<br/>**Yammer**][Yammerdoc]|![API 아이콘][YouTubeicon]<br/>**YouTube**||
 
 > [AZURE.NOTE] Azure 계정에 등록하기 전에 Azure Logic Apps를 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동하세요. 앱 서비스에서 단기 시작 논리 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -72,10 +72,12 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Blob 컨테이너에서 파일을 관리하는 Azure Blob에 연결합니다."
 [boxDoc]: ./connectors-create-api-box.md "상자에 연결하고 업로드, 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다."
 [crm-onlinedoc]: ./connectors-create-api-crmonline.md "Dynamics CRM Online에 연결하고 CRM Online 데이터를 사용하여 더 많은 작업을 수행합니다."
+[db2doc]: ./connectors-create-api-db2.md "클라우드 또는 온-프레미스에서 IBM DB2에 연결하여 행을 업데이트하고 테이블을 가져오는 등의 작업이 가능합니다."
 [dropboxdoc]: ./connectors-create-api-dropbox.md "Dropbox에 연결하고 가져오기, 삭제, 나열 및 추가 파일 작업을 수행할 수 있습니다."
 [facebookdoc]: ./connectors-create-api-facebook.md "Facebook에 연결하여 타임라인에 게시, 페이지 피드 가져오기 등의 작업을 수행합니다."
 [ftpdoc]: ./connectors-create-api-ftp.md "FTP / FTPS 서버에 연결하여 파일 등의 업로드, 가져오기, 삭제를 포함한 다른 FTP 작업을 수행합니다."
 [google-drivedoc]: ./connectors-create-api-googledrive.md "Google 드라이브에 연결하고 데이터를 조작합니다."
+[informixdoc]: ./connectors-create-api-informix.md "클라우드 또는 온-프레미스에서 Informix에 연결하여 행을 읽고 테이블을 나열하는 등의 작업이 가능합니다."
 [translatordoc]: ./connectors-create-api-microsofttranslator.md
 [office-365~outlookdoc]: ./connectors-create-api-office365-outlook.md "Office 365 커넥터는 메일을 보내고 받고, 일정을 관리하고, Office 365 계정을 사용하여 연락처를 관리할 수 있습니다."
 [office-365~usersdoc]: ./connectors-create-api-office365-users.md
@@ -133,13 +135,22 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 
 <!--Icon references-->
 [Azure-Blobicon]: ./media/apis-list/azureblob.png
+[Azure~Functionsicon]: ./media/apis-list/function.png
 [Boxicon]: ./media/apis-list/box.png
-[FTPicon]: ./media/apis-list/ftp.png
-[GitHubicon]: ./media/apis-list/github.png
 [CRM-Onlineicon]: ./media/apis-list/dynamicscrmonline.png
+[DB2icon]: ./media/apis-list/db2.png
 [Dropboxicon]: ./media/apis-list/dropbox.png
 [Facebookicon]: ./media/apis-list/facebook.png
+[FTPicon]: ./media/apis-list/ftp.png
+[GitHubicon]: ./media/apis-list/github.png
 [Google-Driveicon]: ./media/apis-list/googledrive.png
+[Google~Calendaricon]: ./media/apis-list/googlecalendar.png
+[Google-Tasksicon]: ./media/apis-list/googletasks.png
+[Google-Sheetsicon]: ./media/apis-list/googlesheet.png
+[HTTPicon]: ./media/apis-list/http.png
+[HTTP~Requesticon]: ./media/apis-list/request.png
+[HTTP~Responseicon]: ./media/apis-list/response.png
+[Informixicon]: ./media/apis-list/informix.png
 [MailChimpicon]: ./media/apis-list/mailchimp.png
 [Translatoricon]: ./media/apis-list/microsofttranslator.png
 [Office-365~Outlookicon]: ./media/apis-list/office365.png
@@ -163,21 +174,14 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [Twittericon]: ./media/apis-list/twitter.png
 [Wunderlisticon]: ./media/apis-list/wunderlist.png
 [Yammericon]: ./media/apis-list/yammer.png
-[Google~Calendaricon]: ./media/apis-list/googlecalendar.png
-[Google-Tasksicon]: ./media/apis-list/googletasks.png
-[Google-Sheetsicon]: ./media/apis-list/googlesheet.png
 [Mandrillicon]: ./media/apis-list/mandrill.png
 [SparkPosticon]: ./media/apis-list/sparkpost.png
 [Instagramicon]: ./media/apis-list/instagram.png
 [YouTubeicon]: ./media/apis-list/youtube.png
-[HTTPicon]: ./media/apis-list/http.png
-[HTTP~Requesticon]: ./media/apis-list/request.png
-[HTTP~Responseicon]: ./media/apis-list/response.png
 [Delayicon]: ./media/apis-list/delay.png
 [HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
 [Queryicon]: ./media/apis-list/query.png
 [Webhookicon]: ./media/apis-list/webhook.png
-[Azure~Functionsicon]: ./media/apis-list/function.png
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Nested~Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
@@ -190,4 +194,4 @@ EIP 커넥터를 사용하여 EAI 및 EDI를 포함하는 B2B 시나리오에 �
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

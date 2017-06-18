@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/07/2016"
+    ms.date="09/06/2016"
     ms.author="adegeo"/>
 
 # 클라우드 서비스 모델 정의 및 패키지 방법
@@ -266,4 +266,4 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -19,15 +19,17 @@
 
 # 자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [AZURE.SELECTOR]
+- [개요 및 필수 구성 요소](data-factory-build-your-first-pipeline.md)
 - [Azure 포털](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
+이 문서에서는 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory를 만듭니다.
 
-## 추가 필수 조건
+## 필수 조건
+- [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 - 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/)을 설치합니다. REST 명령과 함께 CURL 도구를 사용하여 데이터 팩터리를 만듭니다.
 - [이 문서](../resource-group-create-service-principal-portal.md)의 지침에 따라 다음 작업을 수행합니다.
 	1. Azure Active Directory에서 **ADFGetStartedApp**이라는 웹 응용 프로그램을 만듭니다.
@@ -263,7 +265,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 
 다음 사항에 유의하세요.
  
-- Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "FirstDataFactoryREST"를 사용할 수 없습니다**라는 오류가 발생한 경우 다음을 수행합니다.
+- Azure Data Factory 이름은 전역적으로 고유해야 합니다. 결과에 **데이터 팩터리 이름 "FirstDataFactoryREST"를 사용할 수 없습니다**라는 오류가 발생한 경우 다음 단계를 수행합니다.
 	1. **datafactory.json** 파일에서 이름(예: yournameFirstDataFactoryREST)을 변경합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 	2. **$cmd** 변수가 값을 할당한 첫 번째 명령에서 FirstDataFactoryREST를 새 이름으로 바꾸고 명령을 실행합니다.
 	3. REST API를 호출하는 다음 두 명령을 실행하여 데이터 팩터리를 만들고 작업의 결과를 인쇄합니다.
@@ -271,7 +273,7 @@ Azure PowerShell에서 값을 고유한 값으로 대체한 후에 다음 명령
 - 데이터 팩터리의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
 - "**구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**" 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
 
-	- Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다.
+	- Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 공급자를 등록합니다.
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
@@ -370,6 +372,10 @@ Azure Blob 저장소의 **adfgetstarted/inputdata** 폴더에서 **input.log** �
     	    (convertFrom-Json $results2).RemoteException
 	}
 
+
+> [AZURE.IMPORTANT] 
+주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분**이 걸릴 수 있습니다.
+
 조각이 **준비** 상태 또는 **실패** 상태로 표시될 때까지 Invoke-Command 및 다음 명령을 실행합니다. 조각이 준비 상태에 있으면 출력 데이터에 대한 Blob 저장소의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.
 
 ![출력 데이터](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
@@ -402,4 +408,4 @@ Azure Blob 저장소의 **adfgetstarted/inputdata** 폴더에서 **input.log** �
 | [Azure 포털 블레이드를 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) | 이 문서는 Azure 포털 블레이드를 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

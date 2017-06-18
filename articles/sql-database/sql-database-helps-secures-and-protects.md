@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="06/23/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
    
 # Azure SQL 데이터베이스의 보안 유지 및 보호
@@ -47,7 +47,7 @@ SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 
 
 ## 다음 단계
 
-[무료 Azure 구독](https://azure.microsoft.com/get-started/)을 가져오고 [첫 번째 Azure SQL 데이터베이스를 만듭니다](sql-database-get-started.md).
+[무료 Azure 구독](https://azure.microsoft.com/get-started/)을 가져오고 [첫 번째 Azure SQL Database를 만듭니다](sql-database-get-started.md).
 
 ## 추가 리소스
 
@@ -55,4 +55,4 @@ SQL 데이터베이스에서 제공해야 하는 다른 항목을 보려면 홈 
  
 [SQL 데이터베이스의 기술 개요](sql-database-technical-overview.md)를 검토합니다.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="단일 비트 전송률 라이브 스트림을 보낼 Telestream Wirecast 인코더 구성 " 
+	pageTitle="단일 비트 전송률 라이브 스트림을 보낼 Telestream Wirecast 인코더 구성 | Microsoft Azure" 
 	description="이 항목에서는 Wirecast 라이브 인코더를 구성하여 라이브 인코딩에 대해 활성화된 AMS 채널에 단일 비트 전송률 스트림을 보내는 방법을 보여 줍니다. " 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;cenkdin;anilmur"/>
 
 #단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
@@ -32,7 +32,7 @@
 ##필수 조건
 
 - [Azure 미디어 서비스 계정 만들기](media-services-create-account.md)
-- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-manage-origins.md)를 참조하세요.
+- 하나 이상의 스트리밍 단위가 할당된 스트리밍 끝점이 실행되고 있는지 확인합니다. 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점 관리](media-services-portal-manage-streaming-endpoints.md)를 참조하세요.
 - 최신 버전의 [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) 도구를 설치합니다.
 - 이 도구를 시작하고 AMS 계정에 연결합니다.
 
@@ -180,4 +180,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

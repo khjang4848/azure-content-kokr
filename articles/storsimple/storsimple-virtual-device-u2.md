@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 # Azure에서 StorSimple 가상 장치 배포 및 관리
@@ -139,13 +139,14 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 
 [AZURE.INCLUDE [가상 장치 만들기](../../includes/storsimple-create-virtual-device-u2.md)]
 
+이 단계에서 가상 장치 만들기에 실패하는 경우 인터넷에 연결되지 않을 수 있습니다. 자세한 내용은 가상 장치를 만들 때 [인터넷 연결 오류 문제 해결](#troubleshoot-internet-connectivity-errors)로 이동하세요.
+
 
 ### 2단계: 가상 장치 구성 및 등록
 
 이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 첫번째 StorSimple 장치를 구성하고 안전한 위치에 저장하도록 명령한 경우, 서비스 데이터 암호화 키가 만들어집니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
 
-다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.
-[AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
+다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다. [AZURE.INCLUDE [가상 장치 구성 및 등록](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 3단계: (선택 사항) 장치 구성 설정 수정
 
@@ -273,6 +274,19 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 [AZURE.INCLUDE [가상 장치 삭제](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## 인터넷 연결 오류 문제 해결 
+
+가상 장치를 만드는 동안 인터넷에 연결되지 않은 경우 생성 단계가 실패합니다. 이 오류가 인터넷 연결 때문에 발생하는 경우 문제를 해결하려면 Azure 클래식 포털에서 다음 단계를 수행합니다.
+
+1. Azure에서 Windows Server 2012 가상 컴퓨터를 만듭니다. 이 가상 컴퓨터는 가상 장치에서 사용한 동일한 저장소 계정, VNet 및 서브넷을 사용해야 합니다. Azure에서 동일한 저장소 계정, VNet 및 서브넷을 사용하는 기존 Windows Server 호스트가 이미 있는 경우 인터넷 연결 문제를 해결하는 데 사용할 수 있습니다.
+2. 이전 단계에서 만든 가상 컴퓨터에 원격 로그인합니다.
+3. 가상 컴퓨터 내의 명령 창을 엽니다(Win + R 및 `cmd`을 입력).
+4. 프롬프트에서 다음 cmd를 실행합니다.
+
+	`nslookup windows.net`
+
+5. `nslookup`이 실패하는 경우 인터넷 연결 실패로 인해 가상 장치를 StorSimple Manager 서비스에 등록하지 못하게 됩니다.
+6. 가상 네트워크에 필요한 변경 사항을 수행하여 가상 장치가 "windows.net"과 같은 Azure 사이트에 액세스할 수 있도록 합니다.
 
 ## 다음 단계
 
@@ -280,4 +294,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
  
 - [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

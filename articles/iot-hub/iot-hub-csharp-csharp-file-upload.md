@@ -151,7 +151,7 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 이 자습서에서는 장치에서 파일 업로드를 단순화하기 위해 IoT Hub의 파일 업로드 기능을 활용하는 방법을 알아보았습니다. 다음 문서를 사용하여 IoT Hub 기능 및 시나리오를 계속해서 탐색할 수 있습니다.
 
-- [프로그램 방식으로 IoT Hub 만들기][lnk-create-hub]
+- [프로그래밍 방식으로 IoT Hub 만들기][lnk-create-hub]
 - [C SDK 소개][lnk-c-sdk]
 - [IoT Hub SDK][lnk-sdks]
 
@@ -170,7 +170,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 <!-- Links -->
 
-[IoT Hub를 사용하여 클라우드-장치 메시지 보내기]: iot-hub-csharp-csharp-c2d.md
 [Azure 포털]: https://portal.azure.com/
 
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
@@ -197,4 +196,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

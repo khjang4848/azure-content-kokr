@@ -4,7 +4,7 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun" />
 
 <tags 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" />
 
 
 # 시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 
-데이터 집합에 대해 고급 분석 처리를 수행할 환경을 설정할 때 어떤 리소스를 포함하도록 계획해야 할까요? 이 문서는 시나리오에 적합한 작업과 리소스를 파악하는 데 도움이 될만한 것을 묻는 일련의 질문을 제시합니다. 예측 분석에 대한 고급 단계의 순서는 [TDSP(팀 데이터 과학 프로세스)란 무엇입니까?](data-science-process-overview.md) 문서에 대략적으로 설명되어 있습니다. 각각의 단계에는 개별적인 시나리오에 적합한 리소스를 위한 특정 리소스가 필요합니다. 시나리오를 파악하기 위한 주요 질문은 데이터 로지스틱, 특징, 데이터 집합의 품질, 분석에 사용할 도구 및 언어에 대한 것입니다.
+데이터 집합에 대해 고급 분석 처리를 수행할 환경을 설정할 때 어떤 리소스를 포함하도록 계획해야 할까요? 이 문서는 시나리오에 적합한 작업과 리소스를 파악하는 데 도움이 될만한 것을 묻는 일련의 질문을 제시합니다. 예측 분석에 대한 고급 단계의 순서는 [TDSP(팀 데이터 과학 프로세스)란 무엇입니까?](data-science-process-overview.md)에 대략적으로 설명되어 있습니다. 각각의 단계에는 개별적인 시나리오에 적합한 리소스를 위한 특정 리소스가 필요합니다. 시나리오를 파악하기 위한 주요 질문은 데이터 로지스틱, 특징, 데이터 집합의 품질, 분석에 사용할 도구 및 언어에 대한 것입니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -42,7 +42,7 @@
 
 3. **데이터를 어떻게 이동할건가요?** 다양한 저장소에 데이터를 수집하거나 로드하는 데 사용할 수 있는 프로시저와 리소스 및 처리 환경이 다음 문서에 약술되어 있습니다.
 
-	-  [분석용 저장소 환경에 데이터 로드](machine-learning-data-science-ingest-data.md) 
+	-  [분석용 저장소 환경에 데이터 로드](machine-learning-data-science-ingest-data.md)
 	-  [다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기](machine-learning-data-science-import-data,md)
 
 4. **데이터를 정기적으로 이동해야 하나요? 마이그레이션 중에 수정되어야 하나요?** 온-프레미스 및 클라우드 리소스를 모두 액세스하는 하이브리드 시나리오에서 데이터를 지속적으로 마이그레이션해야 하는 경우, 데이터를 트랜잭션 처리하거나 수정해야 하거나 마이그레이션 과정 중에 비즈니스 로직을 추가해야 하는 경우 Azure Data Factory(ADF)를 사용하는 것이 좋습니다. 자세한 내용은 [Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동](machine-learning-data-science-move-sql-azure-adf.md)을 참조하세요.
@@ -53,7 +53,7 @@
 ## 데이터 특성 질문: 유형, 형식, 크기
 이러한 질문은 다양한 유형의 데이터에 적합하고 특정한 제한 사항이 있는 저장소 및 처리 환경을 계획하는 핵심적인 내용입니다.
 
-1. **데이터 유형은 무엇인가요?** 예: 
+1. **데이터 유형은 무엇인가요?** 예:
 	- 숫자
 	- 범주
 	- 문자열
@@ -87,7 +87,7 @@ Azure 기계 학습 스튜디오 환경을 예로 들어 보겠습니다.
 ## 도구 및 언어 질문
 필요하거나 사용하기에 가장 편리한 언어 및 개발 환경 또는 도구에 따라서 많은 옵션이 있습니다.
  
-1. **분석에 사용하려는 언어는 무엇인가요?**  
+1. **분석에 사용하려는 언어는 무엇인가요?**
 	- R
 	- Python
 	- SQL
@@ -100,7 +100,7 @@ Azure 기계 학습 스튜디오 환경을 예로 들어 보겠습니다.
 	- [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
 	- [Anaconda](https://www.continuum.io/why-anaconda)
 	- [Jupiter notebooks](http://jupyter.org/)
-	- [Microsoft Power BI](http://powerbi.microsoft.com) 
+	- [Microsoft Power BI](http://powerbi.microsoft.com)
 
 
 ## 고급 분석 시나리오 파악
@@ -114,4 +114,4 @@ Azure 기계 학습 스튜디오 환경을 예로 들어 보겠습니다.
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

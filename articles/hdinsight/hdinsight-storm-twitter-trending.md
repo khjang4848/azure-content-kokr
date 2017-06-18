@@ -1,10 +1,10 @@
 <properties
-   pageTitle="HDInsight의 Apache Storm을 사용하는 Twitter 추세 항목| Microsoft Azure"
-   description="Trident를 사용하여 해시 태그를 기반으로 Twitter에서 추세 항목을 확인하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
+   pageTitle="HDInsight에서 Apache Storm을 사용하는 Twitter 추세 항목| Microsoft Azure"
+   description="Trident를 사용하여 해시 태그에 기반하는 Twitter에서 추세 항목을 확인하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -17,9 +17,9 @@
    ms.date="07/12/2016"
    ms.author="larryfr"/>
 
-#HDInsight의 Apache Storm을 사용하여 Twitter 추세 항목 확인
+#HDInsight에서 Apache Storm을 사용하여 Twitter 추세 항목 확인
 
-Twitter에서 추세 항목(해시 태그)을 결정하는 Storm 토폴로지를 만들기 위해 Trident를 사용 하는 방법에 대해 알아봅니다.
+Trident를 사용하여 Twitter에서 추세 항목(해시 태그)을 확인하는 Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
 
 Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제공하는 높은 수준의 추상화입니다. 또한 Trident는 상태 저장, 증분 처리를 수행하기 위한 기본 요소를 추가합니다. 이 예제에서는 사용자 지정 spout, 함수 및 trident에서 제공하는 여러 기본 제공 함수를 사용하여 토폴로지를 구축하는 방법을 보여 줍니다.
 
@@ -130,7 +130,7 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 
 토폴로지를 로컬로 테스트했으므로 이제 [HDInsight의 Apache Strom 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)에서 토폴로지를 배포하는 방법에 대해 알아봅니다.
 
-다음 스톰 항목을 참조할 수도 있습니다.
+다음과 같은 Storm 항목을 참조할 수도 있습니다.
 
 * [Maven을 사용하여 HDInsight의 Storm용 Java 토폴로지 개발](hdinsight-storm-develop-java-topology.md)
 
@@ -140,4 +140,4 @@ HDinsight에 대한 추가 Storm 예제:
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
-# 서버 간, 구독 간, Azure 내부 및 외부로 데이터베이스 이동
+# 서버 간, 구독 간 및 Azure에서/로 데이터베이스 이동
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 ##동일한 구독의 다른 서버에 데이터베이스를 이동하려면
@@ -31,4 +31,4 @@
 ## Azure 외부에서 사용할 데이터베이스 복사본을 만들려면
 - [BACPAC 파일을 내보냅니다.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

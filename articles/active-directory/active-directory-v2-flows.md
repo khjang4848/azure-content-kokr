@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # V 2.0 끝점의 형식
@@ -99,7 +99,7 @@ OAuth 2.0 access\_token을 사용하여 Web API 보안을 유지하는 방법을
 ## 단일 페이지 앱(Javascript)
 대부분의 최신 앱에는 주로 Javascript로 작성되고 AngularJS, Ember.js, Durandal 등과 같은 프레임워크로도 작성되는 단일 페이지 앱(SPA) 프런트 엔드가 있습니다. Azure AD v 2.0 끝점은 [OAuth 2.0 암시적 흐름](active-directory-v2-protocols-implicit.md)을 사용하여 이러한 앱을 지원합니다.
 
-이 흐름에서 앱은 v 2.0 인증 끝점에서 바로 토큰을 수신하며, 백엔드 서버 대 서버 교환을 수행하지 않습니다. 이렇게 하면 모든 인증 논리 및 세션 처리가 추가 페이지 리디렉션을 수행하지 않고 전적으로 javascript 클라이언트에서 발생합니다.
+이 흐름에서 앱은 v 2.0 인증 끝점에서 바로 토큰을 수신하며, 백 엔드 서버 대 서버 교환을 수행하지 않습니다. 이렇게 하면 모든 인증 논리 및 세션 처리가 추가 페이지 리디렉션을 수행하지 않고 전적으로 javascript 클라이언트에서 발생합니다.
 
 ![암시적 흐름 스윔 레인 이미지](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
@@ -118,4 +118,4 @@ OAuth 2.0 access\_token을 사용하여 Web API 보안을 유지하는 방법을
 
 [On-Behalf-Of 흐름](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)이라고도 하는 OAuth 2.0 Jwt 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다. 그러나 On-Behalf-Of 흐름은 현재 v2.0 끝점에 구현되어 있지 않습니다. 일반 공급 Azure AD 서비스에서 이 흐름이 작동하는 방식을 확인하려면 [GitHub의 On-Behalf-Of 코드 샘플](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)을 참조하세요.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

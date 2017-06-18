@@ -3,8 +3,8 @@
 	description="활성 중인 고급 분석 프로세스 및 기술"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft,wguo123"
-	manager="paulettm"
+	authors="bradsev"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -93,7 +93,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 
 **Visual Studio로 Azure SQL DW에 연결합니다.** 자세한 지침은 [Visual Studio로 Azure SQL 데이터 웨어하우스에 연결](../sql-data-warehouse/sql-data-warehouse-connect-overview.md)의 1단계 및 2단계를 참조하세요.
 
->[AZURE.NOTE] SQL 데이터 웨어하우스에 만든 데이터베이스에 다음 SQL 쿼리(연결 항목의 3단계에서 제공된 쿼리 대신)를 실행하여 **마스터 키를 만듭니다**.
+>[AZURE.NOTE] SQL 데이터 웨어하우스에 만든 데이터베이스에 다음 SQL 쿼리(연결 토픽의 3단계에서 제공된 쿼리 대신)를 실행하여 **마스터 키를 만듭니다**.
 
 	BEGIN TRY
 	       --Try to create the master key
@@ -103,7 +103,7 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 	       --If the master key exists, do nothing
 	END CATCH;
 
-**Azure 구독에서 Azure 기계 학습 작업 영역을 만듭니다.** 자세한 지침은 [Azure 기계 학습 작업 영역 만들기](machine-learning-create-workspace.md)를 참조하세요.
+**Azure 구독에서 Azure Machine Learning 작업 영역을 만듭니다.** 자세한 지침은 [Azure 기계 학습 작업 영역 만들기](machine-learning-create-workspace.md)를 참조하세요.
 
 ## <a name="getdata"></a>SQL 데이터 웨어하우스에 데이터 로드
 
@@ -969,4 +969,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

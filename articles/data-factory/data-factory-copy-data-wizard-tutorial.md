@@ -10,24 +10,25 @@
 <tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"  
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # 자습서: 데이터 팩터리 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [AZURE.SELECTOR]
-- [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [데이터 팩터리 편집기 사용](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell 사용](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio 사용](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API 사용](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [복사 마법사 사용](data-factory-copy-data-wizard-tutorial.md)
+- [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
 
 이 자습서에서는 데이터 팩터리 복사 마법사를 사용하여 데이터 팩터리에 복사 작업이 있는 파이프라인을 만들겠습니다. 먼저, Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음 복사 마법사를 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 복사 작업이 있는 데이터 팩터리 연결된 서비스, 데이터 집합 및 파이프라인을 만듭니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
-> [AZURE.IMPORTANT] [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+> [AZURE.IMPORTANT] [자습서 개요](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 문서를 살펴보고 이 자습서를 수행하기 전에 **필수 구성 요소** 단계를 완료합니다.
 
 ## 데이터 팩터리 만들기
 이 단계에서는 Azure 포털을 사용하여 **ADFTutorialDataFactory**라는 Azure Data Factory를 만듭니다.
@@ -40,7 +41,7 @@
 	1. **ADFTutorialDataFactory**를 **이름**으로 입력합니다.
 	
   		![새 데이터 팩터리 블레이드](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
-	2. **리소스 그룹 이름**을 클릭하고 다음을 수행합니다.
+	2. **리소스 그룹 이름**을 클릭하고 다음 단계를 수행합니다.
 		1. **새 리소스 그룹 만들기**를 클릭합니다.
 		2. **리소스 그룹 만들기** 블레이드에서 리소스 그룹의 **이름**으로 **ADFTutorialResourceGroup**을 입력하고 **확인**을 클릭합니다.
 
@@ -88,7 +89,10 @@
 	3. **Next**를 클릭합니다.
 
 	![복사 도구 - 입력 파일 또는 폴더 선택 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. **파일 형식 설정** 페이지에서 **기본** 값을 선택하고 **다음**을 클릭합니다.
+7. **입력 파일 또는 폴더 선택** 페이지에서 **다음**을 클릭합니다. **이진 복사**를 선택하지 않습니다.
+
+	![복사 도구 - 입력 파일 또는 폴더 선택 페이지](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png)
+8. **파일 형식 설정** 페이지에서 **기본** 값을 선택하고 **다음**을 클릭합니다.
 
 	![복사 도구 - 파일 형식 설정](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)
 8. 대상 데이터 저장소 페이지에서 **Azure SQL 데이터베이스** 타일을 클릭하고 **다음**을 클릭합니다.
@@ -102,11 +106,12 @@
 
 	![복사 도구 - 테이블 매핑](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. **스키마 매핑** 페이지에서 **다음**을 클릭합니다.
+11. **성능 설정** 페이지에서 **다음**을 클릭합니다.
 11. **요약** 페이지에서 정보를 검토하고 **마침**을 클릭합니다. 마법사는 데이터 팩터리(복사 마법사를 실행한 위치)에 두 개의 연결된 서비스, 두 개의 데이터 집합(입력 및 출력), 하나의 파이프라인을 만듭니다.
-12. **배포 성공** 페이지에서 **복사 파이프라인을 모니터링하려면 여기를 클릭**을 클릭합니다.
+12. **배포 성공** 페이지에서 **복사 파이프라인을 모니터링하려면 여기를 클릭** 링크를 클릭합니다.
 
 	![복사 도구 - 배포 성공 페이지](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)
-13. [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)의 지침을 사용하여 방금 만든 파이프라인을 모니터링하는 방법에 대해 자세히 알아봅니다.
+13. [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)의 지침을 사용하여 방금 만든 파이프라인을 모니터링하는 방법에 대해 자세히 알아봅니다. **활동 창** 목록에서 **새로 고침** 아이콘을 클릭하면 조각이 표시됩니다.
 
 	![모니터링 앱](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
  
@@ -120,4 +125,4 @@
 | [데이터 집합](data-factory-create-datasets.md) | 이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다.
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) | 이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2016"
+   ms.date="09/16/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법
@@ -31,10 +31,7 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. Azure 포털의 오른쪽 위에서 사용자 이름을 선택하고 작동할 디렉터리를 선택합니다.
-3. **새로 만들기** > **보안 + ID** > **Azure AD Privileged Identity Management**를 선택합니다.
-
-    ![포털에서 PIM 사용][1]
-
+3. **더 많은 서비스**를 선택하고 필터 텍스트 상자를 사용하여 **Azure AD Privileged Identity Management**를 검색합니다.
 4. **대시보드에 고정** 옵션을 선택하고 **만들기**를 클릭합니다. Privileged Identity Management 응용 프로그램이 열립니다.
 
 ## 역할 활성화
@@ -72,4 +69,4 @@ Azure AD Privileged Identity Management에 대한 자세한 정보는 다음 링
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

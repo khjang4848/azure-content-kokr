@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 
@@ -312,7 +312,7 @@ WEB-INF에서 웹앱을 설치를 절반만 완료합니다. 다음으로 구성
 </html>
 ```
 
-- 마지막으로, 디렉터리가 `\webapp\secure`가 되도록 `\webapp`에 `\secure`라는 폴더를 만들어서 원하는 보안 웹 페이지를 만듭니다. 
+- 마지막으로, 디렉터리가 `\webapp\secure`가 되도록 `\webapp`에 `\secure`라는 폴더를 만들어서 원하는 보안 웹 페이지를 만듭니다.
 
 - 이 디렉터리 안에 `aad.jsp` 파일을 만들고 다음을 잘라내어 붙여넣습니다.
 
@@ -359,7 +359,7 @@ BasicFilter 서블릿이 `ADAJ4J` 라이브러리를 사용하여 읽고 실행�
 
 Java 파일을 작성하여 이 작업을 수행해 보겠습니다.
 
-1. Java 파일을 저장하기 위해 'adal4jsample'를 호출하는 루트 디렉터리에 폴더를 만듭니다. 
+1. Java 파일을 저장하기 위해 'adal4jsample'를 호출하는 루트 디렉터리에 폴더를 만듭니다.
 
 Java 파일에 네임스페이스 `com.microsoft.aad.adal4jsample`를 사용합니다. 대부분의 IDE는 이에 대한 중첩된 폴더 구조를 만듭니다.(예: `/com/microsoft/aad/adal4jsample`) 이 작업을 수행할 수 있지만 필수는 아닙니다.
 
@@ -1750,4 +1750,4 @@ public class BasicFilter implements Filter {
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

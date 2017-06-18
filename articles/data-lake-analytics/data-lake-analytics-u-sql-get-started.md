@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발 | Azure" 
-   description="Visual Studio용 데이터 레이크 도구를 설치하는 방법과 U-SQL 스크립트를 개발하고 테스트하는 방법을 알아봅니다." 
+   description="Visual Studio용 데이터 레이크 도구를 설치하는 방법과 U-SQL 스크립트를 개발하고 테스트하는 방법을 알아봅니다. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -56,7 +56,7 @@ Duration 필드의 데이터 형식 옆에 있는 물음표에 유의합니다. 
 - **Rowset 변수**: 행 집합을 생성하는 각 쿼리 식은 변수에 할당될 수 있습니다. U-SQL은 T-SQL 변수 이름 지정 패턴(예: 스크립트의 **@searchlog**)을 따릅니다. 할당은 실행을 강제 적용하지 않습니다. 다만 식의 이름을 지정하고 더 복잡한 식을 작성할 수 있도록 합니다.
 - **EXTRACT**를 통해 읽기에 스키마를 정의할 수 있습니다. 스키마는 열마다 열 이름 및 C# 형식 이름의 쌍으로 지정됩니다. **Extractor**를 사용합니다. 예를 들어 tsv 파일을 추출하려면 **Extractors.Tsv()**를 사용합니다. 사용자 지정 추출기를 개발할 수 있습니다.
 - **OUTPUT**은 행 집합을 직렬화합니다. Outputters.Csv()는 콤마로 분리된 파일을 지정된 위치에 출력합니다. 사용자 지정 출력기를 개발할 수도 있습니다.
-- 두 경로는 상대 경로입니다. 절대 경로를 사용할 수도 있습니다. 예를 들면 다음과 같습니다. 
+- 두 경로는 상대 경로입니다. 절대 경로를 사용할 수도 있습니다. 예를 들면 다음과 같습니다.
     
         adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
         
@@ -402,7 +402,7 @@ U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용
 - 사용자가 C#으로 정의하는 연산자(추출기, 출력기, 프로세서, 사용자 정의 집계기)를 개발합니다.
 - U-SQL 창 함수를 사용합니다.
 - U-SQL 코드도 뷰, 테이블 반환 함수 및 저장 프로시저를 가능하게 합니다.
-- 처리 노드에서 임의의 사용자 지정 코드를 실행합니다. 
+- 처리 노드에서 임의의 사용자 지정 코드를 실행합니다.
 - Azure SQL 데이터베이스에 연결하고 이 데이터베이스와 사용자의 U-SQL 및 Azure 데이터 레이크 데이터에 있는 쿼리를 페더레이션합니다.
 
 ## 참고 항목 
@@ -419,4 +419,4 @@ U-SQL은 데이터베이스 및 스키마 컨텍스트에서 데이터를 사용
 - [포럼에서 도움말 보기](http://aka.ms/adlaforums)
 - [U-SQL에 대한 피드백 제공](http://aka.ms/usqldiscuss)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

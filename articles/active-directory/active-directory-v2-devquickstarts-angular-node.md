@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -46,7 +46,7 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 
 - 앱에 대한 **웹** 플랫폼을 추가합니다.
 - 올바른 **리디렉션 URI**를 입력합니다. 이 샘플에 대한 기본값은 `http://localhost:8080`입니다.
-- **암시적 흐름 허용** 확인란을 선택한 채로 둡니다. 
+- **암시적 흐름 허용** 확인란을 선택한 채로 둡니다.
 
 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 이 정보가 필요합니다.
 
@@ -245,4 +245,4 @@ v2.0 끝점에 대해 계속 알아보려면, [v2.0 개발자 가이드](active-
 
 [이 페이지](https://technet.microsoft.com/security/dd252948)를 방문해서 보안 공지 경고를 구독하여 보안 사건이 발생할 때 알림을 받는 것이 좋습니다.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

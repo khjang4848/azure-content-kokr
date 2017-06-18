@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #자습서: Wikispaces와 Azure Active Directory 통합
@@ -70,7 +70,7 @@
 
 ###Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1.  Azure 클래식 포털의 **Wikispaces** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성 ** 대화 상자를 엽니다.
+1.  Azure 클래식 포털의 **Wikispaces** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787188.png "Single Sign-On 구성")
 
@@ -78,7 +78,7 @@
 
     ![Single Sign-On 구성](./media/active-directory-saas-wikispaces-tutorial/IC787189.png "Single Sign-On 구성")
 
-3.  **앱 URL 구성** 페이지의 **Wikispaces Sign-on URL** 텍스트 상자에 다음 패턴 "**http://company.wikispaces.net*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
+3.  **앱 URL 구성** 페이지의 **Wikispaces Sign-on URL** 텍스트 상자에 다음 패턴 "*http://company.wikispaces.net*"을 사용하여 URL을 입력한 후 **다음**을 클릭합니다.
 
     ![앱 URL 구성](./media/active-directory-saas-wikispaces-tutorial/IC787190.png "앱 URL 구성")
 
@@ -98,7 +98,7 @@
   
 Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Wikispaces로 프로비전되어야 합니다. Wikispaces의 경우 프로비전은 수동 작업입니다.
 
-###사용자 계정을 프로비전하려면 다음 단계를 수행합니다.
+###사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 
 1.  **Wikispaces** 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -115,7 +115,7 @@ Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Wikispa
     ![피플 초대](./media/active-directory-saas-wikispaces-tutorial/IC787208.png "피플 초대")
 
     1.  관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **사용자 이름 또는 이메일 주소**를 입력합니다.
-    2.  **보내기**를 클릭합니다.  
+    2.  **보내기**를 클릭합니다.
 
         >[AZURE.NOTE] Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다.
 
@@ -129,7 +129,7 @@ Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Wikispa
 
 1.  Azure 클래식 포털에서 테스트 계정을 만듭니다.
 
-2.  **Wikispaces **응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **Wikispaces** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-wikispaces-tutorial/IC787195.png "사용자 할당")
 
@@ -139,4 +139,4 @@ Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Wikispa
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하십시오.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Azure 자동화에서 원본 제어 통합 | Microsoft Azure"
+    pageTitle=" Azure 자동화에서 원본 제어 통합 | Microsoft Azure"
     description="이 문서에서는 Azure 자동화에서 GitHub를 사용하는 원본 제어 통합을 설명합니다."
     services="automation"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="05/23/2016"
+    ms.date="09/12/2016"
     ms.author="magoedte;sngun" />
 
 # Azure 자동화에서 원본 제어 통합
@@ -33,7 +33,7 @@ Azure 자동화에 연결하려는 GitHub 계정 및 리포지토리가 이미 �
 
 ## 2단계 - Azure 자동화에서 원본 제어 설정
 
-1. Azure 포털의 자동화 계정 블레이드에서 **원본 제어 설정**을 클릭합니다. 
+1. Azure 포털의 자동화 계정 블레이드에서 **원본 제어 설정**을 클릭합니다.
  
     ![원본 제어 설정](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
@@ -66,16 +66,16 @@ Azure 자동화에 연결하려는 GitHub 계정 및 리포지토리가 이미 �
 
 6. 원본 제어를 설정한 다음 자동화 리소스가 자동화 계정에 만들어집니다. 두 개의 [변수 자산](automation-variables.md)이 만들어집니다.
       
-    * **Microsoft.Azure.Automation.SourceControl.Connection** 변수는 아래와 같이 연결 문자열의 값을 포함합니다.  
+    * **Microsoft.Azure.Automation.SourceControl.Connection** 변수는 아래와 같이 연결 문자열의 값을 포함합니다.
 
     |**매개 변수** |**값** |
     |:---|:---|
     | 이름 | Microsoft.Azure.Automation.SourceControl.Connection |
-    | 형식 | String |
+    | 형식 | 문자열 |
     | 값 | {"Branch":<*Your branch name*>,"RunbookFolderPath":<*Runbook folder path*>,"ProviderType":<*has a value 1 for GitHub*>,"Repository":<*Name of your repository*>,"Username":<*Your GitHub user name*>} | <br>
 
 
-    * **Microsoft.Azure.Automation.SourceControl.OAuthToken** 변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
+    * **Microsoft.Azure.Automation.SourceControl.OAuthToken** 변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.
 
     |**매개 변수** |**값** |
     |:---|:---|
@@ -85,7 +85,7 @@ Azure 자동화에 연결하려는 GitHub 계정 및 리포지토리가 이미 �
 
     ![변수](media/automation-source-control-integration/automation_04_Variables.png)
 
-    * **자동화 원본 제어**는 GitHub 계정에 권한이 부여된 응용 프로그램으로 추가됩니다. 응용 프로그램을 보려면 GitHub 홈페이지에서 **프로필** > **설정** > **응용 프로그램**으로 이동합니다. 이 응용 프로그램을 사용하면 Azure 자동화가 자동화 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
+    * **자동화 원본 제어**는 GitHub 계정에 권한이 부여된 응용 프로그램으로 추가됩니다. 응용 프로그램을 보려면 GitHub 홈페이지에서 **프로필** > **설정** > **응용 프로그램**으로 이동합니다. 이 응용 프로그램을 사용하면 Azure 자동화가 자동화 계정에 GitHub 리포지토리를 동기화할 수 있습니다.
 
     ![Git 응용 프로그램](media/automation-source-control-integration/automation_05_GitApplication.png)
 
@@ -97,7 +97,7 @@ Azure 자동화에 연결하려는 GitHub 계정 및 리포지토리가 이미 �
 
 Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변경 내용을 원본 제어 리포지토리로 푸시할 수 있습니다. runbook을 체크 인하는 단계는 다음과 같습니다.
 
-1. 자동화 계정에서 [새 텍스트 Runbook 만들기](automation-first-runbook-textual.md) 또는 [기존 텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 수행합니다. 이 runbook은 PowerShell 워크플로 또는 PowerShell 스크립트 runbook일 수 있습니다.  
+1. 자동화 계정에서 [새 텍스트 Runbook 만들기](automation-first-runbook-textual.md) 또는 [기존 텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 수행합니다. 이 runbook은 PowerShell 워크플로 또는 PowerShell 스크립트 runbook일 수 있습니다.
 
 2. Runbook을 편집한 후에 저장하고 **편집** 블레이드에서 **체크 인**을 클릭합니다.
 
@@ -120,7 +120,7 @@ Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변�
 
     ![체크 인 입력](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다. 커밋 메시지(**Azure 자동화에서 업데이트된 *Runbook 이름***)와 함께 리포지토리에 커밋이 있어야 합니다.
+6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다. 커밋 메시지**(Azure 자동화에서 업데이트된 *Runbook 이름* )**와 함께 리포지토리에 커밋이 있어야 합니다.
 
 
 
@@ -128,7 +128,7 @@ Runbook 체크 인을 사용하면 Azure 자동화에서 Runbook에 대한 변�
 
 리포지토리 동기화 블레이드에서 동기화 단추를 사용하면 리포지토리의 runbook 폴더 경로에 있는 모든 runbook을 자동화 계정으로 가져올 수 있습니다. 동일한 리포지토리는 둘 이상의 자동화 계정에 동기화될 수 있습니다. Runbook을 동기화하는 단계는 아래와 같습니다.
 
-1. 원본 제어를 설정한 자동화 계정에서 **원본 제어 통합/리포지토리 동기화 블레이드**를 열고 **동기화**를 클릭한 다음 확인 메시지가 표시될 때 **예**를 클릭하여 계속합니다.  
+1. 원본 제어를 설정한 자동화 계정에서 **원본 제어 통합/리포지토리 동기화 블레이드**를 열고 **동기화**를 클릭한 다음 확인 메시지가 표시될 때 **예**를 클릭하여 계속합니다.
 
     ![동기화 단추](media/automation-source-control-integration/automation_10_SyncButtonwithMessage.png)
 
@@ -157,8 +157,8 @@ GitHub 계정에서 연결을 끊으려면 리포지토리 동기화 블레이�
 ## 다음 단계
 
 원본 제어 통합에 대한 자세한 내용은 다음 리소스를 참조하세요.
-- [Azure 자동화: Azure 자동화에서 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-- [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
-- [Azure 자동화: Visual Studio Team Services를 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+- [Azure 자동화: Azure 자동화에서 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/)
+- [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)
+- [Azure 자동화: Visual Studio Team Services를 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

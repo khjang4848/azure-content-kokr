@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
-   ms.author="seanmck"/>
+   ms.date="09/09/2016"
+   ms.author="seanmck;mikhegn"/>
 
 # Visual Studio를 사용하여 서비스 패브릭 응용 프로그램 쓰기 및 관리 단순화하기
 
@@ -34,22 +34,28 @@ Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 
 
 ### 응용 프로그램 디버그 모드
 
-기본적으로 Visual Studio는 디버깅을 중지하거나(디버거를 연결하지 않고 앱을 배포한 경우) 응용 프로그램을 재배포하는 경우 응용 프로그램 유형의 기존 인스턴스를 제거합니다. 이 경우 응용 프로그램의 모든 데이터가 제거됩니다. 로컬로 디버깅하는 동안 응용 프로그램의 새 버전을 테스트할 때 이미 만든 데이터를 유지하려고 할 수 있습니다. Visual Studio 서비스 패브릭 도구는 **응용 프로그램 디버그 모드**라는 속성을 제공합니다. 이 속성은 **F5** 키로 응용 프로그램을 제거할 수 있는지 또는 디버그 세션이 끝난 후에 응용 프로그램을 유지할지를 제어합니다.
+기본적으로 Visual Studio는 디버깅을 중지하거나(디버거를 연결하지 않고 앱을 배포한 경우) 응용 프로그램을 재배포하는 경우 응용 프로그램 유형의 기존 인스턴스를 제거합니다. 이 경우 응용 프로그램의 모든 데이터가 제거됩니다. 로컬로 디버깅하는 동안 응용 프로그램의 새 버전을 테스트할 때 이미 만든 데이터를 유지하거나, 응용 프로그램을 계속 실행하거나, 후속 디버그 세션이 응용 프로그램을 업그레이드하도록 할 수 있습니다. Visual Studio 서비스 패브릭 도구는 **응용 프로그램 디버그 모드**라는 속성을 제공합니다. 이 속성은 **F5** 키로 응용 프로그램을 제거할지, 디버그 세션이 끝난 후에도 응용 프로그램이 계속 실행되도록 할지, 후속 디버깅 세션에서 응용 프로그램을 제거한 후 재배포하지 않고 업그레이드할지를 제어합니다.
 
 #### 응용 프로그램 디버그 모드 속성을 설정하려면
 
 1. 응용 프로그램 프로젝트의 바로 가기 메뉴에서 **속성**을 선택하거나 **F4** 키를 누릅니다.
-2. **속성** 창에서 **응용 프로그램 디버그 모드** 속성을 **제거** 또는 **자동 업그레이드**로 설정합니다.
+2. **속성** 창에서 **응용 프로그램 디버그 모드** 속성을 설정합니다.
 
     ![응용 프로그램 디버그 모드 속성 설정][debugmodeproperty]
 
-이 속성 값을 **자동 업그레이드**로 설정하면 로컬 클러스터에서 응용 프로그램은 계속 진행됩니다. 다음에 **F5** 키를 누르면 모니터링되지 않는 자동 모드를 사용하여 배포가 업그레이드로 처리되어, 응용 프로그램이 새로운 버전으로(추가된 날짜 문자열과 함께) 신속하게 업그레이드됩니다. 업그레이드 프로세스는 이전 디버그 세션에서 입력한 모든 데이터를 유지합니다.
+사용 가능한 **응용 프로그램 디버그 모드** 옵션은 다음과 같습니다.
 
-![date1이 추가된 새 응용 프로그램 버전의 예][preservedate]
+1. **자동 업그레이드**: 디버그 세션이 종료될 때 응용 프로그램이 계속 실행됩니다. 다음에 **F5** 키를 누르면 모니터링되지 않는 자동 모드를 사용하여 배포가 업그레이드로 처리되어, 응용 프로그램이 새로운 버전으로(추가된 날짜 문자열과 함께) 신속하게 업그레이드됩니다. 업그레이드 프로세스는 이전 디버그 세션에서 입력한 모든 데이터를 유지합니다.
 
-데이터는 서비스 패브릭의 응용 프로그램 업그레이드 기능을 활용하여 보존되지만 안전보다는 성능을 위해 최적화하도록 조정됩니다. 응용 프로그램 업그레이드 및 실제 환경에서 업그레이드를 수행하는 방법에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)를 참조하세요.
+2. **응용 프로그램 유지**: 디버그 세션이 종료될 때 클러스터에서 응용 프로그램이 계속 실행됩니다. 다음에 **F5** 키를 누르면 응용 프로그램이 제거되고 새로 빌드된 응용 프로그램이 클러스터에 배포됩니다.
 
->[AZURE.NOTE] Visual Studio용 서비스 패브릭 도구 1.1 버전 이전에는 이 속성이 없습니다. 1.1 버전 이전에는 **시작 시 데이터 보존** 속성을 사용하여 동일한 동작을 얻을 수 있습니다.
+3. **응용 프로그램 제거**를 선택하면 디버그 세션이 종료될 때 응용 프로그램이 제거됩니다.
+
+**자동 업그레이드**의 경우 데이터는 서비스 패브릭의 응용 프로그램 업그레이드 기능을 적용하여 보존되지만 안전보다는 성능을 위해 최적화하도록 조정됩니다. 응용 프로그램 업그레이드 및 실제 환경에서 업그레이드를 수행하는 방법에 대한 자세한 내용은 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)를 참조하세요.
+
+![데이터가 추가된 새 응용 프로그램 버전의 예][preservedata]
+
+>[AZURE.NOTE] Visual Studio용 서비스 패브릭 도구 1.1 버전 이전에는 이 속성이 없습니다. 1.1 버전 이전에는 **시작 시 데이터 보존** 속성을 사용하여 동일한 동작을 얻을 수 있습니다. "응용 프로그램 유지" 옵션은 Visual Studio용 서비스 패브릭 도구 버전 1.2에 도입되었습니다.
 
 ## 서비스 패브릭 응용 프로그램에 서비스 추가
 
@@ -85,7 +91,7 @@ Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 
 - [서비스 패브릭 응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
 - [여러 환경에 대한 응용 프로그램 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)
 - [서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
-- [Service Fabric Explorer를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
+- [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
@@ -93,7 +99,6 @@ Visual Studio에서 **F5** 키를 눌러도 응용 프로그램이 배포되고 
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
-[preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 [debugmodeproperty]: ./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="MFA 서버 모바일 앱 웹 서비스 시작" 
-	description="Azure Multi-Factor Authentication 앱은 추가적인 대역외 인증 옵션을 제공합니다. 이 옵션을 사용하면 MFA 서버는 사용자에게 푸시 알림을 사용할 수 있습니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="MFA 서버 모바일 앱 웹 서비스 시작"
+	description="Azure Multi-Factor Authentication 앱은 추가적인 대역외 인증 옵션을 제공합니다. 이 옵션을 사용하면 MFA 서버는 사용자에게 푸시 알림을 사용할 수 있습니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # MFA 서버 모바일 앱 웹 서비스 시작
 
@@ -58,11 +58,11 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 ### 모바일 앱 웹 서비스를 설치하려면
 
 <ol>
-<li>Azure Multi-Factor Authentication 서버에서 Windows 탐색기를 열고 Azure Multi-Factor Authentication 서버가 설치된 폴더로 이동합니다(예: C:\Program Files\Azure Multi-Factor Authentication). 모바일 앱 웹 서비스가 설치될 서버에 적합하게 32비트 또는 64비트 버전의 Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup 설치 파일을 선택합니다. 인터넷 연결 서버에 설치 파일을 복사합니다.</li> 
+<li>Azure Multi-Factor Authentication 서버에서 Windows 탐색기를 열고 Azure Multi-Factor Authentication 서버가 설치된 폴더로 이동합니다(예: C:\Program Files\Azure Multi-Factor Authentication). 모바일 앱 웹 서비스가 설치될 서버에 적합하게 32비트 또는 64비트 버전의 Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup 설치 파일을 선택합니다. 인터넷 연결 서버에 설치 파일을 복사합니다.</li>
 
 <li>인터넷 연결 웹 서버에서 관리자 권한으로 설치 파일을 실행해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 관리자 권한으로 명령 프롬프트를 열고 설치 파일이 복사된 위치로 이동하는 것입니다.</li>  
 
-<li>Multi-Factor AuthenticationMobileAppWebServiceSetup 설치 파일을 실행하고, 필요한 경우 사이트를 변경한 후 가상 디렉터리를 "PA" 등의 짧은 이름으로 변경합니다. 사용자가 활성화 동안 모바일 장치에 모바일 앱 웹 서비스 URL을 입력해야 하므로 짧은 가상 디렉터리 이름이 권장됩니다.</li> 
+<li>Multi-Factor AuthenticationMobileAppWebServiceSetup 설치 파일을 실행하고, 필요한 경우 사이트를 변경한 후 가상 디렉터리를 "PA" 등의 짧은 이름으로 변경합니다. 사용자가 활성화 동안 모바일 장치에 모바일 앱 웹 서비스 URL을 입력해야 하므로 짧은 가상 디렉터리 이름이 권장됩니다.</li>
 
 <li>Azure Multi-Factor AuthenticationMobileAppWebServiceSetup 설치가 끝나면 C:\inetpub\wwwroot\PA(또는 가상 디렉터리 이름에 따른 적절한 디렉터리)로 이동한 후 web.config 파일을 편집합니다.</li>  
 
@@ -72,7 +72,7 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 
 <li>모바일 앱 웹 서비스가 설치된 웹 사이트(예: 기본 웹 사이트)가 공개적으로 서명된 인증서에 아직 바인딩되지 않았으면 서버에 인증서를 설치하고(아직 설치되지 않은 경우) IIS 관리자를 연 다음 웹 사이트에 인증서를 바인딩합니다.</li>  
 
-<li>모든 컴퓨터에서 웹 브라우저를 열고 모바일 앱 웹 서비스가 설치된 URL(예: https://www.publicwebsite.com/PA)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.</li> 
+<li>모든 컴퓨터에서 웹 브라우저를 열고 모바일 앱 웹 서비스가 설치된 URL(예: https://www.publicwebsite.com/PA)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.</li>
 
 ### Azure Multi-Factor Authentication 서버에서 모바일 앱 설정 구성
 모바일 앱 웹 서비스가 설치되었으므로 포털을 사용하도록 Azure Multi-Factor Authentication 서버를 구성해야 합니다.
@@ -88,6 +88,5 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
- 
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

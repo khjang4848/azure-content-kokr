@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # 구독 및 계정 지침
@@ -29,7 +29,7 @@
 의사 결정:
 
 - IT 작업 또는 인프라를 호스트하는 데 필요한 구독 및 계정 집합은 무엇인가?
-- 조직에 맞게 계층을 어떻게 분류해야 하나?
+- 조직에 맞게 계층을 어떻게 분류해야 하는가?
 
 작업:
 
@@ -50,11 +50,11 @@ Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(�
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
-예를들어, 이 구조를 사용할 수 있습니다.
+예를 들어, 다음 구조를 사용할 수 있습니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
-동일한 예를 따라 한 지역에 특정 그룹과 관련된 하나 이상의 구독을 갖도록 결정하는 경우 명명 규칙은 계정 또는 구독 이름에 추가 사항을 인코딩하기 위해 하나의 방법으로 통합해야 합니다. 이 조직에서는 청구 보고 중에 새 계층 단계를 생성하는 데 청구 데이터 조작을 허용합니다.
+한 지역에 특정 그룹과 관련된 두 개 이상의 구독을 갖도록 결정하는 경우 명명 규칙은 계정 또는 구독 이름에 추가 데이터를 인코딩하기 위해 하나의 방법으로 통합해야 합니다. 이 조직에서는 청구 보고 중에 새 계층 단계를 생성하는 데 청구 데이터 조작을 허용합니다.
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
@@ -62,11 +62,11 @@ Azure를 사용하려면 하나 이상의 Azure 구독이 필요합니다. VM(�
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
-Microsoft는 기업 계약의 단일 계정 또는 모든 계정에 대해 다운로드한 파일을 통해 자세한 청구를 제공합니다. 예를들어, Microsoft Excel을 사용하여 이 파일을 처리할 수 있습니다. 이 프로세스는 데이터를 수집하고, 하나 이상의 계층을 별도의 열로 인코딩하는 리소스를 분할하고, 동적 보고 기능을 제공하기 위해 피벗 테이블 또는 PowerPivot을 사용합니다.
+기업 계약의 단일 계정 또는 모든 계정에 대해 다운로드한 파일을 통해 자세한 청구를 제공합니다.
 
 
 ## 다음 단계
 
 [AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

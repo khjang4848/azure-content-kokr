@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/16/2016"
 	ms.author="roalexan" />
 
 
@@ -72,7 +72,7 @@ API 관리 서비스에 대해 Azure 클래식 포털에서 **관리**를 클릭
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-**Web API 이름**으로 **AzureML 데모 API**를 입력합니다. **웹 서비스 URL**로 **https://ussouthcentral.services.azureml.net**을 입력합니다. **Web API URL 접미사**로 **azureml-demo**를 입력합니다. **Web API URL** 체계로 **HTTPS**를 확인합니다. **제품**으로 **시작**을 선택합니다. 완료되면 **저장**을 클릭하여 API를 만듭니다.
+**Web API 이름**으로 **AzureML 데모 API**를 입력합니다. **https://ussouthcentral.services.azureml.net**을 **웹 서비스 URL**로 입력합니다. **azureml-demo**를 **Web API URL 접미사**로 입력합니다. **HTTPS**를 **Web API URL** 체계로 확인합니다. **시작**을 **제품**으로 선택합니다. 완료되면 **저장**을 클릭하여 API를 만듭니다.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -130,7 +130,7 @@ API에 AzureML BES 작업을 추가하려면 **작업 추가**를 클릭합니�
 
 요청 매개 변수로는 **apiversion**에 대해 **workspace**, **service**, **2.0**을 입력하고, **details**에 대해 **true**를 입력합니다. AzureML 웹 서비스 대시보드에서 **workspace** 및 **service**를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
 
-요청 헤더로는 **헤더 추가**를 클릭하고 **Content-Type** 및 **application/json**을 입력하고 나서, **헤더 추가**를 클릭하고 **Authorization** 및 **Bearer <YOUR AZUREML SERVICE API-KEY>**을(를) 입력합니다. AzureML 웹 서비스 대시보드에서 **api key**를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
+요청 헤더로는 **헤더 추가**를 클릭하고 **Content-Type** 및 **application/json**을 입력하고 나서, **헤더 추가**를 클릭하고 **Authorization** 및 **Bearer<AZUREML 서비스 API 키>**를 입력합니다. AzureML 웹 서비스 대시보드에서 **api key**를 찾을 수 있습니다(부록 A에서 **웹 서비스 테스트** 참조).
 
 요청 본문으로 **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}**를 입력합니다.
 
@@ -384,4 +384,4 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

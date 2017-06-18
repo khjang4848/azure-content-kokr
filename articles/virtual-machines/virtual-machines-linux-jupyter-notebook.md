@@ -187,7 +187,7 @@ IPython 소스 코드 [리포지토리][]로 이동하면 노트북 예제가 �
 
 Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으로 액세스할 수 있는 강력한 인터페이스를 제공합니다. 이 인터페이스는 간단한 Python 탐색 및 학습, 데이터 분석 및 시각화, 시뮬레이션, 병렬 컴퓨팅 등 다양한 사용 사례를 처리합니다. 결과적으로 생성된 Notebook 문서에는 작업을 수행한 후 다른 Jupyter 사용자와 공유할 수 있는 전체 컴퓨팅 레코드가 포함됩니다. Jupyter Notebook은 로컬 응용 프로그램으로 사용할 수 있지만 Azure의 클라우드 배포에 이상적으로 적합합니다.
 
-또한 Jupyter의 핵심 기능은 [Python Tools for Visual Studio][] (PTVS)(영문)를 통해 Visual Studio 내에서도 사용할 수 있습니다. PTVS는 Microsoft의 무료 오픈 소스 플러그 인으로, IntelliSense, 디버깅, 프로파일링, 병렬 컴퓨팅 통합 등 고급 편집기 기능을 포함하는 고급 Python 개발 환경으로 Visual Studio를 전환해 줍니다.
+또한 Jupyter의 핵심 기능은 [Python Tools for Visual Studio][] \(PTVS)(영문)를 통해 Visual Studio 내에서도 사용할 수 있습니다. PTVS는 Microsoft의 무료 오픈 소스 플러그 인으로, IntelliSense, 디버깅, 프로파일링, 병렬 컴퓨팅 통합 등 고급 편집기 기능을 포함하는 고급 Python 개발 환경으로 Visual Studio를 전환해 줍니다.
 
 ## 다음 단계
 
@@ -197,4 +197,4 @@ Jupyter Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [리포지토리]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0601_2016--->

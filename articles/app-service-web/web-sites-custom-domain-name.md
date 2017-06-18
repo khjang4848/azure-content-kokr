@@ -154,7 +154,7 @@ A 레코드를 사용하여 Azure 앱의 IP 주소에 매핑하려면 실제로 
 <a name="cname"></a>
 ### CNAME 레코드 만들기
 
-Azure 앱의 기본 도메인 이름에 매핑하는 데 CNAME 레코드를 사용하는 경우 A 레코드로 수행하는 것처럼 추가 CNAME 레코드가 필요하지 않습니다.
+Azure 앱의 기본 도메인 이름에 매핑하는 데 CNAME 레코드를 사용하는 경우 A 레코드로 수행하는 것처럼 추가 TXT 레코드가 필요하지 않습니다.
 
 >[AZURE.IMPORTANT] 루트 도메인에 대한 CNAME 레코드를 만들지 마세요(즉, "루트 레코드"). 자세한 내용은 [루트 도메인에서 CNAME 레코드를 사용할 수 없는 이유](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain)를 참조하세요. 루트 도메인을 Azure 앱에 매핑하려면 대신 [A 레코드](#a)를 사용하세요.
 
@@ -249,4 +249,4 @@ Azure 포털의 **사용자 지정 도메인** 블레이드로 돌아가([1단�
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

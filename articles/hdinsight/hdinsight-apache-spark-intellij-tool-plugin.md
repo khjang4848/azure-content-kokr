@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="09/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -34,13 +34,38 @@
 ##필수 조건
 
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+
 * HDInsight Linux의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](hdinsight-apache-spark-jupyter-spark-sql.md)를 참조하세요.
+
 * Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
+
 * IntelliJ IDEA. 이 문서에서는 버전 15.0.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
 
 ## IntelliJ용 Azure 도구 키트에서 HDInsight 도구 설치
 
 IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트의 일부로 사용할 수 있습니다. Azure 도구 키트를 설치하는 방법에 대한 지침은 [IntelliJ용 Azure 도구 키트 설치](../azure-toolkit-for-intellij-installation.md)를 참조하세요.
+
+## Azure 구독에 로그인
+
+1. IntelliJ IDE를 시작하고 Azure 탐색기를 엽니다. IDE의 **보기** 메뉴에서 **도구 창**, **Azure 탐색기**를 차례로 클릭합니다.
+
+	![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/show-azure-explorer.png)
+
+2. **Azure 탐색기**에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음 **구독 관리**를 클릭합니다.
+
+3. **구독 관리** 대화 상자에서 **로그인**을 클릭하고 Azure 자격 증명을 입력합니다.
+
+	![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-2.png)
+
+4. 로그인하고 나면 **구독 관리** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. 대화 상자에서 **닫기**를 클릭합니다.
+
+5. **Azure 탐색기** 탭에서 **HDInsight**를 확장하여 구독 중인 HDInsight Spark 클러스터를 표시합니다.
+
+	![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-3.png)
+
+6. 클러스터 이름 노드를 더 확장하여 클러스터와 연결된 리소스(예: 저장소 계정)를 표시할 수 있습니다.
+
+	![Spark Scala 응용 프로그램 만들기](./media/hdinsight-apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
 ## HDInsight Spark 클러스터에서 Spark Scala 응용 프로그램 실행
 
@@ -145,21 +170,9 @@ IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트의 일부로 사
 
 IntelliJ용 Azure 도구 키트의 일부분인 HDInsight 도구를 사용하면 다양한 작업을 수행할 수 있습니다.
 
-### 클러스터에 대한 저장소 컨테이너 액세스
-
-1. **보기** 메뉴에서 **도구 창**을 가리킨 다음 **HDInsight 탐색기**를 클릭합니다. 메시지가 표시되면 Azure 구독에 액세스하는 데 필요한 자격 증명을 입력합니다.
-
-2. **HDInsight** 루트 노드를 확장하여 사용할 수 있는 HDInsight Spark 클러스터의 목록을 표시합니다.
-
-3. 클러스터 이름을 확장하여 클러스터에 대한 저장소 계정 및 기본 저장소 컨테이너를 표시합니다.
-
-	![클러스터 저장소 액세스](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-access-storage.png)
-
-4. 클러스터와 연결된 저장소 컨테이너 이름을 클릭합니다. 오른쪽 창에 **HVACOut** 폴더가 표시됩니다. 폴더를 두 번 클릭하여 열면 **part-*** 파일이 나타납니다. 이러한 파일 중 하나를 열어 응용 프로그램의 출력을 표시합니다.
-
 ### HDInsight 도구에서 직접 작업 보기에 액세스
 
-1. **HDInsight 탐색기**에서 Spark 클러스터 이름을 확장하고 **작업**을 클릭합니다.
+1. **Azure 탐색기**에서 **HDInsight**, Spark 클러스터 이름을 차례로 확장한 다음 **작업**을 클릭합니다.
 
 2. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 응용 프로그램이 표시됩니다. 자세한 내용을 보려면 원하는 응용 프로그램 이름을 클릭합니다.
 
@@ -171,17 +184,17 @@ IntelliJ용 Azure 도구 키트의 일부분인 HDInsight 도구를 사용하면
 
 ### Spark 기록 서버 액세스
 
-1. **HDInsight 탐색기**에서 Spark 클러스터 이름을 마우스 오른쪽 단추로 클릭한 다음 **Spark 기록 UI 열기**를 선택합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 이러한 항목은 클러스터를 프로비전하는 동안 지정해야 합니다.
+1. **Azure 탐색기**에서 **HDInsight**를 확장하고, 마우스 오른쪽 단추로 Spark 클러스터 이름을 클릭한 다음 **Spark 기록 UI 열기**를 선택합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 이러한 항목은 클러스터를 프로비전하는 동안 지정해야 합니다.
 
 2. Spark 기록 서버 대시보드에서 응용 프로그램 이름을 사용하여 방금 실행을 마친 응용 프로그램을 찾을 수 있습니다. 위의 코드에서 `val conf = new SparkConf().setAppName("MyClusterApp")`을 사용하여 응용 프로그램 이름을 설정했습니다. 그러므로 Spark 응용 프로그램의 이름은 **MyClusterApp**입니다.
 
 ### Ambari 포털 시작
 
-**HDInsight 탐색기**에서 Spark 클러스터 이름을 마우스 오른쪽 단추로 클릭한 다음 **클러스터 관리 포털 열기(Ambari)**를 선택합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 이러한 항목은 클러스터를 프로비전하는 동안 지정해야 합니다.
+**Azure 탐색기**에서 **HDInsight**를 확장하고, 마우스 오른쪽 단추로 Spark 클러스터 이름을 클릭한 다음 **클러스터 관리 포털 열기(Ambari)**를 선택합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 이러한 항목은 클러스터를 프로비전하는 동안 지정해야 합니다.
 
 ### Azure 구독 관리
 
-기본적으로 HDInsight 도구에는 모든 Azure 구독의 Spark 클러스터가 나열됩니다. 필요한 경우 클러스터에 액세스하려는 구독을 지정할 수 있습니다. **HDInsight 탐색기**에서 **HDInsight** 루트 노드를 마우스 오른쪽 단추로 클릭한 다음 **구독 관리**를 클릭합니다. 대화 상자에서 액세스하지 않으려는 구독의 확인란 선택을 취소하고 **닫기**를 클릭합니다. Azure 구독에서 로그오프하려는 경우 **로그아웃**을 클릭할 수도 있습니다.
+기본적으로 HDInsight 도구에는 모든 Azure 구독의 Spark 클러스터가 나열됩니다. 필요한 경우 클러스터에 액세스하려는 구독을 지정할 수 있습니다. **Azure 탐색기**에서 **Azure** 루트 노드를 마우스 오른쪽 단추로 클릭한 다음 **구독 관리**를 클릭합니다. 대화 상자에서 액세스하지 않으려는 구독의 확인란 선택을 취소하고 **닫기**를 클릭합니다. Azure 구독에서 로그오프하려는 경우 **로그아웃**을 클릭할 수도 있습니다.
 
 
 ## 로컬로 Spark Scala 응용 프로그램 실행
@@ -316,4 +329,4 @@ Spark에는 471MB 이상이 필요하므로 힙 크기가 충분히 크지 않�
 
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

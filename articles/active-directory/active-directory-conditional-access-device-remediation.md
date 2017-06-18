@@ -138,4 +138,4 @@ Android 휴대폰 또는 태블릿에 대한 지침을 다시 확인합니다.
 
 [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!-----HONumber=AcomDC_0831_2016-->

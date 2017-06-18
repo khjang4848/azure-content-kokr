@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
 
 
@@ -78,7 +78,7 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
 
 ## 자치 시스템 번호
 
-Microsoft는 Azure 공용, Azure 개인 및 Microsoft 피어링에 AS 12076를 사용합니다. 내부 사용을 위해 65515에서 65520으로 ASN을 예약했습니다. 16 및 32비트 AS 번호를 모두 지원합니다. 피어링 쪽(고객 또는 공급자)에서 AS는 사용자가 소유했음을 확인할 수 있는 경우 공용 ASN일 수 있거나 개인 피어링의 경우 개인 ASN 번호일 수 있습니다. 그리고 공용 및 Microsoft 피어링의 경우 공용 ASN이 필요합니다.
+Microsoft는 Azure 공용, Azure 개인 및 Microsoft 피어링에 AS 12076를 사용합니다. 내부 사용을 위해 65515에서 65520으로 ASN을 예약했습니다. 16 및 32비트 AS 번호를 모두 지원합니다. 피어링 쪽(고객 또는 공급자)에서 AS는 사용자가 소유했음을 확인할 수 있는 경우 공용 ASN일 수 있거나 개인 ASN 번호일 수 있습니다.
 
 지정된 회로의 기본 및 보조 경로에 데이터 전송 대칭에 관한 요구 사항이 없습니다. 전달 및 반환 경로는 다른 라우터 쌍을 트래버스할 수 있습니다. 동일한 경로는 사용자에게 속한 지정된 회로 쌍에 걸쳐 기본 또는 보조 쪽에서 보급되어야 합니다. 경로 메트릭이 동일할 필요는 없습니다.
 
@@ -175,4 +175,4 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 	- [클래식 배포 모델용 라우팅 구성](expressroute-howto-routing-classic.md) 또는 [Resource Manager 배포 모델용 라우팅 구성](expressroute-howto-routing-arm.md)
 	- [Express 경로 회로에 클래식 VNet 연결](expressroute-howto-linkvnet-classic.md) 또는 [Express 경로 회로에 Resource Manager VNet 연결](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 포털을 사용하여 Azure SQL 데이터베이스 관리"
+	pageTitle="Azure Portal을 사용하여 Azure SQL Database 관리 | Microsoft Azure"
 	description="Azure 포털을 사용하여 클라우드의 관계형 데이터베이스를 관리하는 방법을 알아보세요."
 	services="sql-database"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="05/20/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 
@@ -25,53 +25,151 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-[Azure 포털](https://portal.azure.com/)을 사용하여 Azure SQL 데이터베이스 및 논리 서버를 만들고, 모니터링하고, 관리할 수 있습니다. 이 문서에서는 보다 일반적인 작업에 속하는 몇 가지 사항을 중점적으로 설명합니다.
+[Azure Portal](https://portal.azure.com/)을 사용하여 Azure SQL Database 및 서버를 만들고, 모니터링하고, 관리할 수 있습니다. 이 문서에서는 더 많은 일반 작업의 간략한 설명과 더 자세한 설명에 대한 링크를 제공합니다.
 
-![데이터베이스 개요](./media/sql-database-manage-portal/sqldatabase_annotated.png)
+## Azure SQL Database, 서버 및 풀 보기
 
-## 1\. 데이터베이스 관리 작업
+사용 가능한 SQL Database 서비스를 보려면 **서비스 더 보기**를 클릭하고 검색 상자에 **SQL**을 입력합니다.
 
-![데이터베이스 관리 작업](./media/sql-database-manage-portal/sqldatabase_actions.png)
-
-Azure 포털은 데이터베이스 블레이드 상단에 액세스 가능한 일반적인 데이터베이스 작업 집합을 제공합니다. 사용자는 데이터베이스를 이전 시점으로 복원하고, Visual Studio에서 데이터베이스를 열고, 데이터베이스를 새 서버로 복사하고, 데이터베이스를 Azure 저장소 계정으로 내보낼 수 있습니다.
-
-- [SQL 데이터베이스 복원](sql-database-recovery-using-backups.md)
-- [Visual Studio에서 SQL 데이터베이스 열기](sql-database-connect-query.md)
-- [SQL 데이터베이스 내보내기](sql-database-export.md)
-
-## 2\. 데이터베이스 모니터링
-
-![데이터베이스 모니터링](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
-
-Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 트랜잭션 단위), 데이터베이스 크기 및 연결 상태에 대한 모니터링 차트를 제공합니다. CPU 비율, 데이터 IO 비율, 교착 상태, 로그 IO 비율 또는 심지어 방화벽에 의해 차단된 요청 비율을 추가로 표시하도록 이러한 모니터링 차트를 사용자 지정하고 확장할 수 있습니다.
-
-또한 지정된 메트릭을 모니터링하다가 미리 설정된 임계값에 도달하면 지정된 관리자 및 공동 관리자에게 경고하도록 경고 규칙을 설정할 수 있습니다.
-
-## 3\. 데이터베이스 보안 및 감사
-
-![데이터베이스 보안](./media/sql-database-manage-portal/sqldatabase_security.png)
-
-모든 데이터베이스 이벤트를 추적하여 Azure 저장소 계정의 감사 로그에 기록하도록 Azure SQL 데이터베이스를 구성할 수 있습니다. 이 기능은 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치를 파악하는 데 도움이 될 수 있습니다.
-
-- [SQL 데이터베이스 감사](sql-database-auditing-get-started.md)
-
-또한 중요한 데이터를 권한 없는 사용자에게 마스킹하도록 Azure SQL 데이터베이스를 구성할 수 있습니다.
-
-- [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)
+![SQL 데이터베이스](./media/sql-database-manage-portal/sql-services.png)
 
 
-## 4\. 지역에서 복제
+## Azure SQL Database를 만들거나 보는 방법
 
-![지역에서 복제](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
+**SQL 데이터베이스** 블레이드를 열려면 **SQL 데이터베이스**를 클릭한 다음 작업하려는 데이터베이스를 클릭하거나 **+추가**를 클릭하여 SQL 데이터베이스를 만듭니다. 자세한 내용은 [Azure Portal을 사용하여 빠르게 SQL Database 만들기](sql-database-get-started.md)를 참조하세요.
 
-커밋된 트랜잭션을 보조 데이터베이스에 비동기적으로 복제하도록 Azure SQL 데이터베이스를 구성할 수 있습니다. 포털의 지역에서 복제 파트를 사용하여 보조 데이터베이스가 상주할 Azure 지역을 선택할 수 있습니다.
 
-- [지역에서 복제](sql-database-geo-replication-overview.md)
+![SQL 데이터베이스](./media/sql-database-manage-portal/sql-databases.png)
+
+
+## Azure SQL Server를 만들거나 보는 방법
+
+**SQL 서버** 블레이드를 열려면 **SQL 서버**를 클릭한 다음 작업하려는 서버를 클릭하거나 **+추가**를 클릭하여 SQL Server를 만듭니다. 자세한 내용은 [Azure Portal을 사용하여 빠르게 SQL Database 만들기](sql-database-get-started.md)를 참조하세요.
+
+![SQL Server](./media/sql-database-manage-portal/sql-servers.png)
+
+
+## SQL 탄력적 풀을 만들거나 보는 방법
+
+**SQL 탄력적 풀** 블레이드를 열려면 **SQL 탄력적 풀**을 클릭한 다음 작업하려는 풀을 클릭하거나 **+추가**를 클릭하여 풀을 만듭니다. 자세한 내용은 [Azure Portal로 Elastic Database 풀 만들기](sql-database-elastic-pool-create-portal.md)를 참조하세요.
+
+![SQL 탄력적 풀](./media/sql-database-manage-portal/elastic-pools.png)
+
+
+
+## SQL 데이터베이스 설정을 업데이트하거나 보는 방법
+
+데이터베이스 설정을 보거나 업데이트하려면 SQL 데이터베이스 블레이드에서 원하는 설정을 클릭합니다.
+
+
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/settings.png)
+
+
+## SQL 데이터베이스 정규화된 서버 이름을 찾는 방법
+
+데이터베이스 서버 이름을 보려면 **SQL 데이터베이스** 블레이드에서 **개요**를 클릭하고 서버 이름을 기록해 둡니다.
+
+
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/server-name.png)
+
+
+## 내 SQL Server 및 데이터베이스에 대한 액세스를 제어하는 방화벽 규칙을 관리하는 방법
+
+방화벽 규칙을 보거나, 만들거나, 업데이트하려면 **SQL 데이터베이스** 블레이드에서 **Set server firewall**(서버 방화벽 설정)을 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)을 참조하세요.
+
+
+![방화벽 규칙](./media/sql-database-manage-portal/sql-database-firewall.png)
+
+
+## SQL 데이터베이스 서비스 계층 또는 성능 수준을 변경하는 방법
+
+
+SQL 데이터베이스의 서비스 계층 또는 성능 수준을 업데이트하려면 **SQL 데이터베이스** 블레이드에서 **가격 책정 계층(DTU 크기 조정)**을 클릭합니다. 자세한 내용은 [SQL Database의 서비스 계층 및 성능 수준(가격 책정 계층) 변경](sql-database-scale-up.md)을 참조하세요.
+
+
+![가격 책정 계층](./media/sql-database-manage-portal/pricing-tier.png)
+
+
+## SQL 데이터베이스에 대한 감사 및 위협 감지를 구성하는 방법
+
+SQL 데이터베이스에 대한 감사 및 위협 감지를 구성하려면 **SQL 데이터베이스** 블레이드에서 **감사 및 위협 감지**를 클릭합니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md) 및 [SQL Database 위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
+
+
+## SQL 데이터베이스에 대한 동적 데이터 마스킹을 구성하는 방법
+
+SQL 데이터베이스에 대한 동적 데이터 마스킹을 구성하려면 **SQL 데이터베이스** 블레이드에서 **동적 데이터 마스킹**을 클릭합니다. 자세한 내용은 [SQL 데이터베이스 동적 데이터 마스킹을 시작하는 방법](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
+
+
+## SQL 데이터베이스에 대한 TDE(투명한 데이터 암호화)를 구성하는 방법
+
+SQL 데이터베이스에 대한 투명한 데이터 암호화를 구성하려면 **SQL 데이터베이스** 블레이드에서 **투명한 데이터 암호화**를 클릭합니다. 자세한 내용은 [포털을 사용하여 데이터베이스에 대해 TDE를 사용하도록 설정](https://msdn.microsoft.com/library/dn948096#Anchor_1)을 참조하세요.
+
+## SQL 데이터베이스의 최대 크기를 변경하는 방법
+
+SQL 데이터베이스의 크기를 보거나 변경하려면 **SQL 데이터베이스** 블레이드에서 **데이터베이스 크기**를 클릭합니다. 서비스 계층 또는 성능 수준을 변경하여 데이터베이스의 최대 크기를 업데이트합니다. 자세한 내용은 [SQL Database의 서비스 계층 및 성능 수준(가격 책정 계층) 변경](sql-database-scale-up.md)을 참조하세요.
+
+## SQL 데이터베이스의 성능을 모니터링 및 개선하는 방법
+
+SQL 데이터베이스의 성능 특성을 모니터링 및 개선하려면 **SQL 데이터베이스** 블레이드에서 **성능 개요**를 클릭합니다. 자세한 내용은 [SQL 데이터베이스 성능 Insight](sql-database-performance.md)를 참조하세요.
+
+
+## 지역에서 복제를 구성하는 방법
+
+SQL 데이터베이스에 대한 지역에서 복제를 설정하려면 **SQL 데이터베이스** 블레이드에서 **지역에서 복제**를 클릭합니다. 자세한 내용은 [Azure Portal로 Azure SQL Database에 대한 지역에서 복제 구성](sql-database-geo-replication-portal.md)을 참조하세요.
+
+
+## 지역에서 복제된 SQL 데이터베이스로 장애 조치(failover)하는 방법
+
+지역에서 복제된 보조 데이터베이스로 장애 조치(failover)하려면 **SQL 데이터베이스** 블레이드에서 **지역에서 복제**를 클릭한 다음 **장애 조치(failover)**를 클릭합니다. 자세한 내용은 [Azure Portal에서 Azure SQL Database에 대해 계획 또는 계획되지 않은 장애 조치(failover) 시작](sql-database-geo-replication-failover-portal.md)을 참조하세요.
+
+
+## SQL 데이터베이스를 복사하는 방법
+
+SQL 데이터베이스를 복사하려면 **SQL 데이터베이스** 블레이드에서 **복사**를 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database 복사](sql-database-copy-portal.md)를 참조하세요.
+
+
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-copy.png)
+
+## Azure SQL Database를 BACPAC 파일에 보관하는 방법
+
+SQL 데이터베이스의 BACPAC를 만들려면 **SQL 데이터베이스** 블레이드에서 **내보내기**를 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure SQL Database를 BACPAC 파일에 보관](sql-database-export.md)을 참조하세요.
+
+
+![SQL 데이터베이스 내보내기](./media/sql-database-manage-portal/sql-database-export.png)
+
+
+
+## 이전 시점으로 SQL Database를 복원하는 방법
+
+SQL 데이터베이스를 복원하려면 **SQL 데이터베이스** 블레이드에서 **복원**을 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 이전 시점으로 Azure SQL Database 복원](sql-database-point-in-time-restore-portal.md)을 참조하세요.
+
+
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-restore.png)
+
+
+## BACPAC 파일에서 Azure SQL Database를 만드는 방법
+
+BACPAC 파일에서 SQL 데이터베이스를 만들려면 **SQL Server** 블레이드에서 **데이터베이스 가져오기**를 클릭합니다. 자세한 내용은 [BACPAC 파일을 가져와 Azure SQL Database 만들기](sql-database-import.md)를 참조하세요.
+
+
+![SQL Server](./media/sql-database-manage-portal/server-commands.png)
+
+
+## 삭제된 SQL Database 복원 방법
+
+삭제된 SQL 데이터베이스를 복원하려면 **SQL Server** 블레이드(삭제된 데이터베이스가 포함된 SQL Server)에서 **데이터베이스 삭제**를 클릭합니다. 자세한 내용은 [Azure Portal을 사용하여 삭제된 Azure SQL Database 복원](sql-database-restore-deleted-database-portal.md)을 참조하세요.
+
+## SQL Database 삭제 방법
+
+SQL 데이터베이스를 삭제하려면 **SQL 데이터베이스** 블레이드에서 **삭제**를 클릭합니다.
+
+![SQL 데이터베이스 설정](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 
 ## 추가 리소스
 
 - [SQL 데이터베이스](sql-database-technical-overview.md)
+- [Azure 포털을 사용하여 탄력적 데이터베이스 풀 모니터링 및 관리](sql-database-elastic-pool-manage-portal.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

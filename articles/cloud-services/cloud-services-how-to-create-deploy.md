@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -78,7 +78,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
-	창 맨 아래에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
+	창 아래쪽에 있는 메시지 영역에서 프로세스의 상태를 모니터링할 수 있습니다.
 
 	**클라우드 서비스** 영역이 열리고 새 클라우드 서비스가 표시됩니다. 상태가 만들어짐으로 바뀌면 클라우드 서비스 만들기가 완료된 것입니다.
 
@@ -118,7 +118,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 4. **구성**에서 **찾아보기**를 사용하여 사용할 서비스 구성 파일(.cscfg)을 선택합니다.
 
-5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **단일 인스턴스가 포함된 역할이 하나 이상 있는 경우에도 배포** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
+5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **Deploy even if one or more roles contain a single instance** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
 
     Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
@@ -141,7 +141,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
     ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: cloud-services-continuous-delivery-use-vso.md
  
 ## 다음 단계
 
@@ -150,4 +150,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md) 구성
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->
